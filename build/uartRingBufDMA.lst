@@ -1,0 +1,1632 @@
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"uartRingBufDMA.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	gPendingTXThreadID
+  20              		.section	.bss.gPendingTXThreadID,"aw",%nobits
+  21              		.align	2
+  24              	gPendingTXThreadID:
+  25 0000 00000000 		.space	4
+  26              		.global	buf
+  27              		.section	.bss.buf,"aw",%nobits
+  28              		.align	2
+  31              	buf:
+  32 0000 00000000 		.space	20
+  32      00000000 
+  32      00000000 
+  32      00000000 
+  32      00000000 
+  33              		.global	RxBuf
+  34              		.section	.bss.RxBuf,"aw",%nobits
+  35              		.align	2
+  38              	RxBuf:
+  39 0000 00000000 		.space	64
+  39      00000000 
+  39      00000000 
+  39      00000000 
+  39      00000000 
+  40              		.global	MainBuf
+  41              		.section	.bss.MainBuf,"aw",%nobits
+  42              		.align	2
+  45              	MainBuf:
+  46 0000 00000000 		.space	256
+  46      00000000 
+  46      00000000 
+  46      00000000 
+  46      00000000 
+  47              		.global	QueueMemory
+  48              		.section	.bss.QueueMemory,"aw",%nobits
+  49              		.align	2
+  52              	QueueMemory:
+  53 0000 00000000 		.space	256
+  53      00000000 
+  53      00000000 
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 2
+
+
+  53      00000000 
+  53      00000000 
+  54              		.global	QueueMemoryPtr
+  55              		.section	.bss.QueueMemoryPtr,"aw",%nobits
+  58              	QueueMemoryPtr:
+  59 0000 00       		.space	1
+  60              		.global	TxBuf
+  61              		.section	.bss.TxBuf,"aw",%nobits
+  62              		.align	2
+  65              	TxBuf:
+  66 0000 00000000 		.space	64
+  66      00000000 
+  66      00000000 
+  66      00000000 
+  66      00000000 
+  67              		.global	count
+  68              		.section	.bss.count,"aw",%nobits
+  71              	count:
+  72 0000 00       		.space	1
+  73              		.global	mpid_UART_MemPool
+  74              		.section	.bss.mpid_UART_MemPool,"aw",%nobits
+  75              		.align	2
+  78              	mpid_UART_MemPool:
+  79 0000 00000000 		.space	4
+  80              		.section	.text.Ringbuf_Init,"ax",%progbits
+  81              		.align	1
+  82              		.global	Ringbuf_Init
+  83              		.syntax unified
+  84              		.thumb
+  85              		.thumb_func
+  87              	Ringbuf_Init:
+  88              	.LFB220:
+  89              		.file 1 "Core/Src/uartRingBufDMA.c"
+   1:Core/Src/uartRingBufDMA.c **** /*
+   2:Core/Src/uartRingBufDMA.c ****  * uartRingBufDMA.c
+   3:Core/Src/uartRingBufDMA.c ****  *
+   4:Core/Src/uartRingBufDMA.c ****  *  Created on: Aug 12, 2021
+   5:Core/Src/uartRingBufDMA.c ****  *      Author: controllerstech.com
+   6:Core/Src/uartRingBufDMA.c ****  */
+   7:Core/Src/uartRingBufDMA.c **** 
+   8:Core/Src/uartRingBufDMA.c **** #include "cmsis_os.h"
+   9:Core/Src/uartRingBufDMA.c **** #include "stm32f4xx_hal.h"
+  10:Core/Src/uartRingBufDMA.c **** #include "uartRingBufDMA.h"
+  11:Core/Src/uartRingBufDMA.c **** #include "string.h"
+  12:Core/Src/uartRingBufDMA.c **** 
+  13:Core/Src/uartRingBufDMA.c **** 
+  14:Core/Src/uartRingBufDMA.c **** extern UART_HandleTypeDef huart1;
+  15:Core/Src/uartRingBufDMA.c **** extern DMA_HandleTypeDef hdma_usart1_rx;
+  16:Core/Src/uartRingBufDMA.c **** extern osThreadId_t UARTProcTaskHandle;
+  17:Core/Src/uartRingBufDMA.c **** extern osMessageQueueId_t uartQueueHandle;
+  18:Core/Src/uartRingBufDMA.c **** 
+  19:Core/Src/uartRingBufDMA.c **** osThreadId gPendingTXThreadID;
+  20:Core/Src/uartRingBufDMA.c **** 
+  21:Core/Src/uartRingBufDMA.c **** #define UART huart1
+  22:Core/Src/uartRingBufDMA.c **** #define DMA hdma_usart1_rx
+  23:Core/Src/uartRingBufDMA.c **** 
+  24:Core/Src/uartRingBufDMA.c **** /* Define the Size Here */
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 3
+
+
+  25:Core/Src/uartRingBufDMA.c **** #define RxBuf_SIZE 64
+  26:Core/Src/uartRingBufDMA.c **** #define TxBuf_SIZE 64
+  27:Core/Src/uartRingBufDMA.c **** #define MainBuf_SIZE 256
+  28:Core/Src/uartRingBufDMA.c **** #define UartQueue_SIZE 4
+  29:Core/Src/uartRingBufDMA.c **** 
+  30:Core/Src/uartRingBufDMA.c **** buffer_circ_t buf;
+  31:Core/Src/uartRingBufDMA.c **** uint8_t RxBuf[RxBuf_SIZE];
+  32:Core/Src/uartRingBufDMA.c **** 
+  33:Core/Src/uartRingBufDMA.c **** uint8_t MainBuf[MainBuf_SIZE];
+  34:Core/Src/uartRingBufDMA.c **** uint8_t QueueMemory[UartQueue_SIZE][RxBuf_SIZE];
+  35:Core/Src/uartRingBufDMA.c **** uint8_t QueueMemoryPtr = 0;
+  36:Core/Src/uartRingBufDMA.c **** 
+  37:Core/Src/uartRingBufDMA.c **** uint8_t TxBuf[TxBuf_SIZE]; 
+  38:Core/Src/uartRingBufDMA.c **** uint8_t count =0;
+  39:Core/Src/uartRingBufDMA.c **** 
+  40:Core/Src/uartRingBufDMA.c **** osMemoryPoolId_t mpid_UART_MemPool; // memory pool id
+  41:Core/Src/uartRingBufDMA.c **** 
+  42:Core/Src/uartRingBufDMA.c **** /* Initialize the Ring Buffer */
+  43:Core/Src/uartRingBufDMA.c **** void Ringbuf_Init ()
+  44:Core/Src/uartRingBufDMA.c **** {
+  90              		.loc 1 44 1
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 1, uses_anonymous_args = 0
+  94 0000 80B5     		push	{r7, lr}
+  95              	.LCFI0:
+  96              		.cfi_def_cfa_offset 8
+  97              		.cfi_offset 7, -8
+  98              		.cfi_offset 14, -4
+  99 0002 00AF     		add	r7, sp, #0
+ 100              	.LCFI1:
+ 101              		.cfi_def_cfa_register 7
+  45:Core/Src/uartRingBufDMA.c **** 	mpid_UART_MemPool = osMemoryPoolNew(UART_MEMPOOL_OBJECTS, sizeof(UART_MEM_BLOCK_t), NULL);
+ 102              		.loc 1 45 22
+ 103 0004 0022     		movs	r2, #0
+ 104 0006 4021     		movs	r1, #64
+ 105 0008 0820     		movs	r0, #8
+ 106 000a FFF7FEFF 		bl	osMemoryPoolNew
+ 107 000e 0346     		mov	r3, r0
+ 108              		.loc 1 45 20
+ 109 0010 0B4A     		ldr	r2, .L4
+ 110 0012 1360     		str	r3, [r2]
+  46:Core/Src/uartRingBufDMA.c ****   	if (mpid_UART_MemPool == NULL) {
+ 111              		.loc 1 46 26
+ 112 0014 0A4B     		ldr	r3, .L4
+ 113 0016 1B68     		ldr	r3, [r3]
+ 114              		.loc 1 46 7
+ 115 0018 002B     		cmp	r3, #0
+ 116 001a 00D1     		bne	.L2
+ 117              	.L3:
+  47:Core/Src/uartRingBufDMA.c **** 		 // MemPool object not created, handle failure
+  48:Core/Src/uartRingBufDMA.c **** 		while(1);    	
+ 118              		.loc 1 48 8 discriminator 1
+ 119 001c FEE7     		b	.L3
+ 120              	.L2:
+  49:Core/Src/uartRingBufDMA.c ****   	}
+  50:Core/Src/uartRingBufDMA.c **** 	Ringbuf_Reset ();	
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 4
+
+
+ 121              		.loc 1 50 2
+ 122 001e FFF7FEFF 		bl	Ringbuf_Reset
+  51:Core/Src/uartRingBufDMA.c ****   	HAL_UARTEx_ReceiveToIdle_DMA(&UART, RxBuf, RxBuf_SIZE);
+ 123              		.loc 1 51 4
+ 124 0022 4022     		movs	r2, #64
+ 125 0024 0749     		ldr	r1, .L4+4
+ 126 0026 0848     		ldr	r0, .L4+8
+ 127 0028 FFF7FEFF 		bl	HAL_UARTEx_ReceiveToIdle_DMA
+  52:Core/Src/uartRingBufDMA.c ****   __HAL_DMA_DISABLE_IT(&DMA, DMA_IT_HT);
+ 128              		.loc 1 52 3
+ 129 002c 074B     		ldr	r3, .L4+12
+ 130 002e 1B68     		ldr	r3, [r3]
+ 131 0030 1A68     		ldr	r2, [r3]
+ 132 0032 064B     		ldr	r3, .L4+12
+ 133 0034 1B68     		ldr	r3, [r3]
+ 134 0036 22F00802 		bic	r2, r2, #8
+ 135 003a 1A60     		str	r2, [r3]
+  53:Core/Src/uartRingBufDMA.c **** }
+ 136              		.loc 1 53 1
+ 137 003c 00BF     		nop
+ 138 003e 80BD     		pop	{r7, pc}
+ 139              	.L5:
+ 140              		.align	2
+ 141              	.L4:
+ 142 0040 00000000 		.word	mpid_UART_MemPool
+ 143 0044 00000000 		.word	RxBuf
+ 144 0048 00000000 		.word	huart1
+ 145 004c 00000000 		.word	hdma_usart1_rx
+ 146              		.cfi_endproc
+ 147              	.LFE220:
+ 149              		.section	.text.Ringbuf_Reset,"ax",%progbits
+ 150              		.align	1
+ 151              		.global	Ringbuf_Reset
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 156              	Ringbuf_Reset:
+ 157              	.LFB221:
+  54:Core/Src/uartRingBufDMA.c **** 
+  55:Core/Src/uartRingBufDMA.c **** /* Resets the Ring buffer */
+  56:Core/Src/uartRingBufDMA.c **** void Ringbuf_Reset ()
+  57:Core/Src/uartRingBufDMA.c **** {
+ 158              		.loc 1 57 1
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 1, uses_anonymous_args = 0
+ 162 0000 80B5     		push	{r7, lr}
+ 163              	.LCFI2:
+ 164              		.cfi_def_cfa_offset 8
+ 165              		.cfi_offset 7, -8
+ 166              		.cfi_offset 14, -4
+ 167 0002 00AF     		add	r7, sp, #0
+ 168              	.LCFI3:
+ 169              		.cfi_def_cfa_register 7
+  58:Core/Src/uartRingBufDMA.c **** 	memset(RxBuf, '\0', RxBuf_SIZE);
+ 170              		.loc 1 58 2
+ 171 0004 4022     		movs	r2, #64
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 5
+
+
+ 172 0006 0021     		movs	r1, #0
+ 173 0008 0D48     		ldr	r0, .L7
+ 174 000a FFF7FEFF 		bl	memset
+  59:Core/Src/uartRingBufDMA.c **** 	memset(MainBuf, '\0', MainBuf_SIZE);
+ 175              		.loc 1 59 2
+ 176 000e 4FF48072 		mov	r2, #256
+ 177 0012 0021     		movs	r1, #0
+ 178 0014 0B48     		ldr	r0, .L7+4
+ 179 0016 FFF7FEFF 		bl	memset
+  60:Core/Src/uartRingBufDMA.c **** 	buf.size = MainBuf_SIZE;
+ 180              		.loc 1 60 11
+ 181 001a 0B4B     		ldr	r3, .L7+8
+ 182 001c 4FF48072 		mov	r2, #256
+ 183 0020 DA60     		str	r2, [r3, #12]
+  61:Core/Src/uartRingBufDMA.c **** 	buf.wr_offset = 0;
+ 184              		.loc 1 61 16
+ 185 0022 094B     		ldr	r3, .L7+8
+ 186 0024 0022     		movs	r2, #0
+ 187 0026 1A60     		str	r2, [r3]
+  62:Core/Src/uartRingBufDMA.c **** 	buf.rd_offset = 0;
+ 188              		.loc 1 62 16
+ 189 0028 074B     		ldr	r3, .L7+8
+ 190 002a 0022     		movs	r2, #0
+ 191 002c 5A60     		str	r2, [r3, #4]
+  63:Core/Src/uartRingBufDMA.c **** 	buf.level = 0;
+ 192              		.loc 1 63 12
+ 193 002e 064B     		ldr	r3, .L7+8
+ 194 0030 0022     		movs	r2, #0
+ 195 0032 9A60     		str	r2, [r3, #8]
+  64:Core/Src/uartRingBufDMA.c **** 	buf.data = MainBuf;
+ 196              		.loc 1 64 11
+ 197 0034 044B     		ldr	r3, .L7+8
+ 198 0036 034A     		ldr	r2, .L7+4
+ 199 0038 1A61     		str	r2, [r3, #16]
+  65:Core/Src/uartRingBufDMA.c **** }
+ 200              		.loc 1 65 1
+ 201 003a 00BF     		nop
+ 202 003c 80BD     		pop	{r7, pc}
+ 203              	.L8:
+ 204 003e 00BF     		.align	2
+ 205              	.L7:
+ 206 0040 00000000 		.word	RxBuf
+ 207 0044 00000000 		.word	MainBuf
+ 208 0048 00000000 		.word	buf
+ 209              		.cfi_endproc
+ 210              	.LFE221:
+ 212              		.section	.text.labscim_buffer_direct_input,"ax",%progbits
+ 213              		.align	1
+ 214              		.global	labscim_buffer_direct_input
+ 215              		.syntax unified
+ 216              		.thumb
+ 217              		.thumb_func
+ 219              	labscim_buffer_direct_input:
+ 220              	.LFB222:
+  66:Core/Src/uartRingBufDMA.c **** 
+  67:Core/Src/uartRingBufDMA.c **** size_t labscim_buffer_direct_input(void *data, size_t size)
+  68:Core/Src/uartRingBufDMA.c **** {
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 6
+
+
+ 221              		.loc 1 68 1
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 16
+ 224              		@ frame_needed = 1, uses_anonymous_args = 0
+ 225 0000 80B5     		push	{r7, lr}
+ 226              	.LCFI4:
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 7, -8
+ 229              		.cfi_offset 14, -4
+ 230 0002 84B0     		sub	sp, sp, #16
+ 231              	.LCFI5:
+ 232              		.cfi_def_cfa_offset 24
+ 233 0004 00AF     		add	r7, sp, #0
+ 234              	.LCFI6:
+ 235              		.cfi_def_cfa_register 7
+ 236 0006 7860     		str	r0, [r7, #4]
+ 237 0008 3960     		str	r1, [r7]
+  69:Core/Src/uartRingBufDMA.c **** 	size_t max_writesize;
+  70:Core/Src/uartRingBufDMA.c **** 	size_t write_size;
+  71:Core/Src/uartRingBufDMA.c **** 	if (buf.data == NULL)
+ 238              		.loc 1 71 9
+ 239 000a 2C4B     		ldr	r3, .L16
+ 240 000c 1B69     		ldr	r3, [r3, #16]
+ 241              		.loc 1 71 5
+ 242 000e 002B     		cmp	r3, #0
+ 243 0010 01D1     		bne	.L10
+  72:Core/Src/uartRingBufDMA.c **** 	{
+  73:Core/Src/uartRingBufDMA.c **** 		/* check your buffer parameter */
+  74:Core/Src/uartRingBufDMA.c **** 		return 0;
+ 244              		.loc 1 74 10
+ 245 0012 0023     		movs	r3, #0
+ 246 0014 4DE0     		b	.L11
+ 247              	.L10:
+  75:Core/Src/uartRingBufDMA.c **** 	}
+  76:Core/Src/uartRingBufDMA.c **** 	if (buf.wr_offset >= buf.rd_offset)
+ 248              		.loc 1 76 9
+ 249 0016 294B     		ldr	r3, .L16
+ 250 0018 1A68     		ldr	r2, [r3]
+ 251              		.loc 1 76 26
+ 252 001a 284B     		ldr	r3, .L16
+ 253 001c 5B68     		ldr	r3, [r3, #4]
+ 254              		.loc 1 76 5
+ 255 001e 9A42     		cmp	r2, r3
+ 256 0020 06D3     		bcc	.L12
+  77:Core/Src/uartRingBufDMA.c **** 	{
+  78:Core/Src/uartRingBufDMA.c **** 		max_writesize = buf.size - buf.wr_offset;
+ 257              		.loc 1 78 22
+ 258 0022 264B     		ldr	r3, .L16
+ 259 0024 DA68     		ldr	r2, [r3, #12]
+ 260              		.loc 1 78 33
+ 261 0026 254B     		ldr	r3, .L16
+ 262 0028 1B68     		ldr	r3, [r3]
+ 263              		.loc 1 78 17
+ 264 002a D31A     		subs	r3, r2, r3
+ 265 002c FB60     		str	r3, [r7, #12]
+ 266 002e 05E0     		b	.L13
+ 267              	.L12:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 7
+
+
+  79:Core/Src/uartRingBufDMA.c **** 	}
+  80:Core/Src/uartRingBufDMA.c **** 	else
+  81:Core/Src/uartRingBufDMA.c **** 	{
+  82:Core/Src/uartRingBufDMA.c **** 		max_writesize = buf.rd_offset - buf.wr_offset;
+ 268              		.loc 1 82 22
+ 269 0030 224B     		ldr	r3, .L16
+ 270 0032 5A68     		ldr	r2, [r3, #4]
+ 271              		.loc 1 82 38
+ 272 0034 214B     		ldr	r3, .L16
+ 273 0036 1B68     		ldr	r3, [r3]
+ 274              		.loc 1 82 17
+ 275 0038 D31A     		subs	r3, r2, r3
+ 276 003a FB60     		str	r3, [r7, #12]
+ 277              	.L13:
+  83:Core/Src/uartRingBufDMA.c **** 	}
+  84:Core/Src/uartRingBufDMA.c **** 	if (buf.level == buf.size)
+ 278              		.loc 1 84 9
+ 279 003c 1F4B     		ldr	r3, .L16
+ 280 003e 9A68     		ldr	r2, [r3, #8]
+ 281              		.loc 1 84 22
+ 282 0040 1E4B     		ldr	r3, .L16
+ 283 0042 DB68     		ldr	r3, [r3, #12]
+ 284              		.loc 1 84 5
+ 285 0044 9A42     		cmp	r2, r3
+ 286 0046 01D1     		bne	.L14
+  85:Core/Src/uartRingBufDMA.c **** 	{
+  86:Core/Src/uartRingBufDMA.c **** 		max_writesize = 0;
+ 287              		.loc 1 86 17
+ 288 0048 0023     		movs	r3, #0
+ 289 004a FB60     		str	r3, [r7, #12]
+ 290              	.L14:
+  87:Core/Src/uartRingBufDMA.c **** 	}
+  88:Core/Src/uartRingBufDMA.c **** 	write_size = LABSCIM_MIN(max_writesize, size);
+ 291              		.loc 1 88 13
+ 292 004c FA68     		ldr	r2, [r7, #12]
+ 293 004e 3B68     		ldr	r3, [r7]
+ 294 0050 9342     		cmp	r3, r2
+ 295 0052 28BF     		it	cs
+ 296 0054 1346     		movcs	r3, r2
+ 297 0056 BB60     		str	r3, [r7, #8]
+  89:Core/Src/uartRingBufDMA.c **** 	memcpy(buf.data + buf.wr_offset, data, write_size);
+ 298              		.loc 1 89 12
+ 299 0058 184B     		ldr	r3, .L16
+ 300 005a 1A69     		ldr	r2, [r3, #16]
+ 301              		.loc 1 89 23
+ 302 005c 174B     		ldr	r3, .L16
+ 303 005e 1B68     		ldr	r3, [r3]
+ 304              		.loc 1 89 18
+ 305 0060 1344     		add	r3, r3, r2
+ 306              		.loc 1 89 2
+ 307 0062 BA68     		ldr	r2, [r7, #8]
+ 308 0064 7968     		ldr	r1, [r7, #4]
+ 309 0066 1846     		mov	r0, r3
+ 310 0068 FFF7FEFF 		bl	memcpy
+  90:Core/Src/uartRingBufDMA.c **** 	buf.wr_offset += write_size;
+ 311              		.loc 1 90 16
+ 312 006c 134B     		ldr	r3, .L16
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 8
+
+
+ 313 006e 1A68     		ldr	r2, [r3]
+ 314 0070 BB68     		ldr	r3, [r7, #8]
+ 315 0072 1344     		add	r3, r3, r2
+ 316 0074 114A     		ldr	r2, .L16
+ 317 0076 1360     		str	r3, [r2]
+  91:Core/Src/uartRingBufDMA.c **** 	buf.level += write_size;
+ 318              		.loc 1 91 12
+ 319 0078 104B     		ldr	r3, .L16
+ 320 007a 9A68     		ldr	r2, [r3, #8]
+ 321 007c BB68     		ldr	r3, [r7, #8]
+ 322 007e 1344     		add	r3, r3, r2
+ 323 0080 0E4A     		ldr	r2, .L16
+ 324 0082 9360     		str	r3, [r2, #8]
+  92:Core/Src/uartRingBufDMA.c **** 	if (buf.wr_offset == buf.size) // warp
+ 325              		.loc 1 92 9
+ 326 0084 0D4B     		ldr	r3, .L16
+ 327 0086 1A68     		ldr	r2, [r3]
+ 328              		.loc 1 92 26
+ 329 0088 0C4B     		ldr	r3, .L16
+ 330 008a DB68     		ldr	r3, [r3, #12]
+ 331              		.loc 1 92 5
+ 332 008c 9A42     		cmp	r2, r3
+ 333 008e 0FD1     		bne	.L15
+  93:Core/Src/uartRingBufDMA.c **** 	{
+  94:Core/Src/uartRingBufDMA.c **** 		buf.wr_offset = 0;
+ 334              		.loc 1 94 17
+ 335 0090 0A4B     		ldr	r3, .L16
+ 336 0092 0022     		movs	r2, #0
+ 337 0094 1A60     		str	r2, [r3]
+  95:Core/Src/uartRingBufDMA.c **** 		return write_size + labscim_buffer_direct_input(data + write_size, size - write_size);
+ 338              		.loc 1 95 23
+ 339 0096 7A68     		ldr	r2, [r7, #4]
+ 340 0098 BB68     		ldr	r3, [r7, #8]
+ 341 009a D018     		adds	r0, r2, r3
+ 342 009c 3A68     		ldr	r2, [r7]
+ 343 009e BB68     		ldr	r3, [r7, #8]
+ 344 00a0 D31A     		subs	r3, r2, r3
+ 345 00a2 1946     		mov	r1, r3
+ 346 00a4 FFF7FEFF 		bl	labscim_buffer_direct_input
+ 347 00a8 0246     		mov	r2, r0
+ 348              		.loc 1 95 21
+ 349 00aa BB68     		ldr	r3, [r7, #8]
+ 350 00ac 1344     		add	r3, r3, r2
+ 351 00ae 00E0     		b	.L11
+ 352              	.L15:
+  96:Core/Src/uartRingBufDMA.c **** 	}
+  97:Core/Src/uartRingBufDMA.c **** 	return write_size;
+ 353              		.loc 1 97 9
+ 354 00b0 BB68     		ldr	r3, [r7, #8]
+ 355              	.L11:
+  98:Core/Src/uartRingBufDMA.c **** }
+ 356              		.loc 1 98 1
+ 357 00b2 1846     		mov	r0, r3
+ 358 00b4 1037     		adds	r7, r7, #16
+ 359              	.LCFI7:
+ 360              		.cfi_def_cfa_offset 8
+ 361 00b6 BD46     		mov	sp, r7
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 9
+
+
+ 362              	.LCFI8:
+ 363              		.cfi_def_cfa_register 13
+ 364              		@ sp needed
+ 365 00b8 80BD     		pop	{r7, pc}
+ 366              	.L17:
+ 367 00ba 00BF     		.align	2
+ 368              	.L16:
+ 369 00bc 00000000 		.word	buf
+ 370              		.cfi_endproc
+ 371              	.LFE222:
+ 373              		.section	.text.labscim_buffer_peek,"ax",%progbits
+ 374              		.align	1
+ 375              		.syntax unified
+ 376              		.thumb
+ 377              		.thumb_func
+ 379              	labscim_buffer_peek:
+ 380              	.LFB223:
+  99:Core/Src/uartRingBufDMA.c **** 
+ 100:Core/Src/uartRingBufDMA.c **** static size_t labscim_buffer_peek(void *data, size_t size)
+ 101:Core/Src/uartRingBufDMA.c **** {
+ 381              		.loc 1 101 1
+ 382              		.cfi_startproc
+ 383              		@ args = 0, pretend = 0, frame = 16
+ 384              		@ frame_needed = 1, uses_anonymous_args = 0
+ 385 0000 80B5     		push	{r7, lr}
+ 386              	.LCFI9:
+ 387              		.cfi_def_cfa_offset 8
+ 388              		.cfi_offset 7, -8
+ 389              		.cfi_offset 14, -4
+ 390 0002 86B0     		sub	sp, sp, #24
+ 391              	.LCFI10:
+ 392              		.cfi_def_cfa_offset 32
+ 393 0004 02AF     		add	r7, sp, #8
+ 394              	.LCFI11:
+ 395              		.cfi_def_cfa 7, 24
+ 396 0006 7860     		str	r0, [r7, #4]
+ 397 0008 3960     		str	r1, [r7]
+ 102:Core/Src/uartRingBufDMA.c **** 	if(buf.data == NULL) {
+ 398              		.loc 1 102 8
+ 399 000a 264B     		ldr	r3, .L25
+ 400 000c 1B69     		ldr	r3, [r3, #16]
+ 401              		.loc 1 102 4
+ 402 000e 002B     		cmp	r3, #0
+ 403 0010 01D1     		bne	.L19
+ 103:Core/Src/uartRingBufDMA.c **** 		/* check your buffer parameter */
+ 104:Core/Src/uartRingBufDMA.c **** 		return(0);
+ 404              		.loc 1 104 9
+ 405 0012 0023     		movs	r3, #0
+ 406 0014 42E0     		b	.L20
+ 407              	.L19:
+ 105:Core/Src/uartRingBufDMA.c **** 	}
+ 106:Core/Src/uartRingBufDMA.c **** 	size = LABSCIM_MIN(size,labscim_buffer_used(buf));
+ 408              		.loc 1 106 9
+ 409 0016 234B     		ldr	r3, .L25
+ 410 0018 1A69     		ldr	r2, [r3, #16]
+ 411 001a 0092     		str	r2, [sp]
+ 412 001c 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 10
+
+
+ 413 001e FFF7FEFF 		bl	labscim_buffer_used
+ 414 0022 0246     		mov	r2, r0
+ 415 0024 3B68     		ldr	r3, [r7]
+ 416 0026 9342     		cmp	r3, r2
+ 417 0028 07D9     		bls	.L21
+ 418              		.loc 1 106 9 is_stmt 0 discriminator 1
+ 419 002a 1E4B     		ldr	r3, .L25
+ 420 002c 1A69     		ldr	r2, [r3, #16]
+ 421 002e 0092     		str	r2, [sp]
+ 422 0030 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ 423 0032 FFF7FEFF 		bl	labscim_buffer_used
+ 424 0036 0346     		mov	r3, r0
+ 425 0038 00E0     		b	.L22
+ 426              	.L21:
+ 427              		.loc 1 106 9 discriminator 2
+ 428 003a 3B68     		ldr	r3, [r7]
+ 429              	.L22:
+ 430              		.loc 1 106 7 is_stmt 1 discriminator 4
+ 431 003c 3B60     		str	r3, [r7]
+ 107:Core/Src/uartRingBufDMA.c **** 	if(buf.rd_offset + size < buf.size)
+ 432              		.loc 1 107 8 discriminator 4
+ 433 003e 194B     		ldr	r3, .L25
+ 434 0040 5A68     		ldr	r2, [r3, #4]
+ 435              		.loc 1 107 19 discriminator 4
+ 436 0042 3B68     		ldr	r3, [r7]
+ 437 0044 1A44     		add	r2, r2, r3
+ 438              		.loc 1 107 31 discriminator 4
+ 439 0046 174B     		ldr	r3, .L25
+ 440 0048 DB68     		ldr	r3, [r3, #12]
+ 441              		.loc 1 107 4 discriminator 4
+ 442 004a 9A42     		cmp	r2, r3
+ 443 004c 0AD2     		bcs	.L23
+ 108:Core/Src/uartRingBufDMA.c **** 	{
+ 109:Core/Src/uartRingBufDMA.c **** 		//no warp
+ 110:Core/Src/uartRingBufDMA.c **** 		memcpy(data, buf.data + buf.rd_offset, size);
+ 444              		.loc 1 110 19
+ 445 004e 154B     		ldr	r3, .L25
+ 446 0050 1A69     		ldr	r2, [r3, #16]
+ 447              		.loc 1 110 30
+ 448 0052 144B     		ldr	r3, .L25
+ 449 0054 5B68     		ldr	r3, [r3, #4]
+ 450              		.loc 1 110 25
+ 451 0056 1344     		add	r3, r3, r2
+ 452              		.loc 1 110 3
+ 453 0058 3A68     		ldr	r2, [r7]
+ 454 005a 1946     		mov	r1, r3
+ 455 005c 7868     		ldr	r0, [r7, #4]
+ 456 005e FFF7FEFF 		bl	memcpy
+ 457 0062 1AE0     		b	.L24
+ 458              	.L23:
+ 459              	.LBB2:
+ 111:Core/Src/uartRingBufDMA.c **** 	}
+ 112:Core/Src/uartRingBufDMA.c **** 	else
+ 113:Core/Src/uartRingBufDMA.c **** 	{
+ 114:Core/Src/uartRingBufDMA.c **** 		//warp
+ 115:Core/Src/uartRingBufDMA.c **** 		size_t sz1 = buf.size - buf.rd_offset;
+ 460              		.loc 1 115 19
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 11
+
+
+ 461 0064 0F4B     		ldr	r3, .L25
+ 462 0066 DA68     		ldr	r2, [r3, #12]
+ 463              		.loc 1 115 30
+ 464 0068 0E4B     		ldr	r3, .L25
+ 465 006a 5B68     		ldr	r3, [r3, #4]
+ 466              		.loc 1 115 10
+ 467 006c D31A     		subs	r3, r2, r3
+ 468 006e FB60     		str	r3, [r7, #12]
+ 116:Core/Src/uartRingBufDMA.c **** 		memcpy(data, buf.data + buf.rd_offset, sz1);
+ 469              		.loc 1 116 19
+ 470 0070 0C4B     		ldr	r3, .L25
+ 471 0072 1A69     		ldr	r2, [r3, #16]
+ 472              		.loc 1 116 30
+ 473 0074 0B4B     		ldr	r3, .L25
+ 474 0076 5B68     		ldr	r3, [r3, #4]
+ 475              		.loc 1 116 25
+ 476 0078 1344     		add	r3, r3, r2
+ 477              		.loc 1 116 3
+ 478 007a FA68     		ldr	r2, [r7, #12]
+ 479 007c 1946     		mov	r1, r3
+ 480 007e 7868     		ldr	r0, [r7, #4]
+ 481 0080 FFF7FEFF 		bl	memcpy
+ 117:Core/Src/uartRingBufDMA.c **** 		memcpy(data+sz1,buf.data,size-sz1);
+ 482              		.loc 1 117 3
+ 483 0084 7A68     		ldr	r2, [r7, #4]
+ 484 0086 FB68     		ldr	r3, [r7, #12]
+ 485 0088 D018     		adds	r0, r2, r3
+ 486              		.loc 1 117 22
+ 487 008a 064B     		ldr	r3, .L25
+ 488 008c 1969     		ldr	r1, [r3, #16]
+ 489              		.loc 1 117 3
+ 490 008e 3A68     		ldr	r2, [r7]
+ 491 0090 FB68     		ldr	r3, [r7, #12]
+ 492 0092 D31A     		subs	r3, r2, r3
+ 493 0094 1A46     		mov	r2, r3
+ 494 0096 FFF7FEFF 		bl	memcpy
+ 495              	.L24:
+ 496              	.LBE2:
+ 118:Core/Src/uartRingBufDMA.c **** 	}
+ 119:Core/Src/uartRingBufDMA.c **** 	return size;
+ 497              		.loc 1 119 9
+ 498 009a 3B68     		ldr	r3, [r7]
+ 499              	.L20:
+ 120:Core/Src/uartRingBufDMA.c **** }
+ 500              		.loc 1 120 1
+ 501 009c 1846     		mov	r0, r3
+ 502 009e 1037     		adds	r7, r7, #16
+ 503              	.LCFI12:
+ 504              		.cfi_def_cfa_offset 8
+ 505 00a0 BD46     		mov	sp, r7
+ 506              	.LCFI13:
+ 507              		.cfi_def_cfa_register 13
+ 508              		@ sp needed
+ 509 00a2 80BD     		pop	{r7, pc}
+ 510              	.L26:
+ 511              		.align	2
+ 512              	.L25:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 12
+
+
+ 513 00a4 00000000 		.word	buf
+ 514              		.cfi_endproc
+ 515              	.LFE223:
+ 517              		.section	.text.labscim_find_char_on_buffer,"ax",%progbits
+ 518              		.align	1
+ 519              		.global	labscim_find_char_on_buffer
+ 520              		.syntax unified
+ 521              		.thumb
+ 522              		.thumb_func
+ 524              	labscim_find_char_on_buffer:
+ 525              	.LFB224:
+ 121:Core/Src/uartRingBufDMA.c **** 
+ 122:Core/Src/uartRingBufDMA.c **** int32_t labscim_find_char_on_buffer(uint8_t c)
+ 123:Core/Src/uartRingBufDMA.c **** {
+ 526              		.loc 1 123 1
+ 527              		.cfi_startproc
+ 528              		@ args = 0, pretend = 0, frame = 24
+ 529              		@ frame_needed = 1, uses_anonymous_args = 0
+ 530              		@ link register save eliminated.
+ 531 0000 80B4     		push	{r7}
+ 532              	.LCFI14:
+ 533              		.cfi_def_cfa_offset 4
+ 534              		.cfi_offset 7, -4
+ 535 0002 87B0     		sub	sp, sp, #28
+ 536              	.LCFI15:
+ 537              		.cfi_def_cfa_offset 32
+ 538 0004 00AF     		add	r7, sp, #0
+ 539              	.LCFI16:
+ 540              		.cfi_def_cfa_register 7
+ 541 0006 0346     		mov	r3, r0
+ 542 0008 FB71     		strb	r3, [r7, #7]
+ 124:Core/Src/uartRingBufDMA.c **** 	if(buf.data == NULL) {
+ 543              		.loc 1 124 8
+ 544 000a 364B     		ldr	r3, .L42
+ 545 000c 1B69     		ldr	r3, [r3, #16]
+ 546              		.loc 1 124 4
+ 547 000e 002B     		cmp	r3, #0
+ 548 0010 02D1     		bne	.L28
+ 125:Core/Src/uartRingBufDMA.c **** 		/* check your buffer parameter */
+ 126:Core/Src/uartRingBufDMA.c **** 		return(-1);
+ 549              		.loc 1 126 9
+ 550 0012 4FF0FF33 		mov	r3, #-1
+ 551 0016 5FE0     		b	.L29
+ 552              	.L28:
+ 127:Core/Src/uartRingBufDMA.c **** 	}
+ 128:Core/Src/uartRingBufDMA.c **** 	if(buf.level == 0)
+ 553              		.loc 1 128 8
+ 554 0018 324B     		ldr	r3, .L42
+ 555 001a 9B68     		ldr	r3, [r3, #8]
+ 556              		.loc 1 128 4
+ 557 001c 002B     		cmp	r3, #0
+ 558 001e 02D1     		bne	.L30
+ 129:Core/Src/uartRingBufDMA.c **** 	{
+ 130:Core/Src/uartRingBufDMA.c **** 		return -1;
+ 559              		.loc 1 130 10
+ 560 0020 4FF0FF33 		mov	r3, #-1
+ 561 0024 58E0     		b	.L29
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 13
+
+
+ 562              	.L30:
+ 131:Core/Src/uartRingBufDMA.c **** 	}
+ 132:Core/Src/uartRingBufDMA.c **** 	if (buf.rd_offset < buf.wr_offset)
+ 563              		.loc 1 132 9
+ 564 0026 2F4B     		ldr	r3, .L42
+ 565 0028 5A68     		ldr	r2, [r3, #4]
+ 566              		.loc 1 132 25
+ 567 002a 2E4B     		ldr	r3, .L42
+ 568 002c 1B68     		ldr	r3, [r3]
+ 569              		.loc 1 132 5
+ 570 002e 9A42     		cmp	r2, r3
+ 571 0030 1AD2     		bcs	.L31
+ 572              	.LBB3:
+ 133:Core/Src/uartRingBufDMA.c **** 	{
+ 134:Core/Src/uartRingBufDMA.c **** 		//no warp
+ 135:Core/Src/uartRingBufDMA.c **** 		for (uint32_t i = buf.rd_offset; i < buf.wr_offset; i++)
+ 573              		.loc 1 135 17
+ 574 0032 2C4B     		ldr	r3, .L42
+ 575 0034 5B68     		ldr	r3, [r3, #4]
+ 576 0036 7B61     		str	r3, [r7, #20]
+ 577              		.loc 1 135 3
+ 578 0038 10E0     		b	.L32
+ 579              	.L34:
+ 136:Core/Src/uartRingBufDMA.c **** 		{
+ 137:Core/Src/uartRingBufDMA.c **** 			if(buf.data[i]==c)
+ 580              		.loc 1 137 10
+ 581 003a 2A4B     		ldr	r3, .L42
+ 582 003c 1A69     		ldr	r2, [r3, #16]
+ 583              		.loc 1 137 15
+ 584 003e 7B69     		ldr	r3, [r7, #20]
+ 585 0040 1344     		add	r3, r3, r2
+ 586 0042 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 587              		.loc 1 137 6
+ 588 0044 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 589 0046 9A42     		cmp	r2, r3
+ 590 0048 05D1     		bne	.L33
+ 138:Core/Src/uartRingBufDMA.c **** 			{
+ 139:Core/Src/uartRingBufDMA.c **** 				return i-buf.rd_offset+1;
+ 591              		.loc 1 139 17
+ 592 004a 264B     		ldr	r3, .L42
+ 593 004c 5B68     		ldr	r3, [r3, #4]
+ 594              		.loc 1 139 13
+ 595 004e 7A69     		ldr	r2, [r7, #20]
+ 596 0050 D31A     		subs	r3, r2, r3
+ 597              		.loc 1 139 27
+ 598 0052 0133     		adds	r3, r3, #1
+ 599 0054 40E0     		b	.L29
+ 600              	.L33:
+ 135:Core/Src/uartRingBufDMA.c **** 		{
+ 601              		.loc 1 135 56 discriminator 2
+ 602 0056 7B69     		ldr	r3, [r7, #20]
+ 603 0058 0133     		adds	r3, r3, #1
+ 604 005a 7B61     		str	r3, [r7, #20]
+ 605              	.L32:
+ 135:Core/Src/uartRingBufDMA.c **** 		{
+ 606              		.loc 1 135 43 discriminator 1
+ 607 005c 214B     		ldr	r3, .L42
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 14
+
+
+ 608 005e 1B68     		ldr	r3, [r3]
+ 135:Core/Src/uartRingBufDMA.c **** 		{
+ 609              		.loc 1 135 38 discriminator 1
+ 610 0060 7A69     		ldr	r2, [r7, #20]
+ 611 0062 9A42     		cmp	r2, r3
+ 612 0064 E9D3     		bcc	.L34
+ 613 0066 35E0     		b	.L35
+ 614              	.L31:
+ 615              	.LBE3:
+ 616              	.LBB4:
+ 140:Core/Src/uartRingBufDMA.c **** 			}
+ 141:Core/Src/uartRingBufDMA.c **** 		}
+ 142:Core/Src/uartRingBufDMA.c **** 	}
+ 143:Core/Src/uartRingBufDMA.c **** 	else
+ 144:Core/Src/uartRingBufDMA.c **** 	{
+ 145:Core/Src/uartRingBufDMA.c **** 		//warp
+ 146:Core/Src/uartRingBufDMA.c **** 		for (uint32_t i = buf.rd_offset; i < buf.size; i++)
+ 617              		.loc 1 146 17
+ 618 0068 1E4B     		ldr	r3, .L42
+ 619 006a 5B68     		ldr	r3, [r3, #4]
+ 620 006c 3B61     		str	r3, [r7, #16]
+ 621              		.loc 1 146 3
+ 622 006e 10E0     		b	.L36
+ 623              	.L38:
+ 147:Core/Src/uartRingBufDMA.c **** 		{
+ 148:Core/Src/uartRingBufDMA.c **** 			if(buf.data[i]==c)
+ 624              		.loc 1 148 10
+ 625 0070 1C4B     		ldr	r3, .L42
+ 626 0072 1A69     		ldr	r2, [r3, #16]
+ 627              		.loc 1 148 15
+ 628 0074 3B69     		ldr	r3, [r7, #16]
+ 629 0076 1344     		add	r3, r3, r2
+ 630 0078 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 631              		.loc 1 148 6
+ 632 007a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 633 007c 9A42     		cmp	r2, r3
+ 634 007e 05D1     		bne	.L37
+ 149:Core/Src/uartRingBufDMA.c **** 			{
+ 150:Core/Src/uartRingBufDMA.c **** 				return i-buf.rd_offset+1;
+ 635              		.loc 1 150 17
+ 636 0080 184B     		ldr	r3, .L42
+ 637 0082 5B68     		ldr	r3, [r3, #4]
+ 638              		.loc 1 150 13
+ 639 0084 3A69     		ldr	r2, [r7, #16]
+ 640 0086 D31A     		subs	r3, r2, r3
+ 641              		.loc 1 150 27
+ 642 0088 0133     		adds	r3, r3, #1
+ 643 008a 25E0     		b	.L29
+ 644              	.L37:
+ 146:Core/Src/uartRingBufDMA.c **** 		{
+ 645              		.loc 1 146 51 discriminator 2
+ 646 008c 3B69     		ldr	r3, [r7, #16]
+ 647 008e 0133     		adds	r3, r3, #1
+ 648 0090 3B61     		str	r3, [r7, #16]
+ 649              	.L36:
+ 146:Core/Src/uartRingBufDMA.c **** 		{
+ 650              		.loc 1 146 43 discriminator 1
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 15
+
+
+ 651 0092 144B     		ldr	r3, .L42
+ 652 0094 DB68     		ldr	r3, [r3, #12]
+ 146:Core/Src/uartRingBufDMA.c **** 		{
+ 653              		.loc 1 146 38 discriminator 1
+ 654 0096 3A69     		ldr	r2, [r7, #16]
+ 655 0098 9A42     		cmp	r2, r3
+ 656 009a E9D3     		bcc	.L38
+ 657              	.LBE4:
+ 658              	.LBB5:
+ 151:Core/Src/uartRingBufDMA.c **** 			}
+ 152:Core/Src/uartRingBufDMA.c **** 		}
+ 153:Core/Src/uartRingBufDMA.c **** 		for (uint32_t i = 0; i < buf.wr_offset; i++)
+ 659              		.loc 1 153 17
+ 660 009c 0023     		movs	r3, #0
+ 661 009e FB60     		str	r3, [r7, #12]
+ 662              		.loc 1 153 3
+ 663 00a0 13E0     		b	.L39
+ 664              	.L41:
+ 154:Core/Src/uartRingBufDMA.c **** 		{
+ 155:Core/Src/uartRingBufDMA.c **** 			if(buf.data[i]==c)
+ 665              		.loc 1 155 10
+ 666 00a2 104B     		ldr	r3, .L42
+ 667 00a4 1A69     		ldr	r2, [r3, #16]
+ 668              		.loc 1 155 15
+ 669 00a6 FB68     		ldr	r3, [r7, #12]
+ 670 00a8 1344     		add	r3, r3, r2
+ 671 00aa 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 672              		.loc 1 155 6
+ 673 00ac FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 674 00ae 9A42     		cmp	r2, r3
+ 675 00b0 08D1     		bne	.L40
+ 156:Core/Src/uartRingBufDMA.c **** 			{
+ 157:Core/Src/uartRingBufDMA.c **** 				return buf.size-buf.rd_offset+i+1;
+ 676              		.loc 1 157 15
+ 677 00b2 0C4B     		ldr	r3, .L42
+ 678 00b4 DA68     		ldr	r2, [r3, #12]
+ 679              		.loc 1 157 24
+ 680 00b6 0B4B     		ldr	r3, .L42
+ 681 00b8 5B68     		ldr	r3, [r3, #4]
+ 682              		.loc 1 157 20
+ 683 00ba D21A     		subs	r2, r2, r3
+ 684              		.loc 1 157 34
+ 685 00bc FB68     		ldr	r3, [r7, #12]
+ 686 00be 1344     		add	r3, r3, r2
+ 687              		.loc 1 157 36
+ 688 00c0 0133     		adds	r3, r3, #1
+ 689 00c2 09E0     		b	.L29
+ 690              	.L40:
+ 153:Core/Src/uartRingBufDMA.c **** 		{
+ 691              		.loc 1 153 44 discriminator 2
+ 692 00c4 FB68     		ldr	r3, [r7, #12]
+ 693 00c6 0133     		adds	r3, r3, #1
+ 694 00c8 FB60     		str	r3, [r7, #12]
+ 695              	.L39:
+ 153:Core/Src/uartRingBufDMA.c **** 		{
+ 696              		.loc 1 153 31 discriminator 1
+ 697 00ca 064B     		ldr	r3, .L42
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 16
+
+
+ 698 00cc 1B68     		ldr	r3, [r3]
+ 153:Core/Src/uartRingBufDMA.c **** 		{
+ 699              		.loc 1 153 26 discriminator 1
+ 700 00ce FA68     		ldr	r2, [r7, #12]
+ 701 00d0 9A42     		cmp	r2, r3
+ 702 00d2 E6D3     		bcc	.L41
+ 703              	.L35:
+ 704              	.LBE5:
+ 158:Core/Src/uartRingBufDMA.c **** 			}
+ 159:Core/Src/uartRingBufDMA.c **** 		}
+ 160:Core/Src/uartRingBufDMA.c **** 	}	
+ 161:Core/Src/uartRingBufDMA.c **** 	return -1;
+ 705              		.loc 1 161 9
+ 706 00d4 4FF0FF33 		mov	r3, #-1
+ 707              	.L29:
+ 162:Core/Src/uartRingBufDMA.c **** }
+ 708              		.loc 1 162 1
+ 709 00d8 1846     		mov	r0, r3
+ 710 00da 1C37     		adds	r7, r7, #28
+ 711              	.LCFI17:
+ 712              		.cfi_def_cfa_offset 4
+ 713 00dc BD46     		mov	sp, r7
+ 714              	.LCFI18:
+ 715              		.cfi_def_cfa_register 13
+ 716              		@ sp needed
+ 717 00de 5DF8047B 		ldr	r7, [sp], #4
+ 718              	.LCFI19:
+ 719              		.cfi_restore 7
+ 720              		.cfi_def_cfa_offset 0
+ 721 00e2 7047     		bx	lr
+ 722              	.L43:
+ 723              		.align	2
+ 724              	.L42:
+ 725 00e4 00000000 		.word	buf
+ 726              		.cfi_endproc
+ 727              	.LFE224:
+ 729              		.section	.text.labscim_buffer_retrieve,"ax",%progbits
+ 730              		.align	1
+ 731              		.global	labscim_buffer_retrieve
+ 732              		.syntax unified
+ 733              		.thumb
+ 734              		.thumb_func
+ 736              	labscim_buffer_retrieve:
+ 737              	.LFB225:
+ 163:Core/Src/uartRingBufDMA.c **** 
+ 164:Core/Src/uartRingBufDMA.c **** 
+ 165:Core/Src/uartRingBufDMA.c **** int32_t labscim_buffer_retrieve(void *data, uint32_t size)
+ 166:Core/Src/uartRingBufDMA.c **** {
+ 738              		.loc 1 166 1
+ 739              		.cfi_startproc
+ 740              		@ args = 0, pretend = 0, frame = 16
+ 741              		@ frame_needed = 1, uses_anonymous_args = 0
+ 742 0000 80B5     		push	{r7, lr}
+ 743              	.LCFI20:
+ 744              		.cfi_def_cfa_offset 8
+ 745              		.cfi_offset 7, -8
+ 746              		.cfi_offset 14, -4
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 17
+
+
+ 747 0002 84B0     		sub	sp, sp, #16
+ 748              	.LCFI21:
+ 749              		.cfi_def_cfa_offset 24
+ 750 0004 00AF     		add	r7, sp, #0
+ 751              	.LCFI22:
+ 752              		.cfi_def_cfa_register 7
+ 753 0006 7860     		str	r0, [r7, #4]
+ 754 0008 3960     		str	r1, [r7]
+ 167:Core/Src/uartRingBufDMA.c **** 	size_t rd = labscim_buffer_peek(data,size);
+ 755              		.loc 1 167 14
+ 756 000a 3968     		ldr	r1, [r7]
+ 757 000c 7868     		ldr	r0, [r7, #4]
+ 758 000e FFF7FEFF 		bl	labscim_buffer_peek
+ 759 0012 F860     		str	r0, [r7, #12]
+ 168:Core/Src/uartRingBufDMA.c **** 	buf.level -= rd;
+ 760              		.loc 1 168 12
+ 761 0014 0B4B     		ldr	r3, .L46
+ 762 0016 9A68     		ldr	r2, [r3, #8]
+ 763 0018 FB68     		ldr	r3, [r7, #12]
+ 764 001a D31A     		subs	r3, r2, r3
+ 765 001c 094A     		ldr	r2, .L46
+ 766 001e 9360     		str	r3, [r2, #8]
+ 169:Core/Src/uartRingBufDMA.c **** 	buf.rd_offset= (buf.rd_offset + rd) % buf.size;
+ 767              		.loc 1 169 21
+ 768 0020 084B     		ldr	r3, .L46
+ 769 0022 5A68     		ldr	r2, [r3, #4]
+ 770              		.loc 1 169 32
+ 771 0024 FB68     		ldr	r3, [r7, #12]
+ 772 0026 1344     		add	r3, r3, r2
+ 773              		.loc 1 169 43
+ 774 0028 064A     		ldr	r2, .L46
+ 775 002a D268     		ldr	r2, [r2, #12]
+ 776              		.loc 1 169 38
+ 777 002c B3FBF2F1 		udiv	r1, r3, r2
+ 778 0030 01FB02F2 		mul	r2, r1, r2
+ 779 0034 9B1A     		subs	r3, r3, r2
+ 780              		.loc 1 169 15
+ 781 0036 034A     		ldr	r2, .L46
+ 782 0038 5360     		str	r3, [r2, #4]
+ 170:Core/Src/uartRingBufDMA.c **** 	return rd;
+ 783              		.loc 1 170 9
+ 784 003a FB68     		ldr	r3, [r7, #12]
+ 171:Core/Src/uartRingBufDMA.c **** }
+ 785              		.loc 1 171 1
+ 786 003c 1846     		mov	r0, r3
+ 787 003e 1037     		adds	r7, r7, #16
+ 788              	.LCFI23:
+ 789              		.cfi_def_cfa_offset 8
+ 790 0040 BD46     		mov	sp, r7
+ 791              	.LCFI24:
+ 792              		.cfi_def_cfa_register 13
+ 793              		@ sp needed
+ 794 0042 80BD     		pop	{r7, pc}
+ 795              	.L47:
+ 796              		.align	2
+ 797              	.L46:
+ 798 0044 00000000 		.word	buf
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 18
+
+
+ 799              		.cfi_endproc
+ 800              	.LFE225:
+ 802              		.section	.text.labscim_buffer_available,"ax",%progbits
+ 803              		.align	1
+ 804              		.global	labscim_buffer_available
+ 805              		.syntax unified
+ 806              		.thumb
+ 807              		.thumb_func
+ 809              	labscim_buffer_available:
+ 810              	.LFB226:
+ 172:Core/Src/uartRingBufDMA.c **** 
+ 173:Core/Src/uartRingBufDMA.c **** size_t labscim_buffer_available()
+ 174:Core/Src/uartRingBufDMA.c **** {
+ 811              		.loc 1 174 1
+ 812              		.cfi_startproc
+ 813              		@ args = 0, pretend = 0, frame = 0
+ 814              		@ frame_needed = 1, uses_anonymous_args = 0
+ 815              		@ link register save eliminated.
+ 816 0000 80B4     		push	{r7}
+ 817              	.LCFI25:
+ 818              		.cfi_def_cfa_offset 4
+ 819              		.cfi_offset 7, -4
+ 820 0002 00AF     		add	r7, sp, #0
+ 821              	.LCFI26:
+ 822              		.cfi_def_cfa_register 7
+ 175:Core/Src/uartRingBufDMA.c **** 	return buf.size - buf.level;
+ 823              		.loc 1 175 12
+ 824 0004 044B     		ldr	r3, .L50
+ 825 0006 DA68     		ldr	r2, [r3, #12]
+ 826              		.loc 1 175 23
+ 827 0008 034B     		ldr	r3, .L50
+ 828 000a 9B68     		ldr	r3, [r3, #8]
+ 829              		.loc 1 175 18
+ 830 000c D31A     		subs	r3, r2, r3
+ 176:Core/Src/uartRingBufDMA.c **** }
+ 831              		.loc 1 176 1
+ 832 000e 1846     		mov	r0, r3
+ 833 0010 BD46     		mov	sp, r7
+ 834              	.LCFI27:
+ 835              		.cfi_def_cfa_register 13
+ 836              		@ sp needed
+ 837 0012 5DF8047B 		ldr	r7, [sp], #4
+ 838              	.LCFI28:
+ 839              		.cfi_restore 7
+ 840              		.cfi_def_cfa_offset 0
+ 841 0016 7047     		bx	lr
+ 842              	.L51:
+ 843              		.align	2
+ 844              	.L50:
+ 845 0018 00000000 		.word	buf
+ 846              		.cfi_endproc
+ 847              	.LFE226:
+ 849              		.section	.text.labscim_buffer_used,"ax",%progbits
+ 850              		.align	1
+ 851              		.global	labscim_buffer_used
+ 852              		.syntax unified
+ 853              		.thumb
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 19
+
+
+ 854              		.thumb_func
+ 856              	labscim_buffer_used:
+ 857              	.LFB227:
+ 177:Core/Src/uartRingBufDMA.c **** 
+ 178:Core/Src/uartRingBufDMA.c **** size_t labscim_buffer_used()
+ 179:Core/Src/uartRingBufDMA.c **** {
+ 858              		.loc 1 179 1
+ 859              		.cfi_startproc
+ 860              		@ args = 0, pretend = 0, frame = 0
+ 861              		@ frame_needed = 1, uses_anonymous_args = 0
+ 862              		@ link register save eliminated.
+ 863 0000 80B4     		push	{r7}
+ 864              	.LCFI29:
+ 865              		.cfi_def_cfa_offset 4
+ 866              		.cfi_offset 7, -4
+ 867 0002 00AF     		add	r7, sp, #0
+ 868              	.LCFI30:
+ 869              		.cfi_def_cfa_register 7
+ 180:Core/Src/uartRingBufDMA.c **** 	return buf.level;    
+ 870              		.loc 1 180 12
+ 871 0004 034B     		ldr	r3, .L54
+ 872 0006 9B68     		ldr	r3, [r3, #8]
+ 181:Core/Src/uartRingBufDMA.c **** }
+ 873              		.loc 1 181 1
+ 874 0008 1846     		mov	r0, r3
+ 875 000a BD46     		mov	sp, r7
+ 876              	.LCFI31:
+ 877              		.cfi_def_cfa_register 13
+ 878              		@ sp needed
+ 879 000c 5DF8047B 		ldr	r7, [sp], #4
+ 880              	.LCFI32:
+ 881              		.cfi_restore 7
+ 882              		.cfi_def_cfa_offset 0
+ 883 0010 7047     		bx	lr
+ 884              	.L55:
+ 885 0012 00BF     		.align	2
+ 886              	.L54:
+ 887 0014 00000000 		.word	buf
+ 888              		.cfi_endproc
+ 889              	.LFE227:
+ 891              		.section	.text.HAL_UARTEx_RxEventCallback,"ax",%progbits
+ 892              		.align	1
+ 893              		.global	HAL_UARTEx_RxEventCallback
+ 894              		.syntax unified
+ 895              		.thumb
+ 896              		.thumb_func
+ 898              	HAL_UARTEx_RxEventCallback:
+ 899              	.LFB228:
+ 182:Core/Src/uartRingBufDMA.c **** 
+ 183:Core/Src/uartRingBufDMA.c **** void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+ 184:Core/Src/uartRingBufDMA.c **** {
+ 900              		.loc 1 184 1
+ 901              		.cfi_startproc
+ 902              		@ args = 0, pretend = 0, frame = 8
+ 903              		@ frame_needed = 1, uses_anonymous_args = 0
+ 904 0000 80B5     		push	{r7, lr}
+ 905              	.LCFI33:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 20
+
+
+ 906              		.cfi_def_cfa_offset 8
+ 907              		.cfi_offset 7, -8
+ 908              		.cfi_offset 14, -4
+ 909 0002 82B0     		sub	sp, sp, #8
+ 910              	.LCFI34:
+ 911              		.cfi_def_cfa_offset 16
+ 912 0004 00AF     		add	r7, sp, #0
+ 913              	.LCFI35:
+ 914              		.cfi_def_cfa_register 7
+ 915 0006 7860     		str	r0, [r7, #4]
+ 916 0008 0B46     		mov	r3, r1
+ 917 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 185:Core/Src/uartRingBufDMA.c **** 	labscim_buffer_direct_input(RxBuf, (size_t)Size);
+ 918              		.loc 1 185 2
+ 919 000c 7B88     		ldrh	r3, [r7, #2]
+ 920 000e 1946     		mov	r1, r3
+ 921 0010 0C48     		ldr	r0, .L57
+ 922 0012 FFF7FEFF 		bl	labscim_buffer_direct_input
+ 186:Core/Src/uartRingBufDMA.c **** 	/* start the DMA again */
+ 187:Core/Src/uartRingBufDMA.c **** 	HAL_UARTEx_ReceiveToIdle_DMA(&UART, (uint8_t *)RxBuf, RxBuf_SIZE);
+ 923              		.loc 1 187 2
+ 924 0016 4022     		movs	r2, #64
+ 925 0018 0A49     		ldr	r1, .L57
+ 926 001a 0B48     		ldr	r0, .L57+4
+ 927 001c FFF7FEFF 		bl	HAL_UARTEx_ReceiveToIdle_DMA
+ 188:Core/Src/uartRingBufDMA.c **** 	__HAL_DMA_DISABLE_IT(&DMA, DMA_IT_HT);
+ 928              		.loc 1 188 2
+ 929 0020 0A4B     		ldr	r3, .L57+8
+ 930 0022 1B68     		ldr	r3, [r3]
+ 931 0024 1A68     		ldr	r2, [r3]
+ 932 0026 094B     		ldr	r3, .L57+8
+ 933 0028 1B68     		ldr	r3, [r3]
+ 934 002a 22F00802 		bic	r2, r2, #8
+ 935 002e 1A60     		str	r2, [r3]
+ 189:Core/Src/uartRingBufDMA.c **** 	osThreadFlagsSet(UARTProcTaskHandle, 0x0001U);
+ 936              		.loc 1 189 2
+ 937 0030 074B     		ldr	r3, .L57+12
+ 938 0032 1B68     		ldr	r3, [r3]
+ 939 0034 0121     		movs	r1, #1
+ 940 0036 1846     		mov	r0, r3
+ 941 0038 FFF7FEFF 		bl	osThreadFlagsSet
+ 190:Core/Src/uartRingBufDMA.c **** }
+ 942              		.loc 1 190 1
+ 943 003c 00BF     		nop
+ 944 003e 0837     		adds	r7, r7, #8
+ 945              	.LCFI36:
+ 946              		.cfi_def_cfa_offset 8
+ 947 0040 BD46     		mov	sp, r7
+ 948              	.LCFI37:
+ 949              		.cfi_def_cfa_register 13
+ 950              		@ sp needed
+ 951 0042 80BD     		pop	{r7, pc}
+ 952              	.L58:
+ 953              		.align	2
+ 954              	.L57:
+ 955 0044 00000000 		.word	RxBuf
+ 956 0048 00000000 		.word	huart1
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 21
+
+
+ 957 004c 00000000 		.word	hdma_usart1_rx
+ 958 0050 00000000 		.word	UARTProcTaskHandle
+ 959              		.cfi_endproc
+ 960              	.LFE228:
+ 962              		.section	.text.SendToUART,"ax",%progbits
+ 963              		.align	1
+ 964              		.global	SendToUART
+ 965              		.syntax unified
+ 966              		.thumb
+ 967              		.thumb_func
+ 969              	SendToUART:
+ 970              	.LFB229:
+ 191:Core/Src/uartRingBufDMA.c **** 
+ 192:Core/Src/uartRingBufDMA.c **** size_t SendToUART(uint8_t *msg, size_t size)
+ 193:Core/Src/uartRingBufDMA.c **** {
+ 971              		.loc 1 193 1
+ 972              		.cfi_startproc
+ 973              		@ args = 0, pretend = 0, frame = 16
+ 974              		@ frame_needed = 1, uses_anonymous_args = 0
+ 975 0000 80B5     		push	{r7, lr}
+ 976              	.LCFI38:
+ 977              		.cfi_def_cfa_offset 8
+ 978              		.cfi_offset 7, -8
+ 979              		.cfi_offset 14, -4
+ 980 0002 84B0     		sub	sp, sp, #16
+ 981              	.LCFI39:
+ 982              		.cfi_def_cfa_offset 24
+ 983 0004 00AF     		add	r7, sp, #0
+ 984              	.LCFI40:
+ 985              		.cfi_def_cfa_register 7
+ 986 0006 7860     		str	r0, [r7, #4]
+ 987 0008 3960     		str	r1, [r7]
+ 194:Core/Src/uartRingBufDMA.c **** 	osSemaphoreAcquire(UARTTXSemaphoreHandle,osWaitForever);		
+ 988              		.loc 1 194 2
+ 989 000a 124B     		ldr	r3, .L61
+ 990 000c 1B68     		ldr	r3, [r3]
+ 991 000e 4FF0FF31 		mov	r1, #-1
+ 992 0012 1846     		mov	r0, r3
+ 993 0014 FFF7FEFF 		bl	osSemaphoreAcquire
+ 195:Core/Src/uartRingBufDMA.c **** 	uint32_t flagsX;
+ 196:Core/Src/uartRingBufDMA.c **** 	gPendingTXThreadID = osThreadGetId();
+ 994              		.loc 1 196 23
+ 995 0018 FFF7FEFF 		bl	osThreadGetId
+ 996 001c 0346     		mov	r3, r0
+ 997              		.loc 1 196 21
+ 998 001e 0E4A     		ldr	r2, .L61+4
+ 999 0020 1360     		str	r3, [r2]
+ 197:Core/Src/uartRingBufDMA.c **** 	HAL_UART_Transmit_DMA(&UART, msg, size);
+ 1000              		.loc 1 197 2
+ 1001 0022 3B68     		ldr	r3, [r7]
+ 1002 0024 9BB2     		uxth	r3, r3
+ 1003 0026 1A46     		mov	r2, r3
+ 1004 0028 7968     		ldr	r1, [r7, #4]
+ 1005 002a 0C48     		ldr	r0, .L61+8
+ 1006 002c FFF7FEFF 		bl	HAL_UART_Transmit_DMA
+ 198:Core/Src/uartRingBufDMA.c **** 	flagsX = osThreadFlagsWait(0x0001U, osFlagsWaitAny, osWaitForever); 
+ 1007              		.loc 1 198 11
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 22
+
+
+ 1008 0030 4FF0FF32 		mov	r2, #-1
+ 1009 0034 0021     		movs	r1, #0
+ 1010 0036 0120     		movs	r0, #1
+ 1011 0038 FFF7FEFF 		bl	osThreadFlagsWait
+ 1012 003c F860     		str	r0, [r7, #12]
+ 199:Core/Src/uartRingBufDMA.c **** 	osSemaphoreRelease(UARTTXSemaphoreHandle);		
+ 1013              		.loc 1 199 2
+ 1014 003e 054B     		ldr	r3, .L61
+ 1015 0040 1B68     		ldr	r3, [r3]
+ 1016 0042 1846     		mov	r0, r3
+ 1017 0044 FFF7FEFF 		bl	osSemaphoreRelease
+ 200:Core/Src/uartRingBufDMA.c **** 	return size;
+ 1018              		.loc 1 200 9
+ 1019 0048 3B68     		ldr	r3, [r7]
+ 201:Core/Src/uartRingBufDMA.c **** }
+ 1020              		.loc 1 201 1
+ 1021 004a 1846     		mov	r0, r3
+ 1022 004c 1037     		adds	r7, r7, #16
+ 1023              	.LCFI41:
+ 1024              		.cfi_def_cfa_offset 8
+ 1025 004e BD46     		mov	sp, r7
+ 1026              	.LCFI42:
+ 1027              		.cfi_def_cfa_register 13
+ 1028              		@ sp needed
+ 1029 0050 80BD     		pop	{r7, pc}
+ 1030              	.L62:
+ 1031 0052 00BF     		.align	2
+ 1032              	.L61:
+ 1033 0054 00000000 		.word	UARTTXSemaphoreHandle
+ 1034 0058 00000000 		.word	gPendingTXThreadID
+ 1035 005c 00000000 		.word	huart1
+ 1036              		.cfi_endproc
+ 1037              	.LFE229:
+ 1039              		.section	.text.HAL_UART_TxHalfCpltCallback,"ax",%progbits
+ 1040              		.align	1
+ 1041              		.global	HAL_UART_TxHalfCpltCallback
+ 1042              		.syntax unified
+ 1043              		.thumb
+ 1044              		.thumb_func
+ 1046              	HAL_UART_TxHalfCpltCallback:
+ 1047              	.LFB230:
+ 202:Core/Src/uartRingBufDMA.c **** 
+ 203:Core/Src/uartRingBufDMA.c **** void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart)
+ 204:Core/Src/uartRingBufDMA.c **** {
+ 1048              		.loc 1 204 1
+ 1049              		.cfi_startproc
+ 1050              		@ args = 0, pretend = 0, frame = 8
+ 1051              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1052              		@ link register save eliminated.
+ 1053 0000 80B4     		push	{r7}
+ 1054              	.LCFI43:
+ 1055              		.cfi_def_cfa_offset 4
+ 1056              		.cfi_offset 7, -4
+ 1057 0002 83B0     		sub	sp, sp, #12
+ 1058              	.LCFI44:
+ 1059              		.cfi_def_cfa_offset 16
+ 1060 0004 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 23
+
+
+ 1061              	.LCFI45:
+ 1062              		.cfi_def_cfa_register 7
+ 1063 0006 7860     		str	r0, [r7, #4]
+ 205:Core/Src/uartRingBufDMA.c ****   	//do nothing for now
+ 206:Core/Src/uartRingBufDMA.c **** }
+ 1064              		.loc 1 206 1
+ 1065 0008 00BF     		nop
+ 1066 000a 0C37     		adds	r7, r7, #12
+ 1067              	.LCFI46:
+ 1068              		.cfi_def_cfa_offset 4
+ 1069 000c BD46     		mov	sp, r7
+ 1070              	.LCFI47:
+ 1071              		.cfi_def_cfa_register 13
+ 1072              		@ sp needed
+ 1073 000e 5DF8047B 		ldr	r7, [sp], #4
+ 1074              	.LCFI48:
+ 1075              		.cfi_restore 7
+ 1076              		.cfi_def_cfa_offset 0
+ 1077 0012 7047     		bx	lr
+ 1078              		.cfi_endproc
+ 1079              	.LFE230:
+ 1081              		.section	.text.HAL_UART_TxCpltCallback,"ax",%progbits
+ 1082              		.align	1
+ 1083              		.global	HAL_UART_TxCpltCallback
+ 1084              		.syntax unified
+ 1085              		.thumb
+ 1086              		.thumb_func
+ 1088              	HAL_UART_TxCpltCallback:
+ 1089              	.LFB231:
+ 207:Core/Src/uartRingBufDMA.c **** 
+ 208:Core/Src/uartRingBufDMA.c **** void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+ 209:Core/Src/uartRingBufDMA.c **** {
+ 1090              		.loc 1 209 1
+ 1091              		.cfi_startproc
+ 1092              		@ args = 0, pretend = 0, frame = 8
+ 1093              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1094 0000 80B5     		push	{r7, lr}
+ 1095              	.LCFI49:
+ 1096              		.cfi_def_cfa_offset 8
+ 1097              		.cfi_offset 7, -8
+ 1098              		.cfi_offset 14, -4
+ 1099 0002 82B0     		sub	sp, sp, #8
+ 1100              	.LCFI50:
+ 1101              		.cfi_def_cfa_offset 16
+ 1102 0004 00AF     		add	r7, sp, #0
+ 1103              	.LCFI51:
+ 1104              		.cfi_def_cfa_register 7
+ 1105 0006 7860     		str	r0, [r7, #4]
+ 210:Core/Src/uartRingBufDMA.c **** 	//notify the pending thread that the transfer has completed
+ 211:Core/Src/uartRingBufDMA.c ****   	osThreadFlagsSet(gPendingTXThreadID, 0x0001U); 
+ 1106              		.loc 1 211 4
+ 1107 0008 044B     		ldr	r3, .L65
+ 1108 000a 1B68     		ldr	r3, [r3]
+ 1109 000c 0121     		movs	r1, #1
+ 1110 000e 1846     		mov	r0, r3
+ 1111 0010 FFF7FEFF 		bl	osThreadFlagsSet
+ 212:Core/Src/uartRingBufDMA.c **** }
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 24
+
+
+ 1112              		.loc 1 212 1
+ 1113 0014 00BF     		nop
+ 1114 0016 0837     		adds	r7, r7, #8
+ 1115              	.LCFI52:
+ 1116              		.cfi_def_cfa_offset 8
+ 1117 0018 BD46     		mov	sp, r7
+ 1118              	.LCFI53:
+ 1119              		.cfi_def_cfa_register 13
+ 1120              		@ sp needed
+ 1121 001a 80BD     		pop	{r7, pc}
+ 1122              	.L66:
+ 1123              		.align	2
+ 1124              	.L65:
+ 1125 001c 00000000 		.word	gPendingTXThreadID
+ 1126              		.cfi_endproc
+ 1127              	.LFE231:
+ 1129              		.section	.text.UARTProcTaskCode,"ax",%progbits
+ 1130              		.align	1
+ 1131              		.global	UARTProcTaskCode
+ 1132              		.syntax unified
+ 1133              		.thumb
+ 1134              		.thumb_func
+ 1136              	UARTProcTaskCode:
+ 1137              	.LFB232:
+ 213:Core/Src/uartRingBufDMA.c **** 
+ 214:Core/Src/uartRingBufDMA.c **** void UARTProcTaskCode(void const *argument)
+ 215:Core/Src/uartRingBufDMA.c **** {
+ 1138              		.loc 1 215 1
+ 1139              		.cfi_startproc
+ 1140              		@ args = 0, pretend = 0, frame = 24
+ 1141              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1142 0000 80B5     		push	{r7, lr}
+ 1143              	.LCFI54:
+ 1144              		.cfi_def_cfa_offset 8
+ 1145              		.cfi_offset 7, -8
+ 1146              		.cfi_offset 14, -4
+ 1147 0002 86B0     		sub	sp, sp, #24
+ 1148              	.LCFI55:
+ 1149              		.cfi_def_cfa_offset 32
+ 1150 0004 00AF     		add	r7, sp, #0
+ 1151              	.LCFI56:
+ 1152              		.cfi_def_cfa_register 7
+ 1153 0006 7860     		str	r0, [r7, #4]
+ 1154              	.L70:
+ 216:Core/Src/uartRingBufDMA.c **** 	uint32_t flagsX;
+ 217:Core/Src/uartRingBufDMA.c **** 	int32_t size;
+ 218:Core/Src/uartRingBufDMA.c **** 	UART_MEM_BLOCK_t *pMem;
+ 219:Core/Src/uartRingBufDMA.c **** 	osStatus_t status;
+ 220:Core/Src/uartRingBufDMA.c **** 	for (;;)
+ 221:Core/Src/uartRingBufDMA.c **** 	{
+ 222:Core/Src/uartRingBufDMA.c **** 		// Wait for someone to notify
+ 223:Core/Src/uartRingBufDMA.c **** 		//xTaskNotifyWait(0, 0, NULL, portMAX_DELAY);
+ 224:Core/Src/uartRingBufDMA.c **** 		flagsX = osThreadFlagsWait(0x0001U, osFlagsWaitAny, osWaitForever); /* B */
+ 1155              		.loc 1 224 12
+ 1156 0008 4FF0FF32 		mov	r2, #-1
+ 1157 000c 0021     		movs	r1, #0
+ 1158 000e 0120     		movs	r0, #1
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 25
+
+
+ 1159 0010 FFF7FEFF 		bl	osThreadFlagsWait
+ 1160 0014 7861     		str	r0, [r7, #20]
+ 225:Core/Src/uartRingBufDMA.c **** 		size = labscim_find_char_on_buffer('\n');
+ 1161              		.loc 1 225 10
+ 1162 0016 0A20     		movs	r0, #10
+ 1163 0018 FFF7FEFF 		bl	labscim_find_char_on_buffer
+ 1164 001c 3861     		str	r0, [r7, #16]
+ 226:Core/Src/uartRingBufDMA.c **** 		if(size > 0)
+ 1165              		.loc 1 226 5
+ 1166 001e 3B69     		ldr	r3, [r7, #16]
+ 1167 0020 002B     		cmp	r3, #0
+ 1168 0022 F1DD     		ble	.L70
+ 227:Core/Src/uartRingBufDMA.c **** 		{
+ 228:Core/Src/uartRingBufDMA.c **** 			pMem = (UART_MEM_BLOCK_t *)osMemoryPoolAlloc(mpid_UART_MemPool, 0U);  // get Mem Block
+ 1169              		.loc 1 228 31
+ 1170 0024 164B     		ldr	r3, .L71
+ 1171 0026 1B68     		ldr	r3, [r3]
+ 1172 0028 0021     		movs	r1, #0
+ 1173 002a 1846     		mov	r0, r3
+ 1174 002c FFF7FEFF 		bl	osMemoryPoolAlloc
+ 1175 0030 0346     		mov	r3, r0
+ 1176              		.loc 1 228 9
+ 1177 0032 FB60     		str	r3, [r7, #12]
+ 229:Core/Src/uartRingBufDMA.c **** 			if (pMem != NULL)
+ 1178              		.loc 1 229 13
+ 1179 0034 FB68     		ldr	r3, [r7, #12]
+ 1180              		.loc 1 229 7
+ 1181 0036 002B     		cmp	r3, #0
+ 1182 0038 E6D0     		beq	.L70
+ 1183              	.LBB6:
+ 230:Core/Src/uartRingBufDMA.c **** 			{ // Mem Block was available
+ 231:Core/Src/uartRingBufDMA.c **** 				taskENTER_CRITICAL();
+ 1184              		.loc 1 231 5
+ 1185 003a FFF7FEFF 		bl	vPortEnterCritical
+ 232:Core/Src/uartRingBufDMA.c **** 				labscim_buffer_retrieve(pMem->Buf, size);
+ 1186              		.loc 1 232 33
+ 1187 003e FB68     		ldr	r3, [r7, #12]
+ 1188 0040 1A46     		mov	r2, r3
+ 1189              		.loc 1 232 5
+ 1190 0042 3B69     		ldr	r3, [r7, #16]
+ 1191 0044 1946     		mov	r1, r3
+ 1192 0046 1046     		mov	r0, r2
+ 1193 0048 FFF7FEFF 		bl	labscim_buffer_retrieve
+ 233:Core/Src/uartRingBufDMA.c **** 				//Radioenge	modem sometimes sends \n\r instead \r\n -> filters this crap
+ 234:Core/Src/uartRingBufDMA.c **** 				uint8_t b;
+ 235:Core/Src/uartRingBufDMA.c **** 				labscim_buffer_peek(&b,sizeof(uint8_t));
+ 1194              		.loc 1 235 5
+ 1195 004c 07F10B03 		add	r3, r7, #11
+ 1196 0050 0121     		movs	r1, #1
+ 1197 0052 1846     		mov	r0, r3
+ 1198 0054 FFF7FEFF 		bl	labscim_buffer_peek
+ 236:Core/Src/uartRingBufDMA.c **** 				if(b=='\r')
+ 1199              		.loc 1 236 9
+ 1200 0058 FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
+ 1201              		.loc 1 236 7
+ 1202 005a 0D2B     		cmp	r3, #13
+ 1203 005c 05D1     		bne	.L69
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 26
+
+
+ 237:Core/Src/uartRingBufDMA.c **** 				{
+ 238:Core/Src/uartRingBufDMA.c **** 					labscim_buffer_retrieve(&b, sizeof(uint8_t));
+ 1204              		.loc 1 238 6
+ 1205 005e 07F10B03 		add	r3, r7, #11
+ 1206 0062 0121     		movs	r1, #1
+ 1207 0064 1846     		mov	r0, r3
+ 1208 0066 FFF7FEFF 		bl	labscim_buffer_retrieve
+ 1209              	.L69:
+ 239:Core/Src/uartRingBufDMA.c **** 				}
+ 240:Core/Src/uartRingBufDMA.c **** 				taskEXIT_CRITICAL();
+ 1210              		.loc 1 240 5
+ 1211 006a FFF7FEFF 		bl	vPortExitCritical
+ 241:Core/Src/uartRingBufDMA.c **** 				osMessageQueuePut(uartQueueHandle, &pMem,0U,0U);
+ 1212              		.loc 1 241 5
+ 1213 006e 054B     		ldr	r3, .L71+4
+ 1214 0070 1868     		ldr	r0, [r3]
+ 1215 0072 07F10C01 		add	r1, r7, #12
+ 1216 0076 0023     		movs	r3, #0
+ 1217 0078 0022     		movs	r2, #0
+ 1218 007a FFF7FEFF 		bl	osMessageQueuePut
+ 1219              	.LBE6:
+ 224:Core/Src/uartRingBufDMA.c **** 		size = labscim_find_char_on_buffer('\n');
+ 1220              		.loc 1 224 10
+ 1221 007e C3E7     		b	.L70
+ 1222              	.L72:
+ 1223              		.align	2
+ 1224              	.L71:
+ 1225 0080 00000000 		.word	mpid_UART_MemPool
+ 1226 0084 00000000 		.word	uartQueueHandle
+ 1227              		.cfi_endproc
+ 1228              	.LFE232:
+ 1230              		.text
+ 1231              	.Letext0:
+ 1232              		.file 2 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\lib\\gcc\\arm-none
+ 1233              		.file 3 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
+ 1234              		.file 4 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
+ 1235              		.file 5 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 1236              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ 1237              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1238              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1239              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 1240              		.file 10 "Core/Inc/uartRingBufDMA.h"
+ 1241              		.file 11 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h"
+ 1242              		.file 12 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\in
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 27
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 uartRingBufDMA.c
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:24     .bss.gPendingTXThreadID:00000000 gPendingTXThreadID
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:21     .bss.gPendingTXThreadID:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:31     .bss.buf:00000000 buf
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:28     .bss.buf:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:38     .bss.RxBuf:00000000 RxBuf
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:35     .bss.RxBuf:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:45     .bss.MainBuf:00000000 MainBuf
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:42     .bss.MainBuf:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:52     .bss.QueueMemory:00000000 QueueMemory
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:49     .bss.QueueMemory:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:58     .bss.QueueMemoryPtr:00000000 QueueMemoryPtr
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:59     .bss.QueueMemoryPtr:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:65     .bss.TxBuf:00000000 TxBuf
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:62     .bss.TxBuf:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:71     .bss.count:00000000 count
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:72     .bss.count:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:78     .bss.mpid_UART_MemPool:00000000 mpid_UART_MemPool
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:75     .bss.mpid_UART_MemPool:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:81     .text.Ringbuf_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:87     .text.Ringbuf_Init:00000000 Ringbuf_Init
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:156    .text.Ringbuf_Reset:00000000 Ringbuf_Reset
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:142    .text.Ringbuf_Init:00000040 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:150    .text.Ringbuf_Reset:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:206    .text.Ringbuf_Reset:00000040 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:213    .text.labscim_buffer_direct_input:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:219    .text.labscim_buffer_direct_input:00000000 labscim_buffer_direct_input
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:369    .text.labscim_buffer_direct_input:000000bc $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:374    .text.labscim_buffer_peek:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:379    .text.labscim_buffer_peek:00000000 labscim_buffer_peek
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:856    .text.labscim_buffer_used:00000000 labscim_buffer_used
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:513    .text.labscim_buffer_peek:000000a4 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:518    .text.labscim_find_char_on_buffer:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:524    .text.labscim_find_char_on_buffer:00000000 labscim_find_char_on_buffer
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:725    .text.labscim_find_char_on_buffer:000000e4 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:730    .text.labscim_buffer_retrieve:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:736    .text.labscim_buffer_retrieve:00000000 labscim_buffer_retrieve
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:798    .text.labscim_buffer_retrieve:00000044 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:803    .text.labscim_buffer_available:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:809    .text.labscim_buffer_available:00000000 labscim_buffer_available
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:845    .text.labscim_buffer_available:00000018 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:850    .text.labscim_buffer_used:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:887    .text.labscim_buffer_used:00000014 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:892    .text.HAL_UARTEx_RxEventCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:898    .text.HAL_UARTEx_RxEventCallback:00000000 HAL_UARTEx_RxEventCallback
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:955    .text.HAL_UARTEx_RxEventCallback:00000044 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:963    .text.SendToUART:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:969    .text.SendToUART:00000000 SendToUART
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1033   .text.SendToUART:00000054 $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1040   .text.HAL_UART_TxHalfCpltCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1046   .text.HAL_UART_TxHalfCpltCallback:00000000 HAL_UART_TxHalfCpltCallback
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1082   .text.HAL_UART_TxCpltCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1088   .text.HAL_UART_TxCpltCallback:00000000 HAL_UART_TxCpltCallback
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1125   .text.HAL_UART_TxCpltCallback:0000001c $d
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1130   .text.UARTProcTaskCode:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1136   .text.UARTProcTaskCode:00000000 UARTProcTaskCode
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s 			page 28
+
+
+C:\Users\DAELT\AppData\Local\Temp\ccDLoGoK.s:1225   .text.UARTProcTaskCode:00000080 $d
+
+UNDEFINED SYMBOLS
+osMemoryPoolNew
+HAL_UARTEx_ReceiveToIdle_DMA
+huart1
+hdma_usart1_rx
+memset
+memcpy
+osThreadFlagsSet
+UARTProcTaskHandle
+osSemaphoreAcquire
+osThreadGetId
+HAL_UART_Transmit_DMA
+osThreadFlagsWait
+osSemaphoreRelease
+UARTTXSemaphoreHandle
+osMemoryPoolAlloc
+vPortEnterCritical
+vPortExitCritical
+osMessageQueuePut
+uartQueueHandle

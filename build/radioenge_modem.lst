@@ -1,0 +1,1720 @@
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"radioenge_modem.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	gJoinedFSM
+  20              		.section	.bss.gJoinedFSM,"aw",%nobits
+  23              	gJoinedFSM:
+  24 0000 00       		.space	1
+  25              		.global	gRadioState
+  26              		.section	.data.gRadioState,"aw"
+  29              	gRadioState:
+  30 0000 01       		.byte	1
+  31              		.global	gConfigCmds
+  32              		.section	.data.gConfigCmds,"aw"
+  33              		.align	2
+  36              	gConfigCmds:
+  37 0000 41542B43 		.ascii	"AT+CFM=0\015\012\000"
+  37      464D3D30 
+  37      0D0A00
+  38 000b 00000000 		.space	245
+  38      00000000 
+  38      00000000 
+  38      00000000 
+  38      00000000 
+  39 0100 41542B41 		.ascii	"AT+APPKEY=7a:df:96:89:7c:17:fb:a6:34:2e:a9:15:a6:74"
+  39      50504B45 
+  39      593D3761 
+  39      3A64663A 
+  39      39363A38 
+  40 0133 3A39373A 		.ascii	":97:68\015\012\000"
+  40      36380D0A 
+  40      00
+  41 013c 00000000 		.space	196
+  41      00000000 
+  41      00000000 
+  41      00000000 
+  41      00000000 
+  42 0200 41542B41 		.ascii	"AT+APPEUI=00:00:00:00:00:00:00:00\015\012\000"
+  42      50504555 
+  42      493D3030 
+  42      3A30303A 
+  42      30303A30 
+  43 0224 00000000 		.space	220
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 2
+
+
+  43      00000000 
+  43      00000000 
+  43      00000000 
+  43      00000000 
+  44 0300 41542B43 		.ascii	"AT+CHMASK=0000:00FF:0000:0000:0004:0000\015\012\000"
+  44      484D4153 
+  44      4B3D3030 
+  44      30303A30 
+  44      3046463A 
+  45 032a 00000000 		.space	214
+  45      00000000 
+  45      00000000 
+  45      00000000 
+  45      00000000 
+  46 0400 41542B41 		.ascii	"AT+ADR=1\015\012\000"
+  46      44523D31 
+  46      0D0A00
+  47 040b 00000000 		.space	245
+  47      00000000 
+  47      00000000 
+  47      00000000 
+  47      00000000 
+  48 0500 41542B4E 		.ascii	"AT+NJM=1\015\012\000"
+  48      4A4D3D31 
+  48      0D0A00
+  49 050b 00000000 		.space	245
+  49      00000000 
+  49      00000000 
+  49      00000000 
+  49      00000000 
+  50 0600 41542B4A 		.ascii	"AT+JOIN\015\012\000"
+  50      4F494E0D 
+  50      0A00
+  51 060a 00000000 		.space	246
+  51      00000000 
+  51      00000000 
+  51      00000000 
+  51      00000000 
+  52              		.global	gConsecutiveJoinErrors
+  53              		.section	.bss.gConsecutiveJoinErrors,"aw",%nobits
+  54              		.align	2
+  57              	gConsecutiveJoinErrors:
+  58 0000 00000000 		.space	4
+  59              		.section	.text.LoRaWAN_JoinCallback,"ax",%progbits
+  60              		.align	1
+  61              		.global	LoRaWAN_JoinCallback
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  66              	LoRaWAN_JoinCallback:
+  67              	.LFB220:
+  68              		.file 1 "Core/Src/radioenge_modem.c"
+   1:Core/Src/radioenge_modem.c **** #include "cmsis_os.h"
+   2:Core/Src/radioenge_modem.c **** #include "radioenge_modem.h"
+   3:Core/Src/radioenge_modem.c **** #include "uart_at.h"
+   4:Core/Src/radioenge_modem.c **** #include "main.h"
+   5:Core/Src/radioenge_modem.c **** #include <string.h>
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 3
+
+
+   6:Core/Src/radioenge_modem.c **** 
+   7:Core/Src/radioenge_modem.c **** volatile JOINED_STATE gJoinedFSM = JOINED_TX;
+   8:Core/Src/radioenge_modem.c **** volatile RADIO_STATE gRadioState = RADIO_RESET;
+   9:Core/Src/radioenge_modem.c **** 
+  10:Core/Src/radioenge_modem.c **** extern osThreadId_t ModemMngrTaskHandle;
+  11:Core/Src/radioenge_modem.c **** extern osThreadId_t ModemSendTaskHandle;
+  12:Core/Src/radioenge_modem.c **** extern osSemaphoreId_t RadioStateSemaphoreHandle;
+  13:Core/Src/radioenge_modem.c **** extern osMessageQueueId_t ModemSendQueueHandle;
+  14:Core/Src/radioenge_modem.c **** extern osSemaphoreId_t LoRaTXSemaphoreHandle;
+  15:Core/Src/radioenge_modem.c **** extern osEventFlagsId_t ModemStatusFlagsHandle;
+  16:Core/Src/radioenge_modem.c **** extern osTimerId_t ModemLedTimerHandle;
+  17:Core/Src/radioenge_modem.c **** extern osMessageQueueId_t uartQueueHandle;
+  18:Core/Src/radioenge_modem.c **** extern osTimerId_t DutyCycleTimerHandle;
+  19:Core/Src/radioenge_modem.c **** 
+  20:Core/Src/radioenge_modem.c **** #define NUMBER_OF_STRINGS (7)
+  21:Core/Src/radioenge_modem.c **** #define STRING_LENGTH (255)
+  22:Core/Src/radioenge_modem.c **** char gConfigCmds[NUMBER_OF_STRINGS][STRING_LENGTH + 1] = {
+  23:Core/Src/radioenge_modem.c ****     //"AT\r\n",
+  24:Core/Src/radioenge_modem.c ****     //"AT\r\n"
+  25:Core/Src/radioenge_modem.c ****     "AT+CFM=0\r\n",
+  26:Core/Src/radioenge_modem.c ****     "AT+APPKEY=7a:df:96:89:7c:17:fb:a6:34:2e:a9:15:a6:74:97:68\r\n",
+  27:Core/Src/radioenge_modem.c ****     "AT+APPEUI=00:00:00:00:00:00:00:00\r\n",
+  28:Core/Src/radioenge_modem.c ****     "AT+CHMASK=0000:00FF:0000:0000:0004:0000\r\n",
+  29:Core/Src/radioenge_modem.c ****     "AT+ADR=1\r\n",
+  30:Core/Src/radioenge_modem.c ****     "AT+NJM=1\r\n",
+  31:Core/Src/radioenge_modem.c ****     "AT+JOIN\r\n",
+  32:Core/Src/radioenge_modem.c ****     
+  33:Core/Src/radioenge_modem.c **** 
+  34:Core/Src/radioenge_modem.c **** };
+  35:Core/Src/radioenge_modem.c **** 
+  36:Core/Src/radioenge_modem.c **** uint32_t gConsecutiveJoinErrors = 0;
+  37:Core/Src/radioenge_modem.c **** 
+  38:Core/Src/radioenge_modem.c **** void LoRaWAN_JoinCallback(ATResponse response)
+  39:Core/Src/radioenge_modem.c **** {
+  69              		.loc 1 39 1
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 8
+  72              		@ frame_needed = 1, uses_anonymous_args = 0
+  73 0000 80B5     		push	{r7, lr}
+  74              	.LCFI0:
+  75              		.cfi_def_cfa_offset 8
+  76              		.cfi_offset 7, -8
+  77              		.cfi_offset 14, -4
+  78 0002 82B0     		sub	sp, sp, #8
+  79              	.LCFI1:
+  80              		.cfi_def_cfa_offset 16
+  81 0004 00AF     		add	r7, sp, #0
+  82              	.LCFI2:
+  83              		.cfi_def_cfa_register 7
+  84 0006 0346     		mov	r3, r0
+  85 0008 FB71     		strb	r3, [r7, #7]
+  40:Core/Src/radioenge_modem.c ****     osSemaphoreAcquire(RadioStateSemaphoreHandle, osWaitForever);
+  86              		.loc 1 40 5
+  87 000a 184B     		ldr	r3, .L5
+  88 000c 1B68     		ldr	r3, [r3]
+  89 000e 4FF0FF31 		mov	r1, #-1
+  90 0012 1846     		mov	r0, r3
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 4
+
+
+  91 0014 FFF7FEFF 		bl	osSemaphoreAcquire
+  41:Core/Src/radioenge_modem.c ****     if (gRadioState == RADIO_JOINING)
+  92              		.loc 1 41 21
+  93 0018 154B     		ldr	r3, .L5+4
+  94 001a 1B78     		ldrb	r3, [r3]
+  95 001c DBB2     		uxtb	r3, r3
+  96              		.loc 1 41 8
+  97 001e 042B     		cmp	r3, #4
+  98 0020 1BD1     		bne	.L2
+  42:Core/Src/radioenge_modem.c ****     {
+  43:Core/Src/radioenge_modem.c ****         if (response == AT_JOINED)
+  99              		.loc 1 43 12
+ 100 0022 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 101 0024 042B     		cmp	r3, #4
+ 102 0026 06D1     		bne	.L3
+ 103              	.LBB2:
+  44:Core/Src/radioenge_modem.c ****         {
+  45:Core/Src/radioenge_modem.c ****             gConsecutiveJoinErrors = 0;
+ 104              		.loc 1 45 36
+ 105 0028 124B     		ldr	r3, .L5+8
+ 106 002a 0022     		movs	r2, #0
+ 107 002c 1A60     		str	r2, [r3]
+  46:Core/Src/radioenge_modem.c ****             SetRadioState(RADIO_READY);
+ 108              		.loc 1 46 13
+ 109 002e 0820     		movs	r0, #8
+ 110 0030 FFF7FEFF 		bl	SetRadioState
+ 111              	.LBE2:
+ 112 0034 0BE0     		b	.L4
+ 113              	.L3:
+  47:Core/Src/radioenge_modem.c ****         }
+  48:Core/Src/radioenge_modem.c ****         else
+  49:Core/Src/radioenge_modem.c ****         {
+  50:Core/Src/radioenge_modem.c ****             gConsecutiveJoinErrors++;
+ 114              		.loc 1 50 35
+ 115 0036 0F4B     		ldr	r3, .L5+8
+ 116 0038 1B68     		ldr	r3, [r3]
+ 117 003a 0133     		adds	r3, r3, #1
+ 118 003c 0D4A     		ldr	r2, .L5+8
+ 119 003e 1360     		str	r3, [r2]
+  51:Core/Src/radioenge_modem.c ****             if(gConsecutiveJoinErrors==9) //radioenge modem stops after 9 join errors
+ 120              		.loc 1 51 38
+ 121 0040 0C4B     		ldr	r3, .L5+8
+ 122 0042 1B68     		ldr	r3, [r3]
+ 123              		.loc 1 51 15
+ 124 0044 092B     		cmp	r3, #9
+ 125 0046 02D1     		bne	.L4
+ 126              	.LBB3:
+  52:Core/Src/radioenge_modem.c ****             {
+  53:Core/Src/radioenge_modem.c ****                 SetRadioState(RADIO_RESET);
+ 127              		.loc 1 53 17
+ 128 0048 0120     		movs	r0, #1
+ 129 004a FFF7FEFF 		bl	SetRadioState
+ 130              	.L4:
+ 131              	.LBE3:
+  54:Core/Src/radioenge_modem.c ****             }
+  55:Core/Src/radioenge_modem.c ****         }
+  56:Core/Src/radioenge_modem.c ****         osThreadFlagsSet(ModemMngrTaskHandle, 0x01);
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 5
+
+
+ 132              		.loc 1 56 9
+ 133 004e 0A4B     		ldr	r3, .L5+12
+ 134 0050 1B68     		ldr	r3, [r3]
+ 135 0052 0121     		movs	r1, #1
+ 136 0054 1846     		mov	r0, r3
+ 137 0056 FFF7FEFF 		bl	osThreadFlagsSet
+ 138              	.L2:
+  57:Core/Src/radioenge_modem.c ****     }
+  58:Core/Src/radioenge_modem.c ****     osSemaphoreRelease(RadioStateSemaphoreHandle);
+ 139              		.loc 1 58 5
+ 140 005a 044B     		ldr	r3, .L5
+ 141 005c 1B68     		ldr	r3, [r3]
+ 142 005e 1846     		mov	r0, r3
+ 143 0060 FFF7FEFF 		bl	osSemaphoreRelease
+  59:Core/Src/radioenge_modem.c **** }
+ 144              		.loc 1 59 1
+ 145 0064 00BF     		nop
+ 146 0066 0837     		adds	r7, r7, #8
+ 147              	.LCFI3:
+ 148              		.cfi_def_cfa_offset 8
+ 149 0068 BD46     		mov	sp, r7
+ 150              	.LCFI4:
+ 151              		.cfi_def_cfa_register 13
+ 152              		@ sp needed
+ 153 006a 80BD     		pop	{r7, pc}
+ 154              	.L6:
+ 155              		.align	2
+ 156              	.L5:
+ 157 006c 00000000 		.word	RadioStateSemaphoreHandle
+ 158 0070 00000000 		.word	gRadioState
+ 159 0074 00000000 		.word	gConsecutiveJoinErrors
+ 160 0078 00000000 		.word	ModemMngrTaskHandle
+ 161              		.cfi_endproc
+ 162              	.LFE220:
+ 164              		.section	.text.DutyCycleTimerCallback,"ax",%progbits
+ 165              		.align	1
+ 166              		.global	DutyCycleTimerCallback
+ 167              		.syntax unified
+ 168              		.thumb
+ 169              		.thumb_func
+ 171              	DutyCycleTimerCallback:
+ 172              	.LFB221:
+  60:Core/Src/radioenge_modem.c **** 
+  61:Core/Src/radioenge_modem.c **** void DutyCycleTimerCallback (void *argument) 
+  62:Core/Src/radioenge_modem.c **** {
+ 173              		.loc 1 62 1
+ 174              		.cfi_startproc
+ 175              		@ args = 0, pretend = 0, frame = 8
+ 176              		@ frame_needed = 1, uses_anonymous_args = 0
+ 177 0000 80B5     		push	{r7, lr}
+ 178              	.LCFI5:
+ 179              		.cfi_def_cfa_offset 8
+ 180              		.cfi_offset 7, -8
+ 181              		.cfi_offset 14, -4
+ 182 0002 82B0     		sub	sp, sp, #8
+ 183              	.LCFI6:
+ 184              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 6
+
+
+ 185 0004 00AF     		add	r7, sp, #0
+ 186              	.LCFI7:
+ 187              		.cfi_def_cfa_register 7
+ 188 0006 7860     		str	r0, [r7, #4]
+  63:Core/Src/radioenge_modem.c ****     osSemaphoreAcquire(RadioStateSemaphoreHandle, osWaitForever);
+ 189              		.loc 1 63 5
+ 190 0008 0B4B     		ldr	r3, .L9
+ 191 000a 1B68     		ldr	r3, [r3]
+ 192 000c 4FF0FF31 		mov	r1, #-1
+ 193 0010 1846     		mov	r0, r3
+ 194 0012 FFF7FEFF 		bl	osSemaphoreAcquire
+  64:Core/Src/radioenge_modem.c ****     if(gRadioState==RADIO_DUTYCYCLED)
+ 195              		.loc 1 64 19
+ 196 0016 094B     		ldr	r3, .L9+4
+ 197 0018 1B78     		ldrb	r3, [r3]
+ 198 001a DBB2     		uxtb	r3, r3
+ 199              		.loc 1 64 7
+ 200 001c 102B     		cmp	r3, #16
+ 201 001e 02D1     		bne	.L8
+ 202              	.LBB4:
+  65:Core/Src/radioenge_modem.c ****     {
+  66:Core/Src/radioenge_modem.c ****         SetRadioState(RADIO_READY);
+ 203              		.loc 1 66 9
+ 204 0020 0820     		movs	r0, #8
+ 205 0022 FFF7FEFF 		bl	SetRadioState
+ 206              	.L8:
+ 207              	.LBE4:
+  67:Core/Src/radioenge_modem.c ****     }  
+  68:Core/Src/radioenge_modem.c ****     osSemaphoreRelease(RadioStateSemaphoreHandle);  
+ 208              		.loc 1 68 5
+ 209 0026 044B     		ldr	r3, .L9
+ 210 0028 1B68     		ldr	r3, [r3]
+ 211 002a 1846     		mov	r0, r3
+ 212 002c FFF7FEFF 		bl	osSemaphoreRelease
+  69:Core/Src/radioenge_modem.c **** }
+ 213              		.loc 1 69 1
+ 214 0030 00BF     		nop
+ 215 0032 0837     		adds	r7, r7, #8
+ 216              	.LCFI8:
+ 217              		.cfi_def_cfa_offset 8
+ 218 0034 BD46     		mov	sp, r7
+ 219              	.LCFI9:
+ 220              		.cfi_def_cfa_register 13
+ 221              		@ sp needed
+ 222 0036 80BD     		pop	{r7, pc}
+ 223              	.L10:
+ 224              		.align	2
+ 225              	.L9:
+ 226 0038 00000000 		.word	RadioStateSemaphoreHandle
+ 227 003c 00000000 		.word	gRadioState
+ 228              		.cfi_endproc
+ 229              	.LFE221:
+ 231              		.section	.rodata
+ 232              		.align	2
+ 233              	.LC0:
+ 234 0000 41545A0D 		.ascii	"ATZ\015\012\000"
+ 234      0A00
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 7
+
+
+ 235              		.section	.text.resetRadio,"ax",%progbits
+ 236              		.align	1
+ 237              		.global	resetRadio
+ 238              		.syntax unified
+ 239              		.thumb
+ 240              		.thumb_func
+ 242              	resetRadio:
+ 243              	.LFB222:
+  70:Core/Src/radioenge_modem.c **** 
+  71:Core/Src/radioenge_modem.c **** void resetRadio(void)
+  72:Core/Src/radioenge_modem.c **** {
+ 244              		.loc 1 72 1
+ 245              		.cfi_startproc
+ 246              		@ args = 0, pretend = 0, frame = 0
+ 247              		@ frame_needed = 1, uses_anonymous_args = 0
+ 248 0000 80B5     		push	{r7, lr}
+ 249              	.LCFI10:
+ 250              		.cfi_def_cfa_offset 8
+ 251              		.cfi_offset 7, -8
+ 252              		.cfi_offset 14, -4
+ 253 0002 00AF     		add	r7, sp, #0
+ 254              	.LCFI11:
+ 255              		.cfi_def_cfa_register 7
+  73:Core/Src/radioenge_modem.c ****     while (sendRAWAT("ATZ\r\n") != AT_RESET)
+ 256              		.loc 1 73 11
+ 257 0004 03E0     		b	.L12
+ 258              	.L13:
+  74:Core/Src/radioenge_modem.c ****     {
+  75:Core/Src/radioenge_modem.c ****         osDelay(5000);
+ 259              		.loc 1 75 9
+ 260 0006 41F28830 		movw	r0, #5000
+ 261 000a FFF7FEFF 		bl	osDelay
+ 262              	.L12:
+  73:Core/Src/radioenge_modem.c ****     while (sendRAWAT("ATZ\r\n") != AT_RESET)
+ 263              		.loc 1 73 12
+ 264 000e 0448     		ldr	r0, .L15
+ 265 0010 FFF7FEFF 		bl	sendRAWAT
+ 266 0014 0346     		mov	r3, r0
+  73:Core/Src/radioenge_modem.c ****     while (sendRAWAT("ATZ\r\n") != AT_RESET)
+ 267              		.loc 1 73 33
+ 268 0016 082B     		cmp	r3, #8
+ 269 0018 F5D1     		bne	.L13
+  76:Core/Src/radioenge_modem.c ****     }
+  77:Core/Src/radioenge_modem.c ****     return;
+ 270              		.loc 1 77 5
+ 271 001a 00BF     		nop
+  78:Core/Src/radioenge_modem.c **** }
+ 272              		.loc 1 78 1
+ 273 001c 80BD     		pop	{r7, pc}
+ 274              	.L16:
+ 275 001e 00BF     		.align	2
+ 276              	.L15:
+ 277 0020 00000000 		.word	.LC0
+ 278              		.cfi_endproc
+ 279              	.LFE222:
+ 281              		.section	.text.SetRadioState,"ax",%progbits
+ 282              		.align	1
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 8
+
+
+ 283              		.global	SetRadioState
+ 284              		.syntax unified
+ 285              		.thumb
+ 286              		.thumb_func
+ 288              	SetRadioState:
+ 289              	.LFB223:
+  79:Core/Src/radioenge_modem.c **** 
+  80:Core/Src/radioenge_modem.c **** //calls to this function must be protected by semaphore RadioStateSemaphoreHandle
+  81:Core/Src/radioenge_modem.c **** void SetRadioState(RADIO_STATE state)
+  82:Core/Src/radioenge_modem.c **** {    
+ 290              		.loc 1 82 1
+ 291              		.cfi_startproc
+ 292              		@ args = 0, pretend = 0, frame = 8
+ 293              		@ frame_needed = 1, uses_anonymous_args = 0
+ 294 0000 80B5     		push	{r7, lr}
+ 295              	.LCFI12:
+ 296              		.cfi_def_cfa_offset 8
+ 297              		.cfi_offset 7, -8
+ 298              		.cfi_offset 14, -4
+ 299 0002 82B0     		sub	sp, sp, #8
+ 300              	.LCFI13:
+ 301              		.cfi_def_cfa_offset 16
+ 302 0004 00AF     		add	r7, sp, #0
+ 303              	.LCFI14:
+ 304              		.cfi_def_cfa_register 7
+ 305 0006 0346     		mov	r3, r0
+ 306 0008 FB71     		strb	r3, [r7, #7]
+  83:Core/Src/radioenge_modem.c ****     gRadioState = state;
+ 307              		.loc 1 83 17
+ 308 000a 064A     		ldr	r2, .L18
+ 309 000c FB79     		ldrb	r3, [r7, #7]
+ 310 000e 1370     		strb	r3, [r2]
+  84:Core/Src/radioenge_modem.c ****     osThreadFlagsSet(ModemMngrTaskHandle, 0x01); 
+ 311              		.loc 1 84 5
+ 312 0010 054B     		ldr	r3, .L18+4
+ 313 0012 1B68     		ldr	r3, [r3]
+ 314 0014 0121     		movs	r1, #1
+ 315 0016 1846     		mov	r0, r3
+ 316 0018 FFF7FEFF 		bl	osThreadFlagsSet
+  85:Core/Src/radioenge_modem.c **** }
+ 317              		.loc 1 85 1
+ 318 001c 00BF     		nop
+ 319 001e 0837     		adds	r7, r7, #8
+ 320              	.LCFI15:
+ 321              		.cfi_def_cfa_offset 8
+ 322 0020 BD46     		mov	sp, r7
+ 323              	.LCFI16:
+ 324              		.cfi_def_cfa_register 13
+ 325              		@ sp needed
+ 326 0022 80BD     		pop	{r7, pc}
+ 327              	.L19:
+ 328              		.align	2
+ 329              	.L18:
+ 330 0024 00000000 		.word	gRadioState
+ 331 0028 00000000 		.word	ModemMngrTaskHandle
+ 332              		.cfi_endproc
+ 333              	.LFE223:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 9
+
+
+ 335              		.section	.text.ModemLedCallback,"ax",%progbits
+ 336              		.align	1
+ 337              		.global	ModemLedCallback
+ 338              		.syntax unified
+ 339              		.thumb
+ 340              		.thumb_func
+ 342              	ModemLedCallback:
+ 343              	.LFB224:
+  86:Core/Src/radioenge_modem.c **** 
+  87:Core/Src/radioenge_modem.c **** void ModemLedCallback(void *argument) 
+  88:Core/Src/radioenge_modem.c **** {
+ 344              		.loc 1 88 1
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 8
+ 347              		@ frame_needed = 1, uses_anonymous_args = 0
+ 348 0000 80B5     		push	{r7, lr}
+ 349              	.LCFI17:
+ 350              		.cfi_def_cfa_offset 8
+ 351              		.cfi_offset 7, -8
+ 352              		.cfi_offset 14, -4
+ 353 0002 82B0     		sub	sp, sp, #8
+ 354              	.LCFI18:
+ 355              		.cfi_def_cfa_offset 16
+ 356 0004 00AF     		add	r7, sp, #0
+ 357              	.LCFI19:
+ 358              		.cfi_def_cfa_register 7
+ 359 0006 7860     		str	r0, [r7, #4]
+  89:Core/Src/radioenge_modem.c ****     //here we use gRadioState without semaphore because a preemption will only cause a momentary le
+  90:Core/Src/radioenge_modem.c ****     switch(gRadioState)
+ 360              		.loc 1 90 5
+ 361 0008 514B     		ldr	r3, .L29
+ 362 000a 1B78     		ldrb	r3, [r3]
+ 363 000c DBB2     		uxtb	r3, r3
+ 364 000e 013B     		subs	r3, r3, #1
+ 365 0010 0F2B     		cmp	r3, #15
+ 366 0012 00F28880 		bhi	.L21
+ 367 0016 01A2     		adr	r2, .L23
+ 368 0018 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 369              		.p2align 2
+ 370              	.L23:
+ 371 001c 5D000000 		.word	.L27+1
+ 372 0020 85000000 		.word	.L26+1
+ 373 0024 27010000 		.word	.L21+1
+ 374 0028 AD000000 		.word	.L25+1
+ 375 002c 27010000 		.word	.L21+1
+ 376 0030 27010000 		.word	.L21+1
+ 377 0034 27010000 		.word	.L21+1
+ 378 0038 D5000000 		.word	.L24+1
+ 379 003c 27010000 		.word	.L21+1
+ 380 0040 27010000 		.word	.L21+1
+ 381 0044 27010000 		.word	.L21+1
+ 382 0048 27010000 		.word	.L21+1
+ 383 004c 27010000 		.word	.L21+1
+ 384 0050 27010000 		.word	.L21+1
+ 385 0054 27010000 		.word	.L21+1
+ 386 0058 FF000000 		.word	.L22+1
+ 387              		.p2align 1
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 10
+
+
+ 388              	.L27:
+  91:Core/Src/radioenge_modem.c ****     {
+  92:Core/Src/radioenge_modem.c ****     case RADIO_RESET:
+  93:Core/Src/radioenge_modem.c ****     {
+  94:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED1_RED_GPIO_Port, LED1_RED_Pin);
+ 389              		.loc 1 94 9
+ 390 005c 0421     		movs	r1, #4
+ 391 005e 3D48     		ldr	r0, .L29+4
+ 392 0060 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  95:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED2_YELLOW_GPIO_Port, LED2_YELLOW_Pin, 0);
+ 393              		.loc 1 95 9
+ 394 0064 0022     		movs	r2, #0
+ 395 0066 1021     		movs	r1, #16
+ 396 0068 3A48     		ldr	r0, .L29+4
+ 397 006a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  96:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED3_GREEN_GPIO_Port, LED3_GREEN_Pin, 0);
+ 398              		.loc 1 96 9
+ 399 006e 0022     		movs	r2, #0
+ 400 0070 0221     		movs	r1, #2
+ 401 0072 3848     		ldr	r0, .L29+4
+ 402 0074 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  97:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin, 0); 
+ 403              		.loc 1 97 9
+ 404 0078 0022     		movs	r2, #0
+ 405 007a 0821     		movs	r1, #8
+ 406 007c 3548     		ldr	r0, .L29+4
+ 407 007e FFF7FEFF 		bl	HAL_GPIO_WritePin
+  98:Core/Src/radioenge_modem.c ****         break;       
+ 408              		.loc 1 98 9
+ 409 0082 61E0     		b	.L28
+ 410              	.L26:
+  99:Core/Src/radioenge_modem.c ****     }
+ 100:Core/Src/radioenge_modem.c ****     case RADIO_CONFIGURING:
+ 101:Core/Src/radioenge_modem.c ****     {
+ 102:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED1_RED_GPIO_Port, LED1_RED_Pin,0);
+ 411              		.loc 1 102 9
+ 412 0084 0022     		movs	r2, #0
+ 413 0086 0421     		movs	r1, #4
+ 414 0088 3248     		ldr	r0, .L29+4
+ 415 008a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 103:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED2_YELLOW_GPIO_Port, LED2_YELLOW_Pin);
+ 416              		.loc 1 103 9
+ 417 008e 1021     		movs	r1, #16
+ 418 0090 3048     		ldr	r0, .L29+4
+ 419 0092 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 104:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED3_GREEN_GPIO_Port, LED3_GREEN_Pin,0);
+ 420              		.loc 1 104 9
+ 421 0096 0022     		movs	r2, #0
+ 422 0098 0221     		movs	r1, #2
+ 423 009a 2E48     		ldr	r0, .L29+4
+ 424 009c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 105:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin, 0);        
+ 425              		.loc 1 105 9
+ 426 00a0 0022     		movs	r2, #0
+ 427 00a2 0821     		movs	r1, #8
+ 428 00a4 2B48     		ldr	r0, .L29+4
+ 429 00a6 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 11
+
+
+ 106:Core/Src/radioenge_modem.c ****         break;       
+ 430              		.loc 1 106 9
+ 431 00aa 4DE0     		b	.L28
+ 432              	.L25:
+ 107:Core/Src/radioenge_modem.c ****     }
+ 108:Core/Src/radioenge_modem.c ****     case RADIO_JOINING:
+ 109:Core/Src/radioenge_modem.c ****     {
+ 110:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED1_RED_GPIO_Port, LED1_RED_Pin,0);
+ 433              		.loc 1 110 9
+ 434 00ac 0022     		movs	r2, #0
+ 435 00ae 0421     		movs	r1, #4
+ 436 00b0 2848     		ldr	r0, .L29+4
+ 437 00b2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 111:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED2_YELLOW_GPIO_Port, LED2_YELLOW_Pin,0);
+ 438              		.loc 1 111 9
+ 439 00b6 0022     		movs	r2, #0
+ 440 00b8 1021     		movs	r1, #16
+ 441 00ba 2648     		ldr	r0, .L29+4
+ 442 00bc FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 112:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED3_GREEN_GPIO_Port, LED3_GREEN_Pin);
+ 443              		.loc 1 112 9
+ 444 00c0 0221     		movs	r1, #2
+ 445 00c2 2448     		ldr	r0, .L29+4
+ 446 00c4 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 113:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin, 0);        
+ 447              		.loc 1 113 9
+ 448 00c8 0022     		movs	r2, #0
+ 449 00ca 0821     		movs	r1, #8
+ 450 00cc 2148     		ldr	r0, .L29+4
+ 451 00ce FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 114:Core/Src/radioenge_modem.c ****         break;       
+ 452              		.loc 1 114 9
+ 453 00d2 39E0     		b	.L28
+ 454              	.L24:
+ 115:Core/Src/radioenge_modem.c ****     }
+ 116:Core/Src/radioenge_modem.c ****     case RADIO_READY:
+ 117:Core/Src/radioenge_modem.c ****     {
+ 118:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED1_RED_GPIO_Port, LED1_RED_Pin,0);
+ 455              		.loc 1 118 9
+ 456 00d4 0022     		movs	r2, #0
+ 457 00d6 0421     		movs	r1, #4
+ 458 00d8 1E48     		ldr	r0, .L29+4
+ 459 00da FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 119:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED2_YELLOW_GPIO_Port, LED2_YELLOW_Pin,0);
+ 460              		.loc 1 119 9
+ 461 00de 0022     		movs	r2, #0
+ 462 00e0 1021     		movs	r1, #16
+ 463 00e2 1C48     		ldr	r0, .L29+4
+ 464 00e4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 120:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED3_GREEN_GPIO_Port, LED3_GREEN_Pin,1);
+ 465              		.loc 1 120 9
+ 466 00e8 0122     		movs	r2, #1
+ 467 00ea 0221     		movs	r1, #2
+ 468 00ec 1948     		ldr	r0, .L29+4
+ 469 00ee FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 121:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin, 0);        
+ 470              		.loc 1 121 9
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 12
+
+
+ 471 00f2 0022     		movs	r2, #0
+ 472 00f4 0821     		movs	r1, #8
+ 473 00f6 1748     		ldr	r0, .L29+4
+ 474 00f8 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 122:Core/Src/radioenge_modem.c ****         break;       
+ 475              		.loc 1 122 9
+ 476 00fc 24E0     		b	.L28
+ 477              	.L22:
+ 123:Core/Src/radioenge_modem.c ****     }
+ 124:Core/Src/radioenge_modem.c ****     case RADIO_DUTYCYCLED:
+ 125:Core/Src/radioenge_modem.c ****     {
+ 126:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED1_RED_GPIO_Port, LED1_RED_Pin,0);
+ 478              		.loc 1 126 9
+ 479 00fe 0022     		movs	r2, #0
+ 480 0100 0421     		movs	r1, #4
+ 481 0102 1448     		ldr	r0, .L29+4
+ 482 0104 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 127:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED2_YELLOW_GPIO_Port, LED2_YELLOW_Pin,0);
+ 483              		.loc 1 127 9
+ 484 0108 0022     		movs	r2, #0
+ 485 010a 1021     		movs	r1, #16
+ 486 010c 1148     		ldr	r0, .L29+4
+ 487 010e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 128:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED3_GREEN_GPIO_Port, LED3_GREEN_Pin,1);
+ 488              		.loc 1 128 9
+ 489 0112 0122     		movs	r2, #1
+ 490 0114 0221     		movs	r1, #2
+ 491 0116 0F48     		ldr	r0, .L29+4
+ 492 0118 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 129:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin);        
+ 493              		.loc 1 129 9
+ 494 011c 0821     		movs	r1, #8
+ 495 011e 0D48     		ldr	r0, .L29+4
+ 496 0120 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 130:Core/Src/radioenge_modem.c ****         break;       
+ 497              		.loc 1 130 9
+ 498 0124 10E0     		b	.L28
+ 499              	.L21:
+ 131:Core/Src/radioenge_modem.c ****     }
+ 132:Core/Src/radioenge_modem.c ****     default:
+ 133:Core/Src/radioenge_modem.c ****     {
+ 134:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED1_RED_GPIO_Port, LED1_RED_Pin);
+ 500              		.loc 1 134 9
+ 501 0126 0421     		movs	r1, #4
+ 502 0128 0A48     		ldr	r0, .L29+4
+ 503 012a FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 135:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED2_YELLOW_GPIO_Port, LED2_YELLOW_Pin);
+ 504              		.loc 1 135 9
+ 505 012e 1021     		movs	r1, #16
+ 506 0130 0848     		ldr	r0, .L29+4
+ 507 0132 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 136:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED3_GREEN_GPIO_Port, LED3_GREEN_Pin);
+ 508              		.loc 1 136 9
+ 509 0136 0221     		movs	r1, #2
+ 510 0138 0648     		ldr	r0, .L29+4
+ 511 013a FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 137:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin);        
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 13
+
+
+ 512              		.loc 1 137 9
+ 513 013e 0821     		movs	r1, #8
+ 514 0140 0448     		ldr	r0, .L29+4
+ 515 0142 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 138:Core/Src/radioenge_modem.c ****         break;       
+ 516              		.loc 1 138 9
+ 517 0146 00BF     		nop
+ 518              	.L28:
+ 139:Core/Src/radioenge_modem.c ****     }    
+ 140:Core/Src/radioenge_modem.c ****     }
+ 141:Core/Src/radioenge_modem.c **** }
+ 519              		.loc 1 141 1
+ 520 0148 00BF     		nop
+ 521 014a 0837     		adds	r7, r7, #8
+ 522              	.LCFI20:
+ 523              		.cfi_def_cfa_offset 8
+ 524 014c BD46     		mov	sp, r7
+ 525              	.LCFI21:
+ 526              		.cfi_def_cfa_register 13
+ 527              		@ sp needed
+ 528 014e 80BD     		pop	{r7, pc}
+ 529              	.L30:
+ 530              		.align	2
+ 531              	.L29:
+ 532 0150 00000000 		.word	gRadioState
+ 533 0154 00000240 		.word	1073872896
+ 534              		.cfi_endproc
+ 535              	.LFE224:
+ 537              		.section	.text.ModemManagerTaskCode,"ax",%progbits
+ 538              		.align	1
+ 539              		.global	ModemManagerTaskCode
+ 540              		.syntax unified
+ 541              		.thumb
+ 542              		.thumb_func
+ 544              	ModemManagerTaskCode:
+ 545              	.LFB225:
+ 142:Core/Src/radioenge_modem.c **** 
+ 143:Core/Src/radioenge_modem.c **** 
+ 144:Core/Src/radioenge_modem.c **** void ModemManagerTaskCode(void *argument)
+ 145:Core/Src/radioenge_modem.c **** {
+ 546              		.loc 1 145 1
+ 547              		.cfi_startproc
+ 548              		@ args = 0, pretend = 0, frame = 24
+ 549              		@ frame_needed = 1, uses_anonymous_args = 0
+ 550 0000 80B5     		push	{r7, lr}
+ 551              	.LCFI22:
+ 552              		.cfi_def_cfa_offset 8
+ 553              		.cfi_offset 7, -8
+ 554              		.cfi_offset 14, -4
+ 555 0002 86B0     		sub	sp, sp, #24
+ 556              	.LCFI23:
+ 557              		.cfi_def_cfa_offset 32
+ 558 0004 00AF     		add	r7, sp, #0
+ 559              	.LCFI24:
+ 560              		.cfi_def_cfa_register 7
+ 561 0006 7860     		str	r0, [r7, #4]
+ 146:Core/Src/radioenge_modem.c ****     /* USER CODE BEGIN 5 */
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 14
+
+
+ 147:Core/Src/radioenge_modem.c ****     /* Infinite loop */    
+ 148:Core/Src/radioenge_modem.c ****     uint32_t ConfigCmdIndex = 0;
+ 562              		.loc 1 148 14
+ 563 0008 0023     		movs	r3, #0
+ 564 000a 7B61     		str	r3, [r7, #20]
+ 149:Core/Src/radioenge_modem.c ****     uint32_t flags;
+ 150:Core/Src/radioenge_modem.c ****     uint32_t modemflags;
+ 151:Core/Src/radioenge_modem.c ****     osTimerStart(ModemLedTimerHandle, 50U);
+ 565              		.loc 1 151 5
+ 566 000c 4A4B     		ldr	r3, .L44
+ 567 000e 1B68     		ldr	r3, [r3]
+ 568 0010 3221     		movs	r1, #50
+ 569 0012 1846     		mov	r0, r3
+ 570 0014 FFF7FEFF 		bl	osTimerStart
+ 152:Core/Src/radioenge_modem.c ****     osThreadFlagsSet(ModemMngrTaskHandle, 0x01);    
+ 571              		.loc 1 152 5
+ 572 0018 484B     		ldr	r3, .L44+4
+ 573 001a 1B68     		ldr	r3, [r3]
+ 574 001c 0121     		movs	r1, #1
+ 575 001e 1846     		mov	r0, r3
+ 576 0020 FFF7FEFF 		bl	osThreadFlagsSet
+ 577              	.L42:
+ 153:Core/Src/radioenge_modem.c ****     while (1)
+ 154:Core/Src/radioenge_modem.c ****     {
+ 155:Core/Src/radioenge_modem.c ****         flags = osThreadFlagsWait (0x01, osFlagsWaitAny,osWaitForever);
+ 578              		.loc 1 155 17
+ 579 0024 4FF0FF32 		mov	r2, #-1
+ 580 0028 0021     		movs	r1, #0
+ 581 002a 0120     		movs	r0, #1
+ 582 002c FFF7FEFF 		bl	osThreadFlagsWait
+ 583 0030 3861     		str	r0, [r7, #16]
+ 156:Core/Src/radioenge_modem.c ****         osSemaphoreAcquire(RadioStateSemaphoreHandle, osWaitForever);
+ 584              		.loc 1 156 9
+ 585 0032 434B     		ldr	r3, .L44+8
+ 586 0034 1B68     		ldr	r3, [r3]
+ 587 0036 4FF0FF31 		mov	r1, #-1
+ 588 003a 1846     		mov	r0, r3
+ 589 003c FFF7FEFF 		bl	osSemaphoreAcquire
+ 157:Core/Src/radioenge_modem.c ****         osEventFlagsClear(ModemStatusFlagsHandle, RADIO_STATE_ALL);        
+ 590              		.loc 1 157 9
+ 591 0040 404B     		ldr	r3, .L44+12
+ 592 0042 1B68     		ldr	r3, [r3]
+ 593 0044 1F21     		movs	r1, #31
+ 594 0046 1846     		mov	r0, r3
+ 595 0048 FFF7FEFF 		bl	osEventFlagsClear
+ 158:Core/Src/radioenge_modem.c ****         switch (gRadioState)
+ 596              		.loc 1 158 9
+ 597 004c 3E4B     		ldr	r3, .L44+16
+ 598 004e 1B78     		ldrb	r3, [r3]
+ 599 0050 DBB2     		uxtb	r3, r3
+ 600 0052 013B     		subs	r3, r3, #1
+ 601 0054 0F2B     		cmp	r3, #15
+ 602 0056 5ED8     		bhi	.L32
+ 603 0058 01A2     		adr	r2, .L34
+ 604 005a 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 605 005e 00BF     		.p2align 2
+ 606              	.L34:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 15
+
+
+ 607 0060 A1000000 		.word	.L38+1
+ 608 0064 C5000000 		.word	.L37+1
+ 609 0068 17010000 		.word	.L32+1
+ 610 006c 17010000 		.word	.L32+1
+ 611 0070 17010000 		.word	.L32+1
+ 612 0074 17010000 		.word	.L32+1
+ 613 0078 17010000 		.word	.L32+1
+ 614 007c 17010000 		.word	.L32+1
+ 615 0080 17010000 		.word	.L32+1
+ 616 0084 17010000 		.word	.L32+1
+ 617 0088 17010000 		.word	.L32+1
+ 618 008c 17010000 		.word	.L32+1
+ 619 0090 17010000 		.word	.L32+1
+ 620 0094 17010000 		.word	.L32+1
+ 621 0098 17010000 		.word	.L32+1
+ 622 009c 07010000 		.word	.L33+1
+ 623              		.p2align 1
+ 624              	.L38:
+ 159:Core/Src/radioenge_modem.c ****         {
+ 160:Core/Src/radioenge_modem.c ****         case RADIO_RESET:
+ 161:Core/Src/radioenge_modem.c ****         {
+ 162:Core/Src/radioenge_modem.c ****             // CDC_Transmit_FS("Resetting the radio...\r\n", strlen("Resetting the radio...\r\n"));
+ 163:Core/Src/radioenge_modem.c ****             resetRadio();
+ 625              		.loc 1 163 13
+ 626 00a0 FFF7FEFF 		bl	resetRadio
+ 164:Core/Src/radioenge_modem.c ****             ConfigCmdIndex = 0;
+ 627              		.loc 1 164 28
+ 628 00a4 0023     		movs	r3, #0
+ 629 00a6 7B61     		str	r3, [r7, #20]
+ 165:Core/Src/radioenge_modem.c ****             SetRadioState(RADIO_CONFIGURING);
+ 630              		.loc 1 165 13
+ 631 00a8 0220     		movs	r0, #2
+ 632 00aa FFF7FEFF 		bl	SetRadioState
+ 166:Core/Src/radioenge_modem.c ****             osThreadFlagsSet(ModemMngrTaskHandle, 0x01);
+ 633              		.loc 1 166 13
+ 634 00ae 234B     		ldr	r3, .L44+4
+ 635 00b0 1B68     		ldr	r3, [r3]
+ 636 00b2 0121     		movs	r1, #1
+ 637 00b4 1846     		mov	r0, r3
+ 638 00b6 FFF7FEFF 		bl	osThreadFlagsSet
+ 167:Core/Src/radioenge_modem.c ****             osDelay(1000);
+ 639              		.loc 1 167 13
+ 640 00ba 4FF47A70 		mov	r0, #1000
+ 641 00be FFF7FEFF 		bl	osDelay
+ 168:Core/Src/radioenge_modem.c ****             break;
+ 642              		.loc 1 168 13
+ 643 00c2 28E0     		b	.L32
+ 644              	.L37:
+ 169:Core/Src/radioenge_modem.c ****         }
+ 170:Core/Src/radioenge_modem.c ****         case RADIO_CONFIGURING:
+ 171:Core/Src/radioenge_modem.c ****         {
+ 172:Core/Src/radioenge_modem.c ****             if (sendRAWAT(gConfigCmds[ConfigCmdIndex]) == AT_OK)
+ 645              		.loc 1 172 38
+ 646 00c4 7B69     		ldr	r3, [r7, #20]
+ 647 00c6 1B02     		lsls	r3, r3, #8
+ 648 00c8 204A     		ldr	r2, .L44+20
+ 649 00ca 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 16
+
+
+ 650              		.loc 1 172 17
+ 651 00cc 1846     		mov	r0, r3
+ 652 00ce FFF7FEFF 		bl	sendRAWAT
+ 653 00d2 0346     		mov	r3, r0
+ 654              		.loc 1 172 16
+ 655 00d4 002B     		cmp	r3, #0
+ 656 00d6 0CD1     		bne	.L39
+ 173:Core/Src/radioenge_modem.c ****             {                
+ 174:Core/Src/radioenge_modem.c ****                 ConfigCmdIndex++;
+ 657              		.loc 1 174 31
+ 658 00d8 7B69     		ldr	r3, [r7, #20]
+ 659 00da 0133     		adds	r3, r3, #1
+ 660 00dc 7B61     		str	r3, [r7, #20]
+ 175:Core/Src/radioenge_modem.c ****                 if (ConfigCmdIndex == NUMBER_OF_STRINGS)
+ 661              		.loc 1 175 20
+ 662 00de 7B69     		ldr	r3, [r7, #20]
+ 663 00e0 072B     		cmp	r3, #7
+ 664 00e2 02D1     		bne	.L40
+ 176:Core/Src/radioenge_modem.c ****                 {
+ 177:Core/Src/radioenge_modem.c ****                     SetRadioState(RADIO_JOINING);
+ 665              		.loc 1 177 21
+ 666 00e4 0420     		movs	r0, #4
+ 667 00e6 FFF7FEFF 		bl	SetRadioState
+ 668              	.L40:
+ 178:Core/Src/radioenge_modem.c ****                 }
+ 179:Core/Src/radioenge_modem.c ****                 osDelay(100);
+ 669              		.loc 1 179 17
+ 670 00ea 6420     		movs	r0, #100
+ 671 00ec FFF7FEFF 		bl	osDelay
+ 672 00f0 02E0     		b	.L41
+ 673              	.L39:
+ 180:Core/Src/radioenge_modem.c ****             }
+ 181:Core/Src/radioenge_modem.c ****             else
+ 182:Core/Src/radioenge_modem.c ****             {
+ 183:Core/Src/radioenge_modem.c ****                 SetRadioState(RADIO_RESET);
+ 674              		.loc 1 183 17
+ 675 00f2 0120     		movs	r0, #1
+ 676 00f4 FFF7FEFF 		bl	SetRadioState
+ 677              	.L41:
+ 184:Core/Src/radioenge_modem.c ****             }
+ 185:Core/Src/radioenge_modem.c ****             osThreadFlagsSet(ModemMngrTaskHandle, 0x01);
+ 678              		.loc 1 185 13
+ 679 00f8 104B     		ldr	r3, .L44+4
+ 680 00fa 1B68     		ldr	r3, [r3]
+ 681 00fc 0121     		movs	r1, #1
+ 682 00fe 1846     		mov	r0, r3
+ 683 0100 FFF7FEFF 		bl	osThreadFlagsSet
+ 186:Core/Src/radioenge_modem.c ****             break;
+ 684              		.loc 1 186 13
+ 685 0104 07E0     		b	.L32
+ 686              	.L33:
+ 187:Core/Src/radioenge_modem.c ****         }
+ 188:Core/Src/radioenge_modem.c ****         case RADIO_JOINING:
+ 189:Core/Src/radioenge_modem.c ****         {
+ 190:Core/Src/radioenge_modem.c ****             // wait for radio callback
+ 191:Core/Src/radioenge_modem.c ****             break;
+ 192:Core/Src/radioenge_modem.c ****         }
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 17
+
+
+ 193:Core/Src/radioenge_modem.c ****         case RADIO_READY:
+ 194:Core/Src/radioenge_modem.c ****         {
+ 195:Core/Src/radioenge_modem.c ****             // now we can send data
+ 196:Core/Src/radioenge_modem.c ****             break;
+ 197:Core/Src/radioenge_modem.c ****         }
+ 198:Core/Src/radioenge_modem.c ****         case RADIO_DUTYCYCLED:
+ 199:Core/Src/radioenge_modem.c ****         {
+ 200:Core/Src/radioenge_modem.c ****             // Wait the dutycycle period and return to ready
+ 201:Core/Src/radioenge_modem.c ****             osTimerStart(DutyCycleTimerHandle, 14000U);
+ 687              		.loc 1 201 13
+ 688 0106 124B     		ldr	r3, .L44+24
+ 689 0108 1B68     		ldr	r3, [r3]
+ 690 010a 43F2B061 		movw	r1, #14000
+ 691 010e 1846     		mov	r0, r3
+ 692 0110 FFF7FEFF 		bl	osTimerStart
+ 202:Core/Src/radioenge_modem.c ****             break;
+ 693              		.loc 1 202 13
+ 694 0114 00BF     		nop
+ 695              	.L32:
+ 203:Core/Src/radioenge_modem.c ****         }
+ 204:Core/Src/radioenge_modem.c ****         }
+ 205:Core/Src/radioenge_modem.c ****         modemflags = osEventFlagsSet(ModemStatusFlagsHandle, gRadioState);
+ 696              		.loc 1 205 22
+ 697 0116 0B4B     		ldr	r3, .L44+12
+ 698 0118 1B68     		ldr	r3, [r3]
+ 699 011a 0B4A     		ldr	r2, .L44+16
+ 700 011c 1278     		ldrb	r2, [r2]
+ 701 011e D2B2     		uxtb	r2, r2
+ 702 0120 1146     		mov	r1, r2
+ 703 0122 1846     		mov	r0, r3
+ 704 0124 FFF7FEFF 		bl	osEventFlagsSet
+ 705 0128 F860     		str	r0, [r7, #12]
+ 206:Core/Src/radioenge_modem.c ****         osSemaphoreRelease(RadioStateSemaphoreHandle);
+ 706              		.loc 1 206 9
+ 707 012a 054B     		ldr	r3, .L44+8
+ 708 012c 1B68     		ldr	r3, [r3]
+ 709 012e 1846     		mov	r0, r3
+ 710 0130 FFF7FEFF 		bl	osSemaphoreRelease
+ 155:Core/Src/radioenge_modem.c ****         osSemaphoreAcquire(RadioStateSemaphoreHandle, osWaitForever);
+ 711              		.loc 1 155 15
+ 712 0134 76E7     		b	.L42
+ 713              	.L45:
+ 714 0136 00BF     		.align	2
+ 715              	.L44:
+ 716 0138 00000000 		.word	ModemLedTimerHandle
+ 717 013c 00000000 		.word	ModemMngrTaskHandle
+ 718 0140 00000000 		.word	RadioStateSemaphoreHandle
+ 719 0144 00000000 		.word	ModemStatusFlagsHandle
+ 720 0148 00000000 		.word	gRadioState
+ 721 014c 00000000 		.word	gConfigCmds
+ 722 0150 00000000 		.word	DutyCycleTimerHandle
+ 723              		.cfi_endproc
+ 724              	.LFE225:
+ 726              		.global	gEncodedString
+ 727              		.section	.bss.gEncodedString,"aw",%nobits
+ 728              		.align	2
+ 731              	gEncodedString:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 18
+
+
+ 732 0000 00000000 		.space	64
+ 732      00000000 
+ 732      00000000 
+ 732      00000000 
+ 732      00000000 
+ 733              		.global	gSendBuffer
+ 734              		.section	.bss.gSendBuffer,"aw",%nobits
+ 735              		.align	2
+ 738              	gSendBuffer:
+ 739 0000 00000000 		.space	80
+ 739      00000000 
+ 739      00000000 
+ 739      00000000 
+ 739      00000000 
+ 740              		.section	.text.LoRaSend,"ax",%progbits
+ 741              		.align	1
+ 742              		.global	LoRaSend
+ 743              		.syntax unified
+ 744              		.thumb
+ 745              		.thumb_func
+ 747              	LoRaSend:
+ 748              	.LFB226:
+ 207:Core/Src/radioenge_modem.c ****     }
+ 208:Core/Src/radioenge_modem.c **** }
+ 209:Core/Src/radioenge_modem.c **** 
+ 210:Core/Src/radioenge_modem.c **** #define OUT_BUFFER_SIZE (64)
+ 211:Core/Src/radioenge_modem.c **** uint8_t gEncodedString[OUT_BUFFER_SIZE]; 
+ 212:Core/Src/radioenge_modem.c **** uint8_t gSendBuffer[OUT_BUFFER_SIZE+16]; 
+ 213:Core/Src/radioenge_modem.c **** 
+ 214:Core/Src/radioenge_modem.c **** 
+ 215:Core/Src/radioenge_modem.c **** osStatus_t LoRaSend(uint32_t LoraWANPort,uint8_t* msg)
+ 216:Core/Src/radioenge_modem.c **** {   
+ 749              		.loc 1 216 1
+ 750              		.cfi_startproc
+ 751              		@ args = 0, pretend = 0, frame = 8
+ 752              		@ frame_needed = 1, uses_anonymous_args = 0
+ 753 0000 80B5     		push	{r7, lr}
+ 754              	.LCFI25:
+ 755              		.cfi_def_cfa_offset 8
+ 756              		.cfi_offset 7, -8
+ 757              		.cfi_offset 14, -4
+ 758 0002 82B0     		sub	sp, sp, #8
+ 759              	.LCFI26:
+ 760              		.cfi_def_cfa_offset 16
+ 761 0004 00AF     		add	r7, sp, #0
+ 762              	.LCFI27:
+ 763              		.cfi_def_cfa_register 7
+ 764 0006 7860     		str	r0, [r7, #4]
+ 765 0008 3960     		str	r1, [r7]
+ 217:Core/Src/radioenge_modem.c ****     LoRaWaitDutyCycle();
+ 766              		.loc 1 217 5
+ 767 000a FFF7FEFF 		bl	LoRaWaitDutyCycle
+ 218:Core/Src/radioenge_modem.c ****     return LoRaSendNow(LoraWANPort,msg);    
+ 768              		.loc 1 218 12
+ 769 000e 3968     		ldr	r1, [r7]
+ 770 0010 7868     		ldr	r0, [r7, #4]
+ 771 0012 FFF7FEFF 		bl	LoRaSendNow
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 19
+
+
+ 772 0016 0346     		mov	r3, r0
+ 219:Core/Src/radioenge_modem.c **** }
+ 773              		.loc 1 219 1
+ 774 0018 1846     		mov	r0, r3
+ 775 001a 0837     		adds	r7, r7, #8
+ 776              	.LCFI28:
+ 777              		.cfi_def_cfa_offset 8
+ 778 001c BD46     		mov	sp, r7
+ 779              	.LCFI29:
+ 780              		.cfi_def_cfa_register 13
+ 781              		@ sp needed
+ 782 001e 80BD     		pop	{r7, pc}
+ 783              		.cfi_endproc
+ 784              	.LFE226:
+ 786              		.section	.rodata
+ 787 0006 0000     		.align	2
+ 788              	.LC1:
+ 789 0008 25303278 		.ascii	"%02x\000"
+ 789      00
+ 790              		.section	.text.bin_encode,"ax",%progbits
+ 791              		.align	1
+ 792              		.global	bin_encode
+ 793              		.syntax unified
+ 794              		.thumb
+ 795              		.thumb_func
+ 797              	bin_encode:
+ 798              	.LFB227:
+ 220:Core/Src/radioenge_modem.c **** 
+ 221:Core/Src/radioenge_modem.c **** size_t bin_encode(void* in, size_t in_size, uint8_t* out, size_t max_out_size)
+ 222:Core/Src/radioenge_modem.c **** {
+ 799              		.loc 1 222 1
+ 800              		.cfi_startproc
+ 801              		@ args = 0, pretend = 0, frame = 32
+ 802              		@ frame_needed = 1, uses_anonymous_args = 0
+ 803 0000 80B5     		push	{r7, lr}
+ 804              	.LCFI30:
+ 805              		.cfi_def_cfa_offset 8
+ 806              		.cfi_offset 7, -8
+ 807              		.cfi_offset 14, -4
+ 808 0002 88B0     		sub	sp, sp, #32
+ 809              	.LCFI31:
+ 810              		.cfi_def_cfa_offset 40
+ 811 0004 00AF     		add	r7, sp, #0
+ 812              	.LCFI32:
+ 813              		.cfi_def_cfa_register 7
+ 814 0006 F860     		str	r0, [r7, #12]
+ 815 0008 B960     		str	r1, [r7, #8]
+ 816 000a 7A60     		str	r2, [r7, #4]
+ 817 000c 3B60     		str	r3, [r7]
+ 223:Core/Src/radioenge_modem.c ****     uint8_t* in_ptr = (uint8_t*)in;
+ 818              		.loc 1 223 14
+ 819 000e FB68     		ldr	r3, [r7, #12]
+ 820 0010 FB61     		str	r3, [r7, #28]
+ 224:Core/Src/radioenge_modem.c ****     size_t offset=0;
+ 821              		.loc 1 224 12
+ 822 0012 0023     		movs	r3, #0
+ 823 0014 BB61     		str	r3, [r7, #24]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 20
+
+
+ 225:Core/Src/radioenge_modem.c ****     size_t iter = in_size;
+ 824              		.loc 1 225 12
+ 825 0016 BB68     		ldr	r3, [r7, #8]
+ 826 0018 7B61     		str	r3, [r7, #20]
+ 226:Core/Src/radioenge_modem.c ****     size_t i;
+ 227:Core/Src/radioenge_modem.c ****     //check for buffer overflow
+ 228:Core/Src/radioenge_modem.c ****     if(max_out_size<in_size*2)
+ 827              		.loc 1 228 28
+ 828 001a BB68     		ldr	r3, [r7, #8]
+ 829 001c 5B00     		lsls	r3, r3, #1
+ 830              		.loc 1 228 7
+ 831 001e 3A68     		ldr	r2, [r7]
+ 832 0020 9A42     		cmp	r2, r3
+ 833 0022 03D2     		bcs	.L49
+ 229:Core/Src/radioenge_modem.c ****     {
+ 230:Core/Src/radioenge_modem.c ****         iter = max_out_size/2;
+ 834              		.loc 1 230 14
+ 835 0024 3B68     		ldr	r3, [r7]
+ 836 0026 5B08     		lsrs	r3, r3, #1
+ 837 0028 7B61     		str	r3, [r7, #20]
+ 838 002a 01E0     		b	.L50
+ 839              	.L49:
+ 231:Core/Src/radioenge_modem.c ****     }
+ 232:Core/Src/radioenge_modem.c ****     else
+ 233:Core/Src/radioenge_modem.c ****     {
+ 234:Core/Src/radioenge_modem.c ****         iter = in_size;
+ 840              		.loc 1 234 14
+ 841 002c BB68     		ldr	r3, [r7, #8]
+ 842 002e 7B61     		str	r3, [r7, #20]
+ 843              	.L50:
+ 235:Core/Src/radioenge_modem.c ****     }
+ 236:Core/Src/radioenge_modem.c ****     //create the hex string expected by RadioEnge AT
+ 237:Core/Src/radioenge_modem.c ****     for(i=0;i<iter;i++)
+ 844              		.loc 1 237 10
+ 845 0030 0023     		movs	r3, #0
+ 846 0032 3B61     		str	r3, [r7, #16]
+ 847              		.loc 1 237 5
+ 848 0034 10E0     		b	.L51
+ 849              	.L52:
+ 850              	.LBB5:
+ 238:Core/Src/radioenge_modem.c ****     {
+ 239:Core/Src/radioenge_modem.c ****         sprintf(out+offset,"%02x",*(in_ptr++));
+ 851              		.loc 1 239 20 discriminator 3
+ 852 0036 7A68     		ldr	r2, [r7, #4]
+ 853 0038 BB69     		ldr	r3, [r7, #24]
+ 854 003a D018     		adds	r0, r2, r3
+ 855              		.loc 1 239 43 discriminator 3
+ 856 003c FB69     		ldr	r3, [r7, #28]
+ 857 003e 5A1C     		adds	r2, r3, #1
+ 858 0040 FA61     		str	r2, [r7, #28]
+ 859              		.loc 1 239 35 discriminator 3
+ 860 0042 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 861              		.loc 1 239 9 discriminator 3
+ 862 0044 1A46     		mov	r2, r3
+ 863 0046 0949     		ldr	r1, .L54
+ 864 0048 FFF7FEFF 		bl	sprintf
+ 240:Core/Src/radioenge_modem.c ****         offset+=2*sizeof(uint8_t);
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 21
+
+
+ 865              		.loc 1 240 15 discriminator 3
+ 866 004c BB69     		ldr	r3, [r7, #24]
+ 867 004e 0233     		adds	r3, r3, #2
+ 868 0050 BB61     		str	r3, [r7, #24]
+ 869              	.LBE5:
+ 237:Core/Src/radioenge_modem.c ****     {
+ 870              		.loc 1 237 21 discriminator 3
+ 871 0052 3B69     		ldr	r3, [r7, #16]
+ 872 0054 0133     		adds	r3, r3, #1
+ 873 0056 3B61     		str	r3, [r7, #16]
+ 874              	.L51:
+ 237:Core/Src/radioenge_modem.c ****     {
+ 875              		.loc 1 237 14 discriminator 1
+ 876 0058 3A69     		ldr	r2, [r7, #16]
+ 877 005a 7B69     		ldr	r3, [r7, #20]
+ 878 005c 9A42     		cmp	r2, r3
+ 879 005e EAD3     		bcc	.L52
+ 241:Core/Src/radioenge_modem.c ****     }
+ 242:Core/Src/radioenge_modem.c ****     return offset; //returns the size of the AT buffer
+ 880              		.loc 1 242 12
+ 881 0060 BB69     		ldr	r3, [r7, #24]
+ 243:Core/Src/radioenge_modem.c **** }
+ 882              		.loc 1 243 1
+ 883 0062 1846     		mov	r0, r3
+ 884 0064 2037     		adds	r7, r7, #32
+ 885              	.LCFI33:
+ 886              		.cfi_def_cfa_offset 8
+ 887 0066 BD46     		mov	sp, r7
+ 888              	.LCFI34:
+ 889              		.cfi_def_cfa_register 13
+ 890              		@ sp needed
+ 891 0068 80BD     		pop	{r7, pc}
+ 892              	.L55:
+ 893 006a 00BF     		.align	2
+ 894              	.L54:
+ 895 006c 08000000 		.word	.LC1
+ 896              		.cfi_endproc
+ 897              	.LFE227:
+ 899              		.section	.text.LoRaSendB,"ax",%progbits
+ 900              		.align	1
+ 901              		.global	LoRaSendB
+ 902              		.syntax unified
+ 903              		.thumb
+ 904              		.thumb_func
+ 906              	LoRaSendB:
+ 907              	.LFB228:
+ 244:Core/Src/radioenge_modem.c **** 
+ 245:Core/Src/radioenge_modem.c **** osStatus_t LoRaSendB(uint32_t LoraWANPort, uint8_t* msg, size_t size)
+ 246:Core/Src/radioenge_modem.c **** {
+ 908              		.loc 1 246 1
+ 909              		.cfi_startproc
+ 910              		@ args = 0, pretend = 0, frame = 16
+ 911              		@ frame_needed = 1, uses_anonymous_args = 0
+ 912 0000 80B5     		push	{r7, lr}
+ 913              	.LCFI35:
+ 914              		.cfi_def_cfa_offset 8
+ 915              		.cfi_offset 7, -8
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 22
+
+
+ 916              		.cfi_offset 14, -4
+ 917 0002 84B0     		sub	sp, sp, #16
+ 918              	.LCFI36:
+ 919              		.cfi_def_cfa_offset 24
+ 920 0004 00AF     		add	r7, sp, #0
+ 921              	.LCFI37:
+ 922              		.cfi_def_cfa_register 7
+ 923 0006 F860     		str	r0, [r7, #12]
+ 924 0008 B960     		str	r1, [r7, #8]
+ 925 000a 7A60     		str	r2, [r7, #4]
+ 247:Core/Src/radioenge_modem.c ****     LoRaWaitDutyCycle();     
+ 926              		.loc 1 247 5
+ 927 000c FFF7FEFF 		bl	LoRaWaitDutyCycle
+ 248:Core/Src/radioenge_modem.c ****     return LoRaSendBNow(LoraWANPort,msg,size);    
+ 928              		.loc 1 248 12
+ 929 0010 7A68     		ldr	r2, [r7, #4]
+ 930 0012 B968     		ldr	r1, [r7, #8]
+ 931 0014 F868     		ldr	r0, [r7, #12]
+ 932 0016 FFF7FEFF 		bl	LoRaSendBNow
+ 933 001a 0346     		mov	r3, r0
+ 249:Core/Src/radioenge_modem.c **** }
+ 934              		.loc 1 249 1
+ 935 001c 1846     		mov	r0, r3
+ 936 001e 1037     		adds	r7, r7, #16
+ 937              	.LCFI38:
+ 938              		.cfi_def_cfa_offset 8
+ 939 0020 BD46     		mov	sp, r7
+ 940              	.LCFI39:
+ 941              		.cfi_def_cfa_register 13
+ 942              		@ sp needed
+ 943 0022 80BD     		pop	{r7, pc}
+ 944              		.cfi_endproc
+ 945              	.LFE228:
+ 947              		.section	.text.LoRaWaitDutyCycle,"ax",%progbits
+ 948              		.align	1
+ 949              		.global	LoRaWaitDutyCycle
+ 950              		.syntax unified
+ 951              		.thumb
+ 952              		.thumb_func
+ 954              	LoRaWaitDutyCycle:
+ 955              	.LFB229:
+ 250:Core/Src/radioenge_modem.c **** 
+ 251:Core/Src/radioenge_modem.c **** 
+ 252:Core/Src/radioenge_modem.c **** //LoRaSendNow and LoRaSendBNow should only be used in conjunction with LoRaWaitDutyCycle()
+ 253:Core/Src/radioenge_modem.c **** 
+ 254:Core/Src/radioenge_modem.c **** void LoRaWaitDutyCycle()
+ 255:Core/Src/radioenge_modem.c **** {
+ 956              		.loc 1 255 1
+ 957              		.cfi_startproc
+ 958              		@ args = 0, pretend = 0, frame = 0
+ 959              		@ frame_needed = 1, uses_anonymous_args = 0
+ 960 0000 80B5     		push	{r7, lr}
+ 961              	.LCFI40:
+ 962              		.cfi_def_cfa_offset 8
+ 963              		.cfi_offset 7, -8
+ 964              		.cfi_offset 14, -4
+ 965 0002 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 23
+
+
+ 966              	.LCFI41:
+ 967              		.cfi_def_cfa_register 7
+ 256:Core/Src/radioenge_modem.c ****    osEventFlagsWait(ModemStatusFlagsHandle, RADIO_READY, osFlagsWaitAny | osFlagsNoClear, osWaitFor
+ 968              		.loc 1 256 4
+ 969 0004 0C4B     		ldr	r3, .L59
+ 970 0006 1868     		ldr	r0, [r3]
+ 971 0008 4FF0FF33 		mov	r3, #-1
+ 972 000c 0222     		movs	r2, #2
+ 973 000e 0821     		movs	r1, #8
+ 974 0010 FFF7FEFF 		bl	osEventFlagsWait
+ 257:Core/Src/radioenge_modem.c ****    osSemaphoreAcquire(LoRaTXSemaphoreHandle,osWaitForever);    
+ 975              		.loc 1 257 4
+ 976 0014 094B     		ldr	r3, .L59+4
+ 977 0016 1B68     		ldr	r3, [r3]
+ 978 0018 4FF0FF31 		mov	r1, #-1
+ 979 001c 1846     		mov	r0, r3
+ 980 001e FFF7FEFF 		bl	osSemaphoreAcquire
+ 258:Core/Src/radioenge_modem.c ****    osEventFlagsWait(ModemStatusFlagsHandle, RADIO_READY, osFlagsWaitAny | osFlagsNoClear, osWaitFor
+ 981              		.loc 1 258 4
+ 982 0022 054B     		ldr	r3, .L59
+ 983 0024 1868     		ldr	r0, [r3]
+ 984 0026 4FF0FF33 		mov	r3, #-1
+ 985 002a 0222     		movs	r2, #2
+ 986 002c 0821     		movs	r1, #8
+ 987 002e FFF7FEFF 		bl	osEventFlagsWait
+ 259:Core/Src/radioenge_modem.c **** }
+ 988              		.loc 1 259 1
+ 989 0032 00BF     		nop
+ 990 0034 80BD     		pop	{r7, pc}
+ 991              	.L60:
+ 992 0036 00BF     		.align	2
+ 993              	.L59:
+ 994 0038 00000000 		.word	ModemStatusFlagsHandle
+ 995 003c 00000000 		.word	LoRaTXSemaphoreHandle
+ 996              		.cfi_endproc
+ 997              	.LFE229:
+ 999              		.section	.rodata
+ 1000 000d 000000   		.align	2
+ 1001              	.LC2:
+ 1002 0010 41542B53 		.ascii	"AT+SEND=%d:%s\015\012\000"
+ 1002      454E443D 
+ 1002      25643A25 
+ 1002      730D0A00 
+ 1003              		.section	.text.LoRaSendNow,"ax",%progbits
+ 1004              		.align	1
+ 1005              		.global	LoRaSendNow
+ 1006              		.syntax unified
+ 1007              		.thumb
+ 1008              		.thumb_func
+ 1010              	LoRaSendNow:
+ 1011              	.LFB230:
+ 260:Core/Src/radioenge_modem.c **** 
+ 261:Core/Src/radioenge_modem.c **** osStatus_t LoRaSendNow(uint32_t LoraWANPort, uint8_t* msg)
+ 262:Core/Src/radioenge_modem.c **** {
+ 1012              		.loc 1 262 1
+ 1013              		.cfi_startproc
+ 1014              		@ args = 0, pretend = 0, frame = 16
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 24
+
+
+ 1015              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1016 0000 80B5     		push	{r7, lr}
+ 1017              	.LCFI42:
+ 1018              		.cfi_def_cfa_offset 8
+ 1019              		.cfi_offset 7, -8
+ 1020              		.cfi_offset 14, -4
+ 1021 0002 86B0     		sub	sp, sp, #24
+ 1022              	.LCFI43:
+ 1023              		.cfi_def_cfa_offset 32
+ 1024 0004 02AF     		add	r7, sp, #8
+ 1025              	.LCFI44:
+ 1026              		.cfi_def_cfa 7, 24
+ 1027 0006 7860     		str	r0, [r7, #4]
+ 1028 0008 3960     		str	r1, [r7]
+ 263:Core/Src/radioenge_modem.c ****     osStatus_t ret = osError;    
+ 1029              		.loc 1 263 16
+ 1030 000a 4FF0FF33 		mov	r3, #-1
+ 1031 000e FB60     		str	r3, [r7, #12]
+ 264:Core/Src/radioenge_modem.c ****     osSemaphoreAcquire(RadioStateSemaphoreHandle, osWaitForever);
+ 1032              		.loc 1 264 5
+ 1033 0010 164B     		ldr	r3, .L64
+ 1034 0012 1B68     		ldr	r3, [r3]
+ 1035 0014 4FF0FF31 		mov	r1, #-1
+ 1036 0018 1846     		mov	r0, r3
+ 1037 001a FFF7FEFF 		bl	osSemaphoreAcquire
+ 265:Core/Src/radioenge_modem.c ****     if (gRadioState == RADIO_READY)
+ 1038              		.loc 1 265 21
+ 1039 001e 144B     		ldr	r3, .L64+4
+ 1040 0020 1B78     		ldrb	r3, [r3]
+ 1041 0022 DBB2     		uxtb	r3, r3
+ 1042              		.loc 1 265 8
+ 1043 0024 082B     		cmp	r3, #8
+ 1044 0026 12D1     		bne	.L62
+ 1045              	.LBB6:
+ 266:Core/Src/radioenge_modem.c ****     {
+ 267:Core/Src/radioenge_modem.c ****         snprintf(gSendBuffer, OUT_BUFFER_SIZE + 16, "AT+SEND=%d:%s\r\n", LoraWANPort, msg);
+ 1046              		.loc 1 267 9
+ 1047 0028 3B68     		ldr	r3, [r7]
+ 1048 002a 0093     		str	r3, [sp]
+ 1049 002c 7B68     		ldr	r3, [r7, #4]
+ 1050 002e 114A     		ldr	r2, .L64+8
+ 1051 0030 5021     		movs	r1, #80
+ 1052 0032 1148     		ldr	r0, .L64+12
+ 1053 0034 FFF7FEFF 		bl	snprintf
+ 268:Core/Src/radioenge_modem.c ****         if (sendRAWAT(gSendBuffer) == AT_TX_OK)
+ 1054              		.loc 1 268 13
+ 1055 0038 0F48     		ldr	r0, .L64+12
+ 1056 003a FFF7FEFF 		bl	sendRAWAT
+ 1057 003e 0346     		mov	r3, r0
+ 1058              		.loc 1 268 12
+ 1059 0040 012B     		cmp	r3, #1
+ 1060 0042 04D1     		bne	.L62
+ 269:Core/Src/radioenge_modem.c ****         {
+ 270:Core/Src/radioenge_modem.c ****             SetRadioState(RADIO_DUTYCYCLED);
+ 1061              		.loc 1 270 13
+ 1062 0044 1020     		movs	r0, #16
+ 1063 0046 FFF7FEFF 		bl	SetRadioState
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 25
+
+
+ 271:Core/Src/radioenge_modem.c ****             ret = osOK;
+ 1064              		.loc 1 271 17
+ 1065 004a 0023     		movs	r3, #0
+ 1066 004c FB60     		str	r3, [r7, #12]
+ 1067              	.L62:
+ 1068              	.LBE6:
+ 272:Core/Src/radioenge_modem.c ****         }        
+ 273:Core/Src/radioenge_modem.c ****     }    
+ 274:Core/Src/radioenge_modem.c ****     osSemaphoreRelease(RadioStateSemaphoreHandle);
+ 1069              		.loc 1 274 5
+ 1070 004e 074B     		ldr	r3, .L64
+ 1071 0050 1B68     		ldr	r3, [r3]
+ 1072 0052 1846     		mov	r0, r3
+ 1073 0054 FFF7FEFF 		bl	osSemaphoreRelease
+ 275:Core/Src/radioenge_modem.c ****     osSemaphoreRelease(LoRaTXSemaphoreHandle);
+ 1074              		.loc 1 275 5
+ 1075 0058 084B     		ldr	r3, .L64+16
+ 1076 005a 1B68     		ldr	r3, [r3]
+ 1077 005c 1846     		mov	r0, r3
+ 1078 005e FFF7FEFF 		bl	osSemaphoreRelease
+ 276:Core/Src/radioenge_modem.c ****     return ret;
+ 1079              		.loc 1 276 12
+ 1080 0062 FB68     		ldr	r3, [r7, #12]
+ 277:Core/Src/radioenge_modem.c **** }
+ 1081              		.loc 1 277 1
+ 1082 0064 1846     		mov	r0, r3
+ 1083 0066 1037     		adds	r7, r7, #16
+ 1084              	.LCFI45:
+ 1085              		.cfi_def_cfa_offset 8
+ 1086 0068 BD46     		mov	sp, r7
+ 1087              	.LCFI46:
+ 1088              		.cfi_def_cfa_register 13
+ 1089              		@ sp needed
+ 1090 006a 80BD     		pop	{r7, pc}
+ 1091              	.L65:
+ 1092              		.align	2
+ 1093              	.L64:
+ 1094 006c 00000000 		.word	RadioStateSemaphoreHandle
+ 1095 0070 00000000 		.word	gRadioState
+ 1096 0074 10000000 		.word	.LC2
+ 1097 0078 00000000 		.word	gSendBuffer
+ 1098 007c 00000000 		.word	LoRaTXSemaphoreHandle
+ 1099              		.cfi_endproc
+ 1100              	.LFE230:
+ 1102              		.section	.rodata
+ 1103              		.align	2
+ 1104              	.LC3:
+ 1105 0020 41542B53 		.ascii	"AT+SENDB=%d:%s\015\012\000"
+ 1105      454E4442 
+ 1105      3D25643A 
+ 1105      25730D0A 
+ 1105      00
+ 1106              		.section	.text.LoRaSendBNow,"ax",%progbits
+ 1107              		.align	1
+ 1108              		.global	LoRaSendBNow
+ 1109              		.syntax unified
+ 1110              		.thumb
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 26
+
+
+ 1111              		.thumb_func
+ 1113              	LoRaSendBNow:
+ 1114              	.LFB231:
+ 278:Core/Src/radioenge_modem.c **** 
+ 279:Core/Src/radioenge_modem.c **** osStatus_t LoRaSendBNow(uint32_t LoraWANPort, uint8_t* msg, size_t size)
+ 280:Core/Src/radioenge_modem.c **** {
+ 1115              		.loc 1 280 1
+ 1116              		.cfi_startproc
+ 1117              		@ args = 0, pretend = 0, frame = 24
+ 1118              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1119 0000 80B5     		push	{r7, lr}
+ 1120              	.LCFI47:
+ 1121              		.cfi_def_cfa_offset 8
+ 1122              		.cfi_offset 7, -8
+ 1123              		.cfi_offset 14, -4
+ 1124 0002 88B0     		sub	sp, sp, #32
+ 1125              	.LCFI48:
+ 1126              		.cfi_def_cfa_offset 40
+ 1127 0004 02AF     		add	r7, sp, #8
+ 1128              	.LCFI49:
+ 1129              		.cfi_def_cfa 7, 32
+ 1130 0006 F860     		str	r0, [r7, #12]
+ 1131 0008 B960     		str	r1, [r7, #8]
+ 1132 000a 7A60     		str	r2, [r7, #4]
+ 281:Core/Src/radioenge_modem.c ****     osStatus_t ret = osError;
+ 1133              		.loc 1 281 16
+ 1134 000c 4FF0FF33 		mov	r3, #-1
+ 1135 0010 7B61     		str	r3, [r7, #20]
+ 282:Core/Src/radioenge_modem.c ****     osSemaphoreAcquire(RadioStateSemaphoreHandle, osWaitForever);
+ 1136              		.loc 1 282 5
+ 1137 0012 1A4B     		ldr	r3, .L69
+ 1138 0014 1B68     		ldr	r3, [r3]
+ 1139 0016 4FF0FF31 		mov	r1, #-1
+ 1140 001a 1846     		mov	r0, r3
+ 1141 001c FFF7FEFF 		bl	osSemaphoreAcquire
+ 283:Core/Src/radioenge_modem.c ****     if (gRadioState == RADIO_READY)
+ 1142              		.loc 1 283 21
+ 1143 0020 174B     		ldr	r3, .L69+4
+ 1144 0022 1B78     		ldrb	r3, [r3]
+ 1145 0024 DBB2     		uxtb	r3, r3
+ 1146              		.loc 1 283 8
+ 1147 0026 082B     		cmp	r3, #8
+ 1148 0028 19D1     		bne	.L67
+ 1149              	.LBB7:
+ 284:Core/Src/radioenge_modem.c ****     {
+ 285:Core/Src/radioenge_modem.c ****         size_t encoded_size = bin_encode((void *)(msg), size, gEncodedString, OUT_BUFFER_SIZE);
+ 1150              		.loc 1 285 31
+ 1151 002a 4023     		movs	r3, #64
+ 1152 002c 154A     		ldr	r2, .L69+8
+ 1153 002e 7968     		ldr	r1, [r7, #4]
+ 1154 0030 B868     		ldr	r0, [r7, #8]
+ 1155 0032 FFF7FEFF 		bl	bin_encode
+ 1156 0036 3861     		str	r0, [r7, #16]
+ 286:Core/Src/radioenge_modem.c ****         snprintf(gSendBuffer, OUT_BUFFER_SIZE + 16, "AT+SENDB=%d:%s\r\n", LoraWANPort, gEncodedStri
+ 1157              		.loc 1 286 9
+ 1158 0038 124B     		ldr	r3, .L69+8
+ 1159 003a 0093     		str	r3, [sp]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 27
+
+
+ 1160 003c FB68     		ldr	r3, [r7, #12]
+ 1161 003e 124A     		ldr	r2, .L69+12
+ 1162 0040 5021     		movs	r1, #80
+ 1163 0042 1248     		ldr	r0, .L69+16
+ 1164 0044 FFF7FEFF 		bl	snprintf
+ 287:Core/Src/radioenge_modem.c ****         if (sendRAWAT(gSendBuffer) == AT_TX_OK)
+ 1165              		.loc 1 287 13
+ 1166 0048 1048     		ldr	r0, .L69+16
+ 1167 004a FFF7FEFF 		bl	sendRAWAT
+ 1168 004e 0346     		mov	r3, r0
+ 1169              		.loc 1 287 12
+ 1170 0050 012B     		cmp	r3, #1
+ 1171 0052 04D1     		bne	.L67
+ 288:Core/Src/radioenge_modem.c ****         {
+ 289:Core/Src/radioenge_modem.c ****             SetRadioState(RADIO_DUTYCYCLED);
+ 1172              		.loc 1 289 13
+ 1173 0054 1020     		movs	r0, #16
+ 1174 0056 FFF7FEFF 		bl	SetRadioState
+ 290:Core/Src/radioenge_modem.c ****             ret = osOK;
+ 1175              		.loc 1 290 17
+ 1176 005a 0023     		movs	r3, #0
+ 1177 005c 7B61     		str	r3, [r7, #20]
+ 1178              	.L67:
+ 1179              	.LBE7:
+ 291:Core/Src/radioenge_modem.c ****         }
+ 292:Core/Src/radioenge_modem.c ****     }
+ 293:Core/Src/radioenge_modem.c ****     osSemaphoreRelease(RadioStateSemaphoreHandle);
+ 1180              		.loc 1 293 5
+ 1181 005e 074B     		ldr	r3, .L69
+ 1182 0060 1B68     		ldr	r3, [r3]
+ 1183 0062 1846     		mov	r0, r3
+ 1184 0064 FFF7FEFF 		bl	osSemaphoreRelease
+ 294:Core/Src/radioenge_modem.c ****     osSemaphoreRelease(LoRaTXSemaphoreHandle);
+ 1185              		.loc 1 294 5
+ 1186 0068 094B     		ldr	r3, .L69+20
+ 1187 006a 1B68     		ldr	r3, [r3]
+ 1188 006c 1846     		mov	r0, r3
+ 1189 006e FFF7FEFF 		bl	osSemaphoreRelease
+ 295:Core/Src/radioenge_modem.c ****     return ret;
+ 1190              		.loc 1 295 12
+ 1191 0072 7B69     		ldr	r3, [r7, #20]
+ 296:Core/Src/radioenge_modem.c **** }
+ 1192              		.loc 1 296 1
+ 1193 0074 1846     		mov	r0, r3
+ 1194 0076 1837     		adds	r7, r7, #24
+ 1195              	.LCFI50:
+ 1196              		.cfi_def_cfa_offset 8
+ 1197 0078 BD46     		mov	sp, r7
+ 1198              	.LCFI51:
+ 1199              		.cfi_def_cfa_register 13
+ 1200              		@ sp needed
+ 1201 007a 80BD     		pop	{r7, pc}
+ 1202              	.L70:
+ 1203              		.align	2
+ 1204              	.L69:
+ 1205 007c 00000000 		.word	RadioStateSemaphoreHandle
+ 1206 0080 00000000 		.word	gRadioState
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 28
+
+
+ 1207 0084 00000000 		.word	gEncodedString
+ 1208 0088 20000000 		.word	.LC3
+ 1209 008c 00000000 		.word	gSendBuffer
+ 1210 0090 00000000 		.word	LoRaTXSemaphoreHandle
+ 1211              		.cfi_endproc
+ 1212              	.LFE231:
+ 1214              		.text
+ 1215              	.Letext0:
+ 1216              		.file 2 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\lib\\gcc\\arm-none
+ 1217              		.file 3 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
+ 1218              		.file 4 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
+ 1219              		.file 5 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 1220              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ 1221              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1222              		.file 8 "Core/Inc/radioenge_modem.h"
+ 1223              		.file 9 "Core/Inc/uart_at.h"
+ 1224              		.file 10 "<built-in>"
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 29
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 radioenge_modem.c
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:23     .bss.gJoinedFSM:00000000 gJoinedFSM
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:24     .bss.gJoinedFSM:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:29     .data.gRadioState:00000000 gRadioState
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:36     .data.gConfigCmds:00000000 gConfigCmds
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:33     .data.gConfigCmds:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:57     .bss.gConsecutiveJoinErrors:00000000 gConsecutiveJoinErrors
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:54     .bss.gConsecutiveJoinErrors:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:60     .text.LoRaWAN_JoinCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:66     .text.LoRaWAN_JoinCallback:00000000 LoRaWAN_JoinCallback
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:288    .text.SetRadioState:00000000 SetRadioState
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:157    .text.LoRaWAN_JoinCallback:0000006c $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:165    .text.DutyCycleTimerCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:171    .text.DutyCycleTimerCallback:00000000 DutyCycleTimerCallback
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:226    .text.DutyCycleTimerCallback:00000038 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:232    .rodata:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:236    .text.resetRadio:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:242    .text.resetRadio:00000000 resetRadio
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:277    .text.resetRadio:00000020 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:282    .text.SetRadioState:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:330    .text.SetRadioState:00000024 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:336    .text.ModemLedCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:342    .text.ModemLedCallback:00000000 ModemLedCallback
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:371    .text.ModemLedCallback:0000001c $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:387    .text.ModemLedCallback:0000005c $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:532    .text.ModemLedCallback:00000150 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:538    .text.ModemManagerTaskCode:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:544    .text.ModemManagerTaskCode:00000000 ModemManagerTaskCode
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:607    .text.ModemManagerTaskCode:00000060 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:623    .text.ModemManagerTaskCode:000000a0 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:716    .text.ModemManagerTaskCode:00000138 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:731    .bss.gEncodedString:00000000 gEncodedString
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:728    .bss.gEncodedString:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:738    .bss.gSendBuffer:00000000 gSendBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:735    .bss.gSendBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:741    .text.LoRaSend:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:747    .text.LoRaSend:00000000 LoRaSend
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:954    .text.LoRaWaitDutyCycle:00000000 LoRaWaitDutyCycle
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1010   .text.LoRaSendNow:00000000 LoRaSendNow
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:791    .text.bin_encode:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:797    .text.bin_encode:00000000 bin_encode
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:895    .text.bin_encode:0000006c $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:900    .text.LoRaSendB:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:906    .text.LoRaSendB:00000000 LoRaSendB
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1113   .text.LoRaSendBNow:00000000 LoRaSendBNow
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:948    .text.LoRaWaitDutyCycle:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:994    .text.LoRaWaitDutyCycle:00000038 $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1004   .text.LoRaSendNow:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1094   .text.LoRaSendNow:0000006c $d
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1107   .text.LoRaSendBNow:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1205   .text.LoRaSendBNow:0000007c $d
+
+UNDEFINED SYMBOLS
+osSemaphoreAcquire
+osThreadFlagsSet
+osSemaphoreRelease
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 30
+
+
+RadioStateSemaphoreHandle
+ModemMngrTaskHandle
+osDelay
+sendRAWAT
+HAL_GPIO_TogglePin
+HAL_GPIO_WritePin
+osTimerStart
+osThreadFlagsWait
+osEventFlagsClear
+osEventFlagsSet
+ModemLedTimerHandle
+ModemStatusFlagsHandle
+DutyCycleTimerHandle
+sprintf
+osEventFlagsWait
+LoRaTXSemaphoreHandle
+snprintf

@@ -1,0 +1,3930 @@
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	hadc1
+  20              		.section	.bss.hadc1,"aw",%nobits
+  21              		.align	2
+  24              	hadc1:
+  25 0000 00000000 		.space	72
+  25      00000000 
+  25      00000000 
+  25      00000000 
+  25      00000000 
+  26              		.global	htim1
+  27              		.section	.bss.htim1,"aw",%nobits
+  28              		.align	2
+  31              	htim1:
+  32 0000 00000000 		.space	72
+  32      00000000 
+  32      00000000 
+  32      00000000 
+  32      00000000 
+  33              		.global	htim2
+  34              		.section	.bss.htim2,"aw",%nobits
+  35              		.align	2
+  38              	htim2:
+  39 0000 00000000 		.space	72
+  39      00000000 
+  39      00000000 
+  39      00000000 
+  39      00000000 
+  40              		.global	htim3
+  41              		.section	.bss.htim3,"aw",%nobits
+  42              		.align	2
+  45              	htim3:
+  46 0000 00000000 		.space	72
+  46      00000000 
+  46      00000000 
+  46      00000000 
+  46      00000000 
+  47              		.global	huart1
+  48              		.section	.bss.huart1,"aw",%nobits
+  49              		.align	2
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 2
+
+
+  52              	huart1:
+  53 0000 00000000 		.space	68
+  53      00000000 
+  53      00000000 
+  53      00000000 
+  53      00000000 
+  54              		.global	hdma_usart1_rx
+  55              		.section	.bss.hdma_usart1_rx,"aw",%nobits
+  56              		.align	2
+  59              	hdma_usart1_rx:
+  60 0000 00000000 		.space	96
+  60      00000000 
+  60      00000000 
+  60      00000000 
+  60      00000000 
+  61              		.global	hdma_usart1_tx
+  62              		.section	.bss.hdma_usart1_tx,"aw",%nobits
+  63              		.align	2
+  66              	hdma_usart1_tx:
+  67 0000 00000000 		.space	96
+  67      00000000 
+  67      00000000 
+  67      00000000 
+  67      00000000 
+  68              		.global	defaultTaskHandle
+  69              		.section	.bss.defaultTaskHandle,"aw",%nobits
+  70              		.align	2
+  73              	defaultTaskHandle:
+  74 0000 00000000 		.space	4
+  75              		.global	defaultTaskBuffer
+  76              		.section	.bss.defaultTaskBuffer,"aw",%nobits
+  77              		.align	2
+  80              	defaultTaskBuffer:
+  81 0000 00000000 		.space	512
+  81      00000000 
+  81      00000000 
+  81      00000000 
+  81      00000000 
+  82              		.global	defaultTaskControlBlock
+  83              		.section	.bss.defaultTaskControlBlock,"aw",%nobits
+  84              		.align	2
+  87              	defaultTaskControlBlock:
+  88 0000 00000000 		.space	100
+  88      00000000 
+  88      00000000 
+  88      00000000 
+  88      00000000 
+  89              		.global	defaultTask_attributes
+  90              		.section	.rodata
+  91              		.align	2
+  92              	.LC0:
+  93 0000 64656661 		.ascii	"defaultTask\000"
+  93      756C7454 
+  93      61736B00 
+  94              		.section	.rodata.defaultTask_attributes,"a"
+  95              		.align	2
+  98              	defaultTask_attributes:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 3
+
+
+  99 0000 00000000 		.word	.LC0
+ 100 0004 00000000 		.space	4
+ 101 0008 00000000 		.word	defaultTaskControlBlock
+ 102 000c 64000000 		.word	100
+ 103 0010 00000000 		.word	defaultTaskBuffer
+ 104 0014 00020000 		.word	512
+ 105 0018 09000000 		.word	9
+ 106 001c 00000000 		.space	8
+ 106      00000000 
+ 107              		.global	ATParsingTaskHandle
+ 108              		.section	.bss.ATParsingTaskHandle,"aw",%nobits
+ 109              		.align	2
+ 112              	ATParsingTaskHandle:
+ 113 0000 00000000 		.space	4
+ 114              		.global	ATParsingTaskBuffer
+ 115              		.section	.bss.ATParsingTaskBuffer,"aw",%nobits
+ 116              		.align	2
+ 119              	ATParsingTaskBuffer:
+ 120 0000 00000000 		.space	2048
+ 120      00000000 
+ 120      00000000 
+ 120      00000000 
+ 120      00000000 
+ 121              		.global	ATParsingTaskControlBlock
+ 122              		.section	.bss.ATParsingTaskControlBlock,"aw",%nobits
+ 123              		.align	2
+ 126              	ATParsingTaskControlBlock:
+ 127 0000 00000000 		.space	100
+ 127      00000000 
+ 127      00000000 
+ 127      00000000 
+ 127      00000000 
+ 128              		.global	ATParsingTask_attributes
+ 129              		.section	.rodata
+ 130              		.align	2
+ 131              	.LC1:
+ 132 000c 41545061 		.ascii	"ATParsingTask\000"
+ 132      7273696E 
+ 132      67546173 
+ 132      6B00
+ 133              		.section	.rodata.ATParsingTask_attributes,"a"
+ 134              		.align	2
+ 137              	ATParsingTask_attributes:
+ 138 0000 0C000000 		.word	.LC1
+ 139 0004 00000000 		.space	4
+ 140 0008 00000000 		.word	ATParsingTaskControlBlock
+ 141 000c 64000000 		.word	100
+ 142 0010 00000000 		.word	ATParsingTaskBuffer
+ 143 0014 00080000 		.word	2048
+ 144 0018 27000000 		.word	39
+ 145 001c 00000000 		.space	8
+ 145      00000000 
+ 146              		.global	ATHandlingTaskHandle
+ 147              		.section	.bss.ATHandlingTaskHandle,"aw",%nobits
+ 148              		.align	2
+ 151              	ATHandlingTaskHandle:
+ 152 0000 00000000 		.space	4
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 4
+
+
+ 153              		.global	ATHandlingTaskBuffer
+ 154              		.section	.bss.ATHandlingTaskBuffer,"aw",%nobits
+ 155              		.align	2
+ 158              	ATHandlingTaskBuffer:
+ 159 0000 00000000 		.space	2048
+ 159      00000000 
+ 159      00000000 
+ 159      00000000 
+ 159      00000000 
+ 160              		.global	ATHandlingTaskControlBlock
+ 161              		.section	.bss.ATHandlingTaskControlBlock,"aw",%nobits
+ 162              		.align	2
+ 165              	ATHandlingTaskControlBlock:
+ 166 0000 00000000 		.space	100
+ 166      00000000 
+ 166      00000000 
+ 166      00000000 
+ 166      00000000 
+ 167              		.global	ATHandlingTask_attributes
+ 168              		.section	.rodata
+ 169 001a 0000     		.align	2
+ 170              	.LC2:
+ 171 001c 41544861 		.ascii	"ATHandlingTask\000"
+ 171      6E646C69 
+ 171      6E675461 
+ 171      736B00
+ 172              		.section	.rodata.ATHandlingTask_attributes,"a"
+ 173              		.align	2
+ 176              	ATHandlingTask_attributes:
+ 177 0000 1C000000 		.word	.LC2
+ 178 0004 00000000 		.space	4
+ 179 0008 00000000 		.word	ATHandlingTaskControlBlock
+ 180 000c 64000000 		.word	100
+ 181 0010 00000000 		.word	ATHandlingTaskBuffer
+ 182 0014 00080000 		.word	2048
+ 183 0018 26000000 		.word	38
+ 184 001c 00000000 		.space	8
+ 184      00000000 
+ 185              		.global	UARTProcTaskHandle
+ 186              		.section	.bss.UARTProcTaskHandle,"aw",%nobits
+ 187              		.align	2
+ 190              	UARTProcTaskHandle:
+ 191 0000 00000000 		.space	4
+ 192              		.global	UARTProcTaskBuffer
+ 193              		.section	.bss.UARTProcTaskBuffer,"aw",%nobits
+ 194              		.align	2
+ 197              	UARTProcTaskBuffer:
+ 198 0000 00000000 		.space	2048
+ 198      00000000 
+ 198      00000000 
+ 198      00000000 
+ 198      00000000 
+ 199              		.global	UARTProcTaskControlBlock
+ 200              		.section	.bss.UARTProcTaskControlBlock,"aw",%nobits
+ 201              		.align	2
+ 204              	UARTProcTaskControlBlock:
+ 205 0000 00000000 		.space	100
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 5
+
+
+ 205      00000000 
+ 205      00000000 
+ 205      00000000 
+ 205      00000000 
+ 206              		.global	UARTProcTask_attributes
+ 207              		.section	.rodata
+ 208 002b 00       		.align	2
+ 209              	.LC3:
+ 210 002c 55415254 		.ascii	"UARTProcTask\000"
+ 210      50726F63 
+ 210      5461736B 
+ 210      00
+ 211              		.section	.rodata.UARTProcTask_attributes,"a"
+ 212              		.align	2
+ 215              	UARTProcTask_attributes:
+ 216 0000 2C000000 		.word	.LC3
+ 217 0004 00000000 		.space	4
+ 218 0008 00000000 		.word	UARTProcTaskControlBlock
+ 219 000c 64000000 		.word	100
+ 220 0010 00000000 		.word	UARTProcTaskBuffer
+ 221 0014 00080000 		.word	2048
+ 222 0018 2F000000 		.word	47
+ 223 001c 00000000 		.space	8
+ 223      00000000 
+ 224              		.global	ModemMngrTaskHandle
+ 225              		.section	.bss.ModemMngrTaskHandle,"aw",%nobits
+ 226              		.align	2
+ 229              	ModemMngrTaskHandle:
+ 230 0000 00000000 		.space	4
+ 231              		.global	ModemMngrTaskBuffer
+ 232              		.section	.bss.ModemMngrTaskBuffer,"aw",%nobits
+ 233              		.align	2
+ 236              	ModemMngrTaskBuffer:
+ 237 0000 00000000 		.space	2048
+ 237      00000000 
+ 237      00000000 
+ 237      00000000 
+ 237      00000000 
+ 238              		.global	ModemMngrTaskControlBlock
+ 239              		.section	.bss.ModemMngrTaskControlBlock,"aw",%nobits
+ 240              		.align	2
+ 243              	ModemMngrTaskControlBlock:
+ 244 0000 00000000 		.space	100
+ 244      00000000 
+ 244      00000000 
+ 244      00000000 
+ 244      00000000 
+ 245              		.global	ModemMngrTask_attributes
+ 246              		.section	.rodata
+ 247 0039 000000   		.align	2
+ 248              	.LC4:
+ 249 003c 4D6F6465 		.ascii	"ModemMngrTask\000"
+ 249      6D4D6E67 
+ 249      72546173 
+ 249      6B00
+ 250              		.section	.rodata.ModemMngrTask_attributes,"a"
+ 251              		.align	2
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 6
+
+
+ 254              	ModemMngrTask_attributes:
+ 255 0000 3C000000 		.word	.LC4
+ 256 0004 00000000 		.space	4
+ 257 0008 00000000 		.word	ModemMngrTaskControlBlock
+ 258 000c 64000000 		.word	100
+ 259 0010 00000000 		.word	ModemMngrTaskBuffer
+ 260 0014 00080000 		.word	2048
+ 261 0018 1F000000 		.word	31
+ 262 001c 00000000 		.space	8
+ 262      00000000 
+ 263              		.global	AppSendTaskHandle
+ 264              		.section	.bss.AppSendTaskHandle,"aw",%nobits
+ 265              		.align	2
+ 268              	AppSendTaskHandle:
+ 269 0000 00000000 		.space	4
+ 270              		.global	SendTemperatureBuffer
+ 271              		.section	.bss.SendTemperatureBuffer,"aw",%nobits
+ 272              		.align	2
+ 275              	SendTemperatureBuffer:
+ 276 0000 00000000 		.space	2048
+ 276      00000000 
+ 276      00000000 
+ 276      00000000 
+ 276      00000000 
+ 277              		.global	SendTemperatureControlBlock
+ 278              		.section	.bss.SendTemperatureControlBlock,"aw",%nobits
+ 279              		.align	2
+ 282              	SendTemperatureControlBlock:
+ 283 0000 00000000 		.space	100
+ 283      00000000 
+ 283      00000000 
+ 283      00000000 
+ 283      00000000 
+ 284              		.global	AppSendTask_attributes
+ 285              		.section	.rodata
+ 286 004a 0000     		.align	2
+ 287              	.LC5:
+ 288 004c 41707053 		.ascii	"AppSendTask\000"
+ 288      656E6454 
+ 288      61736B00 
+ 289              		.section	.rodata.AppSendTask_attributes,"a"
+ 290              		.align	2
+ 293              	AppSendTask_attributes:
+ 294 0000 4C000000 		.word	.LC5
+ 295 0004 00000000 		.space	4
+ 296 0008 00000000 		.word	SendTemperatureControlBlock
+ 297 000c 64000000 		.word	100
+ 298 0010 00000000 		.word	SendTemperatureBuffer
+ 299 0014 00080000 		.word	2048
+ 300 0018 0F000000 		.word	15
+ 301 001c 00000000 		.space	8
+ 301      00000000 
+ 302              		.global	ReadFromADCTaskHandle
+ 303              		.section	.bss.ReadFromADCTaskHandle,"aw",%nobits
+ 304              		.align	2
+ 307              	ReadFromADCTaskHandle:
+ 308 0000 00000000 		.space	4
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 7
+
+
+ 309              		.global	ReadFromADCTaskBuffer
+ 310              		.section	.bss.ReadFromADCTaskBuffer,"aw",%nobits
+ 311              		.align	2
+ 314              	ReadFromADCTaskBuffer:
+ 315 0000 00000000 		.space	512
+ 315      00000000 
+ 315      00000000 
+ 315      00000000 
+ 315      00000000 
+ 316              		.global	ReadFromADCTaskControlBlock
+ 317              		.section	.bss.ReadFromADCTaskControlBlock,"aw",%nobits
+ 318              		.align	2
+ 321              	ReadFromADCTaskControlBlock:
+ 322 0000 00000000 		.space	100
+ 322      00000000 
+ 322      00000000 
+ 322      00000000 
+ 322      00000000 
+ 323              		.global	ReadFromADCTask_attributes
+ 324              		.section	.rodata
+ 325              		.align	2
+ 326              	.LC6:
+ 327 0058 52656164 		.ascii	"ReadFromADCTask\000"
+ 327      46726F6D 
+ 327      41444354 
+ 327      61736B00 
+ 328              		.section	.rodata.ReadFromADCTask_attributes,"a"
+ 329              		.align	2
+ 332              	ReadFromADCTask_attributes:
+ 333 0000 58000000 		.word	.LC6
+ 334 0004 00000000 		.space	4
+ 335 0008 00000000 		.word	ReadFromADCTaskControlBlock
+ 336 000c 64000000 		.word	100
+ 337 0010 00000000 		.word	ReadFromADCTaskBuffer
+ 338 0014 00020000 		.word	512
+ 339 0018 0F000000 		.word	15
+ 340 001c 00000000 		.space	8
+ 340      00000000 
+ 341              		.global	uartQueueHandle
+ 342              		.section	.bss.uartQueueHandle,"aw",%nobits
+ 343              		.align	2
+ 346              	uartQueueHandle:
+ 347 0000 00000000 		.space	4
+ 348              		.global	uartQueueBuffer
+ 349              		.section	.bss.uartQueueBuffer,"aw",%nobits
+ 350              		.align	2
+ 353              	uartQueueBuffer:
+ 354 0000 00000000 		.space	16
+ 354      00000000 
+ 354      00000000 
+ 354      00000000 
+ 355              		.global	uartQueueControlBlock
+ 356              		.section	.bss.uartQueueControlBlock,"aw",%nobits
+ 357              		.align	2
+ 360              	uartQueueControlBlock:
+ 361 0000 00000000 		.space	80
+ 361      00000000 
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 8
+
+
+ 361      00000000 
+ 361      00000000 
+ 361      00000000 
+ 362              		.global	uartQueue_attributes
+ 363              		.section	.rodata
+ 364              		.align	2
+ 365              	.LC7:
+ 366 0068 75617274 		.ascii	"uartQueue\000"
+ 366      51756575 
+ 366      6500
+ 367              		.section	.rodata.uartQueue_attributes,"a"
+ 368              		.align	2
+ 371              	uartQueue_attributes:
+ 372 0000 68000000 		.word	.LC7
+ 373 0004 00000000 		.space	4
+ 374 0008 00000000 		.word	uartQueueControlBlock
+ 375 000c 50000000 		.word	80
+ 376 0010 00000000 		.word	uartQueueBuffer
+ 377 0014 10000000 		.word	16
+ 378              		.global	ATQueueHandle
+ 379              		.section	.bss.ATQueueHandle,"aw",%nobits
+ 380              		.align	2
+ 383              	ATQueueHandle:
+ 384 0000 00000000 		.space	4
+ 385              		.global	ATQueueBuffer
+ 386              		.section	.bss.ATQueueBuffer,"aw",%nobits
+ 387              		.align	2
+ 390              	ATQueueBuffer:
+ 391 0000 00000000 		.space	16
+ 391      00000000 
+ 391      00000000 
+ 391      00000000 
+ 392              		.global	ATQueueControlBlock
+ 393              		.section	.bss.ATQueueControlBlock,"aw",%nobits
+ 394              		.align	2
+ 397              	ATQueueControlBlock:
+ 398 0000 00000000 		.space	80
+ 398      00000000 
+ 398      00000000 
+ 398      00000000 
+ 398      00000000 
+ 399              		.global	ATQueue_attributes
+ 400              		.section	.rodata
+ 401 0072 0000     		.align	2
+ 402              	.LC8:
+ 403 0074 41545175 		.ascii	"ATQueue\000"
+ 403      65756500 
+ 404              		.section	.rodata.ATQueue_attributes,"a"
+ 405              		.align	2
+ 408              	ATQueue_attributes:
+ 409 0000 74000000 		.word	.LC8
+ 410 0004 00000000 		.space	4
+ 411 0008 00000000 		.word	ATQueueControlBlock
+ 412 000c 50000000 		.word	80
+ 413 0010 00000000 		.word	ATQueueBuffer
+ 414 0014 10000000 		.word	16
+ 415              		.global	ModemSendQueueHandle
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 9
+
+
+ 416              		.section	.bss.ModemSendQueueHandle,"aw",%nobits
+ 417              		.align	2
+ 420              	ModemSendQueueHandle:
+ 421 0000 00000000 		.space	4
+ 422              		.global	ModemSendQueueBuffer
+ 423              		.section	.bss.ModemSendQueueBuffer,"aw",%nobits
+ 424              		.align	2
+ 427              	ModemSendQueueBuffer:
+ 428 0000 00000000 		.space	16
+ 428      00000000 
+ 428      00000000 
+ 428      00000000 
+ 429              		.global	ModemSendQueueControlBlock
+ 430              		.section	.bss.ModemSendQueueControlBlock,"aw",%nobits
+ 431              		.align	2
+ 434              	ModemSendQueueControlBlock:
+ 435 0000 00000000 		.space	80
+ 435      00000000 
+ 435      00000000 
+ 435      00000000 
+ 435      00000000 
+ 436              		.global	ModemSendQueue_attributes
+ 437              		.section	.rodata
+ 438              		.align	2
+ 439              	.LC9:
+ 440 007c 4D6F6465 		.ascii	"ModemSendQueue\000"
+ 440      6D53656E 
+ 440      64517565 
+ 440      756500
+ 441              		.section	.rodata.ModemSendQueue_attributes,"a"
+ 442              		.align	2
+ 445              	ModemSendQueue_attributes:
+ 446 0000 7C000000 		.word	.LC9
+ 447 0004 00000000 		.space	4
+ 448 0008 00000000 		.word	ModemSendQueueControlBlock
+ 449 000c 50000000 		.word	80
+ 450 0010 00000000 		.word	ModemSendQueueBuffer
+ 451 0014 10000000 		.word	16
+ 452              		.global	TemperatureQueueHandle
+ 453              		.section	.bss.TemperatureQueueHandle,"aw",%nobits
+ 454              		.align	2
+ 457              	TemperatureQueueHandle:
+ 458 0000 00000000 		.space	4
+ 459              		.global	TemperatureQueueBuffer
+ 460              		.section	.bss.TemperatureQueueBuffer,"aw",%nobits
+ 461              		.align	2
+ 464              	TemperatureQueueBuffer:
+ 465 0000 00000000 		.space	64
+ 465      00000000 
+ 465      00000000 
+ 465      00000000 
+ 465      00000000 
+ 466              		.global	TemperatureQueueControlBlock
+ 467              		.section	.bss.TemperatureQueueControlBlock,"aw",%nobits
+ 468              		.align	2
+ 471              	TemperatureQueueControlBlock:
+ 472 0000 00000000 		.space	80
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 10
+
+
+ 472      00000000 
+ 472      00000000 
+ 472      00000000 
+ 472      00000000 
+ 473              		.global	TemperatureQueue_attributes
+ 474              		.section	.rodata
+ 475 008b 00       		.align	2
+ 476              	.LC10:
+ 477 008c 54656D70 		.ascii	"TemperatureQueue\000"
+ 477      65726174 
+ 477      75726551 
+ 477      75657565 
+ 477      00
+ 478              		.section	.rodata.TemperatureQueue_attributes,"a"
+ 479              		.align	2
+ 482              	TemperatureQueue_attributes:
+ 483 0000 8C000000 		.word	.LC10
+ 484 0004 00000000 		.space	4
+ 485 0008 00000000 		.word	TemperatureQueueControlBlock
+ 486 000c 50000000 		.word	80
+ 487 0010 00000000 		.word	TemperatureQueueBuffer
+ 488 0014 40000000 		.word	64
+ 489              		.global	PeriodicSendTimerHandle
+ 490              		.section	.bss.PeriodicSendTimerHandle,"aw",%nobits
+ 491              		.align	2
+ 494              	PeriodicSendTimerHandle:
+ 495 0000 00000000 		.space	4
+ 496              		.global	PeriodicSendTimerControlBlock
+ 497              		.section	.bss.PeriodicSendTimerControlBlock,"aw",%nobits
+ 498              		.align	2
+ 501              	PeriodicSendTimerControlBlock:
+ 502 0000 00000000 		.space	44
+ 502      00000000 
+ 502      00000000 
+ 502      00000000 
+ 502      00000000 
+ 503              		.global	PeriodicSendTimer_attributes
+ 504              		.section	.rodata
+ 505 009d 000000   		.align	2
+ 506              	.LC11:
+ 507 00a0 50657269 		.ascii	"PeriodicSendTimer\000"
+ 507      6F646963 
+ 507      53656E64 
+ 507      54696D65 
+ 507      7200
+ 508              		.section	.rodata.PeriodicSendTimer_attributes,"a"
+ 509              		.align	2
+ 512              	PeriodicSendTimer_attributes:
+ 513 0000 A0000000 		.word	.LC11
+ 514 0004 00000000 		.space	4
+ 515 0008 00000000 		.word	PeriodicSendTimerControlBlock
+ 516 000c 2C000000 		.word	44
+ 517              		.global	ModemLedTimerHandle
+ 518              		.section	.bss.ModemLedTimerHandle,"aw",%nobits
+ 519              		.align	2
+ 522              	ModemLedTimerHandle:
+ 523 0000 00000000 		.space	4
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 11
+
+
+ 524              		.global	ModemLedTimerControlBlock
+ 525              		.section	.bss.ModemLedTimerControlBlock,"aw",%nobits
+ 526              		.align	2
+ 529              	ModemLedTimerControlBlock:
+ 530 0000 00000000 		.space	44
+ 530      00000000 
+ 530      00000000 
+ 530      00000000 
+ 530      00000000 
+ 531              		.global	ModemLedTimer_attributes
+ 532              		.section	.rodata
+ 533 00b2 0000     		.align	2
+ 534              	.LC12:
+ 535 00b4 4D6F6465 		.ascii	"ModemLedTimer\000"
+ 535      6D4C6564 
+ 535      54696D65 
+ 535      7200
+ 536              		.section	.rodata.ModemLedTimer_attributes,"a"
+ 537              		.align	2
+ 540              	ModemLedTimer_attributes:
+ 541 0000 B4000000 		.word	.LC12
+ 542 0004 00000000 		.space	4
+ 543 0008 00000000 		.word	ModemLedTimerControlBlock
+ 544 000c 2C000000 		.word	44
+ 545              		.global	DutyCycleTimerHandle
+ 546              		.section	.bss.DutyCycleTimerHandle,"aw",%nobits
+ 547              		.align	2
+ 550              	DutyCycleTimerHandle:
+ 551 0000 00000000 		.space	4
+ 552              		.global	DutyCycleTimerControlBlock
+ 553              		.section	.bss.DutyCycleTimerControlBlock,"aw",%nobits
+ 554              		.align	2
+ 557              	DutyCycleTimerControlBlock:
+ 558 0000 00000000 		.space	44
+ 558      00000000 
+ 558      00000000 
+ 558      00000000 
+ 558      00000000 
+ 559              		.global	DutyCycleTimer_attributes
+ 560              		.section	.rodata
+ 561 00c2 0000     		.align	2
+ 562              	.LC13:
+ 563 00c4 44757479 		.ascii	"DutyCycleTimer\000"
+ 563      4379636C 
+ 563      6554696D 
+ 563      657200
+ 564              		.section	.rodata.DutyCycleTimer_attributes,"a"
+ 565              		.align	2
+ 568              	DutyCycleTimer_attributes:
+ 569 0000 C4000000 		.word	.LC13
+ 570 0004 00000000 		.space	4
+ 571 0008 00000000 		.word	DutyCycleTimerControlBlock
+ 572 000c 2C000000 		.word	44
+ 573              		.global	ATCommandSemaphoreHandle
+ 574              		.section	.bss.ATCommandSemaphoreHandle,"aw",%nobits
+ 575              		.align	2
+ 578              	ATCommandSemaphoreHandle:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 12
+
+
+ 579 0000 00000000 		.space	4
+ 580              		.global	ATCommandSemaphoreControlBlock
+ 581              		.section	.bss.ATCommandSemaphoreControlBlock,"aw",%nobits
+ 582              		.align	2
+ 585              	ATCommandSemaphoreControlBlock:
+ 586 0000 00000000 		.space	80
+ 586      00000000 
+ 586      00000000 
+ 586      00000000 
+ 586      00000000 
+ 587              		.global	ATCommandSemaphore_attributes
+ 588              		.section	.rodata
+ 589 00d3 00       		.align	2
+ 590              	.LC14:
+ 591 00d4 4154436F 		.ascii	"ATCommandSemaphore\000"
+ 591      6D6D616E 
+ 591      6453656D 
+ 591      6170686F 
+ 591      726500
+ 592              		.section	.rodata.ATCommandSemaphore_attributes,"a"
+ 593              		.align	2
+ 596              	ATCommandSemaphore_attributes:
+ 597 0000 D4000000 		.word	.LC14
+ 598 0004 00000000 		.space	4
+ 599 0008 00000000 		.word	ATCommandSemaphoreControlBlock
+ 600 000c 50000000 		.word	80
+ 601              		.global	ATResponseSemaphoreHandle
+ 602              		.section	.bss.ATResponseSemaphoreHandle,"aw",%nobits
+ 603              		.align	2
+ 606              	ATResponseSemaphoreHandle:
+ 607 0000 00000000 		.space	4
+ 608              		.global	ATResponseSemaphoreControlBlock
+ 609              		.section	.bss.ATResponseSemaphoreControlBlock,"aw",%nobits
+ 610              		.align	2
+ 613              	ATResponseSemaphoreControlBlock:
+ 614 0000 00000000 		.space	80
+ 614      00000000 
+ 614      00000000 
+ 614      00000000 
+ 614      00000000 
+ 615              		.global	ATResponseSemaphore_attributes
+ 616              		.section	.rodata
+ 617 00e7 00       		.align	2
+ 618              	.LC15:
+ 619 00e8 41545265 		.ascii	"ATResponseSemaphore\000"
+ 619      73706F6E 
+ 619      73655365 
+ 619      6D617068 
+ 619      6F726500 
+ 620              		.section	.rodata.ATResponseSemaphore_attributes,"a"
+ 621              		.align	2
+ 624              	ATResponseSemaphore_attributes:
+ 625 0000 E8000000 		.word	.LC15
+ 626 0004 00000000 		.space	4
+ 627 0008 00000000 		.word	ATResponseSemaphoreControlBlock
+ 628 000c 50000000 		.word	80
+ 629              		.global	UARTTXSemaphoreHandle
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 13
+
+
+ 630              		.section	.bss.UARTTXSemaphoreHandle,"aw",%nobits
+ 631              		.align	2
+ 634              	UARTTXSemaphoreHandle:
+ 635 0000 00000000 		.space	4
+ 636              		.global	UARTTXSemaphoreControlBlock
+ 637              		.section	.bss.UARTTXSemaphoreControlBlock,"aw",%nobits
+ 638              		.align	2
+ 641              	UARTTXSemaphoreControlBlock:
+ 642 0000 00000000 		.space	80
+ 642      00000000 
+ 642      00000000 
+ 642      00000000 
+ 642      00000000 
+ 643              		.global	UARTTXSemaphore_attributes
+ 644              		.section	.rodata
+ 645              		.align	2
+ 646              	.LC16:
+ 647 00fc 55415254 		.ascii	"UARTTXSemaphore\000"
+ 647      54585365 
+ 647      6D617068 
+ 647      6F726500 
+ 648              		.section	.rodata.UARTTXSemaphore_attributes,"a"
+ 649              		.align	2
+ 652              	UARTTXSemaphore_attributes:
+ 653 0000 FC000000 		.word	.LC16
+ 654 0004 00000000 		.space	4
+ 655 0008 00000000 		.word	UARTTXSemaphoreControlBlock
+ 656 000c 50000000 		.word	80
+ 657              		.global	RadioStateSemaphoreHandle
+ 658              		.section	.bss.RadioStateSemaphoreHandle,"aw",%nobits
+ 659              		.align	2
+ 662              	RadioStateSemaphoreHandle:
+ 663 0000 00000000 		.space	4
+ 664              		.global	RadioStateSemaphoreControlBlock
+ 665              		.section	.bss.RadioStateSemaphoreControlBlock,"aw",%nobits
+ 666              		.align	2
+ 669              	RadioStateSemaphoreControlBlock:
+ 670 0000 00000000 		.space	80
+ 670      00000000 
+ 670      00000000 
+ 670      00000000 
+ 670      00000000 
+ 671              		.global	RadioStateSemaphore_attributes
+ 672              		.section	.rodata
+ 673              		.align	2
+ 674              	.LC17:
+ 675 010c 52616469 		.ascii	"RadioStateSemaphore\000"
+ 675      6F537461 
+ 675      74655365 
+ 675      6D617068 
+ 675      6F726500 
+ 676              		.section	.rodata.RadioStateSemaphore_attributes,"a"
+ 677              		.align	2
+ 680              	RadioStateSemaphore_attributes:
+ 681 0000 0C010000 		.word	.LC17
+ 682 0004 00000000 		.space	4
+ 683 0008 00000000 		.word	RadioStateSemaphoreControlBlock
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 14
+
+
+ 684 000c 50000000 		.word	80
+ 685              		.global	LoRaTXSemaphoreHandle
+ 686              		.section	.bss.LoRaTXSemaphoreHandle,"aw",%nobits
+ 687              		.align	2
+ 690              	LoRaTXSemaphoreHandle:
+ 691 0000 00000000 		.space	4
+ 692              		.global	LoRaTXSemaphoreControlBlock
+ 693              		.section	.bss.LoRaTXSemaphoreControlBlock,"aw",%nobits
+ 694              		.align	2
+ 697              	LoRaTXSemaphoreControlBlock:
+ 698 0000 00000000 		.space	80
+ 698      00000000 
+ 698      00000000 
+ 698      00000000 
+ 698      00000000 
+ 699              		.global	LoRaTXSemaphore_attributes
+ 700              		.section	.rodata
+ 701              		.align	2
+ 702              	.LC18:
+ 703 0120 4C6F5261 		.ascii	"LoRaTXSemaphore\000"
+ 703      54585365 
+ 703      6D617068 
+ 703      6F726500 
+ 704              		.section	.rodata.LoRaTXSemaphore_attributes,"a"
+ 705              		.align	2
+ 708              	LoRaTXSemaphore_attributes:
+ 709 0000 20010000 		.word	.LC18
+ 710 0004 00000000 		.space	4
+ 711 0008 00000000 		.word	LoRaTXSemaphoreControlBlock
+ 712 000c 50000000 		.word	80
+ 713              		.global	ModemStatusFlagsHandle
+ 714              		.section	.bss.ModemStatusFlagsHandle,"aw",%nobits
+ 715              		.align	2
+ 718              	ModemStatusFlagsHandle:
+ 719 0000 00000000 		.space	4
+ 720              		.global	ModemStatusFlagsControlBlock
+ 721              		.section	.bss.ModemStatusFlagsControlBlock,"aw",%nobits
+ 722              		.align	2
+ 725              	ModemStatusFlagsControlBlock:
+ 726 0000 00000000 		.space	32
+ 726      00000000 
+ 726      00000000 
+ 726      00000000 
+ 726      00000000 
+ 727              		.global	ModemStatusFlags_attributes
+ 728              		.section	.rodata
+ 729              		.align	2
+ 730              	.LC19:
+ 731 0130 4D6F6465 		.ascii	"ModemStatusFlags\000"
+ 731      6D537461 
+ 731      74757346 
+ 731      6C616773 
+ 731      00
+ 732              		.section	.rodata.ModemStatusFlags_attributes,"a"
+ 733              		.align	2
+ 736              	ModemStatusFlags_attributes:
+ 737 0000 30010000 		.word	.LC19
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 15
+
+
+ 738 0004 00000000 		.space	4
+ 739 0008 00000000 		.word	ModemStatusFlagsControlBlock
+ 740 000c 20000000 		.word	32
+ 741              		.global	vector
+ 742              		.section	.bss.vector,"aw",%nobits
+ 743              		.align	2
+ 746              	vector:
+ 747 0000 00000000 		.space	1020
+ 747      00000000 
+ 747      00000000 
+ 747      00000000 
+ 747      00000000 
+ 748              		.section	.text.CONFIGURE_TIMER_FOR_RUN_TIME_STATS,"ax",%progbits
+ 749              		.align	1
+ 750              		.global	CONFIGURE_TIMER_FOR_RUN_TIME_STATS
+ 751              		.syntax unified
+ 752              		.thumb
+ 753              		.thumb_func
+ 755              	CONFIGURE_TIMER_FOR_RUN_TIME_STATS:
+ 756              	.LFB224:
+ 757              		.file 1 "Core/Src/main.c"
+   1:Core/Src/main.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/main.c **** /**
+   3:Core/Src/main.c ****   ******************************************************************************
+   4:Core/Src/main.c ****   * @file           : main.c
+   5:Core/Src/main.c ****   * @brief          : Main program body
+   6:Core/Src/main.c ****   ******************************************************************************
+   7:Core/Src/main.c ****   * @attention
+   8:Core/Src/main.c ****   *
+   9:Core/Src/main.c ****   * Copyright (c) 2022 STMicroelectronics.
+  10:Core/Src/main.c ****   * All rights reserved.
+  11:Core/Src/main.c ****   *
+  12:Core/Src/main.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:Core/Src/main.c ****   * in the root directory of this software component.
+  14:Core/Src/main.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Core/Src/main.c ****   *
+  16:Core/Src/main.c ****   ******************************************************************************
+  17:Core/Src/main.c ****   */
+  18:Core/Src/main.c **** /* USER CODE END Header */
+  19:Core/Src/main.c **** /* Includes ------------------------------------------------------------------*/
+  20:Core/Src/main.c **** #include "main.h"
+  21:Core/Src/main.c **** #include "cmsis_os.h"
+  22:Core/Src/main.c **** #include "usb_device.h"
+  23:Core/Src/main.c **** 
+  24:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
+  25:Core/Src/main.c **** /* USER CODE BEGIN Includes */
+  26:Core/Src/main.c **** 
+  27:Core/Src/main.c **** /* USER CODE END Includes */
+  28:Core/Src/main.c **** 
+  29:Core/Src/main.c **** /* Private typedef -----------------------------------------------------------*/
+  30:Core/Src/main.c **** typedef StaticTask_t osStaticThreadDef_t;
+  31:Core/Src/main.c **** typedef StaticQueue_t osStaticMessageQDef_t;
+  32:Core/Src/main.c **** typedef StaticTimer_t osStaticTimerDef_t;
+  33:Core/Src/main.c **** typedef StaticSemaphore_t osStaticSemaphoreDef_t;
+  34:Core/Src/main.c **** typedef StaticEventGroup_t osStaticEventGroupDef_t;
+  35:Core/Src/main.c **** /* USER CODE BEGIN PTD */
+  36:Core/Src/main.c **** 
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 16
+
+
+  37:Core/Src/main.c **** /* USER CODE END PTD */
+  38:Core/Src/main.c **** 
+  39:Core/Src/main.c **** /* Private define ------------------------------------------------------------*/
+  40:Core/Src/main.c **** /* USER CODE BEGIN PD */
+  41:Core/Src/main.c **** /* USER CODE END PD */
+  42:Core/Src/main.c **** 
+  43:Core/Src/main.c **** /* Private macro -------------------------------------------------------------*/
+  44:Core/Src/main.c **** /* USER CODE BEGIN PM */
+  45:Core/Src/main.c **** 
+  46:Core/Src/main.c **** /* USER CODE END PM */
+  47:Core/Src/main.c **** 
+  48:Core/Src/main.c **** /* Private variables ---------------------------------------------------------*/
+  49:Core/Src/main.c **** ADC_HandleTypeDef hadc1;
+  50:Core/Src/main.c **** 
+  51:Core/Src/main.c **** TIM_HandleTypeDef htim1;
+  52:Core/Src/main.c **** TIM_HandleTypeDef htim2;
+  53:Core/Src/main.c **** TIM_HandleTypeDef htim3;
+  54:Core/Src/main.c **** 
+  55:Core/Src/main.c **** UART_HandleTypeDef huart1;
+  56:Core/Src/main.c **** DMA_HandleTypeDef hdma_usart1_rx;
+  57:Core/Src/main.c **** DMA_HandleTypeDef hdma_usart1_tx;
+  58:Core/Src/main.c **** 
+  59:Core/Src/main.c **** /* Definitions for defaultTask */
+  60:Core/Src/main.c **** osThreadId_t defaultTaskHandle;
+  61:Core/Src/main.c **** uint32_t defaultTaskBuffer[ 128 ];
+  62:Core/Src/main.c **** osStaticThreadDef_t defaultTaskControlBlock;
+  63:Core/Src/main.c **** const osThreadAttr_t defaultTask_attributes = {
+  64:Core/Src/main.c ****   .name = "defaultTask",
+  65:Core/Src/main.c ****   .cb_mem = &defaultTaskControlBlock,
+  66:Core/Src/main.c ****   .cb_size = sizeof(defaultTaskControlBlock),
+  67:Core/Src/main.c ****   .stack_mem = &defaultTaskBuffer[0],
+  68:Core/Src/main.c ****   .stack_size = sizeof(defaultTaskBuffer),
+  69:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow1,
+  70:Core/Src/main.c **** };
+  71:Core/Src/main.c **** /* Definitions for ATParsingTask */
+  72:Core/Src/main.c **** osThreadId_t ATParsingTaskHandle;
+  73:Core/Src/main.c **** uint32_t ATParsingTaskBuffer[ 512 ];
+  74:Core/Src/main.c **** osStaticThreadDef_t ATParsingTaskControlBlock;
+  75:Core/Src/main.c **** const osThreadAttr_t ATParsingTask_attributes = {
+  76:Core/Src/main.c ****   .name = "ATParsingTask",
+  77:Core/Src/main.c ****   .cb_mem = &ATParsingTaskControlBlock,
+  78:Core/Src/main.c ****   .cb_size = sizeof(ATParsingTaskControlBlock),
+  79:Core/Src/main.c ****   .stack_mem = &ATParsingTaskBuffer[0],
+  80:Core/Src/main.c ****   .stack_size = sizeof(ATParsingTaskBuffer),
+  81:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityAboveNormal7,
+  82:Core/Src/main.c **** };
+  83:Core/Src/main.c **** /* Definitions for ATHandlingTask */
+  84:Core/Src/main.c **** osThreadId_t ATHandlingTaskHandle;
+  85:Core/Src/main.c **** uint32_t ATHandlingTaskBuffer[ 512 ];
+  86:Core/Src/main.c **** osStaticThreadDef_t ATHandlingTaskControlBlock;
+  87:Core/Src/main.c **** const osThreadAttr_t ATHandlingTask_attributes = {
+  88:Core/Src/main.c ****   .name = "ATHandlingTask",
+  89:Core/Src/main.c ****   .cb_mem = &ATHandlingTaskControlBlock,
+  90:Core/Src/main.c ****   .cb_size = sizeof(ATHandlingTaskControlBlock),
+  91:Core/Src/main.c ****   .stack_mem = &ATHandlingTaskBuffer[0],
+  92:Core/Src/main.c ****   .stack_size = sizeof(ATHandlingTaskBuffer),
+  93:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityAboveNormal6,
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 17
+
+
+  94:Core/Src/main.c **** };
+  95:Core/Src/main.c **** /* Definitions for UARTProcTask */
+  96:Core/Src/main.c **** osThreadId_t UARTProcTaskHandle;
+  97:Core/Src/main.c **** uint32_t UARTProcTaskBuffer[ 512 ];
+  98:Core/Src/main.c **** osStaticThreadDef_t UARTProcTaskControlBlock;
+  99:Core/Src/main.c **** const osThreadAttr_t UARTProcTask_attributes = {
+ 100:Core/Src/main.c ****   .name = "UARTProcTask",
+ 101:Core/Src/main.c ****   .cb_mem = &UARTProcTaskControlBlock,
+ 102:Core/Src/main.c ****   .cb_size = sizeof(UARTProcTaskControlBlock),
+ 103:Core/Src/main.c ****   .stack_mem = &UARTProcTaskBuffer[0],
+ 104:Core/Src/main.c ****   .stack_size = sizeof(UARTProcTaskBuffer),
+ 105:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityHigh7,
+ 106:Core/Src/main.c **** };
+ 107:Core/Src/main.c **** /* Definitions for ModemMngrTask */
+ 108:Core/Src/main.c **** osThreadId_t ModemMngrTaskHandle;
+ 109:Core/Src/main.c **** uint32_t ModemMngrTaskBuffer[ 512 ];
+ 110:Core/Src/main.c **** osStaticThreadDef_t ModemMngrTaskControlBlock;
+ 111:Core/Src/main.c **** const osThreadAttr_t ModemMngrTask_attributes = {
+ 112:Core/Src/main.c ****   .name = "ModemMngrTask",
+ 113:Core/Src/main.c ****   .cb_mem = &ModemMngrTaskControlBlock,
+ 114:Core/Src/main.c ****   .cb_size = sizeof(ModemMngrTaskControlBlock),
+ 115:Core/Src/main.c ****   .stack_mem = &ModemMngrTaskBuffer[0],
+ 116:Core/Src/main.c ****   .stack_size = sizeof(ModemMngrTaskBuffer),
+ 117:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityNormal7,
+ 118:Core/Src/main.c **** };
+ 119:Core/Src/main.c **** /* Definitions for AppSendTask */
+ 120:Core/Src/main.c **** osThreadId_t AppSendTaskHandle;
+ 121:Core/Src/main.c **** uint32_t SendTemperatureBuffer[ 512 ];
+ 122:Core/Src/main.c **** osStaticThreadDef_t SendTemperatureControlBlock;
+ 123:Core/Src/main.c **** const osThreadAttr_t AppSendTask_attributes = {
+ 124:Core/Src/main.c ****   .name = "AppSendTask",
+ 125:Core/Src/main.c ****   .cb_mem = &SendTemperatureControlBlock,
+ 126:Core/Src/main.c ****   .cb_size = sizeof(SendTemperatureControlBlock),
+ 127:Core/Src/main.c ****   .stack_mem = &SendTemperatureBuffer[0],
+ 128:Core/Src/main.c ****   .stack_size = sizeof(SendTemperatureBuffer),
+ 129:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow7,
+ 130:Core/Src/main.c **** };
+ 131:Core/Src/main.c **** /* Definitions for ReadFromADCTask */
+ 132:Core/Src/main.c **** osThreadId_t ReadFromADCTaskHandle;
+ 133:Core/Src/main.c **** uint32_t ReadFromADCTaskBuffer[ 128 ];
+ 134:Core/Src/main.c **** osStaticThreadDef_t ReadFromADCTaskControlBlock;
+ 135:Core/Src/main.c **** const osThreadAttr_t ReadFromADCTask_attributes = {
+ 136:Core/Src/main.c ****   .name = "ReadFromADCTask",
+ 137:Core/Src/main.c ****   .cb_mem = &ReadFromADCTaskControlBlock,
+ 138:Core/Src/main.c ****   .cb_size = sizeof(ReadFromADCTaskControlBlock),
+ 139:Core/Src/main.c ****   .stack_mem = &ReadFromADCTaskBuffer[0],
+ 140:Core/Src/main.c ****   .stack_size = sizeof(ReadFromADCTaskBuffer),
+ 141:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow7,
+ 142:Core/Src/main.c **** };
+ 143:Core/Src/main.c **** /* Definitions for uartQueue */
+ 144:Core/Src/main.c **** osMessageQueueId_t uartQueueHandle;
+ 145:Core/Src/main.c **** uint8_t uartQueueBuffer[ 4 * sizeof( void* ) ];
+ 146:Core/Src/main.c **** osStaticMessageQDef_t uartQueueControlBlock;
+ 147:Core/Src/main.c **** const osMessageQueueAttr_t uartQueue_attributes = {
+ 148:Core/Src/main.c ****   .name = "uartQueue",
+ 149:Core/Src/main.c ****   .cb_mem = &uartQueueControlBlock,
+ 150:Core/Src/main.c ****   .cb_size = sizeof(uartQueueControlBlock),
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 18
+
+
+ 151:Core/Src/main.c ****   .mq_mem = &uartQueueBuffer,
+ 152:Core/Src/main.c ****   .mq_size = sizeof(uartQueueBuffer)
+ 153:Core/Src/main.c **** };
+ 154:Core/Src/main.c **** /* Definitions for ATQueue */
+ 155:Core/Src/main.c **** osMessageQueueId_t ATQueueHandle;
+ 156:Core/Src/main.c **** uint8_t ATQueueBuffer[ 4 * sizeof( void* ) ];
+ 157:Core/Src/main.c **** osStaticMessageQDef_t ATQueueControlBlock;
+ 158:Core/Src/main.c **** const osMessageQueueAttr_t ATQueue_attributes = {
+ 159:Core/Src/main.c ****   .name = "ATQueue",
+ 160:Core/Src/main.c ****   .cb_mem = &ATQueueControlBlock,
+ 161:Core/Src/main.c ****   .cb_size = sizeof(ATQueueControlBlock),
+ 162:Core/Src/main.c ****   .mq_mem = &ATQueueBuffer,
+ 163:Core/Src/main.c ****   .mq_size = sizeof(ATQueueBuffer)
+ 164:Core/Src/main.c **** };
+ 165:Core/Src/main.c **** /* Definitions for ModemSendQueue */
+ 166:Core/Src/main.c **** osMessageQueueId_t ModemSendQueueHandle;
+ 167:Core/Src/main.c **** uint8_t ModemSendQueueBuffer[ 4 * sizeof( void* ) ];
+ 168:Core/Src/main.c **** osStaticMessageQDef_t ModemSendQueueControlBlock;
+ 169:Core/Src/main.c **** const osMessageQueueAttr_t ModemSendQueue_attributes = {
+ 170:Core/Src/main.c ****   .name = "ModemSendQueue",
+ 171:Core/Src/main.c ****   .cb_mem = &ModemSendQueueControlBlock,
+ 172:Core/Src/main.c ****   .cb_size = sizeof(ModemSendQueueControlBlock),
+ 173:Core/Src/main.c ****   .mq_mem = &ModemSendQueueBuffer,
+ 174:Core/Src/main.c ****   .mq_size = sizeof(ModemSendQueueBuffer)
+ 175:Core/Src/main.c **** };
+ 176:Core/Src/main.c **** /* Definitions for TemperatureQueue */
+ 177:Core/Src/main.c **** osMessageQueueId_t TemperatureQueueHandle;
+ 178:Core/Src/main.c **** uint8_t TemperatureQueueBuffer[ 8 * sizeof( TEMPERATURE_OBJ_t ) ];
+ 179:Core/Src/main.c **** osStaticMessageQDef_t TemperatureQueueControlBlock;
+ 180:Core/Src/main.c **** const osMessageQueueAttr_t TemperatureQueue_attributes = {
+ 181:Core/Src/main.c ****   .name = "TemperatureQueue",
+ 182:Core/Src/main.c ****   .cb_mem = &TemperatureQueueControlBlock,
+ 183:Core/Src/main.c ****   .cb_size = sizeof(TemperatureQueueControlBlock),
+ 184:Core/Src/main.c ****   .mq_mem = &TemperatureQueueBuffer,
+ 185:Core/Src/main.c ****   .mq_size = sizeof(TemperatureQueueBuffer)
+ 186:Core/Src/main.c **** };
+ 187:Core/Src/main.c **** /* Definitions for PeriodicSendTimer */
+ 188:Core/Src/main.c **** osTimerId_t PeriodicSendTimerHandle;
+ 189:Core/Src/main.c **** osStaticTimerDef_t PeriodicSendTimerControlBlock;
+ 190:Core/Src/main.c **** const osTimerAttr_t PeriodicSendTimer_attributes = {
+ 191:Core/Src/main.c ****   .name = "PeriodicSendTimer",
+ 192:Core/Src/main.c ****   .cb_mem = &PeriodicSendTimerControlBlock,
+ 193:Core/Src/main.c ****   .cb_size = sizeof(PeriodicSendTimerControlBlock),
+ 194:Core/Src/main.c **** };
+ 195:Core/Src/main.c **** /* Definitions for ModemLedTimer */
+ 196:Core/Src/main.c **** osTimerId_t ModemLedTimerHandle;
+ 197:Core/Src/main.c **** osStaticTimerDef_t ModemLedTimerControlBlock;
+ 198:Core/Src/main.c **** const osTimerAttr_t ModemLedTimer_attributes = {
+ 199:Core/Src/main.c ****   .name = "ModemLedTimer",
+ 200:Core/Src/main.c ****   .cb_mem = &ModemLedTimerControlBlock,
+ 201:Core/Src/main.c ****   .cb_size = sizeof(ModemLedTimerControlBlock),
+ 202:Core/Src/main.c **** };
+ 203:Core/Src/main.c **** /* Definitions for DutyCycleTimer */
+ 204:Core/Src/main.c **** osTimerId_t DutyCycleTimerHandle;
+ 205:Core/Src/main.c **** osStaticTimerDef_t DutyCycleTimerControlBlock;
+ 206:Core/Src/main.c **** const osTimerAttr_t DutyCycleTimer_attributes = {
+ 207:Core/Src/main.c ****   .name = "DutyCycleTimer",
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 19
+
+
+ 208:Core/Src/main.c ****   .cb_mem = &DutyCycleTimerControlBlock,
+ 209:Core/Src/main.c ****   .cb_size = sizeof(DutyCycleTimerControlBlock),
+ 210:Core/Src/main.c **** };
+ 211:Core/Src/main.c **** /* Definitions for ATCommandSemaphore */
+ 212:Core/Src/main.c **** osSemaphoreId_t ATCommandSemaphoreHandle;
+ 213:Core/Src/main.c **** osStaticSemaphoreDef_t ATCommandSemaphoreControlBlock;
+ 214:Core/Src/main.c **** const osSemaphoreAttr_t ATCommandSemaphore_attributes = {
+ 215:Core/Src/main.c ****   .name = "ATCommandSemaphore",
+ 216:Core/Src/main.c ****   .cb_mem = &ATCommandSemaphoreControlBlock,
+ 217:Core/Src/main.c ****   .cb_size = sizeof(ATCommandSemaphoreControlBlock),
+ 218:Core/Src/main.c **** };
+ 219:Core/Src/main.c **** /* Definitions for ATResponseSemaphore */
+ 220:Core/Src/main.c **** osSemaphoreId_t ATResponseSemaphoreHandle;
+ 221:Core/Src/main.c **** osStaticSemaphoreDef_t ATResponseSemaphoreControlBlock;
+ 222:Core/Src/main.c **** const osSemaphoreAttr_t ATResponseSemaphore_attributes = {
+ 223:Core/Src/main.c ****   .name = "ATResponseSemaphore",
+ 224:Core/Src/main.c ****   .cb_mem = &ATResponseSemaphoreControlBlock,
+ 225:Core/Src/main.c ****   .cb_size = sizeof(ATResponseSemaphoreControlBlock),
+ 226:Core/Src/main.c **** };
+ 227:Core/Src/main.c **** /* Definitions for UARTTXSemaphore */
+ 228:Core/Src/main.c **** osSemaphoreId_t UARTTXSemaphoreHandle;
+ 229:Core/Src/main.c **** osStaticSemaphoreDef_t UARTTXSemaphoreControlBlock;
+ 230:Core/Src/main.c **** const osSemaphoreAttr_t UARTTXSemaphore_attributes = {
+ 231:Core/Src/main.c ****   .name = "UARTTXSemaphore",
+ 232:Core/Src/main.c ****   .cb_mem = &UARTTXSemaphoreControlBlock,
+ 233:Core/Src/main.c ****   .cb_size = sizeof(UARTTXSemaphoreControlBlock),
+ 234:Core/Src/main.c **** };
+ 235:Core/Src/main.c **** /* Definitions for RadioStateSemaphore */
+ 236:Core/Src/main.c **** osSemaphoreId_t RadioStateSemaphoreHandle;
+ 237:Core/Src/main.c **** osStaticSemaphoreDef_t RadioStateSemaphoreControlBlock;
+ 238:Core/Src/main.c **** const osSemaphoreAttr_t RadioStateSemaphore_attributes = {
+ 239:Core/Src/main.c ****   .name = "RadioStateSemaphore",
+ 240:Core/Src/main.c ****   .cb_mem = &RadioStateSemaphoreControlBlock,
+ 241:Core/Src/main.c ****   .cb_size = sizeof(RadioStateSemaphoreControlBlock),
+ 242:Core/Src/main.c **** };
+ 243:Core/Src/main.c **** /* Definitions for LoRaTXSemaphore */
+ 244:Core/Src/main.c **** osSemaphoreId_t LoRaTXSemaphoreHandle;
+ 245:Core/Src/main.c **** osStaticSemaphoreDef_t LoRaTXSemaphoreControlBlock;
+ 246:Core/Src/main.c **** const osSemaphoreAttr_t LoRaTXSemaphore_attributes = {
+ 247:Core/Src/main.c ****   .name = "LoRaTXSemaphore",
+ 248:Core/Src/main.c ****   .cb_mem = &LoRaTXSemaphoreControlBlock,
+ 249:Core/Src/main.c ****   .cb_size = sizeof(LoRaTXSemaphoreControlBlock),
+ 250:Core/Src/main.c **** };
+ 251:Core/Src/main.c **** /* Definitions for ModemStatusFlags */
+ 252:Core/Src/main.c **** osEventFlagsId_t ModemStatusFlagsHandle;
+ 253:Core/Src/main.c **** osStaticEventGroupDef_t ModemStatusFlagsControlBlock;
+ 254:Core/Src/main.c **** const osEventFlagsAttr_t ModemStatusFlags_attributes = {
+ 255:Core/Src/main.c ****   .name = "ModemStatusFlags",
+ 256:Core/Src/main.c ****   .cb_mem = &ModemStatusFlagsControlBlock,
+ 257:Core/Src/main.c ****   .cb_size = sizeof(ModemStatusFlagsControlBlock),
+ 258:Core/Src/main.c **** };
+ 259:Core/Src/main.c **** /* USER CODE BEGIN PV */
+ 260:Core/Src/main.c **** volatile float vector[255];
+ 261:Core/Src/main.c **** extern UART_HandleTypeDef huart1;
+ 262:Core/Src/main.c **** extern DMA_HandleTypeDef hdma_usart1_rx;
+ 263:Core/Src/main.c **** extern DMA_HandleTypeDef hdma_usart1_tx;
+ 264:Core/Src/main.c **** /* USER CODE END PV */
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 20
+
+
+ 265:Core/Src/main.c **** 
+ 266:Core/Src/main.c **** /* Private function prototypes -----------------------------------------------*/
+ 267:Core/Src/main.c **** void SystemClock_Config(void);
+ 268:Core/Src/main.c **** static void MX_GPIO_Init(void);
+ 269:Core/Src/main.c **** static void MX_DMA_Init(void);
+ 270:Core/Src/main.c **** static void MX_USART1_UART_Init(void);
+ 271:Core/Src/main.c **** static void MX_ADC1_Init(void);
+ 272:Core/Src/main.c **** static void MX_TIM2_Init(void);
+ 273:Core/Src/main.c **** static void MX_TIM1_Init(void);
+ 274:Core/Src/main.c **** static void MX_TIM3_Init(void);
+ 275:Core/Src/main.c **** void StartDefaultTask(void *argument);
+ 276:Core/Src/main.c **** extern void ATParsingTaskCode(void *argument);
+ 277:Core/Src/main.c **** extern void ATHandlingTaskCode(void *argument);
+ 278:Core/Src/main.c **** extern void UARTProcTaskCode(void *argument);
+ 279:Core/Src/main.c **** extern void ModemManagerTaskCode(void *argument);
+ 280:Core/Src/main.c **** extern void AppSendTaskCode(void *argument);
+ 281:Core/Src/main.c **** extern void ReadFromADCTaskCode(void *argument);
+ 282:Core/Src/main.c **** extern void PeriodicSendTimerCallback(void *argument);
+ 283:Core/Src/main.c **** extern void ModemLedCallback(void *argument);
+ 284:Core/Src/main.c **** extern void DutyCycleTimerCallback(void *argument);
+ 285:Core/Src/main.c **** 
+ 286:Core/Src/main.c **** /* USER CODE BEGIN PFP */
+ 287:Core/Src/main.c **** void CONFIGURE_TIMER_FOR_RUN_TIME_STATS()
+ 288:Core/Src/main.c **** {
+ 758              		.loc 1 288 1
+ 759              		.cfi_startproc
+ 760              		@ args = 0, pretend = 0, frame = 0
+ 761              		@ frame_needed = 1, uses_anonymous_args = 0
+ 762 0000 80B5     		push	{r7, lr}
+ 763              	.LCFI0:
+ 764              		.cfi_def_cfa_offset 8
+ 765              		.cfi_offset 7, -8
+ 766              		.cfi_offset 14, -4
+ 767 0002 00AF     		add	r7, sp, #0
+ 768              	.LCFI1:
+ 769              		.cfi_def_cfa_register 7
+ 289:Core/Src/main.c ****   HAL_TIM_Base_Start(&htim2); /* Define this to initialize your timer/counter */
+ 770              		.loc 1 289 3
+ 771 0004 0248     		ldr	r0, .L2
+ 772 0006 FFF7FEFF 		bl	HAL_TIM_Base_Start
+ 290:Core/Src/main.c **** }
+ 773              		.loc 1 290 1
+ 774 000a 00BF     		nop
+ 775 000c 80BD     		pop	{r7, pc}
+ 776              	.L3:
+ 777 000e 00BF     		.align	2
+ 778              	.L2:
+ 779 0010 00000000 		.word	htim2
+ 780              		.cfi_endproc
+ 781              	.LFE224:
+ 783              		.section	.text.GET_RUN_TIME_COUNTER_VALUE,"ax",%progbits
+ 784              		.align	1
+ 785              		.global	GET_RUN_TIME_COUNTER_VALUE
+ 786              		.syntax unified
+ 787              		.thumb
+ 788              		.thumb_func
+ 790              	GET_RUN_TIME_COUNTER_VALUE:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 21
+
+
+ 791              	.LFB225:
+ 291:Core/Src/main.c **** 
+ 292:Core/Src/main.c **** uint32_t GET_RUN_TIME_COUNTER_VALUE()
+ 293:Core/Src/main.c **** {
+ 792              		.loc 1 293 1
+ 793              		.cfi_startproc
+ 794              		@ args = 0, pretend = 0, frame = 0
+ 795              		@ frame_needed = 1, uses_anonymous_args = 0
+ 796              		@ link register save eliminated.
+ 797 0000 80B4     		push	{r7}
+ 798              	.LCFI2:
+ 799              		.cfi_def_cfa_offset 4
+ 800              		.cfi_offset 7, -4
+ 801 0002 00AF     		add	r7, sp, #0
+ 802              	.LCFI3:
+ 803              		.cfi_def_cfa_register 7
+ 294:Core/Src/main.c ****   return __HAL_TIM_GET_COUNTER(&htim2); /* Define this to sample the timer/counter */
+ 804              		.loc 1 294 10
+ 805 0004 034B     		ldr	r3, .L6
+ 806 0006 1B68     		ldr	r3, [r3]
+ 807 0008 5B6A     		ldr	r3, [r3, #36]
+ 295:Core/Src/main.c **** }
+ 808              		.loc 1 295 1
+ 809 000a 1846     		mov	r0, r3
+ 810 000c BD46     		mov	sp, r7
+ 811              	.LCFI4:
+ 812              		.cfi_def_cfa_register 13
+ 813              		@ sp needed
+ 814 000e 5DF8047B 		ldr	r7, [sp], #4
+ 815              	.LCFI5:
+ 816              		.cfi_restore 7
+ 817              		.cfi_def_cfa_offset 0
+ 818 0012 7047     		bx	lr
+ 819              	.L7:
+ 820              		.align	2
+ 821              	.L6:
+ 822 0014 00000000 		.word	htim2
+ 823              		.cfi_endproc
+ 824              	.LFE225:
+ 826              		.global	uxTopUsedPriority
+ 827              		.section	.data.uxTopUsedPriority,"aw"
+ 828              		.align	2
+ 831              	uxTopUsedPriority:
+ 832 0000 37000000 		.word	55
+ 833              		.section	.text.main,"ax",%progbits
+ 834              		.align	1
+ 835              		.global	main
+ 836              		.syntax unified
+ 837              		.thumb
+ 838              		.thumb_func
+ 840              	main:
+ 841              	.LFB226:
+ 296:Core/Src/main.c **** 
+ 297:Core/Src/main.c **** /* USER CODE END PFP */
+ 298:Core/Src/main.c **** 
+ 299:Core/Src/main.c **** /* Private user code ---------------------------------------------------------*/
+ 300:Core/Src/main.c **** /* USER CODE BEGIN 0 */
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 22
+
+
+ 301:Core/Src/main.c **** const volatile int uxTopUsedPriority = configMAX_PRIORITIES - 1; //this declaration enables thread 
+ 302:Core/Src/main.c **** 
+ 303:Core/Src/main.c **** // Paste this code to Core/Inc/FreeRTOSConfig.h to enable kernel statistics (will be overwritten by
+ 304:Core/Src/main.c **** // #define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() CONFIGURE_TIMER_FOR_RUN_TIME_STATS()/* Define t
+ 305:Core/Src/main.c **** // #define portGET_RUN_TIME_COUNTER_VALUE() GET_RUN_TIME_COUNTER_VALUE()        /* Define this to s
+ 306:Core/Src/main.c **** // #define configGENERATE_RUN_TIME_STATS (1)
+ 307:Core/Src/main.c **** // #define configRECORD_STACK_HIGH_ADDRESS (1)
+ 308:Core/Src/main.c **** 
+ 309:Core/Src/main.c **** /* USER CODE END 0 */
+ 310:Core/Src/main.c **** 
+ 311:Core/Src/main.c **** /**
+ 312:Core/Src/main.c ****   * @brief  The application entry point.
+ 313:Core/Src/main.c ****   * @retval int
+ 314:Core/Src/main.c ****   */
+ 315:Core/Src/main.c **** int main(void)
+ 316:Core/Src/main.c **** {
+ 842              		.loc 1 316 1
+ 843              		.cfi_startproc
+ 844              		@ args = 0, pretend = 0, frame = 8
+ 845              		@ frame_needed = 1, uses_anonymous_args = 0
+ 846 0000 80B5     		push	{r7, lr}
+ 847              	.LCFI6:
+ 848              		.cfi_def_cfa_offset 8
+ 849              		.cfi_offset 7, -8
+ 850              		.cfi_offset 14, -4
+ 851 0002 82B0     		sub	sp, sp, #8
+ 852              	.LCFI7:
+ 853              		.cfi_def_cfa_offset 16
+ 854 0004 00AF     		add	r7, sp, #0
+ 855              	.LCFI8:
+ 856              		.cfi_def_cfa_register 7
+ 317:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
+ 318:Core/Src/main.c ****   uint32_t i;  
+ 319:Core/Src/main.c ****   (void)uxTopUsedPriority; //this declaration enables thread awareness for FreeRTOS using OpenOCD
+ 857              		.loc 1 319 3
+ 858 0006 704B     		ldr	r3, .L12
+ 859 0008 1B68     		ldr	r3, [r3]
+ 320:Core/Src/main.c ****   /* USER CODE END 1 */
+ 321:Core/Src/main.c **** 
+ 322:Core/Src/main.c ****   /* MCU Configuration--------------------------------------------------------*/
+ 323:Core/Src/main.c **** 
+ 324:Core/Src/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+ 325:Core/Src/main.c ****   HAL_Init();
+ 860              		.loc 1 325 3
+ 861 000a FFF7FEFF 		bl	HAL_Init
+ 326:Core/Src/main.c **** 
+ 327:Core/Src/main.c ****   /* USER CODE BEGIN Init */
+ 328:Core/Src/main.c **** 
+ 329:Core/Src/main.c ****   /* USER CODE END Init */
+ 330:Core/Src/main.c **** 
+ 331:Core/Src/main.c ****   /* Configure the system clock */
+ 332:Core/Src/main.c ****   SystemClock_Config();
+ 862              		.loc 1 332 3
+ 863 000e FFF7FEFF 		bl	SystemClock_Config
+ 333:Core/Src/main.c **** 
+ 334:Core/Src/main.c ****   /* USER CODE BEGIN SysInit */
+ 335:Core/Src/main.c **** 
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 23
+
+
+ 336:Core/Src/main.c ****   /* USER CODE END SysInit */
+ 337:Core/Src/main.c **** 
+ 338:Core/Src/main.c ****   /* Initialize all configured peripherals */
+ 339:Core/Src/main.c ****   MX_GPIO_Init();
+ 864              		.loc 1 339 3
+ 865 0012 FFF7FEFF 		bl	MX_GPIO_Init
+ 340:Core/Src/main.c ****   MX_DMA_Init();
+ 866              		.loc 1 340 3
+ 867 0016 FFF7FEFF 		bl	MX_DMA_Init
+ 341:Core/Src/main.c ****   MX_USART1_UART_Init();
+ 868              		.loc 1 341 3
+ 869 001a FFF7FEFF 		bl	MX_USART1_UART_Init
+ 342:Core/Src/main.c ****   MX_ADC1_Init();
+ 870              		.loc 1 342 3
+ 871 001e FFF7FEFF 		bl	MX_ADC1_Init
+ 343:Core/Src/main.c ****   MX_TIM2_Init();
+ 872              		.loc 1 343 3
+ 873 0022 FFF7FEFF 		bl	MX_TIM2_Init
+ 344:Core/Src/main.c ****   MX_TIM1_Init();
+ 874              		.loc 1 344 3
+ 875 0026 FFF7FEFF 		bl	MX_TIM1_Init
+ 345:Core/Src/main.c ****   MX_TIM3_Init();
+ 876              		.loc 1 345 3
+ 877 002a FFF7FEFF 		bl	MX_TIM3_Init
+ 346:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
+ 347:Core/Src/main.c ****   
+ 348:Core/Src/main.c ****   //H-Bridge PWMs
+ 349:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+ 878              		.loc 1 349 3
+ 879 002e 0021     		movs	r1, #0
+ 880 0030 6648     		ldr	r0, .L12+4
+ 881 0032 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 350:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+ 882              		.loc 1 350 3
+ 883 0036 0421     		movs	r1, #4
+ 884 0038 6548     		ldr	r0, .L12+8
+ 885 003a FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 351:Core/Src/main.c ****   /* USER CODE END 2 */
+ 352:Core/Src/main.c **** 
+ 353:Core/Src/main.c ****   /* Init scheduler */
+ 354:Core/Src/main.c ****   osKernelInitialize();
+ 886              		.loc 1 354 3
+ 887 003e FFF7FEFF 		bl	osKernelInitialize
+ 355:Core/Src/main.c **** 
+ 356:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_MUTEX */
+ 357:Core/Src/main.c ****   /* add mutexes, ... */
+ 358:Core/Src/main.c ****   /* USER CODE END RTOS_MUTEX */
+ 359:Core/Src/main.c **** 
+ 360:Core/Src/main.c ****   /* Create the semaphores(s) */
+ 361:Core/Src/main.c ****   /* creation of ATCommandSemaphore */
+ 362:Core/Src/main.c ****   ATCommandSemaphoreHandle = osSemaphoreNew(1, 1, &ATCommandSemaphore_attributes);
+ 888              		.loc 1 362 30
+ 889 0042 644A     		ldr	r2, .L12+12
+ 890 0044 0121     		movs	r1, #1
+ 891 0046 0120     		movs	r0, #1
+ 892 0048 FFF7FEFF 		bl	osSemaphoreNew
+ 893 004c 0346     		mov	r3, r0
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 24
+
+
+ 894              		.loc 1 362 28
+ 895 004e 624A     		ldr	r2, .L12+16
+ 896 0050 1360     		str	r3, [r2]
+ 363:Core/Src/main.c **** 
+ 364:Core/Src/main.c ****   /* creation of ATResponseSemaphore */
+ 365:Core/Src/main.c ****   ATResponseSemaphoreHandle = osSemaphoreNew(1, 1, &ATResponseSemaphore_attributes);
+ 897              		.loc 1 365 31
+ 898 0052 624A     		ldr	r2, .L12+20
+ 899 0054 0121     		movs	r1, #1
+ 900 0056 0120     		movs	r0, #1
+ 901 0058 FFF7FEFF 		bl	osSemaphoreNew
+ 902 005c 0346     		mov	r3, r0
+ 903              		.loc 1 365 29
+ 904 005e 604A     		ldr	r2, .L12+24
+ 905 0060 1360     		str	r3, [r2]
+ 366:Core/Src/main.c **** 
+ 367:Core/Src/main.c ****   /* creation of UARTTXSemaphore */
+ 368:Core/Src/main.c ****   UARTTXSemaphoreHandle = osSemaphoreNew(1, 1, &UARTTXSemaphore_attributes);
+ 906              		.loc 1 368 27
+ 907 0062 604A     		ldr	r2, .L12+28
+ 908 0064 0121     		movs	r1, #1
+ 909 0066 0120     		movs	r0, #1
+ 910 0068 FFF7FEFF 		bl	osSemaphoreNew
+ 911 006c 0346     		mov	r3, r0
+ 912              		.loc 1 368 25
+ 913 006e 5E4A     		ldr	r2, .L12+32
+ 914 0070 1360     		str	r3, [r2]
+ 369:Core/Src/main.c **** 
+ 370:Core/Src/main.c ****   /* creation of RadioStateSemaphore */
+ 371:Core/Src/main.c ****   RadioStateSemaphoreHandle = osSemaphoreNew(1, 1, &RadioStateSemaphore_attributes);
+ 915              		.loc 1 371 31
+ 916 0072 5E4A     		ldr	r2, .L12+36
+ 917 0074 0121     		movs	r1, #1
+ 918 0076 0120     		movs	r0, #1
+ 919 0078 FFF7FEFF 		bl	osSemaphoreNew
+ 920 007c 0346     		mov	r3, r0
+ 921              		.loc 1 371 29
+ 922 007e 5C4A     		ldr	r2, .L12+40
+ 923 0080 1360     		str	r3, [r2]
+ 372:Core/Src/main.c **** 
+ 373:Core/Src/main.c ****   /* creation of LoRaTXSemaphore */
+ 374:Core/Src/main.c ****   LoRaTXSemaphoreHandle = osSemaphoreNew(1, 1, &LoRaTXSemaphore_attributes);
+ 924              		.loc 1 374 27
+ 925 0082 5C4A     		ldr	r2, .L12+44
+ 926 0084 0121     		movs	r1, #1
+ 927 0086 0120     		movs	r0, #1
+ 928 0088 FFF7FEFF 		bl	osSemaphoreNew
+ 929 008c 0346     		mov	r3, r0
+ 930              		.loc 1 374 25
+ 931 008e 5A4A     		ldr	r2, .L12+48
+ 932 0090 1360     		str	r3, [r2]
+ 375:Core/Src/main.c **** 
+ 376:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_SEMAPHORES */
+ 377:Core/Src/main.c ****   /* add semaphores, ... */
+ 378:Core/Src/main.c ****   /* USER CODE END RTOS_SEMAPHORES */
+ 379:Core/Src/main.c **** 
+ 380:Core/Src/main.c ****   /* Create the timer(s) */
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 25
+
+
+ 381:Core/Src/main.c ****   /* creation of PeriodicSendTimer */
+ 382:Core/Src/main.c ****   PeriodicSendTimerHandle = osTimerNew(PeriodicSendTimerCallback, osTimerPeriodic, NULL, &PeriodicS
+ 933              		.loc 1 382 29
+ 934 0092 5A4B     		ldr	r3, .L12+52
+ 935 0094 0022     		movs	r2, #0
+ 936 0096 0121     		movs	r1, #1
+ 937 0098 5948     		ldr	r0, .L12+56
+ 938 009a FFF7FEFF 		bl	osTimerNew
+ 939 009e 0346     		mov	r3, r0
+ 940              		.loc 1 382 27
+ 941 00a0 584A     		ldr	r2, .L12+60
+ 942 00a2 1360     		str	r3, [r2]
+ 383:Core/Src/main.c **** 
+ 384:Core/Src/main.c ****   /* creation of ModemLedTimer */
+ 385:Core/Src/main.c ****   ModemLedTimerHandle = osTimerNew(ModemLedCallback, osTimerPeriodic, NULL, &ModemLedTimer_attribut
+ 943              		.loc 1 385 25
+ 944 00a4 584B     		ldr	r3, .L12+64
+ 945 00a6 0022     		movs	r2, #0
+ 946 00a8 0121     		movs	r1, #1
+ 947 00aa 5848     		ldr	r0, .L12+68
+ 948 00ac FFF7FEFF 		bl	osTimerNew
+ 949 00b0 0346     		mov	r3, r0
+ 950              		.loc 1 385 23
+ 951 00b2 574A     		ldr	r2, .L12+72
+ 952 00b4 1360     		str	r3, [r2]
+ 386:Core/Src/main.c **** 
+ 387:Core/Src/main.c ****   /* creation of DutyCycleTimer */
+ 388:Core/Src/main.c ****   DutyCycleTimerHandle = osTimerNew(DutyCycleTimerCallback, osTimerOnce, NULL, &DutyCycleTimer_attr
+ 953              		.loc 1 388 26
+ 954 00b6 574B     		ldr	r3, .L12+76
+ 955 00b8 0022     		movs	r2, #0
+ 956 00ba 0021     		movs	r1, #0
+ 957 00bc 5648     		ldr	r0, .L12+80
+ 958 00be FFF7FEFF 		bl	osTimerNew
+ 959 00c2 0346     		mov	r3, r0
+ 960              		.loc 1 388 24
+ 961 00c4 554A     		ldr	r2, .L12+84
+ 962 00c6 1360     		str	r3, [r2]
+ 389:Core/Src/main.c **** 
+ 390:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_TIMERS */
+ 391:Core/Src/main.c ****   /* start timers, add new ones, ... */
+ 392:Core/Src/main.c ****   /* USER CODE END RTOS_TIMERS */
+ 393:Core/Src/main.c **** 
+ 394:Core/Src/main.c ****   /* Create the queue(s) */
+ 395:Core/Src/main.c ****   /* creation of uartQueue */
+ 396:Core/Src/main.c ****   uartQueueHandle = osMessageQueueNew (4, sizeof(void*), &uartQueue_attributes);
+ 963              		.loc 1 396 21
+ 964 00c8 554A     		ldr	r2, .L12+88
+ 965 00ca 0421     		movs	r1, #4
+ 966 00cc 0420     		movs	r0, #4
+ 967 00ce FFF7FEFF 		bl	osMessageQueueNew
+ 968 00d2 0346     		mov	r3, r0
+ 969              		.loc 1 396 19
+ 970 00d4 534A     		ldr	r2, .L12+92
+ 971 00d6 1360     		str	r3, [r2]
+ 397:Core/Src/main.c **** 
+ 398:Core/Src/main.c ****   /* creation of ATQueue */
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 26
+
+
+ 399:Core/Src/main.c ****   ATQueueHandle = osMessageQueueNew (4, sizeof(void*), &ATQueue_attributes);
+ 972              		.loc 1 399 19
+ 973 00d8 534A     		ldr	r2, .L12+96
+ 974 00da 0421     		movs	r1, #4
+ 975 00dc 0420     		movs	r0, #4
+ 976 00de FFF7FEFF 		bl	osMessageQueueNew
+ 977 00e2 0346     		mov	r3, r0
+ 978              		.loc 1 399 17
+ 979 00e4 514A     		ldr	r2, .L12+100
+ 980 00e6 1360     		str	r3, [r2]
+ 400:Core/Src/main.c **** 
+ 401:Core/Src/main.c ****   /* creation of ModemSendQueue */
+ 402:Core/Src/main.c ****   ModemSendQueueHandle = osMessageQueueNew (4, sizeof(void*), &ModemSendQueue_attributes);
+ 981              		.loc 1 402 26
+ 982 00e8 514A     		ldr	r2, .L12+104
+ 983 00ea 0421     		movs	r1, #4
+ 984 00ec 0420     		movs	r0, #4
+ 985 00ee FFF7FEFF 		bl	osMessageQueueNew
+ 986 00f2 0346     		mov	r3, r0
+ 987              		.loc 1 402 24
+ 988 00f4 4F4A     		ldr	r2, .L12+108
+ 989 00f6 1360     		str	r3, [r2]
+ 403:Core/Src/main.c **** 
+ 404:Core/Src/main.c ****   /* creation of TemperatureQueue */
+ 405:Core/Src/main.c ****   TemperatureQueueHandle = osMessageQueueNew (8, sizeof(TEMPERATURE_OBJ_t), &TemperatureQueue_attri
+ 990              		.loc 1 405 28
+ 991 00f8 4F4A     		ldr	r2, .L12+112
+ 992 00fa 0821     		movs	r1, #8
+ 993 00fc 0820     		movs	r0, #8
+ 994 00fe FFF7FEFF 		bl	osMessageQueueNew
+ 995 0102 0346     		mov	r3, r0
+ 996              		.loc 1 405 26
+ 997 0104 4D4A     		ldr	r2, .L12+116
+ 998 0106 1360     		str	r3, [r2]
+ 406:Core/Src/main.c **** 
+ 407:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_QUEUES */
+ 408:Core/Src/main.c ****   /* add queues, ... */
+ 409:Core/Src/main.c ****   /* USER CODE END RTOS_QUEUES */
+ 410:Core/Src/main.c **** 
+ 411:Core/Src/main.c ****   /* Create the thread(s) */
+ 412:Core/Src/main.c ****   /* creation of defaultTask */
+ 413:Core/Src/main.c ****   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+ 999              		.loc 1 413 23
+ 1000 0108 4D4A     		ldr	r2, .L12+120
+ 1001 010a 0021     		movs	r1, #0
+ 1002 010c 4D48     		ldr	r0, .L12+124
+ 1003 010e FFF7FEFF 		bl	osThreadNew
+ 1004 0112 0346     		mov	r3, r0
+ 1005              		.loc 1 413 21
+ 1006 0114 4C4A     		ldr	r2, .L12+128
+ 1007 0116 1360     		str	r3, [r2]
+ 414:Core/Src/main.c **** 
+ 415:Core/Src/main.c ****   /* creation of ATParsingTask */
+ 416:Core/Src/main.c ****   ATParsingTaskHandle = osThreadNew(ATParsingTaskCode, NULL, &ATParsingTask_attributes);
+ 1008              		.loc 1 416 25
+ 1009 0118 4C4A     		ldr	r2, .L12+132
+ 1010 011a 0021     		movs	r1, #0
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 27
+
+
+ 1011 011c 4C48     		ldr	r0, .L12+136
+ 1012 011e FFF7FEFF 		bl	osThreadNew
+ 1013 0122 0346     		mov	r3, r0
+ 1014              		.loc 1 416 23
+ 1015 0124 4B4A     		ldr	r2, .L12+140
+ 1016 0126 1360     		str	r3, [r2]
+ 417:Core/Src/main.c **** 
+ 418:Core/Src/main.c ****   /* creation of ATHandlingTask */
+ 419:Core/Src/main.c ****   ATHandlingTaskHandle = osThreadNew(ATHandlingTaskCode, NULL, &ATHandlingTask_attributes);
+ 1017              		.loc 1 419 26
+ 1018 0128 4B4A     		ldr	r2, .L12+144
+ 1019 012a 0021     		movs	r1, #0
+ 1020 012c 4B48     		ldr	r0, .L12+148
+ 1021 012e FFF7FEFF 		bl	osThreadNew
+ 1022 0132 0346     		mov	r3, r0
+ 1023              		.loc 1 419 24
+ 1024 0134 4A4A     		ldr	r2, .L12+152
+ 1025 0136 1360     		str	r3, [r2]
+ 420:Core/Src/main.c **** 
+ 421:Core/Src/main.c ****   /* creation of UARTProcTask */
+ 422:Core/Src/main.c ****   UARTProcTaskHandle = osThreadNew(UARTProcTaskCode, NULL, &UARTProcTask_attributes);
+ 1026              		.loc 1 422 24
+ 1027 0138 4A4A     		ldr	r2, .L12+156
+ 1028 013a 0021     		movs	r1, #0
+ 1029 013c 4A48     		ldr	r0, .L12+160
+ 1030 013e FFF7FEFF 		bl	osThreadNew
+ 1031 0142 0346     		mov	r3, r0
+ 1032              		.loc 1 422 22
+ 1033 0144 494A     		ldr	r2, .L12+164
+ 1034 0146 1360     		str	r3, [r2]
+ 423:Core/Src/main.c **** 
+ 424:Core/Src/main.c ****   /* creation of ModemMngrTask */
+ 425:Core/Src/main.c ****   ModemMngrTaskHandle = osThreadNew(ModemManagerTaskCode, NULL, &ModemMngrTask_attributes);
+ 1035              		.loc 1 425 25
+ 1036 0148 494A     		ldr	r2, .L12+168
+ 1037 014a 0021     		movs	r1, #0
+ 1038 014c 4948     		ldr	r0, .L12+172
+ 1039 014e FFF7FEFF 		bl	osThreadNew
+ 1040 0152 0346     		mov	r3, r0
+ 1041              		.loc 1 425 23
+ 1042 0154 484A     		ldr	r2, .L12+176
+ 1043 0156 1360     		str	r3, [r2]
+ 426:Core/Src/main.c **** 
+ 427:Core/Src/main.c ****   /* creation of AppSendTask */
+ 428:Core/Src/main.c ****   AppSendTaskHandle = osThreadNew(AppSendTaskCode, NULL, &AppSendTask_attributes);
+ 1044              		.loc 1 428 23
+ 1045 0158 484A     		ldr	r2, .L12+180
+ 1046 015a 0021     		movs	r1, #0
+ 1047 015c 4848     		ldr	r0, .L12+184
+ 1048 015e FFF7FEFF 		bl	osThreadNew
+ 1049 0162 0346     		mov	r3, r0
+ 1050              		.loc 1 428 21
+ 1051 0164 474A     		ldr	r2, .L12+188
+ 1052 0166 1360     		str	r3, [r2]
+ 429:Core/Src/main.c **** 
+ 430:Core/Src/main.c ****   /* creation of ReadFromADCTask */
+ 431:Core/Src/main.c ****   ReadFromADCTaskHandle = osThreadNew(ReadFromADCTaskCode, NULL, &ReadFromADCTask_attributes);
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 28
+
+
+ 1053              		.loc 1 431 27
+ 1054 0168 474A     		ldr	r2, .L12+192
+ 1055 016a 0021     		movs	r1, #0
+ 1056 016c 4748     		ldr	r0, .L12+196
+ 1057 016e FFF7FEFF 		bl	osThreadNew
+ 1058 0172 0346     		mov	r3, r0
+ 1059              		.loc 1 431 25
+ 1060 0174 464A     		ldr	r2, .L12+200
+ 1061 0176 1360     		str	r3, [r2]
+ 432:Core/Src/main.c **** 
+ 433:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_THREADS */
+ 434:Core/Src/main.c ****   /* add threads, ... */
+ 435:Core/Src/main.c ****   /* USER CODE END RTOS_THREADS */
+ 436:Core/Src/main.c **** 
+ 437:Core/Src/main.c ****   /* Create the event(s) */
+ 438:Core/Src/main.c ****   /* creation of ModemStatusFlags */
+ 439:Core/Src/main.c ****   ModemStatusFlagsHandle = osEventFlagsNew(&ModemStatusFlags_attributes);
+ 1062              		.loc 1 439 28
+ 1063 0178 4648     		ldr	r0, .L12+204
+ 1064 017a FFF7FEFF 		bl	osEventFlagsNew
+ 1065 017e 0346     		mov	r3, r0
+ 1066              		.loc 1 439 26
+ 1067 0180 454A     		ldr	r2, .L12+208
+ 1068 0182 1360     		str	r3, [r2]
+ 440:Core/Src/main.c **** 
+ 441:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_EVENTS */
+ 442:Core/Src/main.c ****   /* add events, ... */
+ 443:Core/Src/main.c ****   /* USER CODE END RTOS_EVENTS */
+ 444:Core/Src/main.c **** 
+ 445:Core/Src/main.c ****   /* Start scheduler */
+ 446:Core/Src/main.c ****   osKernelStart();
+ 1069              		.loc 1 446 3
+ 1070 0184 FFF7FEFF 		bl	osKernelStart
+ 1071              	.L11:
+ 447:Core/Src/main.c **** 
+ 448:Core/Src/main.c ****   /* We should never get here as control is now taken by the scheduler */
+ 449:Core/Src/main.c ****   /* Infinite loop */
+ 450:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
+ 451:Core/Src/main.c ****   while (1)
+ 452:Core/Src/main.c ****   {
+ 453:Core/Src/main.c ****     for (i = 0; i < 8; i++)
+ 1072              		.loc 1 453 12
+ 1073 0188 0023     		movs	r3, #0
+ 1074 018a 7B60     		str	r3, [r7, #4]
+ 1075              		.loc 1 453 5
+ 1076 018c 14E0     		b	.L9
+ 1077              	.L10:
+ 454:Core/Src/main.c ****     {
+ 455:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
+ 1078              		.loc 1 455 7 discriminator 3
+ 1079 018e 0022     		movs	r2, #0
+ 1080 0190 4FF40051 		mov	r1, #8192
+ 1081 0194 4148     		ldr	r0, .L12+212
+ 1082 0196 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 456:Core/Src/main.c ****       HAL_Delay(25);
+ 1083              		.loc 1 456 7 discriminator 3
+ 1084 019a 1920     		movs	r0, #25
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 29
+
+
+ 1085 019c FFF7FEFF 		bl	HAL_Delay
+ 457:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
+ 1086              		.loc 1 457 7 discriminator 3
+ 1087 01a0 0122     		movs	r2, #1
+ 1088 01a2 4FF40051 		mov	r1, #8192
+ 1089 01a6 3D48     		ldr	r0, .L12+212
+ 1090 01a8 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 458:Core/Src/main.c ****       HAL_Delay(50);
+ 1091              		.loc 1 458 7 discriminator 3
+ 1092 01ac 3220     		movs	r0, #50
+ 1093 01ae FFF7FEFF 		bl	HAL_Delay
+ 453:Core/Src/main.c ****     {
+ 1094              		.loc 1 453 25 discriminator 3
+ 1095 01b2 7B68     		ldr	r3, [r7, #4]
+ 1096 01b4 0133     		adds	r3, r3, #1
+ 1097 01b6 7B60     		str	r3, [r7, #4]
+ 1098              	.L9:
+ 453:Core/Src/main.c ****     {
+ 1099              		.loc 1 453 19 discriminator 1
+ 1100 01b8 7B68     		ldr	r3, [r7, #4]
+ 1101 01ba 072B     		cmp	r3, #7
+ 1102 01bc E7D9     		bls	.L10
+ 459:Core/Src/main.c ****     }
+ 460:Core/Src/main.c ****     HAL_Delay(800);
+ 1103              		.loc 1 460 5
+ 1104 01be 4FF44870 		mov	r0, #800
+ 1105 01c2 FFF7FEFF 		bl	HAL_Delay
+ 453:Core/Src/main.c ****     {
+ 1106              		.loc 1 453 12
+ 1107 01c6 DFE7     		b	.L11
+ 1108              	.L13:
+ 1109              		.align	2
+ 1110              	.L12:
+ 1111 01c8 00000000 		.word	uxTopUsedPriority
+ 1112 01cc 00000000 		.word	htim1
+ 1113 01d0 00000000 		.word	htim3
+ 1114 01d4 00000000 		.word	ATCommandSemaphore_attributes
+ 1115 01d8 00000000 		.word	ATCommandSemaphoreHandle
+ 1116 01dc 00000000 		.word	ATResponseSemaphore_attributes
+ 1117 01e0 00000000 		.word	ATResponseSemaphoreHandle
+ 1118 01e4 00000000 		.word	UARTTXSemaphore_attributes
+ 1119 01e8 00000000 		.word	UARTTXSemaphoreHandle
+ 1120 01ec 00000000 		.word	RadioStateSemaphore_attributes
+ 1121 01f0 00000000 		.word	RadioStateSemaphoreHandle
+ 1122 01f4 00000000 		.word	LoRaTXSemaphore_attributes
+ 1123 01f8 00000000 		.word	LoRaTXSemaphoreHandle
+ 1124 01fc 00000000 		.word	PeriodicSendTimer_attributes
+ 1125 0200 00000000 		.word	PeriodicSendTimerCallback
+ 1126 0204 00000000 		.word	PeriodicSendTimerHandle
+ 1127 0208 00000000 		.word	ModemLedTimer_attributes
+ 1128 020c 00000000 		.word	ModemLedCallback
+ 1129 0210 00000000 		.word	ModemLedTimerHandle
+ 1130 0214 00000000 		.word	DutyCycleTimer_attributes
+ 1131 0218 00000000 		.word	DutyCycleTimerCallback
+ 1132 021c 00000000 		.word	DutyCycleTimerHandle
+ 1133 0220 00000000 		.word	uartQueue_attributes
+ 1134 0224 00000000 		.word	uartQueueHandle
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 30
+
+
+ 1135 0228 00000000 		.word	ATQueue_attributes
+ 1136 022c 00000000 		.word	ATQueueHandle
+ 1137 0230 00000000 		.word	ModemSendQueue_attributes
+ 1138 0234 00000000 		.word	ModemSendQueueHandle
+ 1139 0238 00000000 		.word	TemperatureQueue_attributes
+ 1140 023c 00000000 		.word	TemperatureQueueHandle
+ 1141 0240 00000000 		.word	defaultTask_attributes
+ 1142 0244 00000000 		.word	StartDefaultTask
+ 1143 0248 00000000 		.word	defaultTaskHandle
+ 1144 024c 00000000 		.word	ATParsingTask_attributes
+ 1145 0250 00000000 		.word	ATParsingTaskCode
+ 1146 0254 00000000 		.word	ATParsingTaskHandle
+ 1147 0258 00000000 		.word	ATHandlingTask_attributes
+ 1148 025c 00000000 		.word	ATHandlingTaskCode
+ 1149 0260 00000000 		.word	ATHandlingTaskHandle
+ 1150 0264 00000000 		.word	UARTProcTask_attributes
+ 1151 0268 00000000 		.word	UARTProcTaskCode
+ 1152 026c 00000000 		.word	UARTProcTaskHandle
+ 1153 0270 00000000 		.word	ModemMngrTask_attributes
+ 1154 0274 00000000 		.word	ModemManagerTaskCode
+ 1155 0278 00000000 		.word	ModemMngrTaskHandle
+ 1156 027c 00000000 		.word	AppSendTask_attributes
+ 1157 0280 00000000 		.word	AppSendTaskCode
+ 1158 0284 00000000 		.word	AppSendTaskHandle
+ 1159 0288 00000000 		.word	ReadFromADCTask_attributes
+ 1160 028c 00000000 		.word	ReadFromADCTaskCode
+ 1161 0290 00000000 		.word	ReadFromADCTaskHandle
+ 1162 0294 00000000 		.word	ModemStatusFlags_attributes
+ 1163 0298 00000000 		.word	ModemStatusFlagsHandle
+ 1164 029c 00080240 		.word	1073874944
+ 1165              		.cfi_endproc
+ 1166              	.LFE226:
+ 1168              		.section	.text.SystemClock_Config,"ax",%progbits
+ 1169              		.align	1
+ 1170              		.global	SystemClock_Config
+ 1171              		.syntax unified
+ 1172              		.thumb
+ 1173              		.thumb_func
+ 1175              	SystemClock_Config:
+ 1176              	.LFB227:
+ 461:Core/Src/main.c **** 
+ 462:Core/Src/main.c ****     /* USER CODE END WHILE */
+ 463:Core/Src/main.c **** 
+ 464:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
+ 465:Core/Src/main.c ****   }
+ 466:Core/Src/main.c ****   /* USER CODE END 3 */
+ 467:Core/Src/main.c **** }
+ 468:Core/Src/main.c **** 
+ 469:Core/Src/main.c **** /**
+ 470:Core/Src/main.c ****   * @brief System Clock Configuration
+ 471:Core/Src/main.c ****   * @retval None
+ 472:Core/Src/main.c ****   */
+ 473:Core/Src/main.c **** void SystemClock_Config(void)
+ 474:Core/Src/main.c **** {
+ 1177              		.loc 1 474 1
+ 1178              		.cfi_startproc
+ 1179              		@ args = 0, pretend = 0, frame = 80
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 31
+
+
+ 1180              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1181 0000 80B5     		push	{r7, lr}
+ 1182              	.LCFI9:
+ 1183              		.cfi_def_cfa_offset 8
+ 1184              		.cfi_offset 7, -8
+ 1185              		.cfi_offset 14, -4
+ 1186 0002 94B0     		sub	sp, sp, #80
+ 1187              	.LCFI10:
+ 1188              		.cfi_def_cfa_offset 88
+ 1189 0004 00AF     		add	r7, sp, #0
+ 1190              	.LCFI11:
+ 1191              		.cfi_def_cfa_register 7
+ 475:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 1192              		.loc 1 475 22
+ 1193 0006 07F12003 		add	r3, r7, #32
+ 1194 000a 3022     		movs	r2, #48
+ 1195 000c 0021     		movs	r1, #0
+ 1196 000e 1846     		mov	r0, r3
+ 1197 0010 FFF7FEFF 		bl	memset
+ 476:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 1198              		.loc 1 476 22
+ 1199 0014 07F10C03 		add	r3, r7, #12
+ 1200 0018 0022     		movs	r2, #0
+ 1201 001a 1A60     		str	r2, [r3]
+ 1202 001c 5A60     		str	r2, [r3, #4]
+ 1203 001e 9A60     		str	r2, [r3, #8]
+ 1204 0020 DA60     		str	r2, [r3, #12]
+ 1205 0022 1A61     		str	r2, [r3, #16]
+ 1206              	.LBB4:
+ 477:Core/Src/main.c **** 
+ 478:Core/Src/main.c ****   /** Configure the main internal regulator output voltage
+ 479:Core/Src/main.c ****   */
+ 480:Core/Src/main.c ****   __HAL_RCC_PWR_CLK_ENABLE();
+ 1207              		.loc 1 480 3
+ 1208 0024 0023     		movs	r3, #0
+ 1209 0026 BB60     		str	r3, [r7, #8]
+ 1210 0028 274B     		ldr	r3, .L18
+ 1211 002a 1B6C     		ldr	r3, [r3, #64]
+ 1212 002c 264A     		ldr	r2, .L18
+ 1213 002e 43F08053 		orr	r3, r3, #268435456
+ 1214 0032 1364     		str	r3, [r2, #64]
+ 1215 0034 244B     		ldr	r3, .L18
+ 1216 0036 1B6C     		ldr	r3, [r3, #64]
+ 1217 0038 03F08053 		and	r3, r3, #268435456
+ 1218 003c BB60     		str	r3, [r7, #8]
+ 1219 003e BB68     		ldr	r3, [r7, #8]
+ 1220              	.LBE4:
+ 1221              	.LBB5:
+ 481:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 1222              		.loc 1 481 3
+ 1223 0040 0023     		movs	r3, #0
+ 1224 0042 7B60     		str	r3, [r7, #4]
+ 1225 0044 214B     		ldr	r3, .L18+4
+ 1226 0046 1B68     		ldr	r3, [r3]
+ 1227 0048 204A     		ldr	r2, .L18+4
+ 1228 004a 43F44043 		orr	r3, r3, #49152
+ 1229 004e 1360     		str	r3, [r2]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 32
+
+
+ 1230 0050 1E4B     		ldr	r3, .L18+4
+ 1231 0052 1B68     		ldr	r3, [r3]
+ 1232 0054 03F44043 		and	r3, r3, #49152
+ 1233 0058 7B60     		str	r3, [r7, #4]
+ 1234 005a 7B68     		ldr	r3, [r7, #4]
+ 1235              	.LBE5:
+ 482:Core/Src/main.c **** 
+ 483:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 484:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
+ 485:Core/Src/main.c ****   */
+ 486:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+ 1236              		.loc 1 486 36
+ 1237 005c 0123     		movs	r3, #1
+ 1238 005e 3B62     		str	r3, [r7, #32]
+ 487:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ 1239              		.loc 1 487 30
+ 1240 0060 4FF48033 		mov	r3, #65536
+ 1241 0064 7B62     		str	r3, [r7, #36]
+ 488:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 1242              		.loc 1 488 34
+ 1243 0066 0223     		movs	r3, #2
+ 1244 0068 BB63     		str	r3, [r7, #56]
+ 489:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 1245              		.loc 1 489 35
+ 1246 006a 4FF48003 		mov	r3, #4194304
+ 1247 006e FB63     		str	r3, [r7, #60]
+ 490:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 25;
+ 1248              		.loc 1 490 30
+ 1249 0070 1923     		movs	r3, #25
+ 1250 0072 3B64     		str	r3, [r7, #64]
+ 491:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 192;
+ 1251              		.loc 1 491 30
+ 1252 0074 C023     		movs	r3, #192
+ 1253 0076 7B64     		str	r3, [r7, #68]
+ 492:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 1254              		.loc 1 492 30
+ 1255 0078 0223     		movs	r3, #2
+ 1256 007a BB64     		str	r3, [r7, #72]
+ 493:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
+ 1257              		.loc 1 493 30
+ 1258 007c 0423     		movs	r3, #4
+ 1259 007e FB64     		str	r3, [r7, #76]
+ 494:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 1260              		.loc 1 494 7
+ 1261 0080 07F12003 		add	r3, r7, #32
+ 1262 0084 1846     		mov	r0, r3
+ 1263 0086 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 1264 008a 0346     		mov	r3, r0
+ 1265              		.loc 1 494 6
+ 1266 008c 002B     		cmp	r3, #0
+ 1267 008e 01D0     		beq	.L15
+ 495:Core/Src/main.c ****   {
+ 496:Core/Src/main.c ****     Error_Handler();
+ 1268              		.loc 1 496 5
+ 1269 0090 FFF7FEFF 		bl	Error_Handler
+ 1270              	.L15:
+ 497:Core/Src/main.c ****   }
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 33
+
+
+ 498:Core/Src/main.c **** 
+ 499:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 500:Core/Src/main.c ****   */
+ 501:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 1271              		.loc 1 501 31
+ 1272 0094 0F23     		movs	r3, #15
+ 1273 0096 FB60     		str	r3, [r7, #12]
+ 502:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 503:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 1274              		.loc 1 503 34
+ 1275 0098 0223     		movs	r3, #2
+ 1276 009a 3B61     		str	r3, [r7, #16]
+ 504:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 1277              		.loc 1 504 35
+ 1278 009c 0023     		movs	r3, #0
+ 1279 009e 7B61     		str	r3, [r7, #20]
+ 505:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 1280              		.loc 1 505 36
+ 1281 00a0 4FF48053 		mov	r3, #4096
+ 1282 00a4 BB61     		str	r3, [r7, #24]
+ 506:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 1283              		.loc 1 506 36
+ 1284 00a6 0023     		movs	r3, #0
+ 1285 00a8 FB61     		str	r3, [r7, #28]
+ 507:Core/Src/main.c **** 
+ 508:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
+ 1286              		.loc 1 508 7
+ 1287 00aa 07F10C03 		add	r3, r7, #12
+ 1288 00ae 0321     		movs	r1, #3
+ 1289 00b0 1846     		mov	r0, r3
+ 1290 00b2 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 1291 00b6 0346     		mov	r3, r0
+ 1292              		.loc 1 508 6
+ 1293 00b8 002B     		cmp	r3, #0
+ 1294 00ba 01D0     		beq	.L17
+ 509:Core/Src/main.c ****   {
+ 510:Core/Src/main.c ****     Error_Handler();
+ 1295              		.loc 1 510 5
+ 1296 00bc FFF7FEFF 		bl	Error_Handler
+ 1297              	.L17:
+ 511:Core/Src/main.c ****   }
+ 512:Core/Src/main.c **** }
+ 1298              		.loc 1 512 1
+ 1299 00c0 00BF     		nop
+ 1300 00c2 5037     		adds	r7, r7, #80
+ 1301              	.LCFI12:
+ 1302              		.cfi_def_cfa_offset 8
+ 1303 00c4 BD46     		mov	sp, r7
+ 1304              	.LCFI13:
+ 1305              		.cfi_def_cfa_register 13
+ 1306              		@ sp needed
+ 1307 00c6 80BD     		pop	{r7, pc}
+ 1308              	.L19:
+ 1309              		.align	2
+ 1310              	.L18:
+ 1311 00c8 00380240 		.word	1073887232
+ 1312 00cc 00700040 		.word	1073770496
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 34
+
+
+ 1313              		.cfi_endproc
+ 1314              	.LFE227:
+ 1316              		.section	.text.MX_ADC1_Init,"ax",%progbits
+ 1317              		.align	1
+ 1318              		.syntax unified
+ 1319              		.thumb
+ 1320              		.thumb_func
+ 1322              	MX_ADC1_Init:
+ 1323              	.LFB228:
+ 513:Core/Src/main.c **** 
+ 514:Core/Src/main.c **** /**
+ 515:Core/Src/main.c ****   * @brief ADC1 Initialization Function
+ 516:Core/Src/main.c ****   * @param None
+ 517:Core/Src/main.c ****   * @retval None
+ 518:Core/Src/main.c ****   */
+ 519:Core/Src/main.c **** static void MX_ADC1_Init(void)
+ 520:Core/Src/main.c **** {
+ 1324              		.loc 1 520 1
+ 1325              		.cfi_startproc
+ 1326              		@ args = 0, pretend = 0, frame = 16
+ 1327              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1328 0000 80B5     		push	{r7, lr}
+ 1329              	.LCFI14:
+ 1330              		.cfi_def_cfa_offset 8
+ 1331              		.cfi_offset 7, -8
+ 1332              		.cfi_offset 14, -4
+ 1333 0002 84B0     		sub	sp, sp, #16
+ 1334              	.LCFI15:
+ 1335              		.cfi_def_cfa_offset 24
+ 1336 0004 00AF     		add	r7, sp, #0
+ 1337              	.LCFI16:
+ 1338              		.cfi_def_cfa_register 7
+ 521:Core/Src/main.c **** 
+ 522:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 0 */
+ 523:Core/Src/main.c **** 
+ 524:Core/Src/main.c ****   /* USER CODE END ADC1_Init 0 */
+ 525:Core/Src/main.c **** 
+ 526:Core/Src/main.c ****   ADC_ChannelConfTypeDef sConfig = {0};
+ 1339              		.loc 1 526 26
+ 1340 0006 3B46     		mov	r3, r7
+ 1341 0008 0022     		movs	r2, #0
+ 1342 000a 1A60     		str	r2, [r3]
+ 1343 000c 5A60     		str	r2, [r3, #4]
+ 1344 000e 9A60     		str	r2, [r3, #8]
+ 1345 0010 DA60     		str	r2, [r3, #12]
+ 527:Core/Src/main.c **** 
+ 528:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 1 */
+ 529:Core/Src/main.c **** 
+ 530:Core/Src/main.c ****   /* USER CODE END ADC1_Init 1 */
+ 531:Core/Src/main.c **** 
+ 532:Core/Src/main.c ****   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of con
+ 533:Core/Src/main.c ****   */
+ 534:Core/Src/main.c ****   hadc1.Instance = ADC1;
+ 1346              		.loc 1 534 18
+ 1347 0012 214B     		ldr	r3, .L24
+ 1348 0014 214A     		ldr	r2, .L24+4
+ 1349 0016 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 35
+
+
+ 535:Core/Src/main.c ****   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+ 1350              		.loc 1 535 29
+ 1351 0018 1F4B     		ldr	r3, .L24
+ 1352 001a 4FF48032 		mov	r2, #65536
+ 1353 001e 5A60     		str	r2, [r3, #4]
+ 536:Core/Src/main.c ****   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+ 1354              		.loc 1 536 25
+ 1355 0020 1D4B     		ldr	r3, .L24
+ 1356 0022 0022     		movs	r2, #0
+ 1357 0024 9A60     		str	r2, [r3, #8]
+ 537:Core/Src/main.c ****   hadc1.Init.ScanConvMode = DISABLE;
+ 1358              		.loc 1 537 27
+ 1359 0026 1C4B     		ldr	r3, .L24
+ 1360 0028 0022     		movs	r2, #0
+ 1361 002a 1A61     		str	r2, [r3, #16]
+ 538:Core/Src/main.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
+ 1362              		.loc 1 538 33
+ 1363 002c 1A4B     		ldr	r3, .L24
+ 1364 002e 0022     		movs	r2, #0
+ 1365 0030 1A76     		strb	r2, [r3, #24]
+ 539:Core/Src/main.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
+ 1366              		.loc 1 539 36
+ 1367 0032 194B     		ldr	r3, .L24
+ 1368 0034 0022     		movs	r2, #0
+ 1369 0036 83F82020 		strb	r2, [r3, #32]
+ 540:Core/Src/main.c ****   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+ 1370              		.loc 1 540 35
+ 1371 003a 174B     		ldr	r3, .L24
+ 1372 003c 0022     		movs	r2, #0
+ 1373 003e DA62     		str	r2, [r3, #44]
+ 541:Core/Src/main.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+ 1374              		.loc 1 541 31
+ 1375 0040 154B     		ldr	r3, .L24
+ 1376 0042 174A     		ldr	r2, .L24+8
+ 1377 0044 9A62     		str	r2, [r3, #40]
+ 542:Core/Src/main.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+ 1378              		.loc 1 542 24
+ 1379 0046 144B     		ldr	r3, .L24
+ 1380 0048 0022     		movs	r2, #0
+ 1381 004a DA60     		str	r2, [r3, #12]
+ 543:Core/Src/main.c ****   hadc1.Init.NbrOfConversion = 1;
+ 1382              		.loc 1 543 30
+ 1383 004c 124B     		ldr	r3, .L24
+ 1384 004e 0122     		movs	r2, #1
+ 1385 0050 DA61     		str	r2, [r3, #28]
+ 544:Core/Src/main.c ****   hadc1.Init.DMAContinuousRequests = DISABLE;
+ 1386              		.loc 1 544 36
+ 1387 0052 114B     		ldr	r3, .L24
+ 1388 0054 0022     		movs	r2, #0
+ 1389 0056 83F83020 		strb	r2, [r3, #48]
+ 545:Core/Src/main.c ****   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+ 1390              		.loc 1 545 27
+ 1391 005a 0F4B     		ldr	r3, .L24
+ 1392 005c 0122     		movs	r2, #1
+ 1393 005e 5A61     		str	r2, [r3, #20]
+ 546:Core/Src/main.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
+ 1394              		.loc 1 546 7
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 36
+
+
+ 1395 0060 0D48     		ldr	r0, .L24
+ 1396 0062 FFF7FEFF 		bl	HAL_ADC_Init
+ 1397 0066 0346     		mov	r3, r0
+ 1398              		.loc 1 546 6
+ 1399 0068 002B     		cmp	r3, #0
+ 1400 006a 01D0     		beq	.L21
+ 547:Core/Src/main.c ****   {
+ 548:Core/Src/main.c ****     Error_Handler();
+ 1401              		.loc 1 548 5
+ 1402 006c FFF7FEFF 		bl	Error_Handler
+ 1403              	.L21:
+ 549:Core/Src/main.c ****   }
+ 550:Core/Src/main.c **** 
+ 551:Core/Src/main.c ****   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and it
+ 552:Core/Src/main.c ****   */
+ 553:Core/Src/main.c ****   sConfig.Channel = ADC_CHANNEL_0;
+ 1404              		.loc 1 553 19
+ 1405 0070 0023     		movs	r3, #0
+ 1406 0072 3B60     		str	r3, [r7]
+ 554:Core/Src/main.c ****   sConfig.Rank = 1;
+ 1407              		.loc 1 554 16
+ 1408 0074 0123     		movs	r3, #1
+ 1409 0076 7B60     		str	r3, [r7, #4]
+ 555:Core/Src/main.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+ 1410              		.loc 1 555 24
+ 1411 0078 0023     		movs	r3, #0
+ 1412 007a BB60     		str	r3, [r7, #8]
+ 556:Core/Src/main.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 1413              		.loc 1 556 7
+ 1414 007c 3B46     		mov	r3, r7
+ 1415 007e 1946     		mov	r1, r3
+ 1416 0080 0548     		ldr	r0, .L24
+ 1417 0082 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 1418 0086 0346     		mov	r3, r0
+ 1419              		.loc 1 556 6
+ 1420 0088 002B     		cmp	r3, #0
+ 1421 008a 01D0     		beq	.L23
+ 557:Core/Src/main.c ****   {
+ 558:Core/Src/main.c ****     Error_Handler();
+ 1422              		.loc 1 558 5
+ 1423 008c FFF7FEFF 		bl	Error_Handler
+ 1424              	.L23:
+ 559:Core/Src/main.c ****   }
+ 560:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 2 */
+ 561:Core/Src/main.c **** 
+ 562:Core/Src/main.c ****   /* USER CODE END ADC1_Init 2 */
+ 563:Core/Src/main.c **** 
+ 564:Core/Src/main.c **** }
+ 1425              		.loc 1 564 1
+ 1426 0090 00BF     		nop
+ 1427 0092 1037     		adds	r7, r7, #16
+ 1428              	.LCFI17:
+ 1429              		.cfi_def_cfa_offset 8
+ 1430 0094 BD46     		mov	sp, r7
+ 1431              	.LCFI18:
+ 1432              		.cfi_def_cfa_register 13
+ 1433              		@ sp needed
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 37
+
+
+ 1434 0096 80BD     		pop	{r7, pc}
+ 1435              	.L25:
+ 1436              		.align	2
+ 1437              	.L24:
+ 1438 0098 00000000 		.word	hadc1
+ 1439 009c 00200140 		.word	1073815552
+ 1440 00a0 0100000F 		.word	251658241
+ 1441              		.cfi_endproc
+ 1442              	.LFE228:
+ 1444              		.section	.text.MX_TIM1_Init,"ax",%progbits
+ 1445              		.align	1
+ 1446              		.syntax unified
+ 1447              		.thumb
+ 1448              		.thumb_func
+ 1450              	MX_TIM1_Init:
+ 1451              	.LFB229:
+ 565:Core/Src/main.c **** 
+ 566:Core/Src/main.c **** /**
+ 567:Core/Src/main.c ****   * @brief TIM1 Initialization Function
+ 568:Core/Src/main.c ****   * @param None
+ 569:Core/Src/main.c ****   * @retval None
+ 570:Core/Src/main.c ****   */
+ 571:Core/Src/main.c **** static void MX_TIM1_Init(void)
+ 572:Core/Src/main.c **** {
+ 1452              		.loc 1 572 1
+ 1453              		.cfi_startproc
+ 1454              		@ args = 0, pretend = 0, frame = 88
+ 1455              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1456 0000 80B5     		push	{r7, lr}
+ 1457              	.LCFI19:
+ 1458              		.cfi_def_cfa_offset 8
+ 1459              		.cfi_offset 7, -8
+ 1460              		.cfi_offset 14, -4
+ 1461 0002 96B0     		sub	sp, sp, #88
+ 1462              	.LCFI20:
+ 1463              		.cfi_def_cfa_offset 96
+ 1464 0004 00AF     		add	r7, sp, #0
+ 1465              	.LCFI21:
+ 1466              		.cfi_def_cfa_register 7
+ 573:Core/Src/main.c **** 
+ 574:Core/Src/main.c ****   /* USER CODE BEGIN TIM1_Init 0 */
+ 575:Core/Src/main.c **** 
+ 576:Core/Src/main.c ****   /* USER CODE END TIM1_Init 0 */
+ 577:Core/Src/main.c **** 
+ 578:Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 1467              		.loc 1 578 26
+ 1468 0006 07F14803 		add	r3, r7, #72
+ 1469 000a 0022     		movs	r2, #0
+ 1470 000c 1A60     		str	r2, [r3]
+ 1471 000e 5A60     		str	r2, [r3, #4]
+ 1472 0010 9A60     		str	r2, [r3, #8]
+ 1473 0012 DA60     		str	r2, [r3, #12]
+ 579:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1474              		.loc 1 579 27
+ 1475 0014 07F14003 		add	r3, r7, #64
+ 1476 0018 0022     		movs	r2, #0
+ 1477 001a 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 38
+
+
+ 1478 001c 5A60     		str	r2, [r3, #4]
+ 580:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 1479              		.loc 1 580 22
+ 1480 001e 07F12403 		add	r3, r7, #36
+ 1481 0022 0022     		movs	r2, #0
+ 1482 0024 1A60     		str	r2, [r3]
+ 1483 0026 5A60     		str	r2, [r3, #4]
+ 1484 0028 9A60     		str	r2, [r3, #8]
+ 1485 002a DA60     		str	r2, [r3, #12]
+ 1486 002c 1A61     		str	r2, [r3, #16]
+ 1487 002e 5A61     		str	r2, [r3, #20]
+ 1488 0030 9A61     		str	r2, [r3, #24]
+ 581:Core/Src/main.c ****   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
+ 1489              		.loc 1 581 34
+ 1490 0032 3B1D     		adds	r3, r7, #4
+ 1491 0034 2022     		movs	r2, #32
+ 1492 0036 0021     		movs	r1, #0
+ 1493 0038 1846     		mov	r0, r3
+ 1494 003a FFF7FEFF 		bl	memset
+ 582:Core/Src/main.c **** 
+ 583:Core/Src/main.c ****   /* USER CODE BEGIN TIM1_Init 1 */
+ 584:Core/Src/main.c **** 
+ 585:Core/Src/main.c ****   /* USER CODE END TIM1_Init 1 */
+ 586:Core/Src/main.c ****   htim1.Instance = TIM1;
+ 1495              		.loc 1 586 18
+ 1496 003e 3F4B     		ldr	r3, .L33
+ 1497 0040 3F4A     		ldr	r2, .L33+4
+ 1498 0042 1A60     		str	r2, [r3]
+ 587:Core/Src/main.c ****   htim1.Init.Prescaler = 0;
+ 1499              		.loc 1 587 24
+ 1500 0044 3D4B     		ldr	r3, .L33
+ 1501 0046 0022     		movs	r2, #0
+ 1502 0048 5A60     		str	r2, [r3, #4]
+ 588:Core/Src/main.c ****   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1503              		.loc 1 588 26
+ 1504 004a 3C4B     		ldr	r3, .L33
+ 1505 004c 0022     		movs	r2, #0
+ 1506 004e 9A60     		str	r2, [r3, #8]
+ 589:Core/Src/main.c ****   htim1.Init.Period = 9600-1;
+ 1507              		.loc 1 589 21
+ 1508 0050 3A4B     		ldr	r3, .L33
+ 1509 0052 42F27F52 		movw	r2, #9599
+ 1510 0056 DA60     		str	r2, [r3, #12]
+ 590:Core/Src/main.c ****   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1511              		.loc 1 590 28
+ 1512 0058 384B     		ldr	r3, .L33
+ 1513 005a 0022     		movs	r2, #0
+ 1514 005c 1A61     		str	r2, [r3, #16]
+ 591:Core/Src/main.c ****   htim1.Init.RepetitionCounter = 0;
+ 1515              		.loc 1 591 32
+ 1516 005e 374B     		ldr	r3, .L33
+ 1517 0060 0022     		movs	r2, #0
+ 1518 0062 5A61     		str	r2, [r3, #20]
+ 592:Core/Src/main.c ****   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1519              		.loc 1 592 32
+ 1520 0064 354B     		ldr	r3, .L33
+ 1521 0066 0022     		movs	r2, #0
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 39
+
+
+ 1522 0068 9A61     		str	r2, [r3, #24]
+ 593:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+ 1523              		.loc 1 593 7
+ 1524 006a 3448     		ldr	r0, .L33
+ 1525 006c FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 1526 0070 0346     		mov	r3, r0
+ 1527              		.loc 1 593 6
+ 1528 0072 002B     		cmp	r3, #0
+ 1529 0074 01D0     		beq	.L27
+ 594:Core/Src/main.c ****   {
+ 595:Core/Src/main.c ****     Error_Handler();
+ 1530              		.loc 1 595 5
+ 1531 0076 FFF7FEFF 		bl	Error_Handler
+ 1532              	.L27:
+ 596:Core/Src/main.c ****   }
+ 597:Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 1533              		.loc 1 597 34
+ 1534 007a 4FF48053 		mov	r3, #4096
+ 1535 007e BB64     		str	r3, [r7, #72]
+ 598:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+ 1536              		.loc 1 598 7
+ 1537 0080 07F14803 		add	r3, r7, #72
+ 1538 0084 1946     		mov	r1, r3
+ 1539 0086 2D48     		ldr	r0, .L33
+ 1540 0088 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 1541 008c 0346     		mov	r3, r0
+ 1542              		.loc 1 598 6
+ 1543 008e 002B     		cmp	r3, #0
+ 1544 0090 01D0     		beq	.L28
+ 599:Core/Src/main.c ****   {
+ 600:Core/Src/main.c ****     Error_Handler();
+ 1545              		.loc 1 600 5
+ 1546 0092 FFF7FEFF 		bl	Error_Handler
+ 1547              	.L28:
+ 601:Core/Src/main.c ****   }
+ 602:Core/Src/main.c ****   if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
+ 1548              		.loc 1 602 7
+ 1549 0096 2948     		ldr	r0, .L33
+ 1550 0098 FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 1551 009c 0346     		mov	r3, r0
+ 1552              		.loc 1 602 6
+ 1553 009e 002B     		cmp	r3, #0
+ 1554 00a0 01D0     		beq	.L29
+ 603:Core/Src/main.c ****   {
+ 604:Core/Src/main.c ****     Error_Handler();
+ 1555              		.loc 1 604 5
+ 1556 00a2 FFF7FEFF 		bl	Error_Handler
+ 1557              	.L29:
+ 605:Core/Src/main.c ****   }
+ 606:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 1558              		.loc 1 606 37
+ 1559 00a6 0023     		movs	r3, #0
+ 1560 00a8 3B64     		str	r3, [r7, #64]
+ 607:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1561              		.loc 1 607 33
+ 1562 00aa 0023     		movs	r3, #0
+ 1563 00ac 7B64     		str	r3, [r7, #68]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 40
+
+
+ 608:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+ 1564              		.loc 1 608 7
+ 1565 00ae 07F14003 		add	r3, r7, #64
+ 1566 00b2 1946     		mov	r1, r3
+ 1567 00b4 2148     		ldr	r0, .L33
+ 1568 00b6 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1569 00ba 0346     		mov	r3, r0
+ 1570              		.loc 1 608 6
+ 1571 00bc 002B     		cmp	r3, #0
+ 1572 00be 01D0     		beq	.L30
+ 609:Core/Src/main.c ****   {
+ 610:Core/Src/main.c ****     Error_Handler();
+ 1573              		.loc 1 610 5
+ 1574 00c0 FFF7FEFF 		bl	Error_Handler
+ 1575              	.L30:
+ 611:Core/Src/main.c ****   }
+ 612:Core/Src/main.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 1576              		.loc 1 612 20
+ 1577 00c4 6023     		movs	r3, #96
+ 1578 00c6 7B62     		str	r3, [r7, #36]
+ 613:Core/Src/main.c ****   sConfigOC.Pulse = 9600-1;
+ 1579              		.loc 1 613 19
+ 1580 00c8 42F27F53 		movw	r3, #9599
+ 1581 00cc BB62     		str	r3, [r7, #40]
+ 614:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1582              		.loc 1 614 24
+ 1583 00ce 0023     		movs	r3, #0
+ 1584 00d0 FB62     		str	r3, [r7, #44]
+ 615:Core/Src/main.c ****   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+ 1585              		.loc 1 615 25
+ 1586 00d2 0023     		movs	r3, #0
+ 1587 00d4 3B63     		str	r3, [r7, #48]
+ 616:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1588              		.loc 1 616 24
+ 1589 00d6 0023     		movs	r3, #0
+ 1590 00d8 7B63     		str	r3, [r7, #52]
+ 617:Core/Src/main.c ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+ 1591              		.loc 1 617 25
+ 1592 00da 0023     		movs	r3, #0
+ 1593 00dc BB63     		str	r3, [r7, #56]
+ 618:Core/Src/main.c ****   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+ 1594              		.loc 1 618 26
+ 1595 00de 0023     		movs	r3, #0
+ 1596 00e0 FB63     		str	r3, [r7, #60]
+ 619:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 1597              		.loc 1 619 7
+ 1598 00e2 07F12403 		add	r3, r7, #36
+ 1599 00e6 0022     		movs	r2, #0
+ 1600 00e8 1946     		mov	r1, r3
+ 1601 00ea 1448     		ldr	r0, .L33
+ 1602 00ec FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1603 00f0 0346     		mov	r3, r0
+ 1604              		.loc 1 619 6
+ 1605 00f2 002B     		cmp	r3, #0
+ 1606 00f4 01D0     		beq	.L31
+ 620:Core/Src/main.c ****   {
+ 621:Core/Src/main.c ****     Error_Handler();
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 41
+
+
+ 1607              		.loc 1 621 5
+ 1608 00f6 FFF7FEFF 		bl	Error_Handler
+ 1609              	.L31:
+ 622:Core/Src/main.c ****   }
+ 623:Core/Src/main.c ****   sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
+ 1610              		.loc 1 623 40
+ 1611 00fa 0023     		movs	r3, #0
+ 1612 00fc 7B60     		str	r3, [r7, #4]
+ 624:Core/Src/main.c ****   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+ 1613              		.loc 1 624 41
+ 1614 00fe 0023     		movs	r3, #0
+ 1615 0100 BB60     		str	r3, [r7, #8]
+ 625:Core/Src/main.c ****   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+ 1616              		.loc 1 625 34
+ 1617 0102 0023     		movs	r3, #0
+ 1618 0104 FB60     		str	r3, [r7, #12]
+ 626:Core/Src/main.c ****   sBreakDeadTimeConfig.DeadTime = 0;
+ 1619              		.loc 1 626 33
+ 1620 0106 0023     		movs	r3, #0
+ 1621 0108 3B61     		str	r3, [r7, #16]
+ 627:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+ 1622              		.loc 1 627 35
+ 1623 010a 0023     		movs	r3, #0
+ 1624 010c 7B61     		str	r3, [r7, #20]
+ 628:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+ 1625              		.loc 1 628 38
+ 1626 010e 4FF40053 		mov	r3, #8192
+ 1627 0112 BB61     		str	r3, [r7, #24]
+ 629:Core/Src/main.c ****   sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+ 1628              		.loc 1 629 40
+ 1629 0114 0023     		movs	r3, #0
+ 1630 0116 3B62     		str	r3, [r7, #32]
+ 630:Core/Src/main.c ****   if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
+ 1631              		.loc 1 630 7
+ 1632 0118 3B1D     		adds	r3, r7, #4
+ 1633 011a 1946     		mov	r1, r3
+ 1634 011c 0748     		ldr	r0, .L33
+ 1635 011e FFF7FEFF 		bl	HAL_TIMEx_ConfigBreakDeadTime
+ 1636 0122 0346     		mov	r3, r0
+ 1637              		.loc 1 630 6
+ 1638 0124 002B     		cmp	r3, #0
+ 1639 0126 01D0     		beq	.L32
+ 631:Core/Src/main.c ****   {
+ 632:Core/Src/main.c ****     Error_Handler();
+ 1640              		.loc 1 632 5
+ 1641 0128 FFF7FEFF 		bl	Error_Handler
+ 1642              	.L32:
+ 633:Core/Src/main.c ****   }
+ 634:Core/Src/main.c ****   /* USER CODE BEGIN TIM1_Init 2 */
+ 635:Core/Src/main.c **** 
+ 636:Core/Src/main.c ****   /* USER CODE END TIM1_Init 2 */
+ 637:Core/Src/main.c ****   HAL_TIM_MspPostInit(&htim1);
+ 1643              		.loc 1 637 3
+ 1644 012c 0348     		ldr	r0, .L33
+ 1645 012e FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 638:Core/Src/main.c **** 
+ 639:Core/Src/main.c **** }
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 42
+
+
+ 1646              		.loc 1 639 1
+ 1647 0132 00BF     		nop
+ 1648 0134 5837     		adds	r7, r7, #88
+ 1649              	.LCFI22:
+ 1650              		.cfi_def_cfa_offset 8
+ 1651 0136 BD46     		mov	sp, r7
+ 1652              	.LCFI23:
+ 1653              		.cfi_def_cfa_register 13
+ 1654              		@ sp needed
+ 1655 0138 80BD     		pop	{r7, pc}
+ 1656              	.L34:
+ 1657 013a 00BF     		.align	2
+ 1658              	.L33:
+ 1659 013c 00000000 		.word	htim1
+ 1660 0140 00000140 		.word	1073807360
+ 1661              		.cfi_endproc
+ 1662              	.LFE229:
+ 1664              		.section	.text.MX_TIM2_Init,"ax",%progbits
+ 1665              		.align	1
+ 1666              		.syntax unified
+ 1667              		.thumb
+ 1668              		.thumb_func
+ 1670              	MX_TIM2_Init:
+ 1671              	.LFB230:
+ 640:Core/Src/main.c **** 
+ 641:Core/Src/main.c **** /**
+ 642:Core/Src/main.c ****   * @brief TIM2 Initialization Function
+ 643:Core/Src/main.c ****   * @param None
+ 644:Core/Src/main.c ****   * @retval None
+ 645:Core/Src/main.c ****   */
+ 646:Core/Src/main.c **** static void MX_TIM2_Init(void)
+ 647:Core/Src/main.c **** {
+ 1672              		.loc 1 647 1
+ 1673              		.cfi_startproc
+ 1674              		@ args = 0, pretend = 0, frame = 24
+ 1675              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1676 0000 80B5     		push	{r7, lr}
+ 1677              	.LCFI24:
+ 1678              		.cfi_def_cfa_offset 8
+ 1679              		.cfi_offset 7, -8
+ 1680              		.cfi_offset 14, -4
+ 1681 0002 86B0     		sub	sp, sp, #24
+ 1682              	.LCFI25:
+ 1683              		.cfi_def_cfa_offset 32
+ 1684 0004 00AF     		add	r7, sp, #0
+ 1685              	.LCFI26:
+ 1686              		.cfi_def_cfa_register 7
+ 648:Core/Src/main.c **** 
+ 649:Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 0 */
+ 650:Core/Src/main.c **** 
+ 651:Core/Src/main.c ****   /* USER CODE END TIM2_Init 0 */
+ 652:Core/Src/main.c **** 
+ 653:Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 1687              		.loc 1 653 26
+ 1688 0006 07F10803 		add	r3, r7, #8
+ 1689 000a 0022     		movs	r2, #0
+ 1690 000c 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 43
+
+
+ 1691 000e 5A60     		str	r2, [r3, #4]
+ 1692 0010 9A60     		str	r2, [r3, #8]
+ 1693 0012 DA60     		str	r2, [r3, #12]
+ 654:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1694              		.loc 1 654 27
+ 1695 0014 3B46     		mov	r3, r7
+ 1696 0016 0022     		movs	r2, #0
+ 1697 0018 1A60     		str	r2, [r3]
+ 1698 001a 5A60     		str	r2, [r3, #4]
+ 655:Core/Src/main.c **** 
+ 656:Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 1 */
+ 657:Core/Src/main.c **** 
+ 658:Core/Src/main.c ****   /* USER CODE END TIM2_Init 1 */
+ 659:Core/Src/main.c ****   htim2.Instance = TIM2;
+ 1699              		.loc 1 659 18
+ 1700 001c 1E4B     		ldr	r3, .L40
+ 1701 001e 4FF08042 		mov	r2, #1073741824
+ 1702 0022 1A60     		str	r2, [r3]
+ 660:Core/Src/main.c ****   htim2.Init.Prescaler = 9600-1;
+ 1703              		.loc 1 660 24
+ 1704 0024 1C4B     		ldr	r3, .L40
+ 1705 0026 42F27F52 		movw	r2, #9599
+ 1706 002a 5A60     		str	r2, [r3, #4]
+ 661:Core/Src/main.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1707              		.loc 1 661 26
+ 1708 002c 1A4B     		ldr	r3, .L40
+ 1709 002e 0022     		movs	r2, #0
+ 1710 0030 9A60     		str	r2, [r3, #8]
+ 662:Core/Src/main.c ****   htim2.Init.Period = 4294967295;
+ 1711              		.loc 1 662 21
+ 1712 0032 194B     		ldr	r3, .L40
+ 1713 0034 4FF0FF32 		mov	r2, #-1
+ 1714 0038 DA60     		str	r2, [r3, #12]
+ 663:Core/Src/main.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1715              		.loc 1 663 28
+ 1716 003a 174B     		ldr	r3, .L40
+ 1717 003c 0022     		movs	r2, #0
+ 1718 003e 1A61     		str	r2, [r3, #16]
+ 664:Core/Src/main.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1719              		.loc 1 664 32
+ 1720 0040 154B     		ldr	r3, .L40
+ 1721 0042 0022     		movs	r2, #0
+ 1722 0044 9A61     		str	r2, [r3, #24]
+ 665:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 1723              		.loc 1 665 7
+ 1724 0046 1448     		ldr	r0, .L40
+ 1725 0048 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 1726 004c 0346     		mov	r3, r0
+ 1727              		.loc 1 665 6
+ 1728 004e 002B     		cmp	r3, #0
+ 1729 0050 01D0     		beq	.L36
+ 666:Core/Src/main.c ****   {
+ 667:Core/Src/main.c ****     Error_Handler();
+ 1730              		.loc 1 667 5
+ 1731 0052 FFF7FEFF 		bl	Error_Handler
+ 1732              	.L36:
+ 668:Core/Src/main.c ****   }
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 44
+
+
+ 669:Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 1733              		.loc 1 669 34
+ 1734 0056 4FF48053 		mov	r3, #4096
+ 1735 005a BB60     		str	r3, [r7, #8]
+ 670:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 1736              		.loc 1 670 7
+ 1737 005c 07F10803 		add	r3, r7, #8
+ 1738 0060 1946     		mov	r1, r3
+ 1739 0062 0D48     		ldr	r0, .L40
+ 1740 0064 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 1741 0068 0346     		mov	r3, r0
+ 1742              		.loc 1 670 6
+ 1743 006a 002B     		cmp	r3, #0
+ 1744 006c 01D0     		beq	.L37
+ 671:Core/Src/main.c ****   {
+ 672:Core/Src/main.c ****     Error_Handler();
+ 1745              		.loc 1 672 5
+ 1746 006e FFF7FEFF 		bl	Error_Handler
+ 1747              	.L37:
+ 673:Core/Src/main.c ****   }
+ 674:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 1748              		.loc 1 674 37
+ 1749 0072 0023     		movs	r3, #0
+ 1750 0074 3B60     		str	r3, [r7]
+ 675:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1751              		.loc 1 675 33
+ 1752 0076 0023     		movs	r3, #0
+ 1753 0078 7B60     		str	r3, [r7, #4]
+ 676:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 1754              		.loc 1 676 7
+ 1755 007a 3B46     		mov	r3, r7
+ 1756 007c 1946     		mov	r1, r3
+ 1757 007e 0648     		ldr	r0, .L40
+ 1758 0080 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1759 0084 0346     		mov	r3, r0
+ 1760              		.loc 1 676 6
+ 1761 0086 002B     		cmp	r3, #0
+ 1762 0088 01D0     		beq	.L39
+ 677:Core/Src/main.c ****   {
+ 678:Core/Src/main.c ****     Error_Handler();
+ 1763              		.loc 1 678 5
+ 1764 008a FFF7FEFF 		bl	Error_Handler
+ 1765              	.L39:
+ 679:Core/Src/main.c ****   }
+ 680:Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 2 */
+ 681:Core/Src/main.c **** 
+ 682:Core/Src/main.c ****   /* USER CODE END TIM2_Init 2 */
+ 683:Core/Src/main.c **** 
+ 684:Core/Src/main.c **** }
+ 1766              		.loc 1 684 1
+ 1767 008e 00BF     		nop
+ 1768 0090 1837     		adds	r7, r7, #24
+ 1769              	.LCFI27:
+ 1770              		.cfi_def_cfa_offset 8
+ 1771 0092 BD46     		mov	sp, r7
+ 1772              	.LCFI28:
+ 1773              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 45
+
+
+ 1774              		@ sp needed
+ 1775 0094 80BD     		pop	{r7, pc}
+ 1776              	.L41:
+ 1777 0096 00BF     		.align	2
+ 1778              	.L40:
+ 1779 0098 00000000 		.word	htim2
+ 1780              		.cfi_endproc
+ 1781              	.LFE230:
+ 1783              		.section	.text.MX_TIM3_Init,"ax",%progbits
+ 1784              		.align	1
+ 1785              		.syntax unified
+ 1786              		.thumb
+ 1787              		.thumb_func
+ 1789              	MX_TIM3_Init:
+ 1790              	.LFB231:
+ 685:Core/Src/main.c **** 
+ 686:Core/Src/main.c **** /**
+ 687:Core/Src/main.c ****   * @brief TIM3 Initialization Function
+ 688:Core/Src/main.c ****   * @param None
+ 689:Core/Src/main.c ****   * @retval None
+ 690:Core/Src/main.c ****   */
+ 691:Core/Src/main.c **** static void MX_TIM3_Init(void)
+ 692:Core/Src/main.c **** {
+ 1791              		.loc 1 692 1
+ 1792              		.cfi_startproc
+ 1793              		@ args = 0, pretend = 0, frame = 56
+ 1794              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1795 0000 80B5     		push	{r7, lr}
+ 1796              	.LCFI29:
+ 1797              		.cfi_def_cfa_offset 8
+ 1798              		.cfi_offset 7, -8
+ 1799              		.cfi_offset 14, -4
+ 1800 0002 8EB0     		sub	sp, sp, #56
+ 1801              	.LCFI30:
+ 1802              		.cfi_def_cfa_offset 64
+ 1803 0004 00AF     		add	r7, sp, #0
+ 1804              	.LCFI31:
+ 1805              		.cfi_def_cfa_register 7
+ 693:Core/Src/main.c **** 
+ 694:Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 0 */
+ 695:Core/Src/main.c **** 
+ 696:Core/Src/main.c ****   /* USER CODE END TIM3_Init 0 */
+ 697:Core/Src/main.c **** 
+ 698:Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 1806              		.loc 1 698 26
+ 1807 0006 07F12803 		add	r3, r7, #40
+ 1808 000a 0022     		movs	r2, #0
+ 1809 000c 1A60     		str	r2, [r3]
+ 1810 000e 5A60     		str	r2, [r3, #4]
+ 1811 0010 9A60     		str	r2, [r3, #8]
+ 1812 0012 DA60     		str	r2, [r3, #12]
+ 699:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1813              		.loc 1 699 27
+ 1814 0014 07F12003 		add	r3, r7, #32
+ 1815 0018 0022     		movs	r2, #0
+ 1816 001a 1A60     		str	r2, [r3]
+ 1817 001c 5A60     		str	r2, [r3, #4]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 46
+
+
+ 700:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 1818              		.loc 1 700 22
+ 1819 001e 3B1D     		adds	r3, r7, #4
+ 1820 0020 0022     		movs	r2, #0
+ 1821 0022 1A60     		str	r2, [r3]
+ 1822 0024 5A60     		str	r2, [r3, #4]
+ 1823 0026 9A60     		str	r2, [r3, #8]
+ 1824 0028 DA60     		str	r2, [r3, #12]
+ 1825 002a 1A61     		str	r2, [r3, #16]
+ 1826 002c 5A61     		str	r2, [r3, #20]
+ 1827 002e 9A61     		str	r2, [r3, #24]
+ 701:Core/Src/main.c **** 
+ 702:Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 1 */
+ 703:Core/Src/main.c **** 
+ 704:Core/Src/main.c ****   /* USER CODE END TIM3_Init 1 */
+ 705:Core/Src/main.c ****   htim3.Instance = TIM3;
+ 1828              		.loc 1 705 18
+ 1829 0030 2D4B     		ldr	r3, .L48
+ 1830 0032 2E4A     		ldr	r2, .L48+4
+ 1831 0034 1A60     		str	r2, [r3]
+ 706:Core/Src/main.c ****   htim3.Init.Prescaler = 0;
+ 1832              		.loc 1 706 24
+ 1833 0036 2C4B     		ldr	r3, .L48
+ 1834 0038 0022     		movs	r2, #0
+ 1835 003a 5A60     		str	r2, [r3, #4]
+ 707:Core/Src/main.c ****   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1836              		.loc 1 707 26
+ 1837 003c 2A4B     		ldr	r3, .L48
+ 1838 003e 0022     		movs	r2, #0
+ 1839 0040 9A60     		str	r2, [r3, #8]
+ 708:Core/Src/main.c ****   htim3.Init.Period = 9600-1;
+ 1840              		.loc 1 708 21
+ 1841 0042 294B     		ldr	r3, .L48
+ 1842 0044 42F27F52 		movw	r2, #9599
+ 1843 0048 DA60     		str	r2, [r3, #12]
+ 709:Core/Src/main.c ****   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1844              		.loc 1 709 28
+ 1845 004a 274B     		ldr	r3, .L48
+ 1846 004c 0022     		movs	r2, #0
+ 1847 004e 1A61     		str	r2, [r3, #16]
+ 710:Core/Src/main.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1848              		.loc 1 710 32
+ 1849 0050 254B     		ldr	r3, .L48
+ 1850 0052 0022     		movs	r2, #0
+ 1851 0054 9A61     		str	r2, [r3, #24]
+ 711:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+ 1852              		.loc 1 711 7
+ 1853 0056 2448     		ldr	r0, .L48
+ 1854 0058 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 1855 005c 0346     		mov	r3, r0
+ 1856              		.loc 1 711 6
+ 1857 005e 002B     		cmp	r3, #0
+ 1858 0060 01D0     		beq	.L43
+ 712:Core/Src/main.c ****   {
+ 713:Core/Src/main.c ****     Error_Handler();
+ 1859              		.loc 1 713 5
+ 1860 0062 FFF7FEFF 		bl	Error_Handler
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 47
+
+
+ 1861              	.L43:
+ 714:Core/Src/main.c ****   }
+ 715:Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 1862              		.loc 1 715 34
+ 1863 0066 4FF48053 		mov	r3, #4096
+ 1864 006a BB62     		str	r3, [r7, #40]
+ 716:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+ 1865              		.loc 1 716 7
+ 1866 006c 07F12803 		add	r3, r7, #40
+ 1867 0070 1946     		mov	r1, r3
+ 1868 0072 1D48     		ldr	r0, .L48
+ 1869 0074 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 1870 0078 0346     		mov	r3, r0
+ 1871              		.loc 1 716 6
+ 1872 007a 002B     		cmp	r3, #0
+ 1873 007c 01D0     		beq	.L44
+ 717:Core/Src/main.c ****   {
+ 718:Core/Src/main.c ****     Error_Handler();
+ 1874              		.loc 1 718 5
+ 1875 007e FFF7FEFF 		bl	Error_Handler
+ 1876              	.L44:
+ 719:Core/Src/main.c ****   }
+ 720:Core/Src/main.c ****   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+ 1877              		.loc 1 720 7
+ 1878 0082 1948     		ldr	r0, .L48
+ 1879 0084 FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 1880 0088 0346     		mov	r3, r0
+ 1881              		.loc 1 720 6
+ 1882 008a 002B     		cmp	r3, #0
+ 1883 008c 01D0     		beq	.L45
+ 721:Core/Src/main.c ****   {
+ 722:Core/Src/main.c ****     Error_Handler();
+ 1884              		.loc 1 722 5
+ 1885 008e FFF7FEFF 		bl	Error_Handler
+ 1886              	.L45:
+ 723:Core/Src/main.c ****   }
+ 724:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 1887              		.loc 1 724 37
+ 1888 0092 0023     		movs	r3, #0
+ 1889 0094 3B62     		str	r3, [r7, #32]
+ 725:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1890              		.loc 1 725 33
+ 1891 0096 0023     		movs	r3, #0
+ 1892 0098 7B62     		str	r3, [r7, #36]
+ 726:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+ 1893              		.loc 1 726 7
+ 1894 009a 07F12003 		add	r3, r7, #32
+ 1895 009e 1946     		mov	r1, r3
+ 1896 00a0 1148     		ldr	r0, .L48
+ 1897 00a2 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1898 00a6 0346     		mov	r3, r0
+ 1899              		.loc 1 726 6
+ 1900 00a8 002B     		cmp	r3, #0
+ 1901 00aa 01D0     		beq	.L46
+ 727:Core/Src/main.c ****   {
+ 728:Core/Src/main.c ****     Error_Handler();
+ 1902              		.loc 1 728 5
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 48
+
+
+ 1903 00ac FFF7FEFF 		bl	Error_Handler
+ 1904              	.L46:
+ 729:Core/Src/main.c ****   }
+ 730:Core/Src/main.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 1905              		.loc 1 730 20
+ 1906 00b0 6023     		movs	r3, #96
+ 1907 00b2 7B60     		str	r3, [r7, #4]
+ 731:Core/Src/main.c ****   sConfigOC.Pulse = 9600-1;
+ 1908              		.loc 1 731 19
+ 1909 00b4 42F27F53 		movw	r3, #9599
+ 1910 00b8 BB60     		str	r3, [r7, #8]
+ 732:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1911              		.loc 1 732 24
+ 1912 00ba 0023     		movs	r3, #0
+ 1913 00bc FB60     		str	r3, [r7, #12]
+ 733:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1914              		.loc 1 733 24
+ 1915 00be 0023     		movs	r3, #0
+ 1916 00c0 7B61     		str	r3, [r7, #20]
+ 734:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+ 1917              		.loc 1 734 7
+ 1918 00c2 3B1D     		adds	r3, r7, #4
+ 1919 00c4 0422     		movs	r2, #4
+ 1920 00c6 1946     		mov	r1, r3
+ 1921 00c8 0748     		ldr	r0, .L48
+ 1922 00ca FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1923 00ce 0346     		mov	r3, r0
+ 1924              		.loc 1 734 6
+ 1925 00d0 002B     		cmp	r3, #0
+ 1926 00d2 01D0     		beq	.L47
+ 735:Core/Src/main.c ****   {
+ 736:Core/Src/main.c ****     Error_Handler();
+ 1927              		.loc 1 736 5
+ 1928 00d4 FFF7FEFF 		bl	Error_Handler
+ 1929              	.L47:
+ 737:Core/Src/main.c ****   }
+ 738:Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 2 */
+ 739:Core/Src/main.c **** 
+ 740:Core/Src/main.c ****   /* USER CODE END TIM3_Init 2 */
+ 741:Core/Src/main.c ****   HAL_TIM_MspPostInit(&htim3);
+ 1930              		.loc 1 741 3
+ 1931 00d8 0348     		ldr	r0, .L48
+ 1932 00da FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 742:Core/Src/main.c **** 
+ 743:Core/Src/main.c **** }
+ 1933              		.loc 1 743 1
+ 1934 00de 00BF     		nop
+ 1935 00e0 3837     		adds	r7, r7, #56
+ 1936              	.LCFI32:
+ 1937              		.cfi_def_cfa_offset 8
+ 1938 00e2 BD46     		mov	sp, r7
+ 1939              	.LCFI33:
+ 1940              		.cfi_def_cfa_register 13
+ 1941              		@ sp needed
+ 1942 00e4 80BD     		pop	{r7, pc}
+ 1943              	.L49:
+ 1944 00e6 00BF     		.align	2
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 49
+
+
+ 1945              	.L48:
+ 1946 00e8 00000000 		.word	htim3
+ 1947 00ec 00040040 		.word	1073742848
+ 1948              		.cfi_endproc
+ 1949              	.LFE231:
+ 1951              		.section	.text.MX_USART1_UART_Init,"ax",%progbits
+ 1952              		.align	1
+ 1953              		.syntax unified
+ 1954              		.thumb
+ 1955              		.thumb_func
+ 1957              	MX_USART1_UART_Init:
+ 1958              	.LFB232:
+ 744:Core/Src/main.c **** 
+ 745:Core/Src/main.c **** /**
+ 746:Core/Src/main.c ****   * @brief USART1 Initialization Function
+ 747:Core/Src/main.c ****   * @param None
+ 748:Core/Src/main.c ****   * @retval None
+ 749:Core/Src/main.c ****   */
+ 750:Core/Src/main.c **** static void MX_USART1_UART_Init(void)
+ 751:Core/Src/main.c **** {
+ 1959              		.loc 1 751 1
+ 1960              		.cfi_startproc
+ 1961              		@ args = 0, pretend = 0, frame = 0
+ 1962              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1963 0000 80B5     		push	{r7, lr}
+ 1964              	.LCFI34:
+ 1965              		.cfi_def_cfa_offset 8
+ 1966              		.cfi_offset 7, -8
+ 1967              		.cfi_offset 14, -4
+ 1968 0002 00AF     		add	r7, sp, #0
+ 1969              	.LCFI35:
+ 1970              		.cfi_def_cfa_register 7
+ 752:Core/Src/main.c **** 
+ 753:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 0 */
+ 754:Core/Src/main.c **** 
+ 755:Core/Src/main.c ****   /* USER CODE END USART1_Init 0 */
+ 756:Core/Src/main.c **** 
+ 757:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 1 */
+ 758:Core/Src/main.c **** 
+ 759:Core/Src/main.c ****   /* USER CODE END USART1_Init 1 */
+ 760:Core/Src/main.c ****   huart1.Instance = USART1;
+ 1971              		.loc 1 760 19
+ 1972 0004 114B     		ldr	r3, .L53
+ 1973 0006 124A     		ldr	r2, .L53+4
+ 1974 0008 1A60     		str	r2, [r3]
+ 761:Core/Src/main.c ****   huart1.Init.BaudRate = 9600;
+ 1975              		.loc 1 761 24
+ 1976 000a 104B     		ldr	r3, .L53
+ 1977 000c 4FF41652 		mov	r2, #9600
+ 1978 0010 5A60     		str	r2, [r3, #4]
+ 762:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+ 1979              		.loc 1 762 26
+ 1980 0012 0E4B     		ldr	r3, .L53
+ 1981 0014 0022     		movs	r2, #0
+ 1982 0016 9A60     		str	r2, [r3, #8]
+ 763:Core/Src/main.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
+ 1983              		.loc 1 763 24
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 50
+
+
+ 1984 0018 0C4B     		ldr	r3, .L53
+ 1985 001a 0022     		movs	r2, #0
+ 1986 001c DA60     		str	r2, [r3, #12]
+ 764:Core/Src/main.c ****   huart1.Init.Parity = UART_PARITY_NONE;
+ 1987              		.loc 1 764 22
+ 1988 001e 0B4B     		ldr	r3, .L53
+ 1989 0020 0022     		movs	r2, #0
+ 1990 0022 1A61     		str	r2, [r3, #16]
+ 765:Core/Src/main.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
+ 1991              		.loc 1 765 20
+ 1992 0024 094B     		ldr	r3, .L53
+ 1993 0026 0C22     		movs	r2, #12
+ 1994 0028 5A61     		str	r2, [r3, #20]
+ 766:Core/Src/main.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 1995              		.loc 1 766 25
+ 1996 002a 084B     		ldr	r3, .L53
+ 1997 002c 0022     		movs	r2, #0
+ 1998 002e 9A61     		str	r2, [r3, #24]
+ 767:Core/Src/main.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+ 1999              		.loc 1 767 28
+ 2000 0030 064B     		ldr	r3, .L53
+ 2001 0032 0022     		movs	r2, #0
+ 2002 0034 DA61     		str	r2, [r3, #28]
+ 768:Core/Src/main.c ****   if (HAL_UART_Init(&huart1) != HAL_OK)
+ 2003              		.loc 1 768 7
+ 2004 0036 0548     		ldr	r0, .L53
+ 2005 0038 FFF7FEFF 		bl	HAL_UART_Init
+ 2006 003c 0346     		mov	r3, r0
+ 2007              		.loc 1 768 6
+ 2008 003e 002B     		cmp	r3, #0
+ 2009 0040 01D0     		beq	.L52
+ 769:Core/Src/main.c ****   {
+ 770:Core/Src/main.c ****     Error_Handler();
+ 2010              		.loc 1 770 5
+ 2011 0042 FFF7FEFF 		bl	Error_Handler
+ 2012              	.L52:
+ 771:Core/Src/main.c ****   }
+ 772:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 2 */
+ 773:Core/Src/main.c **** 
+ 774:Core/Src/main.c ****   /* USER CODE END USART1_Init 2 */
+ 775:Core/Src/main.c **** 
+ 776:Core/Src/main.c **** }
+ 2013              		.loc 1 776 1
+ 2014 0046 00BF     		nop
+ 2015 0048 80BD     		pop	{r7, pc}
+ 2016              	.L54:
+ 2017 004a 00BF     		.align	2
+ 2018              	.L53:
+ 2019 004c 00000000 		.word	huart1
+ 2020 0050 00100140 		.word	1073811456
+ 2021              		.cfi_endproc
+ 2022              	.LFE232:
+ 2024              		.section	.text.MX_DMA_Init,"ax",%progbits
+ 2025              		.align	1
+ 2026              		.syntax unified
+ 2027              		.thumb
+ 2028              		.thumb_func
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 51
+
+
+ 2030              	MX_DMA_Init:
+ 2031              	.LFB233:
+ 777:Core/Src/main.c **** 
+ 778:Core/Src/main.c **** /**
+ 779:Core/Src/main.c ****   * Enable DMA controller clock
+ 780:Core/Src/main.c ****   */
+ 781:Core/Src/main.c **** static void MX_DMA_Init(void)
+ 782:Core/Src/main.c **** {
+ 2032              		.loc 1 782 1
+ 2033              		.cfi_startproc
+ 2034              		@ args = 0, pretend = 0, frame = 8
+ 2035              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2036 0000 80B5     		push	{r7, lr}
+ 2037              	.LCFI36:
+ 2038              		.cfi_def_cfa_offset 8
+ 2039              		.cfi_offset 7, -8
+ 2040              		.cfi_offset 14, -4
+ 2041 0002 82B0     		sub	sp, sp, #8
+ 2042              	.LCFI37:
+ 2043              		.cfi_def_cfa_offset 16
+ 2044 0004 00AF     		add	r7, sp, #0
+ 2045              	.LCFI38:
+ 2046              		.cfi_def_cfa_register 7
+ 2047              	.LBB6:
+ 783:Core/Src/main.c **** 
+ 784:Core/Src/main.c ****   /* DMA controller clock enable */
+ 785:Core/Src/main.c ****   __HAL_RCC_DMA2_CLK_ENABLE();
+ 2048              		.loc 1 785 3
+ 2049 0006 0023     		movs	r3, #0
+ 2050 0008 7B60     		str	r3, [r7, #4]
+ 2051 000a 104B     		ldr	r3, .L56
+ 2052 000c 1B6B     		ldr	r3, [r3, #48]
+ 2053 000e 0F4A     		ldr	r2, .L56
+ 2054 0010 43F48003 		orr	r3, r3, #4194304
+ 2055 0014 1363     		str	r3, [r2, #48]
+ 2056 0016 0D4B     		ldr	r3, .L56
+ 2057 0018 1B6B     		ldr	r3, [r3, #48]
+ 2058 001a 03F48003 		and	r3, r3, #4194304
+ 2059 001e 7B60     		str	r3, [r7, #4]
+ 2060 0020 7B68     		ldr	r3, [r7, #4]
+ 2061              	.LBE6:
+ 786:Core/Src/main.c **** 
+ 787:Core/Src/main.c ****   /* DMA interrupt init */
+ 788:Core/Src/main.c ****   /* DMA2_Stream2_IRQn interrupt configuration */
+ 789:Core/Src/main.c ****   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 5, 0);
+ 2062              		.loc 1 789 3
+ 2063 0022 0022     		movs	r2, #0
+ 2064 0024 0521     		movs	r1, #5
+ 2065 0026 3A20     		movs	r0, #58
+ 2066 0028 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 790:Core/Src/main.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
+ 2067              		.loc 1 790 3
+ 2068 002c 3A20     		movs	r0, #58
+ 2069 002e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 791:Core/Src/main.c ****   /* DMA2_Stream7_IRQn interrupt configuration */
+ 792:Core/Src/main.c ****   HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 5, 0);
+ 2070              		.loc 1 792 3
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 52
+
+
+ 2071 0032 0022     		movs	r2, #0
+ 2072 0034 0521     		movs	r1, #5
+ 2073 0036 4620     		movs	r0, #70
+ 2074 0038 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 793:Core/Src/main.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
+ 2075              		.loc 1 793 3
+ 2076 003c 4620     		movs	r0, #70
+ 2077 003e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 794:Core/Src/main.c **** 
+ 795:Core/Src/main.c **** }
+ 2078              		.loc 1 795 1
+ 2079 0042 00BF     		nop
+ 2080 0044 0837     		adds	r7, r7, #8
+ 2081              	.LCFI39:
+ 2082              		.cfi_def_cfa_offset 8
+ 2083 0046 BD46     		mov	sp, r7
+ 2084              	.LCFI40:
+ 2085              		.cfi_def_cfa_register 13
+ 2086              		@ sp needed
+ 2087 0048 80BD     		pop	{r7, pc}
+ 2088              	.L57:
+ 2089 004a 00BF     		.align	2
+ 2090              	.L56:
+ 2091 004c 00380240 		.word	1073887232
+ 2092              		.cfi_endproc
+ 2093              	.LFE233:
+ 2095              		.section	.text.MX_GPIO_Init,"ax",%progbits
+ 2096              		.align	1
+ 2097              		.syntax unified
+ 2098              		.thumb
+ 2099              		.thumb_func
+ 2101              	MX_GPIO_Init:
+ 2102              	.LFB234:
+ 796:Core/Src/main.c **** 
+ 797:Core/Src/main.c **** /**
+ 798:Core/Src/main.c ****   * @brief GPIO Initialization Function
+ 799:Core/Src/main.c ****   * @param None
+ 800:Core/Src/main.c ****   * @retval None
+ 801:Core/Src/main.c ****   */
+ 802:Core/Src/main.c **** static void MX_GPIO_Init(void)
+ 803:Core/Src/main.c **** {
+ 2103              		.loc 1 803 1
+ 2104              		.cfi_startproc
+ 2105              		@ args = 0, pretend = 0, frame = 40
+ 2106              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2107 0000 80B5     		push	{r7, lr}
+ 2108              	.LCFI41:
+ 2109              		.cfi_def_cfa_offset 8
+ 2110              		.cfi_offset 7, -8
+ 2111              		.cfi_offset 14, -4
+ 2112 0002 8AB0     		sub	sp, sp, #40
+ 2113              	.LCFI42:
+ 2114              		.cfi_def_cfa_offset 48
+ 2115 0004 00AF     		add	r7, sp, #0
+ 2116              	.LCFI43:
+ 2117              		.cfi_def_cfa_register 7
+ 804:Core/Src/main.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 53
+
+
+ 2118              		.loc 1 804 20
+ 2119 0006 07F11403 		add	r3, r7, #20
+ 2120 000a 0022     		movs	r2, #0
+ 2121 000c 1A60     		str	r2, [r3]
+ 2122 000e 5A60     		str	r2, [r3, #4]
+ 2123 0010 9A60     		str	r2, [r3, #8]
+ 2124 0012 DA60     		str	r2, [r3, #12]
+ 2125 0014 1A61     		str	r2, [r3, #16]
+ 2126              	.LBB7:
+ 805:Core/Src/main.c **** 
+ 806:Core/Src/main.c ****   /* GPIO Ports Clock Enable */
+ 807:Core/Src/main.c ****   __HAL_RCC_GPIOC_CLK_ENABLE();
+ 2127              		.loc 1 807 3
+ 2128 0016 0023     		movs	r3, #0
+ 2129 0018 3B61     		str	r3, [r7, #16]
+ 2130 001a 364B     		ldr	r3, .L59
+ 2131 001c 1B6B     		ldr	r3, [r3, #48]
+ 2132 001e 354A     		ldr	r2, .L59
+ 2133 0020 43F00403 		orr	r3, r3, #4
+ 2134 0024 1363     		str	r3, [r2, #48]
+ 2135 0026 334B     		ldr	r3, .L59
+ 2136 0028 1B6B     		ldr	r3, [r3, #48]
+ 2137 002a 03F00403 		and	r3, r3, #4
+ 2138 002e 3B61     		str	r3, [r7, #16]
+ 2139 0030 3B69     		ldr	r3, [r7, #16]
+ 2140              	.LBE7:
+ 2141              	.LBB8:
+ 808:Core/Src/main.c ****   __HAL_RCC_GPIOH_CLK_ENABLE();
+ 2142              		.loc 1 808 3
+ 2143 0032 0023     		movs	r3, #0
+ 2144 0034 FB60     		str	r3, [r7, #12]
+ 2145 0036 2F4B     		ldr	r3, .L59
+ 2146 0038 1B6B     		ldr	r3, [r3, #48]
+ 2147 003a 2E4A     		ldr	r2, .L59
+ 2148 003c 43F08003 		orr	r3, r3, #128
+ 2149 0040 1363     		str	r3, [r2, #48]
+ 2150 0042 2C4B     		ldr	r3, .L59
+ 2151 0044 1B6B     		ldr	r3, [r3, #48]
+ 2152 0046 03F08003 		and	r3, r3, #128
+ 2153 004a FB60     		str	r3, [r7, #12]
+ 2154 004c FB68     		ldr	r3, [r7, #12]
+ 2155              	.LBE8:
+ 2156              	.LBB9:
+ 809:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+ 2157              		.loc 1 809 3
+ 2158 004e 0023     		movs	r3, #0
+ 2159 0050 BB60     		str	r3, [r7, #8]
+ 2160 0052 284B     		ldr	r3, .L59
+ 2161 0054 1B6B     		ldr	r3, [r3, #48]
+ 2162 0056 274A     		ldr	r2, .L59
+ 2163 0058 43F00103 		orr	r3, r3, #1
+ 2164 005c 1363     		str	r3, [r2, #48]
+ 2165 005e 254B     		ldr	r3, .L59
+ 2166 0060 1B6B     		ldr	r3, [r3, #48]
+ 2167 0062 03F00103 		and	r3, r3, #1
+ 2168 0066 BB60     		str	r3, [r7, #8]
+ 2169 0068 BB68     		ldr	r3, [r7, #8]
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 54
+
+
+ 2170              	.LBE9:
+ 2171              	.LBB10:
+ 810:Core/Src/main.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+ 2172              		.loc 1 810 3
+ 2173 006a 0023     		movs	r3, #0
+ 2174 006c 7B60     		str	r3, [r7, #4]
+ 2175 006e 214B     		ldr	r3, .L59
+ 2176 0070 1B6B     		ldr	r3, [r3, #48]
+ 2177 0072 204A     		ldr	r2, .L59
+ 2178 0074 43F00203 		orr	r3, r3, #2
+ 2179 0078 1363     		str	r3, [r2, #48]
+ 2180 007a 1E4B     		ldr	r3, .L59
+ 2181 007c 1B6B     		ldr	r3, [r3, #48]
+ 2182 007e 03F00203 		and	r3, r3, #2
+ 2183 0082 7B60     		str	r3, [r7, #4]
+ 2184 0084 7B68     		ldr	r3, [r7, #4]
+ 2185              	.LBE10:
+ 811:Core/Src/main.c **** 
+ 812:Core/Src/main.c ****   /*Configure GPIO pin Output Level */
+ 813:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOA, LED3_GREEN_Pin|LED1_RED_Pin|LED4_WHITE_Pin|LED2_YELLOW_Pin, GPIO_PIN_RES
+ 2186              		.loc 1 813 3
+ 2187 0086 0022     		movs	r2, #0
+ 2188 0088 1E21     		movs	r1, #30
+ 2189 008a 1B48     		ldr	r0, .L59+4
+ 2190 008c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 814:Core/Src/main.c **** 
+ 815:Core/Src/main.c ****   /*Configure GPIO pin Output Level */
+ 816:Core/Src/main.c ****   HAL_GPIO_WritePin(BRIDGE_1_EN_GPIO_Port, BRIDGE_1_EN_Pin, GPIO_PIN_SET);
+ 2191              		.loc 1 816 3
+ 2192 0090 0122     		movs	r2, #1
+ 2193 0092 4021     		movs	r1, #64
+ 2194 0094 1848     		ldr	r0, .L59+4
+ 2195 0096 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 817:Core/Src/main.c **** 
+ 818:Core/Src/main.c ****   /*Configure GPIO pin Output Level */
+ 819:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOB, BRIDGE_1A_Pin|BRIDGE_3A_Pin, GPIO_PIN_RESET);
+ 2196              		.loc 1 819 3
+ 2197 009a 0022     		movs	r2, #0
+ 2198 009c 42F20401 		movw	r1, #8196
+ 2199 00a0 1648     		ldr	r0, .L59+8
+ 2200 00a2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 820:Core/Src/main.c **** 
+ 821:Core/Src/main.c ****   /*Configure GPIO pin Output Level */
+ 822:Core/Src/main.c ****   HAL_GPIO_WritePin(BRIDGE_2_EN_GPIO_Port, BRIDGE_2_EN_Pin, GPIO_PIN_SET);
+ 2201              		.loc 1 822 3
+ 2202 00a6 0122     		movs	r2, #1
+ 2203 00a8 4FF48051 		mov	r1, #4096
+ 2204 00ac 1348     		ldr	r0, .L59+8
+ 2205 00ae FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 823:Core/Src/main.c **** 
+ 824:Core/Src/main.c ****   /*Configure GPIO pins : LED3_GREEN_Pin LED1_RED_Pin LED4_WHITE_Pin LED2_YELLOW_Pin
+ 825:Core/Src/main.c ****                            BRIDGE_1_EN_Pin */
+ 826:Core/Src/main.c ****   GPIO_InitStruct.Pin = LED3_GREEN_Pin|LED1_RED_Pin|LED4_WHITE_Pin|LED2_YELLOW_Pin
+ 2206              		.loc 1 826 23
+ 2207 00b2 5E23     		movs	r3, #94
+ 2208 00b4 7B61     		str	r3, [r7, #20]
+ 827:Core/Src/main.c ****                           |BRIDGE_1_EN_Pin;
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 55
+
+
+ 828:Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 2209              		.loc 1 828 24
+ 2210 00b6 0123     		movs	r3, #1
+ 2211 00b8 BB61     		str	r3, [r7, #24]
+ 829:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 2212              		.loc 1 829 24
+ 2213 00ba 0023     		movs	r3, #0
+ 2214 00bc FB61     		str	r3, [r7, #28]
+ 830:Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 2215              		.loc 1 830 25
+ 2216 00be 0023     		movs	r3, #0
+ 2217 00c0 3B62     		str	r3, [r7, #32]
+ 831:Core/Src/main.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 2218              		.loc 1 831 3
+ 2219 00c2 07F11403 		add	r3, r7, #20
+ 2220 00c6 1946     		mov	r1, r3
+ 2221 00c8 0B48     		ldr	r0, .L59+4
+ 2222 00ca FFF7FEFF 		bl	HAL_GPIO_Init
+ 832:Core/Src/main.c **** 
+ 833:Core/Src/main.c ****   /*Configure GPIO pins : BRIDGE_1A_Pin BRIDGE_2_EN_Pin BRIDGE_3A_Pin */
+ 834:Core/Src/main.c ****   GPIO_InitStruct.Pin = BRIDGE_1A_Pin|BRIDGE_2_EN_Pin|BRIDGE_3A_Pin;
+ 2223              		.loc 1 834 23
+ 2224 00ce 43F20403 		movw	r3, #12292
+ 2225 00d2 7B61     		str	r3, [r7, #20]
+ 835:Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 2226              		.loc 1 835 24
+ 2227 00d4 0123     		movs	r3, #1
+ 2228 00d6 BB61     		str	r3, [r7, #24]
+ 836:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 2229              		.loc 1 836 24
+ 2230 00d8 0023     		movs	r3, #0
+ 2231 00da FB61     		str	r3, [r7, #28]
+ 837:Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 2232              		.loc 1 837 25
+ 2233 00dc 0023     		movs	r3, #0
+ 2234 00de 3B62     		str	r3, [r7, #32]
+ 838:Core/Src/main.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 2235              		.loc 1 838 3
+ 2236 00e0 07F11403 		add	r3, r7, #20
+ 2237 00e4 1946     		mov	r1, r3
+ 2238 00e6 0548     		ldr	r0, .L59+8
+ 2239 00e8 FFF7FEFF 		bl	HAL_GPIO_Init
+ 839:Core/Src/main.c **** 
+ 840:Core/Src/main.c **** }
+ 2240              		.loc 1 840 1
+ 2241 00ec 00BF     		nop
+ 2242 00ee 2837     		adds	r7, r7, #40
+ 2243              	.LCFI44:
+ 2244              		.cfi_def_cfa_offset 8
+ 2245 00f0 BD46     		mov	sp, r7
+ 2246              	.LCFI45:
+ 2247              		.cfi_def_cfa_register 13
+ 2248              		@ sp needed
+ 2249 00f2 80BD     		pop	{r7, pc}
+ 2250              	.L60:
+ 2251              		.align	2
+ 2252              	.L59:
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 56
+
+
+ 2253 00f4 00380240 		.word	1073887232
+ 2254 00f8 00000240 		.word	1073872896
+ 2255 00fc 00040240 		.word	1073873920
+ 2256              		.cfi_endproc
+ 2257              	.LFE234:
+ 2259              		.section	.text.StartDefaultTask,"ax",%progbits
+ 2260              		.align	1
+ 2261              		.global	StartDefaultTask
+ 2262              		.syntax unified
+ 2263              		.thumb
+ 2264              		.thumb_func
+ 2266              	StartDefaultTask:
+ 2267              	.LFB235:
+ 841:Core/Src/main.c **** 
+ 842:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 843:Core/Src/main.c **** 
+ 844:Core/Src/main.c **** /* USER CODE END 4 */
+ 845:Core/Src/main.c **** 
+ 846:Core/Src/main.c **** /* USER CODE BEGIN Header_StartDefaultTask */
+ 847:Core/Src/main.c **** /**
+ 848:Core/Src/main.c ****   * @brief  Function implementing the defaultTask thread.
+ 849:Core/Src/main.c ****   * @param  argument: Not used
+ 850:Core/Src/main.c ****   * @retval None
+ 851:Core/Src/main.c ****   */
+ 852:Core/Src/main.c **** /* USER CODE END Header_StartDefaultTask */
+ 853:Core/Src/main.c **** void StartDefaultTask(void *argument)
+ 854:Core/Src/main.c **** {
+ 2268              		.loc 1 854 1
+ 2269              		.cfi_startproc
+ 2270              		@ args = 0, pretend = 0, frame = 8
+ 2271              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2272 0000 80B5     		push	{r7, lr}
+ 2273              	.LCFI46:
+ 2274              		.cfi_def_cfa_offset 8
+ 2275              		.cfi_offset 7, -8
+ 2276              		.cfi_offset 14, -4
+ 2277 0002 82B0     		sub	sp, sp, #8
+ 2278              	.LCFI47:
+ 2279              		.cfi_def_cfa_offset 16
+ 2280 0004 00AF     		add	r7, sp, #0
+ 2281              	.LCFI48:
+ 2282              		.cfi_def_cfa_register 7
+ 2283 0006 7860     		str	r0, [r7, #4]
+ 855:Core/Src/main.c ****   /* init code for USB_DEVICE */
+ 856:Core/Src/main.c ****   MX_USB_DEVICE_Init();
+ 2284              		.loc 1 856 3
+ 2285 0008 FFF7FEFF 		bl	MX_USB_DEVICE_Init
+ 2286              	.L62:
+ 857:Core/Src/main.c ****   /* USER CODE BEGIN 5 */
+ 858:Core/Src/main.c ****   /* Infinite loop */
+ 859:Core/Src/main.c ****   for(;;)
+ 860:Core/Src/main.c ****   {
+ 861:Core/Src/main.c ****     osDelay(1);
+ 2287              		.loc 1 861 5 discriminator 1
+ 2288 000c 0120     		movs	r0, #1
+ 2289 000e FFF7FEFF 		bl	osDelay
+ 2290 0012 FBE7     		b	.L62
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 57
+
+
+ 2291              		.cfi_endproc
+ 2292              	.LFE235:
+ 2294              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 2295              		.align	1
+ 2296              		.global	HAL_TIM_PeriodElapsedCallback
+ 2297              		.syntax unified
+ 2298              		.thumb
+ 2299              		.thumb_func
+ 2301              	HAL_TIM_PeriodElapsedCallback:
+ 2302              	.LFB236:
+ 862:Core/Src/main.c ****   }
+ 863:Core/Src/main.c ****   /* USER CODE END 5 */
+ 864:Core/Src/main.c **** }
+ 865:Core/Src/main.c **** 
+ 866:Core/Src/main.c **** /**
+ 867:Core/Src/main.c ****   * @brief  Period elapsed callback in non blocking mode
+ 868:Core/Src/main.c ****   * @note   This function is called  when TIM11 interrupt took place, inside
+ 869:Core/Src/main.c ****   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+ 870:Core/Src/main.c ****   * a global variable "uwTick" used as application time base.
+ 871:Core/Src/main.c ****   * @param  htim : TIM handle
+ 872:Core/Src/main.c ****   * @retval None
+ 873:Core/Src/main.c ****   */
+ 874:Core/Src/main.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+ 875:Core/Src/main.c **** {
+ 2303              		.loc 1 875 1
+ 2304              		.cfi_startproc
+ 2305              		@ args = 0, pretend = 0, frame = 8
+ 2306              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2307 0000 80B5     		push	{r7, lr}
+ 2308              	.LCFI49:
+ 2309              		.cfi_def_cfa_offset 8
+ 2310              		.cfi_offset 7, -8
+ 2311              		.cfi_offset 14, -4
+ 2312 0002 82B0     		sub	sp, sp, #8
+ 2313              	.LCFI50:
+ 2314              		.cfi_def_cfa_offset 16
+ 2315 0004 00AF     		add	r7, sp, #0
+ 2316              	.LCFI51:
+ 2317              		.cfi_def_cfa_register 7
+ 2318 0006 7860     		str	r0, [r7, #4]
+ 876:Core/Src/main.c ****   /* USER CODE BEGIN Callback 0 */
+ 877:Core/Src/main.c **** 
+ 878:Core/Src/main.c ****   /* USER CODE END Callback 0 */
+ 879:Core/Src/main.c ****   if (htim->Instance == TIM11) {
+ 2319              		.loc 1 879 11
+ 2320 0008 7B68     		ldr	r3, [r7, #4]
+ 2321 000a 1B68     		ldr	r3, [r3]
+ 2322              		.loc 1 879 6
+ 2323 000c 044A     		ldr	r2, .L66
+ 2324 000e 9342     		cmp	r3, r2
+ 2325 0010 01D1     		bne	.L65
+ 880:Core/Src/main.c ****     HAL_IncTick();
+ 2326              		.loc 1 880 5
+ 2327 0012 FFF7FEFF 		bl	HAL_IncTick
+ 2328              	.L65:
+ 881:Core/Src/main.c ****   }
+ 882:Core/Src/main.c ****   /* USER CODE BEGIN Callback 1 */
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 58
+
+
+ 883:Core/Src/main.c **** 
+ 884:Core/Src/main.c ****   /* USER CODE END Callback 1 */
+ 885:Core/Src/main.c **** }
+ 2329              		.loc 1 885 1
+ 2330 0016 00BF     		nop
+ 2331 0018 0837     		adds	r7, r7, #8
+ 2332              	.LCFI52:
+ 2333              		.cfi_def_cfa_offset 8
+ 2334 001a BD46     		mov	sp, r7
+ 2335              	.LCFI53:
+ 2336              		.cfi_def_cfa_register 13
+ 2337              		@ sp needed
+ 2338 001c 80BD     		pop	{r7, pc}
+ 2339              	.L67:
+ 2340 001e 00BF     		.align	2
+ 2341              	.L66:
+ 2342 0020 00480140 		.word	1073825792
+ 2343              		.cfi_endproc
+ 2344              	.LFE236:
+ 2346              		.section	.text.Error_Handler,"ax",%progbits
+ 2347              		.align	1
+ 2348              		.global	Error_Handler
+ 2349              		.syntax unified
+ 2350              		.thumb
+ 2351              		.thumb_func
+ 2353              	Error_Handler:
+ 2354              	.LFB237:
+ 886:Core/Src/main.c **** 
+ 887:Core/Src/main.c **** /**
+ 888:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
+ 889:Core/Src/main.c ****   * @retval None
+ 890:Core/Src/main.c ****   */
+ 891:Core/Src/main.c **** void Error_Handler(void)
+ 892:Core/Src/main.c **** {
+ 2355              		.loc 1 892 1
+ 2356              		.cfi_startproc
+ 2357              		@ args = 0, pretend = 0, frame = 0
+ 2358              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2359              		@ link register save eliminated.
+ 2360 0000 80B4     		push	{r7}
+ 2361              	.LCFI54:
+ 2362              		.cfi_def_cfa_offset 4
+ 2363              		.cfi_offset 7, -4
+ 2364 0002 00AF     		add	r7, sp, #0
+ 2365              	.LCFI55:
+ 2366              		.cfi_def_cfa_register 7
+ 2367              	.LBB11:
+ 2368              	.LBB12:
+ 2369              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+   1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
+   2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+   4:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.0.4
+   5:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @date     09. April 2018
+   6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
+   7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
+   8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 59
+
+
+   9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:Drivers/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:Drivers/CMSIS/Include/cmsis_gcc.h ****  * limitations under the License.
+  23:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+  24:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  25:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  39:Drivers/CMSIS/Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  43:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  49:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif                                           
+  52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
+  56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
+  59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+  60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  61:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 60
+
+
+  66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  78:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 118:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
+ 122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 61
+
+
+ 123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+ 132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 133:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 134:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 135:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 136:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
+ 137:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+ 138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
+ 141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
+ 2370              		.loc 2 142 3
+ 2371              		.syntax unified
+ 2372              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 2373 0004 72B6     		cpsid i
+ 2374              	@ 0 "" 2
+ 143:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 2375              		.loc 2 143 1
+ 2376              		.thumb
+ 2377              		.syntax unified
+ 2378 0006 00BF     		nop
+ 2379              	.L69:
+ 2380              	.LBE12:
+ 2381              	.LBE11:
+ 893:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 894:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 895:Core/Src/main.c ****   __disable_irq();
+ 896:Core/Src/main.c ****   while (1)
+ 2382              		.loc 1 896 9 discriminator 1
+ 2383 0008 FEE7     		b	.L69
+ 2384              		.cfi_endproc
+ 2385              	.LFE237:
+ 2387              		.text
+ 2388              	.Letext0:
+ 2389              		.file 3 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ 2390              		.file 4 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
+ 2391              		.file 5 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
+ 2392              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 2393              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 2394              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 2395              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 2396              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 2397              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 2398              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 2399              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 2400              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 2401              		.file 15 "Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h"
+ 2402              		.file 16 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h"
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 62
+
+
+ 2403              		.file 17 "Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h"
+ 2404              		.file 18 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 2405              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 2406              		.file 20 "USB_DEVICE/App/usb_device.h"
+ 2407              		.file 21 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 2408              		.file 22 "Core/Inc/main.h"
+ 2409              		.file 23 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h"
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 63
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:24     .bss.hadc1:00000000 hadc1
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:21     .bss.hadc1:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:31     .bss.htim1:00000000 htim1
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:28     .bss.htim1:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:38     .bss.htim2:00000000 htim2
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:35     .bss.htim2:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:45     .bss.htim3:00000000 htim3
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:42     .bss.htim3:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:52     .bss.huart1:00000000 huart1
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:49     .bss.huart1:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:59     .bss.hdma_usart1_rx:00000000 hdma_usart1_rx
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:56     .bss.hdma_usart1_rx:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:66     .bss.hdma_usart1_tx:00000000 hdma_usart1_tx
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:63     .bss.hdma_usart1_tx:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:73     .bss.defaultTaskHandle:00000000 defaultTaskHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:70     .bss.defaultTaskHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:80     .bss.defaultTaskBuffer:00000000 defaultTaskBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:77     .bss.defaultTaskBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:87     .bss.defaultTaskControlBlock:00000000 defaultTaskControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:84     .bss.defaultTaskControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:98     .rodata.defaultTask_attributes:00000000 defaultTask_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:91     .rodata:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:95     .rodata.defaultTask_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:112    .bss.ATParsingTaskHandle:00000000 ATParsingTaskHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:109    .bss.ATParsingTaskHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:119    .bss.ATParsingTaskBuffer:00000000 ATParsingTaskBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:116    .bss.ATParsingTaskBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:126    .bss.ATParsingTaskControlBlock:00000000 ATParsingTaskControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:123    .bss.ATParsingTaskControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:137    .rodata.ATParsingTask_attributes:00000000 ATParsingTask_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:134    .rodata.ATParsingTask_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:151    .bss.ATHandlingTaskHandle:00000000 ATHandlingTaskHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:148    .bss.ATHandlingTaskHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:158    .bss.ATHandlingTaskBuffer:00000000 ATHandlingTaskBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:155    .bss.ATHandlingTaskBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:165    .bss.ATHandlingTaskControlBlock:00000000 ATHandlingTaskControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:162    .bss.ATHandlingTaskControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:176    .rodata.ATHandlingTask_attributes:00000000 ATHandlingTask_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:173    .rodata.ATHandlingTask_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:190    .bss.UARTProcTaskHandle:00000000 UARTProcTaskHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:187    .bss.UARTProcTaskHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:197    .bss.UARTProcTaskBuffer:00000000 UARTProcTaskBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:194    .bss.UARTProcTaskBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:204    .bss.UARTProcTaskControlBlock:00000000 UARTProcTaskControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:201    .bss.UARTProcTaskControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:215    .rodata.UARTProcTask_attributes:00000000 UARTProcTask_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:212    .rodata.UARTProcTask_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:229    .bss.ModemMngrTaskHandle:00000000 ModemMngrTaskHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:226    .bss.ModemMngrTaskHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:236    .bss.ModemMngrTaskBuffer:00000000 ModemMngrTaskBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:233    .bss.ModemMngrTaskBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:243    .bss.ModemMngrTaskControlBlock:00000000 ModemMngrTaskControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:240    .bss.ModemMngrTaskControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:254    .rodata.ModemMngrTask_attributes:00000000 ModemMngrTask_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:251    .rodata.ModemMngrTask_attributes:00000000 $d
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 64
+
+
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:268    .bss.AppSendTaskHandle:00000000 AppSendTaskHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:265    .bss.AppSendTaskHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:275    .bss.SendTemperatureBuffer:00000000 SendTemperatureBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:272    .bss.SendTemperatureBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:282    .bss.SendTemperatureControlBlock:00000000 SendTemperatureControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:279    .bss.SendTemperatureControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:293    .rodata.AppSendTask_attributes:00000000 AppSendTask_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:290    .rodata.AppSendTask_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:307    .bss.ReadFromADCTaskHandle:00000000 ReadFromADCTaskHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:304    .bss.ReadFromADCTaskHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:314    .bss.ReadFromADCTaskBuffer:00000000 ReadFromADCTaskBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:311    .bss.ReadFromADCTaskBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:321    .bss.ReadFromADCTaskControlBlock:00000000 ReadFromADCTaskControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:318    .bss.ReadFromADCTaskControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:332    .rodata.ReadFromADCTask_attributes:00000000 ReadFromADCTask_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:329    .rodata.ReadFromADCTask_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:346    .bss.uartQueueHandle:00000000 uartQueueHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:343    .bss.uartQueueHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:353    .bss.uartQueueBuffer:00000000 uartQueueBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:350    .bss.uartQueueBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:360    .bss.uartQueueControlBlock:00000000 uartQueueControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:357    .bss.uartQueueControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:371    .rodata.uartQueue_attributes:00000000 uartQueue_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:368    .rodata.uartQueue_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:383    .bss.ATQueueHandle:00000000 ATQueueHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:380    .bss.ATQueueHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:390    .bss.ATQueueBuffer:00000000 ATQueueBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:387    .bss.ATQueueBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:397    .bss.ATQueueControlBlock:00000000 ATQueueControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:394    .bss.ATQueueControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:408    .rodata.ATQueue_attributes:00000000 ATQueue_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:405    .rodata.ATQueue_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:420    .bss.ModemSendQueueHandle:00000000 ModemSendQueueHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:417    .bss.ModemSendQueueHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:427    .bss.ModemSendQueueBuffer:00000000 ModemSendQueueBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:424    .bss.ModemSendQueueBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:434    .bss.ModemSendQueueControlBlock:00000000 ModemSendQueueControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:431    .bss.ModemSendQueueControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:445    .rodata.ModemSendQueue_attributes:00000000 ModemSendQueue_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:442    .rodata.ModemSendQueue_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:457    .bss.TemperatureQueueHandle:00000000 TemperatureQueueHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:454    .bss.TemperatureQueueHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:464    .bss.TemperatureQueueBuffer:00000000 TemperatureQueueBuffer
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:461    .bss.TemperatureQueueBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:471    .bss.TemperatureQueueControlBlock:00000000 TemperatureQueueControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:468    .bss.TemperatureQueueControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:482    .rodata.TemperatureQueue_attributes:00000000 TemperatureQueue_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:479    .rodata.TemperatureQueue_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:494    .bss.PeriodicSendTimerHandle:00000000 PeriodicSendTimerHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:491    .bss.PeriodicSendTimerHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:501    .bss.PeriodicSendTimerControlBlock:00000000 PeriodicSendTimerControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:498    .bss.PeriodicSendTimerControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:512    .rodata.PeriodicSendTimer_attributes:00000000 PeriodicSendTimer_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:509    .rodata.PeriodicSendTimer_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:522    .bss.ModemLedTimerHandle:00000000 ModemLedTimerHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:519    .bss.ModemLedTimerHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:529    .bss.ModemLedTimerControlBlock:00000000 ModemLedTimerControlBlock
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 65
+
+
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:526    .bss.ModemLedTimerControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:540    .rodata.ModemLedTimer_attributes:00000000 ModemLedTimer_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:537    .rodata.ModemLedTimer_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:550    .bss.DutyCycleTimerHandle:00000000 DutyCycleTimerHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:547    .bss.DutyCycleTimerHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:557    .bss.DutyCycleTimerControlBlock:00000000 DutyCycleTimerControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:554    .bss.DutyCycleTimerControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:568    .rodata.DutyCycleTimer_attributes:00000000 DutyCycleTimer_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:565    .rodata.DutyCycleTimer_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:578    .bss.ATCommandSemaphoreHandle:00000000 ATCommandSemaphoreHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:575    .bss.ATCommandSemaphoreHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:585    .bss.ATCommandSemaphoreControlBlock:00000000 ATCommandSemaphoreControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:582    .bss.ATCommandSemaphoreControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:596    .rodata.ATCommandSemaphore_attributes:00000000 ATCommandSemaphore_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:593    .rodata.ATCommandSemaphore_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:606    .bss.ATResponseSemaphoreHandle:00000000 ATResponseSemaphoreHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:603    .bss.ATResponseSemaphoreHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:613    .bss.ATResponseSemaphoreControlBlock:00000000 ATResponseSemaphoreControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:610    .bss.ATResponseSemaphoreControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:624    .rodata.ATResponseSemaphore_attributes:00000000 ATResponseSemaphore_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:621    .rodata.ATResponseSemaphore_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:634    .bss.UARTTXSemaphoreHandle:00000000 UARTTXSemaphoreHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:631    .bss.UARTTXSemaphoreHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:641    .bss.UARTTXSemaphoreControlBlock:00000000 UARTTXSemaphoreControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:638    .bss.UARTTXSemaphoreControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:652    .rodata.UARTTXSemaphore_attributes:00000000 UARTTXSemaphore_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:649    .rodata.UARTTXSemaphore_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:662    .bss.RadioStateSemaphoreHandle:00000000 RadioStateSemaphoreHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:659    .bss.RadioStateSemaphoreHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:669    .bss.RadioStateSemaphoreControlBlock:00000000 RadioStateSemaphoreControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:666    .bss.RadioStateSemaphoreControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:680    .rodata.RadioStateSemaphore_attributes:00000000 RadioStateSemaphore_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:677    .rodata.RadioStateSemaphore_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:690    .bss.LoRaTXSemaphoreHandle:00000000 LoRaTXSemaphoreHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:687    .bss.LoRaTXSemaphoreHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:697    .bss.LoRaTXSemaphoreControlBlock:00000000 LoRaTXSemaphoreControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:694    .bss.LoRaTXSemaphoreControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:708    .rodata.LoRaTXSemaphore_attributes:00000000 LoRaTXSemaphore_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:705    .rodata.LoRaTXSemaphore_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:718    .bss.ModemStatusFlagsHandle:00000000 ModemStatusFlagsHandle
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:715    .bss.ModemStatusFlagsHandle:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:725    .bss.ModemStatusFlagsControlBlock:00000000 ModemStatusFlagsControlBlock
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:722    .bss.ModemStatusFlagsControlBlock:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:736    .rodata.ModemStatusFlags_attributes:00000000 ModemStatusFlags_attributes
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:733    .rodata.ModemStatusFlags_attributes:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:746    .bss.vector:00000000 vector
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:743    .bss.vector:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:749    .text.CONFIGURE_TIMER_FOR_RUN_TIME_STATS:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:755    .text.CONFIGURE_TIMER_FOR_RUN_TIME_STATS:00000000 CONFIGURE_TIMER_FOR_RUN_TIME_STATS
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:779    .text.CONFIGURE_TIMER_FOR_RUN_TIME_STATS:00000010 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:784    .text.GET_RUN_TIME_COUNTER_VALUE:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:790    .text.GET_RUN_TIME_COUNTER_VALUE:00000000 GET_RUN_TIME_COUNTER_VALUE
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:822    .text.GET_RUN_TIME_COUNTER_VALUE:00000014 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:831    .data.uxTopUsedPriority:00000000 uxTopUsedPriority
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:828    .data.uxTopUsedPriority:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:834    .text.main:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:840    .text.main:00000000 main
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 66
+
+
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1175   .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2101   .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2030   .text.MX_DMA_Init:00000000 MX_DMA_Init
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1957   .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1322   .text.MX_ADC1_Init:00000000 MX_ADC1_Init
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1670   .text.MX_TIM2_Init:00000000 MX_TIM2_Init
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1450   .text.MX_TIM1_Init:00000000 MX_TIM1_Init
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1789   .text.MX_TIM3_Init:00000000 MX_TIM3_Init
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1111   .text.main:000001c8 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2266   .text.StartDefaultTask:00000000 StartDefaultTask
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1169   .text.SystemClock_Config:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2353   .text.Error_Handler:00000000 Error_Handler
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1311   .text.SystemClock_Config:000000c8 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1317   .text.MX_ADC1_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1438   .text.MX_ADC1_Init:00000098 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1445   .text.MX_TIM1_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1659   .text.MX_TIM1_Init:0000013c $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1665   .text.MX_TIM2_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1779   .text.MX_TIM2_Init:00000098 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1784   .text.MX_TIM3_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1946   .text.MX_TIM3_Init:000000e8 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:1952   .text.MX_USART1_UART_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2019   .text.MX_USART1_UART_Init:0000004c $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2025   .text.MX_DMA_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2091   .text.MX_DMA_Init:0000004c $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2096   .text.MX_GPIO_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2253   .text.MX_GPIO_Init:000000f4 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2260   .text.StartDefaultTask:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2295   .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2301   .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2342   .text.HAL_TIM_PeriodElapsedCallback:00000020 $d
+C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s:2347   .text.Error_Handler:00000000 $t
+
+UNDEFINED SYMBOLS
+HAL_TIM_Base_Start
+HAL_Init
+HAL_TIM_PWM_Start
+osKernelInitialize
+osSemaphoreNew
+osTimerNew
+osMessageQueueNew
+osThreadNew
+osEventFlagsNew
+osKernelStart
+HAL_GPIO_WritePin
+HAL_Delay
+PeriodicSendTimerCallback
+ModemLedCallback
+DutyCycleTimerCallback
+ATParsingTaskCode
+ATHandlingTaskCode
+UARTProcTaskCode
+ModemManagerTaskCode
+AppSendTaskCode
+ReadFromADCTaskCode
+memset
+HAL_RCC_OscConfig
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccRqaB7K.s 			page 67
+
+
+HAL_RCC_ClockConfig
+HAL_ADC_Init
+HAL_ADC_ConfigChannel
+HAL_TIM_Base_Init
+HAL_TIM_ConfigClockSource
+HAL_TIM_PWM_Init
+HAL_TIMEx_MasterConfigSynchronization
+HAL_TIM_PWM_ConfigChannel
+HAL_TIMEx_ConfigBreakDeadTime
+HAL_TIM_MspPostInit
+HAL_UART_Init
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_GPIO_Init
+MX_USB_DEVICE_Init
+osDelay
+HAL_IncTick

@@ -9,5 +9,13 @@
         "uartringbufdma.h": "c",
         "semphr.h": "c",
         "main.h": "c"
-    }
+    },
+    "vsmqtt.brokerProfiles": [
+        {
+            "name": "10.10.3.20",
+            "host": "10.10.3.20",
+            "port": 1883,
+            "clientId": "vsmqtt_client"
+        }
+    ]
 }

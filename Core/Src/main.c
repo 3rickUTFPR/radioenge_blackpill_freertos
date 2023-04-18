@@ -128,6 +128,18 @@ const osThreadAttr_t AppSendTask_attributes = {
   .stack_size = sizeof(SendTemperatureBuffer),
   .priority = (osPriority_t) osPriorityLow7,
 };
+/* Definitions for ReadFromADCTask */
+osThreadId_t ReadFromADCTaskHandle;
+uint32_t ReadFromADCTaskBuffer[ 128 ];
+osStaticThreadDef_t ReadFromADCTaskControlBlock;
+const osThreadAttr_t ReadFromADCTask_attributes = {
+  .name = "ReadFromADCTask",
+  .cb_mem = &ReadFromADCTaskControlBlock,
+  .cb_size = sizeof(ReadFromADCTaskControlBlock),
+  .stack_mem = &ReadFromADCTaskBuffer[0],
+  .stack_size = sizeof(ReadFromADCTaskBuffer),
+  .priority = (osPriority_t) osPriorityLow7,
+};
 /* Definitions for uartQueue */
 osMessageQueueId_t uartQueueHandle;
 uint8_t uartQueueBuffer[ 4 * sizeof( void* ) ];
@@ -160,6 +172,25 @@ const osMessageQueueAttr_t ModemSendQueue_attributes = {
   .cb_size = sizeof(ModemSendQueueControlBlock),
   .mq_mem = &ModemSendQueueBuffer,
   .mq_size = sizeof(ModemSendQueueBuffer)
+};
+/* Definitions for TemperatureQueue */
+osMessageQueueId_t TemperatureQueueHandle;
+uint8_t TemperatureQueueBuffer[ 8 * sizeof( TEMPERATURE_OBJ_t ) ];
+osStaticMessageQDef_t TemperatureQueueControlBlock;
+const osMessageQueueAttr_t TemperatureQueue_attributes = {
+  .name = "TemperatureQueue",
+  .cb_mem = &TemperatureQueueControlBlock,
+  .cb_size = sizeof(TemperatureQueueControlBlock),
+  .mq_mem = &TemperatureQueueBuffer,
+  .mq_size = sizeof(TemperatureQueueBuffer)
+};
+/* Definitions for PeriodicSendTimer */
+osTimerId_t PeriodicSendTimerHandle;
+osStaticTimerDef_t PeriodicSendTimerControlBlock;
+const osTimerAttr_t PeriodicSendTimer_attributes = {
+  .name = "PeriodicSendTimer",
+  .cb_mem = &PeriodicSendTimerControlBlock,
+  .cb_size = sizeof(PeriodicSendTimerControlBlock),
 };
 /* Definitions for ModemLedTimer */
 osTimerId_t ModemLedTimerHandle;
@@ -247,6 +278,7 @@ extern void ATHandlingTaskCode(void *argument);
 extern void UARTProcTaskCode(void *argument);
 extern void ModemManagerTaskCode(void *argument);
 extern void AppSendTaskCode(void *argument);
+extern void ReadFromADCTaskCode(void *argument);
 extern void PeriodicSendTimerCallback(void *argument);
 extern void ModemLedCallback(void *argument);
 extern void DutyCycleTimerCallback(void *argument);
@@ -346,6 +378,9 @@ int main(void)
   /* USER CODE END RTOS_SEMAPHORES */
 
   /* Create the timer(s) */
+  /* creation of PeriodicSendTimer */
+  PeriodicSendTimerHandle = osTimerNew(PeriodicSendTimerCallback, osTimerPeriodic, NULL, &PeriodicSendTimer_attributes);
+
   /* creation of ModemLedTimer */
   ModemLedTimerHandle = osTimerNew(ModemLedCallback, osTimerPeriodic, NULL, &ModemLedTimer_attributes);
 
@@ -365,6 +400,9 @@ int main(void)
 
   /* creation of ModemSendQueue */
   ModemSendQueueHandle = osMessageQueueNew (4, sizeof(void*), &ModemSendQueue_attributes);
+
+  /* creation of TemperatureQueue */
+  TemperatureQueueHandle = osMessageQueueNew (8, sizeof(TEMPERATURE_OBJ_t), &TemperatureQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -388,6 +426,9 @@ int main(void)
 
   /* creation of AppSendTask */
   AppSendTaskHandle = osThreadNew(AppSendTaskCode, NULL, &AppSendTask_attributes);
+
+  /* creation of ReadFromADCTask */
+  ReadFromADCTaskHandle = osThreadNew(ReadFromADCTaskCode, NULL, &ReadFromADCTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -545,7 +586,6 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-
   htim1.Init.Period = 9600-1;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;

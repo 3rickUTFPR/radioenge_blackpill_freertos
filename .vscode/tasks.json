@@ -25,7 +25,10 @@
             "args": [
                 "clean"
             ],
-            "group": "test",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "presentation": {
                 "reveal": "always"
             },
@@ -47,6 +50,13 @@
             "problemMatcher": [
                 "$gcc"
             ]
+        },
+        {
+            "type": "cmake",
+            "label": "CMake: clean",
+            "command": "clean",
+            "problemMatcher": [],
+            "detail": "CMake template clean task"
         }
     ]
 }
