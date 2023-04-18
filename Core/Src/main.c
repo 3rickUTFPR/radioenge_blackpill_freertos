@@ -444,7 +444,6 @@ int main(void)
 
   /* Start scheduler */
   osKernelStart();
-
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -802,6 +801,8 @@ static void MX_DMA_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -810,33 +811,45 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED3_GREEN_Pin|LED1_RED_Pin|LED4_WHITE_Pin|LED2_YELLOW_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(KIT_LED_GPIO_Port, KIT_LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(BRIDGE_1_EN_GPIO_Port, BRIDGE_1_EN_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, LED3_GREEN_Pin|LED1_RED_Pin|LED4_BLUE_Pin|LED2_YELLOW_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(BRIDGE_1_2_EN_GPIO_Port, BRIDGE_1_2_EN_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, BRIDGE_1A_Pin|BRIDGE_3A_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(BRIDGE_2_EN_GPIO_Port, BRIDGE_2_EN_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(BRIDGE_3_4_EN_GPIO_Port, BRIDGE_3_4_EN_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pins : LED3_GREEN_Pin LED1_RED_Pin LED4_WHITE_Pin LED2_YELLOW_Pin
-                           BRIDGE_1_EN_Pin */
-  GPIO_InitStruct.Pin = LED3_GREEN_Pin|LED1_RED_Pin|LED4_WHITE_Pin|LED2_YELLOW_Pin
-                          |BRIDGE_1_EN_Pin;
+  /*Configure GPIO pin : KIT_LED_Pin */
+  GPIO_InitStruct.Pin = KIT_LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(KIT_LED_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : LED3_GREEN_Pin LED1_RED_Pin LED4_BLUE_Pin LED2_YELLOW_Pin
+                           BRIDGE_1_2_EN_Pin */
+  GPIO_InitStruct.Pin = LED3_GREEN_Pin|LED1_RED_Pin|LED4_BLUE_Pin|LED2_YELLOW_Pin
+                          |BRIDGE_1_2_EN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : BRIDGE_1A_Pin BRIDGE_2_EN_Pin BRIDGE_3A_Pin */
-  GPIO_InitStruct.Pin = BRIDGE_1A_Pin|BRIDGE_2_EN_Pin|BRIDGE_3A_Pin;
+  /*Configure GPIO pins : BRIDGE_1A_Pin BRIDGE_3_4_EN_Pin BRIDGE_3A_Pin */
+  GPIO_InitStruct.Pin = BRIDGE_1A_Pin|BRIDGE_3_4_EN_Pin|BRIDGE_3A_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */

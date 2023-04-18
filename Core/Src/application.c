@@ -14,9 +14,14 @@ extern osEventFlagsId_t ModemStatusFlagsHandle;
 extern osMessageQueueId_t TemperatureQueueHandle;
 char msg[256];
 
+extern TIM_HandleTypeDef htim3;
 
 
 void LoRaWAN_RxEventCallback(uint8_t *data, uint32_t length, uint32_t port, int32_t rssi, int32_t snr)
+{
+}
+
+void PeriodicSendTimerCallback(void *argument)
 {
 }
 
