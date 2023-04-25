@@ -140,6 +140,18 @@ const osThreadAttr_t ReadFromADCTask_attributes = {
   .stack_size = sizeof(ReadFromADCTaskBuffer),
   .priority = (osPriority_t) osPriorityLow7,
 };
+/* Definitions for DutyCycle */
+osThreadId_t DutyCycleHandle;
+uint32_t DutyCycleBuffer[ 512 ];
+osStaticThreadDef_t DutyCycleControlBlock;
+const osThreadAttr_t DutyCycle_attributes = {
+  .name = "DutyCycle",
+  .cb_mem = &DutyCycleControlBlock,
+  .cb_size = sizeof(DutyCycleControlBlock),
+  .stack_mem = &DutyCycleBuffer[0],
+  .stack_size = sizeof(DutyCycleBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for uartQueue */
 osMessageQueueId_t uartQueueHandle;
 uint8_t uartQueueBuffer[ 4 * sizeof( void* ) ];
@@ -183,6 +195,17 @@ const osMessageQueueAttr_t TemperatureQueue_attributes = {
   .cb_size = sizeof(TemperatureQueueControlBlock),
   .mq_mem = &TemperatureQueueBuffer,
   .mq_size = sizeof(TemperatureQueueBuffer)
+};
+/* Definitions for AccontrollerQueue */
+osMessageQueueId_t AccontrollerQueueHandle;
+uint8_t AccontrollerQueueBuffer[ 16 * sizeof( ACCONTROLLER_OBJ_t ) ];
+osStaticMessageQDef_t AccontrollerQueueControlBlock;
+const osMessageQueueAttr_t AccontrollerQueue_attributes = {
+  .name = "AccontrollerQueue",
+  .cb_mem = &AccontrollerQueueControlBlock,
+  .cb_size = sizeof(AccontrollerQueueControlBlock),
+  .mq_mem = &AccontrollerQueueBuffer,
+  .mq_size = sizeof(AccontrollerQueueBuffer)
 };
 /* Definitions for PeriodicSendTimer */
 osTimerId_t PeriodicSendTimerHandle;
@@ -279,6 +302,7 @@ extern void UARTProcTaskCode(void *argument);
 extern void ModemManagerTaskCode(void *argument);
 extern void AppSendTaskCode(void *argument);
 extern void ReadFromADCTaskCode(void *argument);
+extern void DutyCycleCode(void *argument);
 extern void PeriodicSendTimerCallback(void *argument);
 extern void ModemLedCallback(void *argument);
 extern void DutyCycleTimerCallback(void *argument);
@@ -404,6 +428,9 @@ int main(void)
   /* creation of TemperatureQueue */
   TemperatureQueueHandle = osMessageQueueNew (8, sizeof(TEMPERATURE_OBJ_t), &TemperatureQueue_attributes);
 
+  /* creation of AccontrollerQueue */
+  AccontrollerQueueHandle = osMessageQueueNew (16, sizeof(ACCONTROLLER_OBJ_t), &AccontrollerQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -430,6 +457,9 @@ int main(void)
   /* creation of ReadFromADCTask */
   ReadFromADCTaskHandle = osThreadNew(ReadFromADCTaskCode, NULL, &ReadFromADCTask_attributes);
 
+  /* creation of DutyCycle */
+  DutyCycleHandle = osThreadNew(DutyCycleCode, NULL, &DutyCycle_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -444,6 +474,7 @@ int main(void)
 
   /* Start scheduler */
   osKernelStart();
+
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -801,8 +832,6 @@ static void MX_DMA_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -848,8 +877,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-/* USER CODE BEGIN MX_GPIO_Init_2 */
-/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */

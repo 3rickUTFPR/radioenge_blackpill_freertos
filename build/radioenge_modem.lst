@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
   42      3A30303A 
   42      30303A30 
   43 0224 00000000 		.space	220
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 2
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 2
 
 
   43      00000000 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
    3:Core/Src/radioenge_modem.c **** #include "uart_at.h"
    4:Core/Src/radioenge_modem.c **** #include "main.h"
    5:Core/Src/radioenge_modem.c **** #include <string.h>
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 3
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 3
 
 
    6:Core/Src/radioenge_modem.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
   88 000c 1B68     		ldr	r3, [r3]
   89 000e 4FF0FF31 		mov	r1, #-1
   90 0012 1846     		mov	r0, r3
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 4
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 4
 
 
   91 0014 FFF7FEFF 		bl	osSemaphoreAcquire
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
   54:Core/Src/radioenge_modem.c ****             }
   55:Core/Src/radioenge_modem.c ****         }
   56:Core/Src/radioenge_modem.c ****         osThreadFlagsSet(ModemMngrTaskHandle, 0x01);
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 5
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 5
 
 
  132              		.loc 1 56 9
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  182 0002 82B0     		sub	sp, sp, #8
  183              	.LCFI6:
  184              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 6
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 6
 
 
  185 0004 00AF     		add	r7, sp, #0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  233              	.LC0:
  234 0000 41545A0D 		.ascii	"ATZ\015\012\000"
  234      0A00
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 7
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 7
 
 
  235              		.section	.text.resetRadio,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  279              	.LFE222:
  281              		.section	.text.SetRadioState,"ax",%progbits
  282              		.align	1
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 8
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 8
 
 
  283              		.global	SetRadioState
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  331 0028 00000000 		.word	ModemMngrTaskHandle
  332              		.cfi_endproc
  333              	.LFE223:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 9
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 9
 
 
  335              		.section	.text.ModemLedCallback,"ax",%progbits
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  385 0054 27010000 		.word	.L21+1
  386 0058 FF000000 		.word	.L22+1
  387              		.p2align 1
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 10
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 10
 
 
  388              	.L27:
@@ -562,7 +562,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  400 0070 0221     		movs	r1, #2
  401 0072 3848     		ldr	r0, .L29+4
  402 0074 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  97:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin, 0); 
+  97:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_BLUE_GPIO_Port, LED4_BLUE_Pin, 0); 
  403              		.loc 1 97 9
  404 0078 0022     		movs	r2, #0
  405 007a 0821     		movs	r1, #8
@@ -592,13 +592,13 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  422 0098 0221     		movs	r1, #2
  423 009a 2E48     		ldr	r0, .L29+4
  424 009c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 105:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin, 0);        
+ 105:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_BLUE_GPIO_Port, LED4_BLUE_Pin, 0);        
  425              		.loc 1 105 9
  426 00a0 0022     		movs	r2, #0
  427 00a2 0821     		movs	r1, #8
  428 00a4 2B48     		ldr	r0, .L29+4
  429 00a6 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 11
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 11
 
 
  106:Core/Src/radioenge_modem.c ****         break;       
@@ -625,7 +625,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  444 00c0 0221     		movs	r1, #2
  445 00c2 2448     		ldr	r0, .L29+4
  446 00c4 FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 113:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin, 0);        
+ 113:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_BLUE_GPIO_Port, LED4_BLUE_Pin, 0);        
  447              		.loc 1 113 9
  448 00c8 0022     		movs	r2, #0
  449 00ca 0821     		movs	r1, #8
@@ -656,9 +656,9 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  467 00ea 0221     		movs	r1, #2
  468 00ec 1948     		ldr	r0, .L29+4
  469 00ee FFF7FEFF 		bl	HAL_GPIO_WritePin
- 121:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin, 0);        
+ 121:Core/Src/radioenge_modem.c ****         HAL_GPIO_WritePin(LED4_BLUE_GPIO_Port, LED4_BLUE_Pin, 0);        
  470              		.loc 1 121 9
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 12
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 12
 
 
  471 00f2 0022     		movs	r2, #0
@@ -690,7 +690,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  490 0114 0221     		movs	r1, #2
  491 0116 0F48     		ldr	r0, .L29+4
  492 0118 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 129:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin);        
+ 129:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED4_BLUE_GPIO_Port, LED4_BLUE_Pin);        
  493              		.loc 1 129 9
  494 011c 0821     		movs	r1, #8
  495 011e 0D48     		ldr	r0, .L29+4
@@ -717,8 +717,8 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  509 0136 0221     		movs	r1, #2
  510 0138 0648     		ldr	r0, .L29+4
  511 013a FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 137:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED4_WHITE_GPIO_Port, LED4_WHITE_Pin);        
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 13
+ 137:Core/Src/radioenge_modem.c ****         HAL_GPIO_TogglePin(LED4_BLUE_GPIO_Port, LED4_BLUE_Pin);        
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 13
 
 
  512              		.loc 1 137 9
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  560              		.cfi_def_cfa_register 7
  561 0006 7860     		str	r0, [r7, #4]
  146:Core/Src/radioenge_modem.c ****     /* USER CODE BEGIN 5 */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 14
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 14
 
 
  147:Core/Src/radioenge_modem.c ****     /* Infinite loop */    
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  604 005a 52F823F0 		ldr	pc, [r2, r3, lsl #2]
  605 005e 00BF     		.p2align 2
  606              	.L34:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 15
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 15
 
 
  607 0060 A1000000 		.word	.L38+1
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  647 00c6 1B02     		lsls	r3, r3, #8
  648 00c8 204A     		ldr	r2, .L44+20
  649 00ca 1344     		add	r3, r3, r2
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 16
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 16
 
 
  650              		.loc 1 172 17
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  190:Core/Src/radioenge_modem.c ****             // wait for radio callback
  191:Core/Src/radioenge_modem.c ****             break;
  192:Core/Src/radioenge_modem.c ****         }
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 17
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 17
 
 
  193:Core/Src/radioenge_modem.c ****         case RADIO_READY:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  727              		.section	.bss.gEncodedString,"aw",%nobits
  728              		.align	2
  731              	gEncodedString:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 18
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 18
 
 
  732 0000 00000000 		.space	64
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  769 000e 3968     		ldr	r1, [r7]
  770 0010 7868     		ldr	r0, [r7, #4]
  771 0012 FFF7FEFF 		bl	LoRaSendNow
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 19
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 19
 
 
  772 0016 0346     		mov	r3, r0
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  821              		.loc 1 224 12
  822 0012 0023     		movs	r3, #0
  823 0014 BB61     		str	r3, [r7, #24]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 20
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 20
 
 
  225:Core/Src/radioenge_modem.c ****     size_t iter = in_size;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  863 0046 0949     		ldr	r1, .L54
  864 0048 FFF7FEFF 		bl	sprintf
  240:Core/Src/radioenge_modem.c ****         offset+=2*sizeof(uint8_t);
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 21
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 21
 
 
  865              		.loc 1 240 15 discriminator 3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  913              	.LCFI35:
  914              		.cfi_def_cfa_offset 8
  915              		.cfi_offset 7, -8
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 22
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 22
 
 
  916              		.cfi_offset 14, -4
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  963              		.cfi_offset 7, -8
  964              		.cfi_offset 14, -4
  965 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 23
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 23
 
 
  966              	.LCFI41:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  1012              		.loc 1 262 1
  1013              		.cfi_startproc
  1014              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 24
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 24
 
 
  1015              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  1061              		.loc 1 270 13
  1062 0044 1020     		movs	r0, #16
  1063 0046 FFF7FEFF 		bl	SetRadioState
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 25
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 25
 
 
  271:Core/Src/radioenge_modem.c ****             ret = osOK;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  1108              		.global	LoRaSendBNow
  1109              		.syntax unified
  1110              		.thumb
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 26
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 26
 
 
  1111              		.thumb_func
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  1157              		.loc 1 286 9
  1158 0038 124B     		ldr	r3, .L69+8
  1159 003a 0093     		str	r3, [sp]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 27
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 27
 
 
  1160 003c FB68     		ldr	r3, [r7, #12]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  1204              	.L69:
  1205 007c 00000000 		.word	RadioStateSemaphoreHandle
  1206 0080 00000000 		.word	gRadioState
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 28
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 28
 
 
  1207 0084 00000000 		.word	gEncodedString
@@ -1638,67 +1638,67 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 1
  1222              		.file 8 "Core/Inc/radioenge_modem.h"
  1223              		.file 9 "Core/Inc/uart_at.h"
  1224              		.file 10 "<built-in>"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 29
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 radioenge_modem.c
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:23     .bss.gJoinedFSM:00000000 gJoinedFSM
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:24     .bss.gJoinedFSM:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:29     .data.gRadioState:00000000 gRadioState
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:36     .data.gConfigCmds:00000000 gConfigCmds
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:33     .data.gConfigCmds:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:57     .bss.gConsecutiveJoinErrors:00000000 gConsecutiveJoinErrors
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:54     .bss.gConsecutiveJoinErrors:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:60     .text.LoRaWAN_JoinCallback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:66     .text.LoRaWAN_JoinCallback:00000000 LoRaWAN_JoinCallback
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:288    .text.SetRadioState:00000000 SetRadioState
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:157    .text.LoRaWAN_JoinCallback:0000006c $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:165    .text.DutyCycleTimerCallback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:171    .text.DutyCycleTimerCallback:00000000 DutyCycleTimerCallback
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:226    .text.DutyCycleTimerCallback:00000038 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:232    .rodata:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:236    .text.resetRadio:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:242    .text.resetRadio:00000000 resetRadio
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:277    .text.resetRadio:00000020 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:282    .text.SetRadioState:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:330    .text.SetRadioState:00000024 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:336    .text.ModemLedCallback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:342    .text.ModemLedCallback:00000000 ModemLedCallback
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:371    .text.ModemLedCallback:0000001c $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:387    .text.ModemLedCallback:0000005c $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:532    .text.ModemLedCallback:00000150 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:538    .text.ModemManagerTaskCode:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:544    .text.ModemManagerTaskCode:00000000 ModemManagerTaskCode
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:607    .text.ModemManagerTaskCode:00000060 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:623    .text.ModemManagerTaskCode:000000a0 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:716    .text.ModemManagerTaskCode:00000138 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:731    .bss.gEncodedString:00000000 gEncodedString
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:728    .bss.gEncodedString:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:738    .bss.gSendBuffer:00000000 gSendBuffer
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:735    .bss.gSendBuffer:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:741    .text.LoRaSend:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:747    .text.LoRaSend:00000000 LoRaSend
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:954    .text.LoRaWaitDutyCycle:00000000 LoRaWaitDutyCycle
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1010   .text.LoRaSendNow:00000000 LoRaSendNow
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:791    .text.bin_encode:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:797    .text.bin_encode:00000000 bin_encode
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:895    .text.bin_encode:0000006c $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:900    .text.LoRaSendB:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:906    .text.LoRaSendB:00000000 LoRaSendB
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1113   .text.LoRaSendBNow:00000000 LoRaSendBNow
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:948    .text.LoRaWaitDutyCycle:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:994    .text.LoRaWaitDutyCycle:00000038 $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1004   .text.LoRaSendNow:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1094   .text.LoRaSendNow:0000006c $d
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1107   .text.LoRaSendBNow:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s:1205   .text.LoRaSendBNow:0000007c $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:23     .bss.gJoinedFSM:00000000 gJoinedFSM
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:24     .bss.gJoinedFSM:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:29     .data.gRadioState:00000000 gRadioState
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:36     .data.gConfigCmds:00000000 gConfigCmds
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:33     .data.gConfigCmds:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:57     .bss.gConsecutiveJoinErrors:00000000 gConsecutiveJoinErrors
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:54     .bss.gConsecutiveJoinErrors:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:60     .text.LoRaWAN_JoinCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:66     .text.LoRaWAN_JoinCallback:00000000 LoRaWAN_JoinCallback
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:288    .text.SetRadioState:00000000 SetRadioState
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:157    .text.LoRaWAN_JoinCallback:0000006c $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:165    .text.DutyCycleTimerCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:171    .text.DutyCycleTimerCallback:00000000 DutyCycleTimerCallback
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:226    .text.DutyCycleTimerCallback:00000038 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:232    .rodata:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:236    .text.resetRadio:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:242    .text.resetRadio:00000000 resetRadio
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:277    .text.resetRadio:00000020 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:282    .text.SetRadioState:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:330    .text.SetRadioState:00000024 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:336    .text.ModemLedCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:342    .text.ModemLedCallback:00000000 ModemLedCallback
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:371    .text.ModemLedCallback:0000001c $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:387    .text.ModemLedCallback:0000005c $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:532    .text.ModemLedCallback:00000150 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:538    .text.ModemManagerTaskCode:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:544    .text.ModemManagerTaskCode:00000000 ModemManagerTaskCode
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:607    .text.ModemManagerTaskCode:00000060 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:623    .text.ModemManagerTaskCode:000000a0 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:716    .text.ModemManagerTaskCode:00000138 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:731    .bss.gEncodedString:00000000 gEncodedString
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:728    .bss.gEncodedString:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:738    .bss.gSendBuffer:00000000 gSendBuffer
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:735    .bss.gSendBuffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:741    .text.LoRaSend:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:747    .text.LoRaSend:00000000 LoRaSend
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:954    .text.LoRaWaitDutyCycle:00000000 LoRaWaitDutyCycle
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:1010   .text.LoRaSendNow:00000000 LoRaSendNow
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:791    .text.bin_encode:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:797    .text.bin_encode:00000000 bin_encode
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:895    .text.bin_encode:0000006c $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:900    .text.LoRaSendB:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:906    .text.LoRaSendB:00000000 LoRaSendB
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:1113   .text.LoRaSendBNow:00000000 LoRaSendBNow
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:948    .text.LoRaWaitDutyCycle:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:994    .text.LoRaWaitDutyCycle:00000038 $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:1004   .text.LoRaSendNow:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:1094   .text.LoRaSendNow:0000006c $d
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:1107   .text.LoRaSendBNow:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s:1205   .text.LoRaSendBNow:0000007c $d
 
 UNDEFINED SYMBOLS
 osSemaphoreAcquire
 osThreadFlagsSet
 osSemaphoreRelease
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccC23ZTK.s 			page 30
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cchd0QNc.s 			page 30
 
 
 RadioStateSemaphoreHandle

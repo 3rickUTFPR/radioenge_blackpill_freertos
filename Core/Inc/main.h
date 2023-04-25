@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.h
+ * @brief          : Header for main.c file.
+ *                   This file contains the common defines of the application.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2022 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -36,7 +36,16 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+  typedef struct
+  {
+    uint32_t seq_no;
+    int32_t temp_oCx100;
+  } __attribute__((packed)) TEMPERATURE_OBJ_t;
+  typedef struct
+  {
+    uint16_t compressor_power;
+    uint8_t warning_status;
+  } __attribute__((packed)) ACCONTROLLER_OBJ_t;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -87,13 +96,7 @@ void Error_Handler(void);
 #define STM_TX_GPIO_Port GPIOA
 #define STM_RX_Pin GPIO_PIN_10
 #define STM_RX_GPIO_Port GPIOA
-
 /* USER CODE BEGIN Private defines */
-typedef struct {
-uint32_t seq_no;
-int32_t temp_oCx100;
-} __attribute__((packed)) TEMPERATURE_OBJ_t;
-
 
 /* USER CODE END Private defines */
 

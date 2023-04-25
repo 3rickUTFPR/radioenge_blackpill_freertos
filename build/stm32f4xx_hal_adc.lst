@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   (#) Interrupt generation at the end of conversion, end of injected conversion,  
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       and in case of analog watchdog or overrun events
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   (#) Single and continuous conversion modes.
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 2
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 2
 
 
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   (#) Scan mode for automatic conversion of channel 0 to channel x.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   (#) Optionally, configure the analog watchdog parameters (channels
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       monitored, thresholds, ...) using function HAL_ADC_AnalogWDGConfig().
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 3
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 3
 
 
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****      [..] 
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****        (@) You can refer to the ADC HAL driver header file for more useful macros 
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 4
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 4
 
 
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     [..]
  200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****      HAL_ADC_UnRegisterCallback takes as parameters the HAL peripheral handle,
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 5
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 5
 
 
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****      and the Callback ID.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  256:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @{
  257:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */ 
  258:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 6
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 6
 
 
  259:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #ifdef HAL_ADC_MODULE_ENABLED
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
   29              		.loc 1 312 1
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 7
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 7
 
 
   32              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
   59              		.loc 1 339 5
   60 001a 002B     		cmp	r3, #0
   61 001c 09D1     		bne	.L4
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 8
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 8
 
 
  340:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
   83 0040 1B6C     		ldr	r3, [r3, #64]
   84 0042 23F48853 		bic	r3, r3, #4352
   85 0046 23F00203 		bic	r3, r3, #2
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 9
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 9
 
 
   86 004a 43F00202 		orr	r2, r3, #2
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  397:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
  116              		.loc 1 397 1
  117 007e 1846     		mov	r0, r3
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 10
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 10
 
 
  118 0080 1037     		adds	r7, r7, #16
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  411:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  412:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     return HAL_ERROR;
  161              		.loc 1 412 12
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 11
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 11
 
 
  162 0012 0123     		movs	r3, #1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  189 0042 FFF7FEFF 		bl	HAL_ADC_MspDeInit
  440:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
  441:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 12
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 12
 
 
  442:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Set ADC error code to none */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  460:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @param  hadc Pointer to a ADC_HandleTypeDef structure that contains
  461:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   *                the configuration information for the specified ADC.
  462:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @param  CallbackID ID of the callback to be registered
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 13
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 13
 
 
  463:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   *         This parameter can be one of the following values:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  517:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  518:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       default :
  519:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         /* Update the error code */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 14
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 14
 
 
  520:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         hadc->ErrorCode |= HAL_ADC_ERROR_INVALID_CALLBACK;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  574:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @retval HAL status
  575:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
  576:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** HAL_StatusTypeDef HAL_ADC_UnRegisterCallback(ADC_HandleTypeDef *hadc, HAL_ADC_CallbackIDTypeDef Cal
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 15
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 15
 
 
  577:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  631:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         break;
  632:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  633:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       default :
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 16
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 16
 
 
  634:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         /* Update the error code */
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  246 000a 0C37     		adds	r7, r7, #12
  247              	.LCFI13:
  248              		.cfi_def_cfa_offset 4
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 17
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 17
 
 
  249 000c BD46     		mov	sp, r7
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  290              		.cfi_def_cfa_offset 4
  291 000c BD46     		mov	sp, r7
  292              	.LCFI20:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 18
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 18
 
 
  293              		.cfi_def_cfa_register 13
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  316              		@ link register save eliminated.
  317 0000 80B4     		push	{r7}
  318              	.LCFI22:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 19
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 19
 
 
  319              		.cfi_def_cfa_offset 4
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  356 0032 1B68     		ldr	r3, [r3]
  357 0034 9A68     		ldr	r2, [r3, #8]
  358 0036 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 20
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 20
 
 
  359 0038 1B68     		ldr	r3, [r3]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  395              		.loc 1 751 5
  396 0070 7B68     		ldr	r3, [r7, #4]
  397 0072 1B6C     		ldr	r3, [r3, #64]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 21
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 21
 
 
  398 0074 23F4E063 		bic	r3, r3, #1792
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  770:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       /* Reset ADC all error code fields */
  771:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       ADC_CLEAR_ERRORCODE(hadc);
  434              		.loc 1 771 7
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 22
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 22
 
 
  435 00be 7B68     		ldr	r3, [r7, #4]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  463              		.loc 1 797 33
  464 00ec 03F04053 		and	r3, r3, #805306368
  465              		.loc 1 797 11
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 23
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 23
 
 
  466 00f0 002B     		cmp	r3, #0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  505 0126 1B68     		ldr	r3, [r3]
  506              		.loc 1 812 31
  507 0128 42F08042 		orr	r2, r2, #1073741824
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 24
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 24
 
 
  508 012c 9A60     		str	r2, [r3, #8]
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  547 0164 00200140 		.word	1073815552
  548              		.cfi_endproc
  549              	.LFE220:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 25
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 25
 
 
  551              		.section	.text.HAL_ADC_Stop,"ax",%progbits
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  588 001a 83F83C20 		strb	r2, [r3, #60]
  846:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   
  847:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Stop potential conversion on going, on regular and injected groups */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 26
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 26
 
 
  848:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Disable ADC peripheral */
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  625              		.cfi_def_cfa_offset 4
  626 005e BD46     		mov	sp, r7
  627              	.LCFI32:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 27
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 27
 
 
  628              		.cfi_def_cfa_register 13
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  665 000a 0023     		movs	r3, #0
  666 000c FB60     		str	r3, [r7, #12]
  885:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****  
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 28
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 28
 
 
  886:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Verification that ADC configuration is compliant with polling for      */
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  906:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  907:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check End of conversion flag */
  908:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   while(!(__HAL_ADC_GET_FLAG(hadc, ADC_FLAG_EOC)))
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 29
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 29
 
 
  700              		.loc 1 908 8
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  923:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           
  924:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           return HAL_TIMEOUT;
  740              		.loc 1 924 18
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 30
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 30
 
 
  741 008e 0323     		movs	r3, #3
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  942:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****      (hadc->Init.ContinuousConvMode == DISABLE)            &&
  774              		.loc 1 942 60 discriminator 1
  775 00c8 002B     		cmp	r3, #0
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 31
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 31
 
 
  776 00ca 1FD1     		bne	.L37
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  814              		.loc 1 957 10
  815 010c 0023     		movs	r3, #0
  816              	.L33:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 32
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 32
 
 
  958:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  857              		.loc 1 973 12
  858 000c 0023     		movs	r3, #0
  859 000e 7B61     		str	r3, [r7, #20]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 33
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 33
 
 
  974:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  993:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           /* Update ADC state machine to timeout */
  994:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           SET_BIT(hadc->State, HAL_ADC_STATE_TIMEOUT);
  895              		.loc 1 994 11
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 34
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 34
 
 
  896 0046 FB68     		ldr	r3, [r7, #12]
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  930 0080 FB68     		ldr	r3, [r7, #12]
  931 0082 1B68     		ldr	r3, [r3]
  932 0084 6FF00102 		mvn	r2, #1
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 35
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 35
 
 
  933 0088 1A60     		str	r2, [r3]
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  972              		.global	HAL_ADC_Start_IT
  973              		.syntax unified
  974              		.thumb
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 36
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 36
 
 
  975              		.thumb_func
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1048:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   
 1049:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Enable the ADC peripheral */
 1050:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check if ADC peripheral is disabled in order to enable it and wait during 
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 37
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 37
 
 
 1051:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   Tstab time the ADC's stabilization */
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1052 0060 F9D1     		bne	.L51
  1053              	.L49:
 1063:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 38
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 38
 
 
 1064:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1087 00a2 7B68     		ldr	r3, [r7, #4]
  1088 00a4 1B6C     		ldr	r3, [r3, #64]
  1089 00a6 03F48053 		and	r3, r3, #4096
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 39
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 39
 
 
  1090              		.loc 1 1084 8
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1118              		.loc 1 1110 5
  1119 00da 7B68     		ldr	r3, [r7, #4]
  1120 00dc 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 40
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 40
 
 
  1121 00de 5B68     		ldr	r3, [r3, #4]
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1129:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
 1130:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     else
 1131:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 41
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 41
 
 
 1132:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       /* if instance of handle correspond to ADC1 and  no external trigger present enable software 
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1196 0154 43F00102 		orr	r2, r3, #1
  1197 0158 7B68     		ldr	r3, [r7, #4]
  1198 015a 5A64     		str	r2, [r3, #68]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 42
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 42
 
 
  1199              	.L57:
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1238              		@ args = 0, pretend = 0, frame = 8
  1239              		@ frame_needed = 1, uses_anonymous_args = 0
  1240              		@ link register save eliminated.
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 43
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 43
 
 
  1241 0000 80B4     		push	{r7}
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1178:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     __HAL_ADC_DISABLE_IT(hadc, (ADC_IT_EOC | ADC_IT_OVR));
  1281              		.loc 1 1178 5
  1282 003c 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 44
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 44
 
 
  1283 003e 1B68     		ldr	r3, [r3]
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1325              		.global	HAL_ADC_IRQHandler
  1326              		.syntax unified
  1327              		.thumb
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 45
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 45
 
 
  1328              		.thumb_func
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1209:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_ADC_EOCSelection(hadc->Init.EOCSelection));
 1210:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   
 1211:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   tmp1 = tmp_sr & ADC_FLAG_EOC;
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 46
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 46
 
 
  1366              		.loc 1 1211 8
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1402 005e 002B     		cmp	r3, #0
  1403 0060 2BD1     		bne	.L67
 1230:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****        (hadc->Init.ContinuousConvMode == DISABLE)            &&
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 47
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 47
 
 
  1404              		.loc 1 1230 19 discriminator 1
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1442 00a2 7B68     		ldr	r3, [r7, #4]
  1443 00a4 1B6C     		ldr	r3, [r3, #64]
  1444 00a6 03F48053 		and	r3, r3, #4096
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 48
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 48
 
 
  1445              		.loc 1 1243 10
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1479 00e4 54D0     		beq	.L69
 1264:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
 1265:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Update state machine on conversion status if not in error state */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 49
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 49
 
 
 1266:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     if (HAL_IS_BIT_CLR(hadc->State, HAL_ADC_STATE_ERROR_INTERNAL))
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1279:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****        (HAL_IS_BIT_CLR(hadc->Instance->CR1, ADC_CR1_JAUTO) &&
  1519              		.loc 1 1279 9
  1520 0128 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 50
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 50
 
 
  1521 012a 1B68     		ldr	r3, [r3]
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1290:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       { 
 1291:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         SET_BIT(hadc->State, HAL_ADC_STATE_READY);
  1562              		.loc 1 1291 9
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 51
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 51
 
 
  1563 0174 7B68     		ldr	r3, [r7, #4]
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1596 01ae 1B68     		ldr	r3, [r3]
  1597 01b0 1B68     		ldr	r3, [r3]
  1598 01b2 03F00103 		and	r3, r3, #1
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 52
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 52
 
 
  1599              		.loc 1 1312 7
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1333:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
 1334:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Note: On STM32F4, ADC overrun can be set through other parameters    */
 1335:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /*       refer to description of parameter "EOCSelection" for more      */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 53
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 53
 
 
 1336:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /*       details.                                                       */
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1669              		.syntax unified
  1670              		.thumb
  1671              		.thumb_func
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 54
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 54
 
 
  1673              	HAL_ADC_Start_DMA:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1707 0020 0122     		movs	r2, #1
  1708 0022 83F83C20 		strb	r2, [r3, #60]
 1375:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 55
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 55
 
 
 1376:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Enable the ADC peripheral */
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1748 0060 3B69     		ldr	r3, [r7, #16]
  1749 0062 002B     		cmp	r3, #0
  1750 0064 F9D1     		bne	.L81
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 56
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 56
 
 
  1751              	.L79:
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1408:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****                       HAL_ADC_STATE_REG_BUSY);
 1409:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     
 1410:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* If conversions on group regular are also triggering group injected,    */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 57
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 57
 
 
 1411:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* update ADC state.                                                      */
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1429:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Process unlocked */
 1430:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Unlock before starting ADC conversions: in case of potential           */
 1431:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* interruption, to let the process to ADC IRQ Handler.                   */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 58
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 58
 
 
 1432:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     __HAL_UNLOCK(hadc);   
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1456:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Enable ADC overrun interrupt */
 1457:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     __HAL_ADC_ENABLE_IT(hadc, ADC_IT_OVR);
  1853              		.loc 1 1457 5
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 59
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 59
 
 
  1854 0118 FB68     		ldr	r3, [r7, #12]
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1474:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         if((hadc->Instance->CR2 & ADC_CR2_EXTEN) == RESET) 
  1892              		.loc 1 1474 17
  1893 0158 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 60
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 60
 
 
  1894 015a 1B68     		ldr	r3, [r3]
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1933 0190 FB68     		ldr	r3, [r7, #12]
  1934 0192 1B68     		ldr	r3, [r3]
  1935              		.loc 1 1489 31
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 61
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 61
 
 
  1936 0194 9A68     		ldr	r2, [r3, #8]
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  1975 01c8 83DE1B43 		.word	1125899907
  1976 01cc 00230140 		.word	1073816320
  1977 01d0 00000000 		.word	ADC_DMAConvCplt
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 62
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 62
 
 
  1978 01d4 00000000 		.word	ADC_DMAHalfConvCplt
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2018 0016 0223     		movs	r3, #2
  2019 0018 48E0     		b	.L93
  2020              	.L92:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 63
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 63
 
 
  2021              		.loc 1 1520 3 discriminator 2
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1535:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
 1536:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       tmp_hal_status = HAL_DMA_Abort(hadc->DMA_Handle);
  2061              		.loc 1 1536 24
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 64
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 64
 
 
  2062 005e 7B68     		ldr	r3, [r7, #4]
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2096              		.loc 1 1556 3
  2097 00a2 7B68     		ldr	r3, [r7, #4]
  2098 00a4 0022     		movs	r2, #0
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 65
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 65
 
 
  2099 00a6 83F83C20 		strb	r2, [r3, #60]
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1571:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   return hadc->Instance->DR;
  2141              		.loc 1 1571 14
  2142 0008 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 66
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 66
 
 
  2143 000a 1B68     		ldr	r3, [r3]
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1583:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   UNUSED(hadc);
 1584:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
 1585:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****             the HAL_ADC_ConvCpltCallback could be implemented in the user file
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 67
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 67
 
 
 1586:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****    */
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1600:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****             the HAL_ADC_ConvHalfCpltCallback could be implemented in the user file
 1601:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****    */
 1602:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 68
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 68
 
 
  2230              		.loc 1 1602 1
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1617:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
  2272              		.loc 1 1617 1
  2273 0008 00BF     		nop
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 69
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 69
 
 
  2274 000a 0C37     		adds	r7, r7, #12
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1634:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   UNUSED(hadc);
 1635:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
 1636:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****             the HAL_ADC_ErrorCallback could be implemented in the user file
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 70
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 70
 
 
 1637:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****    */
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1667:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @retval HAL status
 1668:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
 1669:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** HAL_StatusTypeDef HAL_ADC_ConfigChannel(ADC_HandleTypeDef* hadc, ADC_ChannelConfTypeDef* sConfig)
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 71
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 71
 
 
 1670:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1685:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Clear the old sample time */
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     hadc->Instance->SMPR1 &= ~ADC_SMPR1(ADC_SMPR1_SMP10, sConfig->Channel);
  2379              		.loc 1 1686 9
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 72
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 72
 
 
  2380 002c 7B68     		ldr	r3, [r7, #4]
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1693:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Clear the old sample time */
 1694:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     hadc->Instance->SMPR2 &= ~ADC_SMPR2(ADC_SMPR2_SMP0, sConfig->Channel);
  2428              		.loc 1 1694 9
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 73
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 73
 
 
  2429 0078 7B68     		ldr	r3, [r7, #4]
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2476 00c0 5B68     		ldr	r3, [r3, #4]
  2477              		.loc 1 1701 6
  2478 00c2 062B     		cmp	r3, #6
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 74
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 74
 
 
  2479 00c4 24D8     		bhi	.L107
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1708:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
 1709:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* For Rank 7 to 12 */
 1710:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   else if (sConfig->Rank < 13U)
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 75
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 75
 
 
  2527              		.loc 1 1710 19
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2575              		.loc 1 1716 26
  2576 015c 0A43     		orrs	r2, r2, r1
  2577 015e 1A63     		str	r2, [r3, #48]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 76
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 76
 
 
  2578 0160 23E0     		b	.L108
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2623 01a6 0A43     		orrs	r2, r2, r1
  2624 01a8 DA62     		str	r2, [r3, #44]
  2625              	.L108:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 77
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 77
 
 
 1726:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2658              		.loc 1 1747 6
  2659 01dc 1D4A     		ldr	r2, .L115+4
  2660 01de 9342     		cmp	r3, r2
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 78
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 78
 
 
  2661 01e0 2BD1     		bne	.L111
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2701              		.loc 1 1761 42
  2702 0222 1346     		mov	r3, r2
  2703 0224 9B00     		lsls	r3, r3, #2
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 79
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 79
 
 
  2704 0226 1344     		add	r3, r3, r2
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2744              	.L115:
  2745 0250 00230140 		.word	1073816320
  2746 0254 00200140 		.word	1073815552
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 80
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 80
 
 
  2747 0258 12000010 		.word	268435474
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1799:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_ADC_ANALOG_WATCHDOG(AnalogWDGConfig->WatchdogMode));
 1800:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_ADC_CHANNEL(AnalogWDGConfig->Channel));
 1801:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_FUNCTIONAL_STATE(AnalogWDGConfig->ITMode));
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 81
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 81
 
 
 1802:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2814 0044 22F04002 		bic	r2, r2, #64
  2815 0048 5A60     		str	r2, [r3, #4]
  2816              	.L121:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 82
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 82
 
 
 1821:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2858 0082 9A62     		str	r2, [r3, #40]
 1834:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   
 1835:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Clear the Analog watchdog channel select bits */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 83
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 83
 
 
 1836:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   hadc->Instance->CR1 &= ~ADC_CR1_AWDCH;
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2902              		.cfi_def_cfa_register 13
  2903              		@ sp needed
  2904 00ba 5DF8047B 		ldr	r7, [sp], #4
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 84
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 84
 
 
  2905              	.LCFI112:
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2932              		.cfi_def_cfa_offset 16
  2933 0004 00AF     		add	r7, sp, #0
  2934              	.LCFI115:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 85
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 85
 
 
  2935              		.cfi_def_cfa_register 7
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  2979              	.LCFI121:
  2980              		.cfi_def_cfa_register 7
  2981 0006 7860     		str	r0, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 86
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 86
 
 
 1888:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   return hadc->ErrorCode;
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3018              		.cfi_offset 7, -4
  3019 0002 85B0     		sub	sp, sp, #20
  3020              	.LCFI126:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 87
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 87
 
 
  3021              		.cfi_def_cfa_offset 24
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3060 003a 5968     		ldr	r1, [r3, #4]
  3061              		.loc 1 1922 27
  3062 003c 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 88
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 88
 
 
  3063 003e 1B69     		ldr	r3, [r3, #16]
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3109 007e 1B68     		ldr	r3, [r3]
  3110              		.loc 1 1930 23
  3111 0080 9968     		ldr	r1, [r3, #8]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 89
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 89
 
 
  3112              		.loc 1 1930 36
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1944:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     hadc->Instance->CR2 &= ~(ADC_CR2_EXTEN);
  3153              		.loc 1 1944 9
  3154 00ba 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 90
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 90
 
 
  3155 00bc 1B68     		ldr	r3, [r3]
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3202              	.L128:
 1952:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
 1953:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 91
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 91
 
 
 1954:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Enable or disable ADC continuous conversion mode */
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1965:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Set the number of channels to be converted in discontinuous mode */
 1966:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     hadc->Instance->CR1 &= ~(ADC_CR1_DISCNUM);
  3246              		.loc 1 1966 9
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 92
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 92
 
 
  3247 013c 7B68     		ldr	r3, [r7, #4]
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3291 0178 DA6A     		ldr	r2, [r3, #44]
  3292              		.loc 1 1976 7
  3293 017a 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 93
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 93
 
 
  3294 017c 1B68     		ldr	r3, [r3]
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3340              		.loc 1 1984 7
  3341 01c0 7B68     		ldr	r3, [r7, #4]
  3342 01c2 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 94
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 94
 
 
  3343              		.loc 1 1984 23
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 1988:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** /**
 1989:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @brief  DMA transfer complete callback. 
 1990:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 95
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 95
 
 
 1991:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   *                the configuration information for the specified DMA module.
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3429              		.loc 1 2011 8
  3430 0026 FB68     		ldr	r3, [r7, #12]
  3431 0028 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 96
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 96
 
 
  3432 002a 9B68     		ldr	r3, [r3, #8]
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3471 006c 23F48072 		bic	r2, r3, #256
  3472 0070 FB68     		ldr	r3, [r7, #12]
  3473 0072 1A64     		str	r2, [r3, #64]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 97
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 97
 
 
 2024:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3495 0094 FB68     		ldr	r3, [r7, #12]
  3496 0096 1B6C     		ldr	r3, [r3, #64]
 2040:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 98
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 98
 
 
  3497              		.loc 1 2040 22
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3539              		.loc 1 2064 1
  3540              		.cfi_startproc
  3541              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 99
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 99
 
 
  3542              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
 2080:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** static void ADC_DMAError(DMA_HandleTypeDef *hdma)   
 2081:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
  3583              		.loc 1 2081 1
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 100
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 100
 
 
  3584              		.cfi_startproc
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3627              	.LFE241:
  3629              		.text
  3630              	.Letext0:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 101
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 101
 
 
  3631              		.file 2 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
@@ -6011,71 +6011,71 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 1
  3638              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
  3639              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h"
  3640              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 102
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 102
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_adc.c
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:20     .text.HAL_ADC_Init:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:26     .text.HAL_ADC_Init:00000000 HAL_ADC_Init
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:226    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3008   .text.ADC_Init:00000000 ADC_Init
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:130    .text.HAL_ADC_DeInit:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:136    .text.HAL_ADC_DeInit:00000000 HAL_ADC_DeInit
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:268    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:220    .text.HAL_ADC_MspInit:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:262    .text.HAL_ADC_MspDeInit:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:304    .text.HAL_ADC_Start:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:310    .text.HAL_ADC_Start:00000000 HAL_ADC_Start
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:544    .text.HAL_ADC_Start:00000158 $d
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:552    .text.HAL_ADC_Stop:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:558    .text.HAL_ADC_Stop:00000000 HAL_ADC_Stop
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:639    .text.HAL_ADC_PollForConversion:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:645    .text.HAL_ADC_PollForConversion:00000000 HAL_ADC_PollForConversion
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:831    .text.HAL_ADC_PollForEvent:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:837    .text.HAL_ADC_PollForEvent:00000000 HAL_ADC_PollForEvent
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:971    .text.HAL_ADC_Start_IT:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:977    .text.HAL_ADC_Start_IT:00000000 HAL_ADC_Start_IT
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1220   .text.HAL_ADC_Start_IT:0000016c $d
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1228   .text.HAL_ADC_Stop_IT:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1234   .text.HAL_ADC_Stop_IT:00000000 HAL_ADC_Stop_IT
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1324   .text.HAL_ADC_IRQHandler:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1330   .text.HAL_ADC_IRQHandler:00000000 HAL_ADC_IRQHandler
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2170   .text.HAL_ADC_ConvCpltCallback:00000000 HAL_ADC_ConvCpltCallback
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2254   .text.HAL_ADC_LevelOutOfWindowCallback:00000000 HAL_ADC_LevelOutOfWindowCallback
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2296   .text.HAL_ADC_ErrorCallback:00000000 HAL_ADC_ErrorCallback
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1667   .text.HAL_ADC_Start_DMA:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1673   .text.HAL_ADC_Start_DMA:00000000 HAL_ADC_Start_DMA
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1974   .text.HAL_ADC_Start_DMA:000001c4 $d
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3394   .text.ADC_DMAConvCplt:00000000 ADC_DMAConvCplt
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3537   .text.ADC_DMAHalfConvCplt:00000000 ADC_DMAHalfConvCplt
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3581   .text.ADC_DMAError:00000000 ADC_DMAError
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1985   .text.HAL_ADC_Stop_DMA:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:1991   .text.HAL_ADC_Stop_DMA:00000000 HAL_ADC_Stop_DMA
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2117   .text.HAL_ADC_GetValue:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2123   .text.HAL_ADC_GetValue:00000000 HAL_ADC_GetValue
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2164   .text.HAL_ADC_ConvCpltCallback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2206   .text.HAL_ADC_ConvHalfCpltCallback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2212   .text.HAL_ADC_ConvHalfCpltCallback:00000000 HAL_ADC_ConvHalfCpltCallback
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2248   .text.HAL_ADC_LevelOutOfWindowCallback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2290   .text.HAL_ADC_ErrorCallback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2332   .text.HAL_ADC_ConfigChannel:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2338   .text.HAL_ADC_ConfigChannel:00000000 HAL_ADC_ConfigChannel
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2745   .text.HAL_ADC_ConfigChannel:00000250 $d
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2754   .text.HAL_ADC_AnalogWDGConfig:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2760   .text.HAL_ADC_AnalogWDGConfig:00000000 HAL_ADC_AnalogWDGConfig
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2913   .text.HAL_ADC_GetState:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2919   .text.HAL_ADC_GetState:00000000 HAL_ADC_GetState
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2958   .text.HAL_ADC_GetError:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:2964   .text.HAL_ADC_GetError:00000000 HAL_ADC_GetError
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3003   .text.ADC_Init:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3383   .text.ADC_Init:000001f0 $d
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3389   .text.ADC_DMAConvCplt:00000000 $t
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s 			page 103
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:20     .text.HAL_ADC_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:26     .text.HAL_ADC_Init:00000000 HAL_ADC_Init
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:226    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3008   .text.ADC_Init:00000000 ADC_Init
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:130    .text.HAL_ADC_DeInit:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:136    .text.HAL_ADC_DeInit:00000000 HAL_ADC_DeInit
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:268    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:220    .text.HAL_ADC_MspInit:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:262    .text.HAL_ADC_MspDeInit:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:304    .text.HAL_ADC_Start:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:310    .text.HAL_ADC_Start:00000000 HAL_ADC_Start
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:544    .text.HAL_ADC_Start:00000158 $d
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:552    .text.HAL_ADC_Stop:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:558    .text.HAL_ADC_Stop:00000000 HAL_ADC_Stop
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:639    .text.HAL_ADC_PollForConversion:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:645    .text.HAL_ADC_PollForConversion:00000000 HAL_ADC_PollForConversion
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:831    .text.HAL_ADC_PollForEvent:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:837    .text.HAL_ADC_PollForEvent:00000000 HAL_ADC_PollForEvent
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:971    .text.HAL_ADC_Start_IT:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:977    .text.HAL_ADC_Start_IT:00000000 HAL_ADC_Start_IT
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1220   .text.HAL_ADC_Start_IT:0000016c $d
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1228   .text.HAL_ADC_Stop_IT:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1234   .text.HAL_ADC_Stop_IT:00000000 HAL_ADC_Stop_IT
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1324   .text.HAL_ADC_IRQHandler:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1330   .text.HAL_ADC_IRQHandler:00000000 HAL_ADC_IRQHandler
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2170   .text.HAL_ADC_ConvCpltCallback:00000000 HAL_ADC_ConvCpltCallback
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2254   .text.HAL_ADC_LevelOutOfWindowCallback:00000000 HAL_ADC_LevelOutOfWindowCallback
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2296   .text.HAL_ADC_ErrorCallback:00000000 HAL_ADC_ErrorCallback
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1667   .text.HAL_ADC_Start_DMA:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1673   .text.HAL_ADC_Start_DMA:00000000 HAL_ADC_Start_DMA
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1974   .text.HAL_ADC_Start_DMA:000001c4 $d
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3394   .text.ADC_DMAConvCplt:00000000 ADC_DMAConvCplt
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3537   .text.ADC_DMAHalfConvCplt:00000000 ADC_DMAHalfConvCplt
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3581   .text.ADC_DMAError:00000000 ADC_DMAError
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1985   .text.HAL_ADC_Stop_DMA:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:1991   .text.HAL_ADC_Stop_DMA:00000000 HAL_ADC_Stop_DMA
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2117   .text.HAL_ADC_GetValue:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2123   .text.HAL_ADC_GetValue:00000000 HAL_ADC_GetValue
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2164   .text.HAL_ADC_ConvCpltCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2206   .text.HAL_ADC_ConvHalfCpltCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2212   .text.HAL_ADC_ConvHalfCpltCallback:00000000 HAL_ADC_ConvHalfCpltCallback
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2248   .text.HAL_ADC_LevelOutOfWindowCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2290   .text.HAL_ADC_ErrorCallback:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2332   .text.HAL_ADC_ConfigChannel:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2338   .text.HAL_ADC_ConfigChannel:00000000 HAL_ADC_ConfigChannel
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2745   .text.HAL_ADC_ConfigChannel:00000250 $d
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2754   .text.HAL_ADC_AnalogWDGConfig:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2760   .text.HAL_ADC_AnalogWDGConfig:00000000 HAL_ADC_AnalogWDGConfig
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2913   .text.HAL_ADC_GetState:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2919   .text.HAL_ADC_GetState:00000000 HAL_ADC_GetState
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2958   .text.HAL_ADC_GetError:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:2964   .text.HAL_ADC_GetError:00000000 HAL_ADC_GetError
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3003   .text.ADC_Init:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3383   .text.ADC_Init:000001f0 $d
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3389   .text.ADC_DMAConvCplt:00000000 $t
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s 			page 103
 
 
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3532   .text.ADC_DMAHalfConvCplt:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccFOIpc1.s:3576   .text.ADC_DMAError:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3532   .text.ADC_DMAHalfConvCplt:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\cct9yBnG.s:3576   .text.ADC_DMAError:00000000 $t
 
 UNDEFINED SYMBOLS
 SystemCoreClock

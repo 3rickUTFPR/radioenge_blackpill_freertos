@@ -12,10 +12,17 @@
     },
     "vsmqtt.brokerProfiles": [
         {
-            "name": "10.10.3.20",
+            "name": "erick",
+            "host": "labscw.eletrica.eng.br",
+            "port": 1883,
+            "clientId": "vsmqtt_client"
+        },
+        {
+            "name": "erick2",
             "host": "10.10.3.20",
             "port": 1883,
             "clientId": "vsmqtt_client"
         }
-    ]
+    ],
+    "cmake.configureOnOpen": false
 }

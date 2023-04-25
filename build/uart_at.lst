@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
   63 0008 41545A00 		.ascii	"ATZ\000"
   64 000c 00000000 		.space	12
   64      00000000 
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 2
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 2
 
 
   64      00000000 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  103 0093 00       		.space	1
  104 0094 2C010000 		.word	300
  105 0098 41542B4A 		.ascii	"AT+JOIN\000"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 3
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 3
 
 
  105      4F494E00 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  144              		.align	2
  147              	AT_RESPONSES:
  148 0000 00       		.byte	0
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 4
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 4
 
 
  149 0001 41545F4F 		.ascii	"AT_OK\000"
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  176      54574F52 
  176      4B5F4A4F 
  177 00aa 0A       		.byte	10
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 5
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 5
 
 
  178 00ab 554E4445 		.ascii	"UNDEFINED\000"
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
   28:Core/Src/uart_at.c ****         {.command = AT_SEND, .expected_response = AT_TX_OK, .retries = 3, .timeout_ms = 300, .comma
   29:Core/Src/uart_at.c ****         {.command = AT, .expected_response = AT_OK, .retries = 3, .timeout_ms = 300, .command_strin
   30:Core/Src/uart_at.c ****         {.command = AT_COMMAND_UNDEFINED, .expected_response = AT_OK, .retries = 3, .timeout_ms = 3
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 6
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 6
 
 
   31:Core/Src/uart_at.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  229              		.loc 1 58 27
  230 001a 344B     		ldr	r3, .L9+4
  231 001c 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 7
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 7
 
 
  232 001e 0021     		movs	r1, #0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
   67:Core/Src/uart_at.c ****             gPendingResponse = AT_RESPONSE_UNDEFINED;
  278              		.loc 1 67 30
  279 0064 234B     		ldr	r3, .L9+12
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 8
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 8
 
 
  280 0066 0A22     		movs	r2, #10
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
   82:Core/Src/uart_at.c ****             osThreadFlagsWait (SEND_RAW_AT_WAIT_FLAG, osFlagsWaitAny, osWaitForever);            
  320              		.loc 1 82 13
  321 00a6 4FF0FF32 		mov	r2, #-1
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 9
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 9
 
 
  322 00aa 0021     		movs	r1, #0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  361              	.LCFI4:
  362              		.cfi_def_cfa_register 13
  363              		@ sp needed
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 10
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 10
 
 
  364 00e4 90BD     		pop	{r4, r7, pc}
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  414 0014 1344     		add	r3, r3, r2
  415 0016 144A     		ldr	r2, .L16
  416 0018 1344     		add	r3, r3, r2
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 11
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 11
 
 
  417 001a 5C1C     		adds	r4, r3, #1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  463 0060 1846     		mov	r0, r3
  464 0062 1437     		adds	r7, r7, #20
  465              	.LCFI8:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 12
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 12
 
 
  466              		.cfi_def_cfa_offset 12
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  516 0012 5B00     		lsls	r3, r3, #1
  517 0014 1344     		add	r3, r3, r2
  518 0016 DB00     		lsls	r3, r3, #3
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 13
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 13
 
 
  519 0018 0833     		adds	r3, r3, #8
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  566 0064 0B23     		movs	r3, #11
  567              	.L21:
  121:Core/Src/uart_at.c **** }
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 14
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 14
 
 
  568              		.loc 1 121 1
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  616 000e BB60     		str	r3, [r7, #8]
  130:Core/Src/uart_at.c ****     CMD_t* send_cmd=NULL;
  617              		.loc 1 130 12
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 15
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 15
 
 
  618 0010 0023     		movs	r3, #0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  142:Core/Src/uart_at.c ****                 {
  143:Core/Src/uart_at.c ****                     send_cmd = PendingCommand;
  661              		.loc 1 143 30
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 16
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 16
 
 
  662 005e 7B69     		ldr	r3, [r7, #20]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  701              		.loc 1 158 13
  702 009e 0A2B     		cmp	r3, #10
  703 00a0 04D8     		bhi	.L29
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 17
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 17
 
 
  159:Core/Src/uart_at.c ****             {
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  731 00c6 1846     		mov	r0, r3
  732 00c8 FFF7FEFF 		bl	osThreadFlagsSet
  186:Core/Src/uart_at.c ****                             osMemoryPoolFree(mpid_ATCMD_MemPool,PendingCommand);
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 18
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 18
 
 
  733              		.loc 1 186 29
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  776              		.loc 1 197 17
  777 010a 1A68     		ldr	r2, [r3]
  778              		.loc 1 197 137
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 19
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 19
 
 
  779 010c BB68     		ldr	r3, [r7, #8]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  826 0152 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
  827 0154 1846     		mov	r0, r3
  828 0156 FFF7FEFF 		bl	LoRaWAN_JoinCallback
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 20
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 20
 
 
  205:Core/Src/uart_at.c ****                 osMemoryPoolFree(mpid_ATCMD_MemPool, PendingCommand);
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  219:Core/Src/uart_at.c ****                     osMemoryPoolFree(mpid_ATCMD_MemPool,new_cmd);                        
  869              		.loc 1 219 21
  870 019e 314B     		ldr	r3, .L48+12
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 21
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 21
 
 
  871 01a0 1B68     		ldr	r3, [r3]
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  916 01e8 002B     		cmp	r3, #0
  917 01ea 0BD0     		beq	.L40
  229:Core/Src/uart_at.c ****                         {
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 22
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 22
 
 
  230:Core/Src/uart_at.c ****                             osThreadFlagsSet(PendingCommand->RequestedBy, SEND_RAW_AT_WAIT_FLAG);
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  258:Core/Src/uart_at.c ****                             ATTaskFSM = AT_IDLE;                            
  259:Core/Src/uart_at.c ****                         }
  260:Core/Src/uart_at.c ****                     }
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 23
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 23
 
 
  261:Core/Src/uart_at.c ****                     break;
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  990 0264 00000000 		.word	mpid_ATCMD_MemPool
  991 0268 00000000 		.word	mpid_LoRaPayload_MemPool
  992              	.L42:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 24
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 24
 
 
  250:Core/Src/uart_at.c ****                             if(PendingCommand != NULL)
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  1034 02aa BB69     		ldr	r3, [r7, #24]
  1035 02ac 002B     		cmp	r3, #0
  1036 02ae 3FF4B5AE 		beq	.L45
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 25
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 25
 
 
  1037              	.LBB7:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  273:Core/Src/uart_at.c ****     }
  274:Core/Src/uart_at.c ****     /* USER CODE END StartCmdProcessing */
  275:Core/Src/uart_at.c ****     /* USER CODE END 5 */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 26
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 26
 
 
  276:Core/Src/uart_at.c **** }
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  1119 0024 5D4A     		ldr	r2, .L62+4
  1120 0026 1360     		str	r3, [r2]
  297:Core/Src/uart_at.c ****     Ringbuf_Init();
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 27
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 27
 
 
  1121              		.loc 1 297 5
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  1164 006e FFF7FEFF 		bl	ParseResponse
  1165 0072 0346     		mov	r3, r0
  1166              		.loc 1 308 39
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 28
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 28
 
 
  1167 0074 6370     		strb	r3, [r4, #1]
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  1207 00b0 0023     		movs	r3, #0
  1208 00b2 FB72     		strb	r3, [r7, #11]
  323:Core/Src/uart_at.c ****                         pLoRaPayload->Buf[0] = '\0';
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 29
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 29
 
 
  1209              		.loc 1 323 46
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  325:Core/Src/uart_at.c ****                         {
  1256              		.loc 1 325 78 discriminator 3
  1257 00fa FB6A     		ldr	r3, [r7, #44]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 30
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 30
 
 
  1258 00fc 0233     		adds	r3, r3, #2
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  1304 0146 FB61     		str	r3, [r7, #28]
  337:Core/Src/uart_at.c ****                         pLoRaPayload->rcvSNR = atoi(pch);
  1305              		.loc 1 337 48
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 31
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 31
 
 
  1306 0148 F869     		ldr	r0, [r7, #28]
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  354:Core/Src/uart_at.c ****                 while(1);
  1344              		.loc 1 354 22 discriminator 1
  1345 0184 FEE7     		b	.L54
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 32
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 32
 
 
  1346              	.L60:
@@ -1894,47 +1894,47 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 1
  1374              		.file 6 "Core/Inc/uartRingBufDMA.h"
  1375              		.file 7 "Core/Inc/uart_at.h"
  1376              		.file 8 "<built-in>"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 33
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 uart_at.c
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:24     .bss.cmd_buffer:00000000 cmd_buffer
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:21     .bss.cmd_buffer:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:30     .bss.cmd_len:00000000 cmd_len
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:31     .bss.cmd_len:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:36     .bss.byte:00000000 byte
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:37     .bss.byte:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:43     .bss.mpid_ATCMD_MemPool:00000000 mpid_ATCMD_MemPool
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:40     .bss.mpid_ATCMD_MemPool:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:50     .bss.mpid_LoRaPayload_MemPool:00000000 mpid_LoRaPayload_MemPool
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:47     .bss.mpid_LoRaPayload_MemPool:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:57     .rodata.AT_COMMANDS:00000000 AT_COMMANDS
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:54     .rodata.AT_COMMANDS:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:147    .rodata.AT_RESPONSES:00000000 AT_RESPONSES
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:144    .rodata.AT_RESPONSES:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:184    .bss.gPendingResponse:00000000 gPendingResponse
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:185    .bss.gPendingResponse:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:191    .bss.gATPayload:00000000 gATPayload
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:188    .bss.gATPayload:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:194    .text.sendRAWAT:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:200    .text.sendRAWAT:00000000 sendRAWAT
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:486    .text.ParseAT:00000000 ParseAT
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:368    .text.sendRAWAT:000000e8 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:377    .text.ParseResponse:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:383    .text.ParseResponse:00000000 ParseResponse
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:475    .text.ParseResponse:00000068 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:480    .text.ParseAT:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:581    .text.ParseAT:00000070 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:586    .text.ATHandlingTaskCode:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:592    .text.ATHandlingTaskCode:00000000 ATHandlingTaskCode
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:987    .text.ATHandlingTaskCode:00000258 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:994    .text.ATHandlingTaskCode:0000026c $t
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:1068   .text.ATHandlingTaskCode:000002dc $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:1074   .rodata:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:1078   .text.ATParsingTaskCode:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:1084   .text.ATParsingTaskCode:00000000 ATParsingTaskCode
-C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s:1359   .text.ATParsingTaskCode:00000198 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:24     .bss.cmd_buffer:00000000 cmd_buffer
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:21     .bss.cmd_buffer:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:30     .bss.cmd_len:00000000 cmd_len
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:31     .bss.cmd_len:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:36     .bss.byte:00000000 byte
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:37     .bss.byte:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:43     .bss.mpid_ATCMD_MemPool:00000000 mpid_ATCMD_MemPool
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:40     .bss.mpid_ATCMD_MemPool:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:50     .bss.mpid_LoRaPayload_MemPool:00000000 mpid_LoRaPayload_MemPool
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:47     .bss.mpid_LoRaPayload_MemPool:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:57     .rodata.AT_COMMANDS:00000000 AT_COMMANDS
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:54     .rodata.AT_COMMANDS:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:147    .rodata.AT_RESPONSES:00000000 AT_RESPONSES
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:144    .rodata.AT_RESPONSES:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:184    .bss.gPendingResponse:00000000 gPendingResponse
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:185    .bss.gPendingResponse:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:191    .bss.gATPayload:00000000 gATPayload
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:188    .bss.gATPayload:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:194    .text.sendRAWAT:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:200    .text.sendRAWAT:00000000 sendRAWAT
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:486    .text.ParseAT:00000000 ParseAT
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:368    .text.sendRAWAT:000000e8 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:377    .text.ParseResponse:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:383    .text.ParseResponse:00000000 ParseResponse
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:475    .text.ParseResponse:00000068 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:480    .text.ParseAT:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:581    .text.ParseAT:00000070 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:586    .text.ATHandlingTaskCode:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:592    .text.ATHandlingTaskCode:00000000 ATHandlingTaskCode
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:987    .text.ATHandlingTaskCode:00000258 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:994    .text.ATHandlingTaskCode:0000026c $t
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:1068   .text.ATHandlingTaskCode:000002dc $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:1074   .rodata:00000000 $d
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:1078   .text.ATParsingTaskCode:00000000 $t
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:1084   .text.ATParsingTaskCode:00000000 ATParsingTaskCode
+C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s:1359   .text.ATParsingTaskCode:00000198 $d
 
 UNDEFINED SYMBOLS
 osSemaphoreAcquire
@@ -1954,7 +1954,7 @@ osMessageQueueGet
 osThreadFlagsSet
 LoRaWAN_RxEventCallback
 LoRaWAN_JoinCallback
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccp6IY1z.s 			page 34
+ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccaEGfTc.s 			page 34
 
 
 SendToUART
