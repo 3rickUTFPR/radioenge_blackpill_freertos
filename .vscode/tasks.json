@@ -57,6 +57,13 @@
             "command": "clean",
             "problemMatcher": [],
             "detail": "CMake template clean task"
+        },
+        {
+            "type": "cmake",
+            "label": "CMake: clean",
+            "command": "clean",
+            "problemMatcher": [],
+            "detail": "CMake template clean task"
         }
     ]
 }

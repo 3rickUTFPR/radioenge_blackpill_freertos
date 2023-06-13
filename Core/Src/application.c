@@ -43,13 +43,28 @@ void AppSendTaskCode(void *argument)
     uint32_t read;
     TEMPERATURE_OBJ_t temp;
     temp.seq_no = 0;
+
+    float R1 = 10000, logR2;
+    float tempThermistor;
+    const float c1 = 0.001129148;
+    const float c2 = 0.000234125;
+    const float c3 = 0.0000000876741;
+    uint16_t mV;               // read voltage
+    const uint16_t mV_KY_013 = 3300; // KY-013 power voltage
+
     while (1)
     {
         HAL_ADC_Start(&hadc1);
         HAL_ADC_PollForConversion(&hadc1, 100);
         read = HAL_ADC_GetValue(&hadc1);
         temp.seq_no++;
-        temp.temp_oCx100 = (int32_t)(330 * ((float)read / 4096));
+        //temp.temp_oCx100 = (int32_t)(330 * ((float)read / 4096));
+        mV = 3300 * read / 4095.0;
+        logR2 = log(R1 * mV / (mV_KY_013 - mV));  // calculate resistance on thermistor               
+        tempThermistor = (1.0 / (c1 + c2*logR2 + c3*logR2*logR2*logR2)); // temperature in Kelvin
+        tempThermistor = tempThermistor - 273.15; // convert Kelvin to Celsius
+        temp.temp_oCx100 = (int32_t)(tempThermistor*100);
+       // temp.compressor_power = gLastPWMStatus.compressor_power;
         LoRaSendB(2, (uint8_t *)&temp, sizeof(TEMPERATURE_OBJ_t));
     }
 }
@@ -60,6 +75,15 @@ void ReadFromADCTaskCode(void *argument)
     // int32_t temp_oCx100;
     TEMPERATURE_OBJ_t data;
     data.seq_no = 0;
+
+    float R1 = 10000, logR2;
+    float tempThermistor;
+    const float c1 = 0.001129148;
+    const float c2 = 0.000234125;
+    const float c3 = 0.0000000876741;
+    uint16_t mV;               // read voltage
+    const uint16_t mV_KY_013 = 3300; // KY-013 power voltage
+      
     while (1)
     {
         // read LM35 Temperature
@@ -67,9 +91,16 @@ void ReadFromADCTaskCode(void *argument)
         HAL_ADC_PollForConversion(&hadc1, 100);
         read = HAL_ADC_GetValue(&hadc1);
         data.seq_no = data.seq_no + 1;
-        data.temp_oCx100 = (int32_t)(33000 * ((float)read / 4096));
+        //data.temp_oCx100 = (int32_t)(3300 * ((float)read / 4096));
+        mV = 3300 * read / 4095.0;
+        logR2 = log(R1 * mV / (mV_KY_013 - mV));  // calculate resistance on thermistor               
+        tempThermistor = (1.0 / (c1 + c2*logR2 + c3*logR2*logR2*logR2)); // temperature in Kelvin
+        tempThermistor = tempThermistor - 273.15; // convert Kelvin to Celsius
+        data.temp_oCx100 = (int32_t)(tempThermistor*100);
+        //temp.compressor_power = gLastPWMStatus.compressor_power;
+   
         // Send Message
         osMessageQueuePut(TemperatureQueueHandle, &data, 0U, osWaitForever);
-        osDelay(200);
+        osDelay(30000);
     }
 }

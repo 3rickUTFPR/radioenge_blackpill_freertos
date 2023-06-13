@@ -1,30 +1,30 @@
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 1
 
 
    1              		.cpu cortex-m4
-   2              		.arch armv7e-m
-   3              		.fpu fpv4-sp-d16
-   4              		.eabi_attribute 27, 1
-   5              		.eabi_attribute 28, 1
-   6              		.eabi_attribute 20, 1
-   7              		.eabi_attribute 21, 1
-   8              		.eabi_attribute 23, 3
-   9              		.eabi_attribute 24, 1
-  10              		.eabi_attribute 25, 1
-  11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
-  13              		.eabi_attribute 34, 1
-  14              		.eabi_attribute 18, 4
-  15              		.file	"stm32f4xx_hal_pcd_ex.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.section	.text.HAL_PCDEx_SetTxFiFo,"ax",%progbits
-  20              		.align	1
-  21              		.global	HAL_PCDEx_SetTxFiFo
-  22              		.syntax unified
-  23              		.thumb
-  24              		.thumb_func
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f4xx_hal_pcd_ex.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HAL_PCDEx_SetTxFiFo,"ax",%progbits
+  18              		.align	1
+  19              		.global	HAL_PCDEx_SetTxFiFo
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
   26              	HAL_PCDEx_SetTxFiFo:
   27              	.LFB216:
   28              		.file 1 "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   */
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** 
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** /** @defgroup PCDEx PCDEx
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 2
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 2
 
 
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @brief PCD Extended HAL module driver
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
   42              	.LCFI2:
   43              		.cfi_def_cfa_register 7
   44 0006 7860     		str	r0, [r7, #4]
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 3
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 3
 
 
   45 0008 0B46     		mov	r3, r1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
   77 0032 9B6A     		ldr	r3, [r3, #40]
   78              		.loc 1 93 55
   79 0034 1B0C     		lsrs	r3, r3, #16
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 4
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 4
 
 
   80              		.loc 1 93 15
@@ -223,7 +223,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  113 0060 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
  114 0062 013B     		subs	r3, r3, #1
   94:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****     for (i = 0U; i < (fifo - 1U); i++)
- 115              		.loc 1 94 20 discriminator 1
+ 115              		.loc 1 94 5 discriminator 1
  116 0064 9A42     		cmp	r2, r3
  117 0066 ECD3     		bcc	.L5
   97:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****     }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  123 006c 7B68     		ldr	r3, [r7, #4]
  124 006e 1968     		ldr	r1, [r3]
  125              		.loc 1 100 34
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 5
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 5
 
 
  126 0070 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
@@ -280,8 +280,9 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  159              		.syntax unified
  160              		.thumb
  161              		.thumb_func
- 163              	HAL_PCDEx_SetRxFiFo:
- 164              	.LFB217:
+ 162              		.fpu fpv4-sp-d16
+ 164              	HAL_PCDEx_SetRxFiFo:
+ 165              	.LFB217:
  105:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** 
  106:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** /**
  107:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @brief  Set Rx FIFO
@@ -291,63 +292,64 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  111:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   */
  112:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** HAL_StatusTypeDef HAL_PCDEx_SetRxFiFo(PCD_HandleTypeDef *hpcd, uint16_t size)
  113:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** {
- 165              		.loc 1 113 1
- 166              		.cfi_startproc
- 167              		@ args = 0, pretend = 0, frame = 8
- 168              		@ frame_needed = 1, uses_anonymous_args = 0
- 169              		@ link register save eliminated.
- 170 0000 80B4     		push	{r7}
- 171              	.LCFI6:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 6
+ 166              		.loc 1 113 1
+ 167              		.cfi_startproc
+ 168              		@ args = 0, pretend = 0, frame = 8
+ 169              		@ frame_needed = 1, uses_anonymous_args = 0
+ 170              		@ link register save eliminated.
+ 171 0000 80B4     		push	{r7}
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 6
 
 
- 172              		.cfi_def_cfa_offset 4
- 173              		.cfi_offset 7, -4
- 174 0002 83B0     		sub	sp, sp, #12
- 175              	.LCFI7:
- 176              		.cfi_def_cfa_offset 16
- 177 0004 00AF     		add	r7, sp, #0
- 178              	.LCFI8:
- 179              		.cfi_def_cfa_register 7
- 180 0006 7860     		str	r0, [r7, #4]
- 181 0008 0B46     		mov	r3, r1
- 182 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 172              	.LCFI6:
+ 173              		.cfi_def_cfa_offset 4
+ 174              		.cfi_offset 7, -4
+ 175 0002 83B0     		sub	sp, sp, #12
+ 176              	.LCFI7:
+ 177              		.cfi_def_cfa_offset 16
+ 178 0004 00AF     		add	r7, sp, #0
+ 179              	.LCFI8:
+ 180              		.cfi_def_cfa_register 7
+ 181 0006 7860     		str	r0, [r7, #4]
+ 182 0008 0B46     		mov	r3, r1
+ 183 000a 7B80     		strh	r3, [r7, #2]	@ movhi
  114:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   hpcd->Instance->GRXFSIZ = size;
- 183              		.loc 1 114 7
- 184 000c 7B68     		ldr	r3, [r7, #4]
- 185 000e 1B68     		ldr	r3, [r3]
- 186              		.loc 1 114 27
- 187 0010 7A88     		ldrh	r2, [r7, #2]
- 188 0012 5A62     		str	r2, [r3, #36]
+ 184              		.loc 1 114 7
+ 185 000c 7B68     		ldr	r3, [r7, #4]
+ 186 000e 1B68     		ldr	r3, [r3]
+ 187              		.loc 1 114 27
+ 188 0010 7A88     		ldrh	r2, [r7, #2]
+ 189 0012 5A62     		str	r2, [r3, #36]
  115:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** 
  116:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   return HAL_OK;
- 189              		.loc 1 116 10
- 190 0014 0023     		movs	r3, #0
+ 190              		.loc 1 116 10
+ 191 0014 0023     		movs	r3, #0
  117:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** }
- 191              		.loc 1 117 1
- 192 0016 1846     		mov	r0, r3
- 193 0018 0C37     		adds	r7, r7, #12
- 194              	.LCFI9:
- 195              		.cfi_def_cfa_offset 4
- 196 001a BD46     		mov	sp, r7
- 197              	.LCFI10:
- 198              		.cfi_def_cfa_register 13
- 199              		@ sp needed
- 200 001c 5DF8047B 		ldr	r7, [sp], #4
- 201              	.LCFI11:
- 202              		.cfi_restore 7
- 203              		.cfi_def_cfa_offset 0
- 204 0020 7047     		bx	lr
- 205              		.cfi_endproc
- 206              	.LFE217:
- 208              		.section	.text.HAL_PCDEx_LPM_Callback,"ax",%progbits
- 209              		.align	1
- 210              		.weak	HAL_PCDEx_LPM_Callback
- 211              		.syntax unified
- 212              		.thumb
- 213              		.thumb_func
- 215              	HAL_PCDEx_LPM_Callback:
- 216              	.LFB218:
+ 192              		.loc 1 117 1
+ 193 0016 1846     		mov	r0, r3
+ 194 0018 0C37     		adds	r7, r7, #12
+ 195              	.LCFI9:
+ 196              		.cfi_def_cfa_offset 4
+ 197 001a BD46     		mov	sp, r7
+ 198              	.LCFI10:
+ 199              		.cfi_def_cfa_register 13
+ 200              		@ sp needed
+ 201 001c 5DF8047B 		ldr	r7, [sp], #4
+ 202              	.LCFI11:
+ 203              		.cfi_restore 7
+ 204              		.cfi_def_cfa_offset 0
+ 205 0020 7047     		bx	lr
+ 206              		.cfi_endproc
+ 207              	.LFE217:
+ 209              		.section	.text.HAL_PCDEx_LPM_Callback,"ax",%progbits
+ 210              		.align	1
+ 211              		.weak	HAL_PCDEx_LPM_Callback
+ 212              		.syntax unified
+ 213              		.thumb
+ 214              		.thumb_func
+ 215              		.fpu fpv4-sp-d16
+ 217              	HAL_PCDEx_LPM_Callback:
+ 218              	.LFB218:
  118:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** #if defined(STM32F446xx) || defined(STM32F469xx) || defined(STM32F479xx) || defined(STM32F412Zx) ||
  119:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** /**
  120:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @brief  Activate LPM feature.
@@ -356,11 +358,11 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  123:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   */
  124:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** HAL_StatusTypeDef HAL_PCDEx_ActivateLPM(PCD_HandleTypeDef *hpcd)
  125:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** {
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 7
+
+
  126:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   USB_OTG_GlobalTypeDef *USBx = hpcd->Instance;
  127:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** 
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 7
-
-
  128:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   hpcd->lpm_active = 1U;
  129:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   hpcd->LPM_State = LPM_L0;
  130:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   USBx->GINTMSK |= USB_OTG_GINTMSK_LPMINTM;
@@ -416,11 +418,11 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  180:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   (without charging capability) */
  181:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   USBx->GCCFG &= ~ USB_OTG_GCCFG_DCDEN;
  182:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   HAL_Delay(50U);
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 8
+
+
  183:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   USBx->GCCFG |=  USB_OTG_GCCFG_PDEN;
  184:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   HAL_Delay(50U);
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 8
-
-
  185:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** 
  186:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   if ((USBx->GCCFG & USB_OTG_GCCFG_PDET) == 0U)
  187:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   {
@@ -476,11 +478,11 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  237:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   {
  238:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** #if (USE_HAL_PCD_REGISTER_CALLBACKS == 1U)
  239:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****     hpcd->BCDCallback(hpcd, PCD_BCD_DISCOVERY_COMPLETED);
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 9
+
+
  240:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** #else
  241:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****     HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_DISCOVERY_COMPLETED);
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 9
-
-
  242:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** #endif /* USE_HAL_PCD_REGISTER_CALLBACKS */
  243:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   }
  244:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** }
@@ -536,29 +538,29 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  294:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @param  msg LPM message
  295:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @retval HAL status
  296:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   */
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 10
+
+
  297:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** __weak void HAL_PCDEx_LPM_Callback(PCD_HandleTypeDef *hpcd, PCD_LPM_MsgTypeDef msg)
  298:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** {
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 10
-
-
- 217              		.loc 1 298 1
- 218              		.cfi_startproc
- 219              		@ args = 0, pretend = 0, frame = 8
- 220              		@ frame_needed = 1, uses_anonymous_args = 0
- 221              		@ link register save eliminated.
- 222 0000 80B4     		push	{r7}
- 223              	.LCFI12:
- 224              		.cfi_def_cfa_offset 4
- 225              		.cfi_offset 7, -4
- 226 0002 83B0     		sub	sp, sp, #12
- 227              	.LCFI13:
- 228              		.cfi_def_cfa_offset 16
- 229 0004 00AF     		add	r7, sp, #0
- 230              	.LCFI14:
- 231              		.cfi_def_cfa_register 7
- 232 0006 7860     		str	r0, [r7, #4]
- 233 0008 0B46     		mov	r3, r1
- 234 000a FB70     		strb	r3, [r7, #3]
+ 219              		.loc 1 298 1
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 8
+ 222              		@ frame_needed = 1, uses_anonymous_args = 0
+ 223              		@ link register save eliminated.
+ 224 0000 80B4     		push	{r7}
+ 225              	.LCFI12:
+ 226              		.cfi_def_cfa_offset 4
+ 227              		.cfi_offset 7, -4
+ 228 0002 83B0     		sub	sp, sp, #12
+ 229              	.LCFI13:
+ 230              		.cfi_def_cfa_offset 16
+ 231 0004 00AF     		add	r7, sp, #0
+ 232              	.LCFI14:
+ 233              		.cfi_def_cfa_register 7
+ 234 0006 7860     		str	r0, [r7, #4]
+ 235 0008 0B46     		mov	r3, r1
+ 236 000a FB70     		strb	r3, [r7, #3]
  299:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   /* Prevent unused argument(s) compilation warning */
  300:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   UNUSED(hpcd);
  301:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   UNUSED(msg);
@@ -567,60 +569,61 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  304:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****             the HAL_PCDEx_LPM_Callback could be implemented in the user file
  305:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****    */
  306:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** }
- 235              		.loc 1 306 1
- 236 000c 00BF     		nop
- 237 000e 0C37     		adds	r7, r7, #12
- 238              	.LCFI15:
- 239              		.cfi_def_cfa_offset 4
- 240 0010 BD46     		mov	sp, r7
- 241              	.LCFI16:
- 242              		.cfi_def_cfa_register 13
- 243              		@ sp needed
- 244 0012 5DF8047B 		ldr	r7, [sp], #4
- 245              	.LCFI17:
- 246              		.cfi_restore 7
- 247              		.cfi_def_cfa_offset 0
- 248 0016 7047     		bx	lr
- 249              		.cfi_endproc
- 250              	.LFE218:
- 252              		.section	.text.HAL_PCDEx_BCD_Callback,"ax",%progbits
- 253              		.align	1
- 254              		.weak	HAL_PCDEx_BCD_Callback
- 255              		.syntax unified
- 256              		.thumb
- 257              		.thumb_func
- 259              	HAL_PCDEx_BCD_Callback:
- 260              	.LFB219:
+ 237              		.loc 1 306 1
+ 238 000c 00BF     		nop
+ 239 000e 0C37     		adds	r7, r7, #12
+ 240              	.LCFI15:
+ 241              		.cfi_def_cfa_offset 4
+ 242 0010 BD46     		mov	sp, r7
+ 243              	.LCFI16:
+ 244              		.cfi_def_cfa_register 13
+ 245              		@ sp needed
+ 246 0012 5DF8047B 		ldr	r7, [sp], #4
+ 247              	.LCFI17:
+ 248              		.cfi_restore 7
+ 249              		.cfi_def_cfa_offset 0
+ 250 0016 7047     		bx	lr
+ 251              		.cfi_endproc
+ 252              	.LFE218:
+ 254              		.section	.text.HAL_PCDEx_BCD_Callback,"ax",%progbits
+ 255              		.align	1
+ 256              		.weak	HAL_PCDEx_BCD_Callback
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu fpv4-sp-d16
+ 262              	HAL_PCDEx_BCD_Callback:
+ 263              	.LFB219:
  307:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** 
  308:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** /**
  309:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @brief  Send BatteryCharging message to user layer callback.
  310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @param  hpcd PCD handle
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 11
+
+
  311:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @param  msg LPM message
  312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   * @retval HAL status
  313:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 11
-
-
  314:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** __weak void HAL_PCDEx_BCD_Callback(PCD_HandleTypeDef *hpcd, PCD_BCD_MsgTypeDef msg)
  315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** {
- 261              		.loc 1 315 1
- 262              		.cfi_startproc
- 263              		@ args = 0, pretend = 0, frame = 8
- 264              		@ frame_needed = 1, uses_anonymous_args = 0
- 265              		@ link register save eliminated.
- 266 0000 80B4     		push	{r7}
- 267              	.LCFI18:
- 268              		.cfi_def_cfa_offset 4
- 269              		.cfi_offset 7, -4
- 270 0002 83B0     		sub	sp, sp, #12
- 271              	.LCFI19:
- 272              		.cfi_def_cfa_offset 16
- 273 0004 00AF     		add	r7, sp, #0
- 274              	.LCFI20:
- 275              		.cfi_def_cfa_register 7
- 276 0006 7860     		str	r0, [r7, #4]
- 277 0008 0B46     		mov	r3, r1
- 278 000a FB70     		strb	r3, [r7, #3]
+ 264              		.loc 1 315 1
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 8
+ 267              		@ frame_needed = 1, uses_anonymous_args = 0
+ 268              		@ link register save eliminated.
+ 269 0000 80B4     		push	{r7}
+ 270              	.LCFI18:
+ 271              		.cfi_def_cfa_offset 4
+ 272              		.cfi_offset 7, -4
+ 273 0002 83B0     		sub	sp, sp, #12
+ 274              	.LCFI19:
+ 275              		.cfi_def_cfa_offset 16
+ 276 0004 00AF     		add	r7, sp, #0
+ 277              	.LCFI20:
+ 278              		.cfi_def_cfa_register 7
+ 279 0006 7860     		str	r0, [r7, #4]
+ 280 0008 0B46     		mov	r3, r1
+ 281 000a FB70     		strb	r3, [r7, #3]
  316:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   /* Prevent unused argument(s) compilation warning */
  317:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   UNUSED(hpcd);
  318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****   UNUSED(msg);
@@ -629,42 +632,42 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 1
  321:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****             the HAL_PCDEx_BCD_Callback could be implemented in the user file
  322:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c ****    */
  323:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c **** }
- 279              		.loc 1 323 1
- 280 000c 00BF     		nop
- 281 000e 0C37     		adds	r7, r7, #12
- 282              	.LCFI21:
- 283              		.cfi_def_cfa_offset 4
- 284 0010 BD46     		mov	sp, r7
- 285              	.LCFI22:
- 286              		.cfi_def_cfa_register 13
- 287              		@ sp needed
- 288 0012 5DF8047B 		ldr	r7, [sp], #4
- 289              	.LCFI23:
- 290              		.cfi_restore 7
- 291              		.cfi_def_cfa_offset 0
- 292 0016 7047     		bx	lr
- 293              		.cfi_endproc
- 294              	.LFE219:
- 296              		.text
- 297              	.Letext0:
- 298              		.file 2 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
- 299              		.file 3 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
- 300              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
- 301              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 302              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h"
- 303              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s 			page 12
+ 282              		.loc 1 323 1
+ 283 000c 00BF     		nop
+ 284 000e 0C37     		adds	r7, r7, #12
+ 285              	.LCFI21:
+ 286              		.cfi_def_cfa_offset 4
+ 287 0010 BD46     		mov	sp, r7
+ 288              	.LCFI22:
+ 289              		.cfi_def_cfa_register 13
+ 290              		@ sp needed
+ 291 0012 5DF8047B 		ldr	r7, [sp], #4
+ 292              	.LCFI23:
+ 293              		.cfi_restore 7
+ 294              		.cfi_def_cfa_offset 0
+ 295 0016 7047     		bx	lr
+ 296              		.cfi_endproc
+ 297              	.LFE219:
+ 299              		.text
+ 300              	.Letext0:
+ 301              		.file 2 "c:\\arm-gcc\\tools\\gcc-arm-none-eabi-10-2020-q4-major\\arm-none-eabi\\include\\machine\\
+ 302              		.file 3 "c:\\arm-gcc\\tools\\gcc-arm-none-eabi-10-2020-q4-major\\arm-none-eabi\\include\\sys\\_std
+ 303              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ 304              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 305              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h"
+ 306              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h"
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_pcd_ex.c
-C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s:20     .text.HAL_PCDEx_SetTxFiFo:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s:26     .text.HAL_PCDEx_SetTxFiFo:00000000 HAL_PCDEx_SetTxFiFo
-C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s:157    .text.HAL_PCDEx_SetRxFiFo:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s:163    .text.HAL_PCDEx_SetRxFiFo:00000000 HAL_PCDEx_SetRxFiFo
-C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s:209    .text.HAL_PCDEx_LPM_Callback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s:215    .text.HAL_PCDEx_LPM_Callback:00000000 HAL_PCDEx_LPM_Callback
-C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s:253    .text.HAL_PCDEx_BCD_Callback:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccWBVcM4.s:259    .text.HAL_PCDEx_BCD_Callback:00000000 HAL_PCDEx_BCD_Callback
+C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s:18     .text.HAL_PCDEx_SetTxFiFo:00000000 $t
+C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s:26     .text.HAL_PCDEx_SetTxFiFo:00000000 HAL_PCDEx_SetTxFiFo
+C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s:157    .text.HAL_PCDEx_SetRxFiFo:00000000 $t
+C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s:164    .text.HAL_PCDEx_SetRxFiFo:00000000 HAL_PCDEx_SetRxFiFo
+C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s:210    .text.HAL_PCDEx_LPM_Callback:00000000 $t
+C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s:217    .text.HAL_PCDEx_LPM_Callback:00000000 HAL_PCDEx_LPM_Callback
+C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s:255    .text.HAL_PCDEx_BCD_Callback:00000000 $t
+C:\Users\EI\AppData\Local\Temp\ccwoSUXJ.s:262    .text.HAL_PCDEx_BCD_Callback:00000000 HAL_PCDEx_BCD_Callback
 
 NO UNDEFINED SYMBOLS

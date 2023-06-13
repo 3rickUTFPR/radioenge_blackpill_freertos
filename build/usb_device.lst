@@ -1,39 +1,39 @@
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 1
+ARM GAS  C:\Users\EI\AppData\Local\Temp\cczcPbBb.s 			page 1
 
 
    1              		.cpu cortex-m4
-   2              		.arch armv7e-m
-   3              		.fpu fpv4-sp-d16
-   4              		.eabi_attribute 27, 1
-   5              		.eabi_attribute 28, 1
-   6              		.eabi_attribute 20, 1
-   7              		.eabi_attribute 21, 1
-   8              		.eabi_attribute 23, 3
-   9              		.eabi_attribute 24, 1
-  10              		.eabi_attribute 25, 1
-  11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
-  13              		.eabi_attribute 34, 1
-  14              		.eabi_attribute 18, 4
-  15              		.file	"usb_device.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.global	hUsbDeviceFS
-  20              		.section	.bss.hUsbDeviceFS,"aw",%nobits
-  21              		.align	2
-  24              	hUsbDeviceFS:
-  25 0000 00000000 		.space	732
-  25      00000000 
-  25      00000000 
-  25      00000000 
-  25      00000000 
-  26              		.section	.text.MX_USB_DEVICE_Init,"ax",%progbits
-  27              		.align	1
-  28              		.global	MX_USB_DEVICE_Init
-  29              		.syntax unified
-  30              		.thumb
-  31              		.thumb_func
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"usb_device.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	hUsbDeviceFS
+  18              		.section	.bss.hUsbDeviceFS,"aw",%nobits
+  19              		.align	2
+  22              	hUsbDeviceFS:
+  23 0000 00000000 		.space	732
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  24              		.section	.text.MX_USB_DEVICE_Init,"ax",%progbits
+  25              		.align	1
+  26              		.global	MX_USB_DEVICE_Init
+  27              		.arch armv7e-m
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu fpv4-sp-d16
   33              	MX_USB_DEVICE_Init:
   34              	.LFB220:
   35              		.file 1 "USB_DEVICE/App/usb_device.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 1
   19:USB_DEVICE/App/usb_device.c **** /* USER CODE END Header */
   20:USB_DEVICE/App/usb_device.c **** 
   21:USB_DEVICE/App/usb_device.c **** /* Includes ------------------------------------------------------------------*/
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 2
+ARM GAS  C:\Users\EI\AppData\Local\Temp\cczcPbBb.s 			page 2
 
 
   22:USB_DEVICE/App/usb_device.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 1
   46              	.LCFI1:
   47              		.cfi_def_cfa_register 7
   66:USB_DEVICE/App/usb_device.c ****   /* USER CODE BEGIN USB_DEVICE_Init_PreTreatment */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 3
+ARM GAS  C:\Users\EI\AppData\Local\Temp\cczcPbBb.s 			page 3
 
 
   67:USB_DEVICE/App/usb_device.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 1
   85 0042 0346     		mov	r3, r0
   86              		.loc 1 83 6
   87 0044 002B     		cmp	r3, #0
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 4
+ARM GAS  C:\Users\EI\AppData\Local\Temp\cczcPbBb.s 			page 4
 
 
   88 0046 01D0     		beq	.L6
@@ -207,24 +207,22 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 1
  103              	.LFE220:
  105              		.text
  106              	.Letext0:
- 107              		.file 2 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
- 108              		.file 3 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
+ 107              		.file 2 "c:\\arm-gcc\\tools\\gcc-arm-none-eabi-10-2020-q4-major\\arm-none-eabi\\include\\machine\\
+ 108              		.file 3 "c:\\arm-gcc\\tools\\gcc-arm-none-eabi-10-2020-q4-major\\arm-none-eabi\\include\\sys\\_std
  109              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
  110              		.file 5 "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h"
  111              		.file 6 "USB_DEVICE/App/usbd_desc.h"
  112              		.file 7 "USB_DEVICE/App/usbd_cdc_if.h"
- 113              		.file 8 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h"
- 114              		.file 9 "Core/Inc/main.h"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s 			page 5
+ARM GAS  C:\Users\EI\AppData\Local\Temp\cczcPbBb.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usb_device.c
-C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s:24     .bss.hUsbDeviceFS:00000000 hUsbDeviceFS
-C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s:21     .bss.hUsbDeviceFS:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s:27     .text.MX_USB_DEVICE_Init:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s:33     .text.MX_USB_DEVICE_Init:00000000 MX_USB_DEVICE_Init
-C:\Users\DAELT\AppData\Local\Temp\ccK1rXYF.s:98     .text.MX_USB_DEVICE_Init:00000050 $d
+C:\Users\EI\AppData\Local\Temp\cczcPbBb.s:22     .bss.hUsbDeviceFS:00000000 hUsbDeviceFS
+C:\Users\EI\AppData\Local\Temp\cczcPbBb.s:19     .bss.hUsbDeviceFS:00000000 $d
+C:\Users\EI\AppData\Local\Temp\cczcPbBb.s:25     .text.MX_USB_DEVICE_Init:00000000 $t
+C:\Users\EI\AppData\Local\Temp\cczcPbBb.s:33     .text.MX_USB_DEVICE_Init:00000000 MX_USB_DEVICE_Init
+C:\Users\EI\AppData\Local\Temp\cczcPbBb.s:98     .text.MX_USB_DEVICE_Init:00000050 $d
 
 UNDEFINED SYMBOLS
 USBD_Init

@@ -1,39 +1,39 @@
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 1
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 1
 
 
    1              		.cpu cortex-m4
-   2              		.arch armv7e-m
-   3              		.fpu fpv4-sp-d16
-   4              		.eabi_attribute 27, 1
-   5              		.eabi_attribute 28, 1
-   6              		.eabi_attribute 20, 1
-   7              		.eabi_attribute 21, 1
-   8              		.eabi_attribute 23, 3
-   9              		.eabi_attribute 24, 1
-  10              		.eabi_attribute 25, 1
-  11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
-  13              		.eabi_attribute 34, 1
-  14              		.eabi_attribute 18, 4
-  15              		.file	"stm32f4xx_hal_timebase_tim.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.global	htim11
-  20              		.section	.bss.htim11,"aw",%nobits
-  21              		.align	2
-  24              	htim11:
-  25 0000 00000000 		.space	72
-  25      00000000 
-  25      00000000 
-  25      00000000 
-  25      00000000 
-  26              		.section	.text.HAL_InitTick,"ax",%progbits
-  27              		.align	1
-  28              		.global	HAL_InitTick
-  29              		.syntax unified
-  30              		.thumb
-  31              		.thumb_func
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f4xx_hal_timebase_tim.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	htim11
+  18              		.section	.bss.htim11,"aw",%nobits
+  19              		.align	2
+  22              	htim11:
+  23 0000 00000000 		.space	72
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  24              		.section	.text.HAL_InitTick,"ax",%progbits
+  25              		.align	1
+  26              		.global	HAL_InitTick
+  27              		.arch armv7e-m
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu fpv4-sp-d16
   33              	HAL_InitTick:
   34              	.LFB216:
   35              		.file 1 "Core/Src/stm32f4xx_hal_timebase_tim.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 1
   19:Core/Src/stm32f4xx_hal_timebase_tim.c **** 
   20:Core/Src/stm32f4xx_hal_timebase_tim.c **** /* Includes ------------------------------------------------------------------*/
   21:Core/Src/stm32f4xx_hal_timebase_tim.c **** #include "stm32f4xx_hal.h"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 2
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 2
 
 
   22:Core/Src/stm32f4xx_hal_timebase_tim.c **** #include "stm32f4xx_hal_tim.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 1
   60 0010 0023     		movs	r3, #0
   61 0012 BB60     		str	r3, [r7, #8]
   62 0014 2E4B     		ldr	r3, .L5
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 3
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 3
 
 
   63 0016 5B6C     		ldr	r3, [r3, #68]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 1
   97 005c DA60     		str	r2, [r3, #12]
   72:Core/Src/stm32f4xx_hal_timebase_tim.c ****   htim11.Init.Prescaler = uwPrescalerValue;
   98              		.loc 1 72 25
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 4
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 4
 
 
   99 005e 1E4A     		ldr	r2, .L5+8
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 1
  138 00a8 08D8     		bhi	.L3
   88:Core/Src/stm32f4xx_hal_timebase_tim.c ****       {
   89:Core/Src/stm32f4xx_hal_timebase_tim.c ****         /* Configure the TIM IRQ priority */
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 5
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 5
 
 
   90:Core/Src/stm32f4xx_hal_timebase_tim.c ****         HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM11_IRQn, TickPriority, 0U);
@@ -297,11 +297,12 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 1
  180              		.syntax unified
  181              		.thumb
  182              		.thumb_func
- 184              	HAL_SuspendTick:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 6
+ 183              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 6
 
 
- 185              	.LFB217:
+ 185              	HAL_SuspendTick:
+ 186              	.LFB217:
  103:Core/Src/stm32f4xx_hal_timebase_tim.c **** 
  104:Core/Src/stm32f4xx_hal_timebase_tim.c **** /**
  105:Core/Src/stm32f4xx_hal_timebase_tim.c ****   * @brief  Suspend Tick increment.
@@ -311,57 +312,58 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 1
  109:Core/Src/stm32f4xx_hal_timebase_tim.c ****   */
  110:Core/Src/stm32f4xx_hal_timebase_tim.c **** void HAL_SuspendTick(void)
  111:Core/Src/stm32f4xx_hal_timebase_tim.c **** {
- 186              		.loc 1 111 1
- 187              		.cfi_startproc
- 188              		@ args = 0, pretend = 0, frame = 0
- 189              		@ frame_needed = 1, uses_anonymous_args = 0
- 190              		@ link register save eliminated.
- 191 0000 80B4     		push	{r7}
- 192              	.LCFI5:
- 193              		.cfi_def_cfa_offset 4
- 194              		.cfi_offset 7, -4
- 195 0002 00AF     		add	r7, sp, #0
- 196              	.LCFI6:
- 197              		.cfi_def_cfa_register 7
+ 187              		.loc 1 111 1
+ 188              		.cfi_startproc
+ 189              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ frame_needed = 1, uses_anonymous_args = 0
+ 191              		@ link register save eliminated.
+ 192 0000 80B4     		push	{r7}
+ 193              	.LCFI5:
+ 194              		.cfi_def_cfa_offset 4
+ 195              		.cfi_offset 7, -4
+ 196 0002 00AF     		add	r7, sp, #0
+ 197              	.LCFI6:
+ 198              		.cfi_def_cfa_register 7
  112:Core/Src/stm32f4xx_hal_timebase_tim.c ****   /* Disable TIM11 update Interrupt */
  113:Core/Src/stm32f4xx_hal_timebase_tim.c ****   __HAL_TIM_DISABLE_IT(&htim11, TIM_IT_UPDATE);
- 198              		.loc 1 113 3
- 199 0004 064B     		ldr	r3, .L8
- 200 0006 1B68     		ldr	r3, [r3]
- 201 0008 DA68     		ldr	r2, [r3, #12]
- 202 000a 054B     		ldr	r3, .L8
- 203 000c 1B68     		ldr	r3, [r3]
- 204 000e 22F00102 		bic	r2, r2, #1
- 205 0012 DA60     		str	r2, [r3, #12]
+ 199              		.loc 1 113 3
+ 200 0004 064B     		ldr	r3, .L8
+ 201 0006 1B68     		ldr	r3, [r3]
+ 202 0008 DA68     		ldr	r2, [r3, #12]
+ 203 000a 054B     		ldr	r3, .L8
+ 204 000c 1B68     		ldr	r3, [r3]
+ 205 000e 22F00102 		bic	r2, r2, #1
+ 206 0012 DA60     		str	r2, [r3, #12]
  114:Core/Src/stm32f4xx_hal_timebase_tim.c **** }
- 206              		.loc 1 114 1
- 207 0014 00BF     		nop
- 208 0016 BD46     		mov	sp, r7
- 209              	.LCFI7:
- 210              		.cfi_def_cfa_register 13
- 211              		@ sp needed
- 212 0018 5DF8047B 		ldr	r7, [sp], #4
- 213              	.LCFI8:
- 214              		.cfi_restore 7
- 215              		.cfi_def_cfa_offset 0
- 216 001c 7047     		bx	lr
- 217              	.L9:
- 218 001e 00BF     		.align	2
- 219              	.L8:
- 220 0020 00000000 		.word	htim11
- 221              		.cfi_endproc
- 222              	.LFE217:
- 224              		.section	.text.HAL_ResumeTick,"ax",%progbits
- 225              		.align	1
- 226              		.global	HAL_ResumeTick
- 227              		.syntax unified
- 228              		.thumb
- 229              		.thumb_func
- 231              	HAL_ResumeTick:
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 7
+ 207              		.loc 1 114 1
+ 208 0014 00BF     		nop
+ 209 0016 BD46     		mov	sp, r7
+ 210              	.LCFI7:
+ 211              		.cfi_def_cfa_register 13
+ 212              		@ sp needed
+ 213 0018 5DF8047B 		ldr	r7, [sp], #4
+ 214              	.LCFI8:
+ 215              		.cfi_restore 7
+ 216              		.cfi_def_cfa_offset 0
+ 217 001c 7047     		bx	lr
+ 218              	.L9:
+ 219 001e 00BF     		.align	2
+ 220              	.L8:
+ 221 0020 00000000 		.word	htim11
+ 222              		.cfi_endproc
+ 223              	.LFE217:
+ 225              		.section	.text.HAL_ResumeTick,"ax",%progbits
+ 226              		.align	1
+ 227              		.global	HAL_ResumeTick
+ 228              		.syntax unified
+ 229              		.thumb
+ 230              		.thumb_func
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 7
 
 
- 232              	.LFB218:
+ 231              		.fpu fpv4-sp-d16
+ 233              	HAL_ResumeTick:
+ 234              	.LFB218:
  115:Core/Src/stm32f4xx_hal_timebase_tim.c **** 
  116:Core/Src/stm32f4xx_hal_timebase_tim.c **** /**
  117:Core/Src/stm32f4xx_hal_timebase_tim.c ****   * @brief  Resume Tick increment.
@@ -371,76 +373,75 @@ ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 1
  121:Core/Src/stm32f4xx_hal_timebase_tim.c ****   */
  122:Core/Src/stm32f4xx_hal_timebase_tim.c **** void HAL_ResumeTick(void)
  123:Core/Src/stm32f4xx_hal_timebase_tim.c **** {
- 233              		.loc 1 123 1
- 234              		.cfi_startproc
- 235              		@ args = 0, pretend = 0, frame = 0
- 236              		@ frame_needed = 1, uses_anonymous_args = 0
- 237              		@ link register save eliminated.
- 238 0000 80B4     		push	{r7}
- 239              	.LCFI9:
- 240              		.cfi_def_cfa_offset 4
- 241              		.cfi_offset 7, -4
- 242 0002 00AF     		add	r7, sp, #0
- 243              	.LCFI10:
- 244              		.cfi_def_cfa_register 7
+ 235              		.loc 1 123 1
+ 236              		.cfi_startproc
+ 237              		@ args = 0, pretend = 0, frame = 0
+ 238              		@ frame_needed = 1, uses_anonymous_args = 0
+ 239              		@ link register save eliminated.
+ 240 0000 80B4     		push	{r7}
+ 241              	.LCFI9:
+ 242              		.cfi_def_cfa_offset 4
+ 243              		.cfi_offset 7, -4
+ 244 0002 00AF     		add	r7, sp, #0
+ 245              	.LCFI10:
+ 246              		.cfi_def_cfa_register 7
  124:Core/Src/stm32f4xx_hal_timebase_tim.c ****   /* Enable TIM11 Update interrupt */
  125:Core/Src/stm32f4xx_hal_timebase_tim.c ****   __HAL_TIM_ENABLE_IT(&htim11, TIM_IT_UPDATE);
- 245              		.loc 1 125 3
- 246 0004 064B     		ldr	r3, .L11
- 247 0006 1B68     		ldr	r3, [r3]
- 248 0008 DA68     		ldr	r2, [r3, #12]
- 249 000a 054B     		ldr	r3, .L11
- 250 000c 1B68     		ldr	r3, [r3]
- 251 000e 42F00102 		orr	r2, r2, #1
- 252 0012 DA60     		str	r2, [r3, #12]
+ 247              		.loc 1 125 3
+ 248 0004 064B     		ldr	r3, .L11
+ 249 0006 1B68     		ldr	r3, [r3]
+ 250 0008 DA68     		ldr	r2, [r3, #12]
+ 251 000a 054B     		ldr	r3, .L11
+ 252 000c 1B68     		ldr	r3, [r3]
+ 253 000e 42F00102 		orr	r2, r2, #1
+ 254 0012 DA60     		str	r2, [r3, #12]
  126:Core/Src/stm32f4xx_hal_timebase_tim.c **** }
- 253              		.loc 1 126 1
- 254 0014 00BF     		nop
- 255 0016 BD46     		mov	sp, r7
- 256              	.LCFI11:
- 257              		.cfi_def_cfa_register 13
- 258              		@ sp needed
- 259 0018 5DF8047B 		ldr	r7, [sp], #4
- 260              	.LCFI12:
- 261              		.cfi_restore 7
- 262              		.cfi_def_cfa_offset 0
- 263 001c 7047     		bx	lr
- 264              	.L12:
- 265 001e 00BF     		.align	2
- 266              	.L11:
- 267 0020 00000000 		.word	htim11
- 268              		.cfi_endproc
- 269              	.LFE218:
- 271              		.text
- 272              	.Letext0:
- 273              		.file 2 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
- 274              		.file 3 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
- 275              		.file 4 "c:\\arm-gcc\\arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\inc
- 276              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 277              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 8
+ 255              		.loc 1 126 1
+ 256 0014 00BF     		nop
+ 257 0016 BD46     		mov	sp, r7
+ 258              	.LCFI11:
+ 259              		.cfi_def_cfa_register 13
+ 260              		@ sp needed
+ 261 0018 5DF8047B 		ldr	r7, [sp], #4
+ 262              	.LCFI12:
+ 263              		.cfi_restore 7
+ 264              		.cfi_def_cfa_offset 0
+ 265 001c 7047     		bx	lr
+ 266              	.L12:
+ 267 001e 00BF     		.align	2
+ 268              	.L11:
+ 269 0020 00000000 		.word	htim11
+ 270              		.cfi_endproc
+ 271              	.LFE218:
+ 273              		.text
+ 274              	.Letext0:
+ 275              		.file 2 "c:\\arm-gcc\\tools\\gcc-arm-none-eabi-10-2020-q4-major\\arm-none-eabi\\include\\machine\\
+ 276              		.file 3 "c:\\arm-gcc\\tools\\gcc-arm-none-eabi-10-2020-q4-major\\arm-none-eabi\\include\\sys\\_std
+ 277              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 8
 
 
- 278              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 279              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 280              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 281              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s 			page 9
+ 278              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 279              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 280              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 281              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 282              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\EI\AppData\Local\Temp\ccq8duTG.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_timebase_tim.c
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:24     .bss.htim11:00000000 htim11
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:21     .bss.htim11:00000000 $d
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:27     .text.HAL_InitTick:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:33     .text.HAL_InitTick:00000000 HAL_InitTick
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:169    .text.HAL_InitTick:000000d0 $d
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:178    .text.HAL_SuspendTick:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:184    .text.HAL_SuspendTick:00000000 HAL_SuspendTick
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:220    .text.HAL_SuspendTick:00000020 $d
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:225    .text.HAL_ResumeTick:00000000 $t
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:231    .text.HAL_ResumeTick:00000000 HAL_ResumeTick
-C:\Users\DAELT\AppData\Local\Temp\ccTQMMpJ.s:267    .text.HAL_ResumeTick:00000020 $d
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:22     .bss.htim11:00000000 htim11
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:19     .bss.htim11:00000000 $d
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:25     .text.HAL_InitTick:00000000 $t
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:33     .text.HAL_InitTick:00000000 HAL_InitTick
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:169    .text.HAL_InitTick:000000d0 $d
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:178    .text.HAL_SuspendTick:00000000 $t
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:185    .text.HAL_SuspendTick:00000000 HAL_SuspendTick
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:221    .text.HAL_SuspendTick:00000020 $d
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:226    .text.HAL_ResumeTick:00000000 $t
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:233    .text.HAL_ResumeTick:00000000 HAL_ResumeTick
+C:\Users\EI\AppData\Local\Temp\ccq8duTG.s:269    .text.HAL_ResumeTick:00000020 $d
 
 UNDEFINED SYMBOLS
 HAL_RCC_GetClockConfig
